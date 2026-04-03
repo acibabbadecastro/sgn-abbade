@@ -1,0 +1,7 @@
+=== BACKUP SESSIONS LOG ===
+Data: Fri Apr  3 08:23:36 UTC 2026
+Status: PARTIAL (DATASVR unreachable)
+Sessions copiadas para: /root/.openclaw/backups/sessions
+Erro DATASVR: SSH timeout (192.168.0.72:22)
+---
+[Fri Apr  3 08:30:56 UTC 2026] Backup de sessões concluído - SINCRONIZADO COM DATASVR
