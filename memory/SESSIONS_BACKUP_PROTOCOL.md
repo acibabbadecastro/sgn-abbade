@@ -69,12 +69,27 @@ Bot falha → Supervisor detecta → Log em /mnt/data/logs/
 - **Acesso:** `ssh root@192.168.0.192`
 - **Container:** `pct enter <CT_ID>`
 
-### DATASVR (CT 102)
+### DATASVR (CT 102) - Servidor de Dados
 - **IP:** 192.168.0.72
 - **SSH:** `ssh root@192.168.0.72`
 - **Senha Root:** Rcmp@814k$1982
-- **Samba (Windows):** starkdata / Stark@2026
-- **Acesso Windows:** `\\192.168.0.72\data`
+- **Acesso Windows (LAN):** `\\192.168.0.72\LAN`
+- **Usuário:** master / **Senha:** Rcmp2026
+- **HD:** 500GB em /mnt/data
+
+### Estrutura de Pastas LAN/pve1
+```
+LAN/pve1/
+├── 01-projeto/         → Documentação do projeto
+├── 02-financas/        → Dados financeiros
+├── 03-emails/          → Emails
+├── 04-backups/         → Backups
+├── 05-agenda/          → Lembretes
+├── 06-relatorios/      → Relatórios e conversas
+├── 07-contratos/       → Documentos legais
+├── 08-downloads/        → Arquivos baixados
+└── 09-temp/           → Temporários
+```
 
 ### Supervisor (CT 103)
 - **IP:** 192.168.0.42
