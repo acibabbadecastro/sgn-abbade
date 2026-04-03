@@ -166,3 +166,7 @@ Estrutura de pastas:
 - **IP:** 192.168.0.72
 - **Senha Root:** Rcmp@814k$1982
 - **HD:** /mnt/sdb (500GB) montado em /mnt/data dentro do CT
+
+## Credenciais - Supervisor (CT 103)
+- **IP:** 192.168.0.42
+- **Senha Root:** Rcmp814k@#

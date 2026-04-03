@@ -32,6 +32,8 @@ TASK OK
 | Dado | Valor |
 |------|-------|
 | **Container ID** | 103 |
+| **IP** | 192.168.0.42 |
+| **Senha Root** | Rcmp814k@# |
 | **OS** | Ubuntu 25.04 |
 | **Template** | ubuntu-25.04-standard |
 | **Filesystem** | ext4 |
