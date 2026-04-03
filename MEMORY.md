@@ -116,7 +116,7 @@ CT 5 terá estrutura de pastas:
 - /mnt/data/backups/
 - /mnt/data/agenda/
 
-MonitorBot (CT 4) é o agente de monitoramento CONSTANTE.
+MonitorBot/Supervisor (CT 103) é o agente de monitoramento CONSTANTE.
 
 ## Sistema Financeiro - Especificações (2026-04-02)
 
@@ -159,7 +159,7 @@ Estrutura de pastas:
 ## Projeto: Sistema Multi-Agente (PRECIOSO)
 - **Documento principal:** `memory/PROJETO.md`
 - **Fase 1:** Arquitetura base + Stark como orquestrador
-- **Fase 2:** Configurar demais bots (EmailBot, FinanceiroBot, MonitorBot, DataBot)
+- **Fase 2:** Configurar demais bots (EmailBot, FinanceiroBot, Supervisor, DataBot)
 - **Status:** Em andamento
 
 ## Credenciais - CT 102 DATASVR (DataBot)

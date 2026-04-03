@@ -15,7 +15,32 @@ Sistema multi-agent onde cada container tem especialidade própria, coordenados 
 | EmailBot (CT 101) | Emails | 🔜 Fase 2 |
 | FinanceiroBot (CT 3) | Finanças | 🔜 Fase 2 |
 | DataBot (CT 5) | Backups/Arquivos/Dados | 🔜 Fase 2 |
-| MonitorBot/Supervisor (CT 4) | Monitoramento 24/7 + Auxílio ao Stark | 🔜 Fase 2 |
+| Supervisor (CT 103) | Monitoramento 24/7 + Auxílio ao Stark | 🔜 Configurando |
+
+## Especificações do Supervisor (CT 103)
+
+```
+Logical volume "vm-103-disk-0" created
+Creating filesystem with 15728640 4k blocks and 3932160 inodes
+Filesystem UUID: 70f368b4-dea5-4f23-81f8-ea512ca2b77c
+extracting archive: ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst
+Total bytes: 590848000 (564MiB)
+SSH keys: ECDSA, ED25519, RSA created
+TASK OK
+```
+
+| Dado | Valor |
+|------|-------|
+| **Container ID** | 103 |
+| **OS** | Ubuntu 25.04 |
+| **Template** | ubuntu-25.04-standard |
+| **Filesystem** | ext4 |
+| **Block Size** | 4k |
+| **Total Blocks** | 15728640 |
+| **SSH** | ECDSA, ED25519, RSA |
+| **Status** | Recém-criado |
+
+**⚠️ AVISO:** Thin pool no Proxmox está com pouco espaço (222.57 GiB disponível, mas Volume Group é menor que o solicitado) — verificar depois.
 
 ---
 
