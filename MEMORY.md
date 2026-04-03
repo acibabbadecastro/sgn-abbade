@@ -104,7 +104,7 @@ Agente falha → Monitor detecta → Log registra → Stark verifica últimas a�
 | Maestro Stark | 100 | Coordenação/Geral |
 | MailBot | 101 | Emails |
 | FinanceiroBot | 3 | Finanças |
-| MonitorBot | 4 | Monitoramento 24/7 |
+| Supervisor (CT 4) | Monitoramento 24/7 + Auxílio ao Stark | 🔜 Fase 2 |
 | DataBot | 5 | Armazenamento/PDFs/Logs |
 
 CT 5 terá estrutura de pastas:

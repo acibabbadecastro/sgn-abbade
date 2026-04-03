@@ -15,7 +15,7 @@ Sistema multi-agent onde cada container tem especialidade própria, coordenados 
 | EmailBot (CT 101) | Emails | 🔜 Fase 2 |
 | FinanceiroBot (CT 3) | Finanças | 🔜 Fase 2 |
 | DataBot (CT 5) | Backups/Arquivos/Dados | 🔜 Fase 2 |
-| MonitorBot (CT 4) | Monitoramento 24/7 | 🔜 Fase 2 |
+| MonitorBot/Supervisor (CT 4) | Monitoramento 24/7 + Auxílio ao Stark | 🔜 Fase 2 |
 
 ---
 
@@ -31,7 +31,7 @@ Sistema multi-agent onde cada container tem especialidade própria, coordenados 
 
 ### Fluxo de Falha
 ```
-Bot falha → MonitorBot detecta → Log registra → Stark verifica 
+Bot falha → Supervisor detecta → Log registra → Stark verifica 
 → Stark notifica Acib → Acib autoriza → Stark intervém → Log atualiza
 ```
 
