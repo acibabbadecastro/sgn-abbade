@@ -156,6 +156,12 @@ Estrutura de pastas:
 - /mnt/data/faturas/
 - /mnt/data/recibos/
 
+## Projeto: Sistema Multi-Agente (PRECIOSO)
+- **Documento principal:** `memory/PROJETO.md`
+- **Fase 1:** Arquitetura base + Stark como orquestrador
+- **Fase 2:** Configurar demais bots (EmailBot, FinanceiroBot, MonitorBot, DataBot)
+- **Status:** Em andamento
+
 ## Credenciais - CT 102 DATASVR (DataBot)
 - **IP:** 192.168.0.72
 - **Senha Root:** Rcmp@814k$1982
