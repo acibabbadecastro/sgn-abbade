@@ -1,0 +1,120 @@
+{
+  "data": "2026-04-03 21:19",
+  "timezone": "America/Sao_Paulo",
+  "versao": "1.0",
+  "agentes": {
+    "100": {
+      "nome": "Stark",
+      "ip": "192.168.0.21",
+      "porta": 18789,
+      "funcao": "Orquestrador principal",
+      "token": "84c98cf437f99f67f42553f4ec2639b49bf7991ee616d6ae",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "onboot": true,
+      "gateway_status": "running"
+    },
+    "101": {
+      "nome": "MailBot",
+      "ip": "192.168.0.240",
+      "porta": 18789,
+      "funcao": "Email/Notificacoes",
+      "token": "507de523881f4ba3b8647da3aa4f80408c34013b6f478ec0",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "gateway_status": "running"
+    },
+    "102": {
+      "nome": "DATASVR",
+      "ip": "192.168.0.72",
+      "porta": 18789,
+      "funcao": "Armazenamento HD 500GB",
+      "token": "84c98cf437f99f67f42553f4ec2639b49bf7991ee616d6ae",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "gateway_status": "running",
+      "hd": {
+        "device": "/dev/sdb3",
+        "mount_pve1": "/mnt/sdb",
+        "mount_ct": "/mnt/data",
+        "tamanho": "465GB"
+      }
+    },
+    "103": {
+      "nome": "Supervisor",
+      "ip": "192.168.0.42",
+      "porta": 18789,
+      "funcao": "Vice-Stark (dormant)",
+      "token": "unified",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "cron": "REMOTO (dormant)",
+      "scripts": ["/root/supervisor/vice_stark.sh"]
+    },
+    "104": {
+      "nome": "Vorcaro",
+      "ip": "192.168.0.172",
+      "porta": 18789,
+      "funcao": "Financeiro",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "gateway_status": "running"
+    },
+    "105": {
+      "nome": "OfficeBoy",
+      "ip": "192.168.0.117",
+      "porta": 18789,
+      "funcao": "Tarefas Admin",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "gateway_status": "OFFLINE",
+      "problema": "Precisa reinstall openclaw"
+    },
+    "106": {
+      "nome": "Seguranca",
+      "ip": "192.168.0.231",
+      "porta": 18789,
+      "funcao": "Seguranca",
+      "status": "OFFLINE",
+      "problema": "CT completamente offline"
+    },
+    "107": {
+      "nome": "SAMU",
+      "ip": "192.168.0.64",
+      "porta": 18789,
+      "funcao": "Resgate Stark (dormant)",
+      "modelo": "ollama/minimax-m2.7:cloud",
+      "cron": "REMOTO (dormant)",
+      "scripts": ["/root/samu/monitor.sh"]
+    }
+  },
+  "servidores": {
+    "pve1": {
+      "ip": "192.168.0.192",
+      "funcao": "Host Proxmox"
+    }
+  },
+  "guardian": {
+    "local": "/root/guardian/guardian.sh",
+    "logs": "/root/.openclaw/guardian/",
+    "ips_conf": "/root/.openclaw/guardian/ips.conf",
+    "palavra_magica": "LIBERAR",
+    "comandos": {
+      "save": "/guard save",
+      "emergencia": "/guard emergencia",
+      "normal": "/guard normal",
+      "status": "/guard status"
+    }
+  },
+  "telegram": {
+    "bot_token": "8674882792:AAEIwzMDLWrMUdhYJ9qlk492gQ-X2KXAbTc",
+    "chat_id": "1866226415",
+    "bot_username": "@acibclawd_bot"
+  },
+  "hd_500gb": {
+    "local": "/mnt/data",
+    "pasta_configs": "/mnt/data/LAN/Configs_Agentes/",
+    "pasta_documentacao": "/mnt/data/LAN/Documentacao/",
+    "pasta_backups": "/mnt/data/LAN/Backups/"
+  },
+  "recovery": {
+    "comando_acordar": "ollama launch openclaw --model ollama/minimax-m2.7:cloud",
+    "comando_gateway": "systemctl --user restart openclaw-gateway",
+    "comando_ct_start": "pct start 100",
+    "ip_stark_correto": "192.168.0.21"
+  }
+}

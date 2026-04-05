@@ -1,40 +1,39 @@
-# TEAM.md - Equipe de Agentes Stark
+# EQUIPE STARK - Documentação
 
-## Agentes Registrados
+**Documentação completa:** `/root/.openclaw/workspace/TEAM_COMPLETE.md`
 
-| Agente | Container | Especialidade | IP | Status | Última Verificação |
-|--------|-----------|---------------|-----|--------|-------------------|
-| Maestro Stark | CT 100 | Coordenação/Geral | 192.168.0.192 | ✅ ONLINE | $(date) |
-| MailBot | CT 101 | Emails | ??? | ⏳ A configurar | - |
-| FinanceiroBot | CT 3 | Finanças | ??? | ⏳ A configurar | - |
-| MonitorBot | CT 4 | Monitoramento 24/7 | ??? | ⏳ A configurar | - |
-| DataBot | CT 5 | Armazenamento/PDFs/Logs | ??? | ⏳ A configurar | - |
+---
 
-## Estrutura de Pastas (CT 5 - DataBot)
+## Lista de Agentes
 
-```
-/mnt/data/
-├── emails/           # Arquivos de email
-├── financeiros/     # Documentos financeiros
-├── lembretes/        # Registros de lembretes
-├── logs/             # Logs da equipe
-├── pdfs/             # PDFs e documentos
-├── backups/          # Backups gerais
-└── agenda/           # Agendas e compromissos
-```
+| CT | Nome | IP | Status | Função |
+|----|------|-----|--------|--------|
+| 100 | Stark 🤖 | 192.168.0.192 | ✅ | Coordenador |
+| 101 | MailBot 📧 | 192.168.0.240 | ✅ | Emails |
+| 102 | DATASVR 💾 | 192.168.0.72 | ✅ | Storage |
+| 103 | Supervisor 👁️ | 192.168.0.42 | ⏳ | Monitor 24/7 |
+| 104 | Vorcaro 🎯 | 192.168.0.172 | ⚠️ | API Finance |
+| 105 | OfficeBoy 📋 | 192.168.0.117 | ✅ | Tarefas Admin |
+| 106 | Seguranca 🔒 | 192.168.0.231 | ✅ | Segurança |
+| 107 | SAMU 👨‍⚕️ | 192.168.0.64 | ✅ | Socorrista Stark |
 
-## IPs dos Containers
+---
 
-- Agente 100 (Stark): 192.168.0.192
-- Agente 101 (MailBot): ???
-- Agente 3 (FinanceiroBot): ???
-- Agente 4 (MonitorBot): ???
-- Agente 5 (DataBot): ???
+## Arquivos Importantes
 
-## Portas
+- `TEAM_COMPLETE.md` - Documentação completa de todos os agentes
+- `MEMORY_LEARNINGS.md` - Lições aprendidas
+- `SISTEMA_FINANCEIRO.md` - Sistema financeiro
+- `SAMU_PRD.md` - PRD do SAMU
 
-- Gateway Stark: 18789
-- Gateway MailBot: 18789
-- Gateway FinanceiroBot: 18789
-- Gateway MonitorBot: 18789
-- Gateway DataBot: 18789
+---
+
+## Pendencias
+
+| # | Tarefa | Prioridade |
+|---|--------|------------|
+| 1 | Configurar Telegram | 🔴 ALTA |
+| 2 | Configurar WhatsApp | 🔴 ALTA |
+| 3 | Configurar IMAP emails | 🔴 ALTA |
+| 4 | Ativar Supervisor (CT 103) | 🔴 ALTA |
+| 5 | Verificar Vorcaro (CT 104) | 🟡 MÉDIA |

@@ -1,0 +1,264 @@
+# MEMORY.md - Long-Term Memory
+
+## Identity
+- **Name:** Stark 🤖
+- **Restore date:** 2026-04-02
+- **Backup source:** /mnt/meu-pendrive/Stark_Backup/
+
+## User Info
+- **User:** master (based on home directory)
+- **Name:** Acib ABBADE
+- **Telegram:** Acib_Abbade (ID: 1866226415)
+- **Hardware:** AMD Ryzen 5 5600X, 30GB RAM, AMD RX 580 8GB, 223GB SSD
+- **Pen Drive:** 57GB (Ventoy) mounted at /mnt/meu-pendrive
+- **Timezone:** Horário Brasília (UTC-3)
+
+## Infrastructure
+- **Running on:** Proxmox CT 100 (pve1: 192.168.0.192)
+- **SSH:** Configured and working on pve1
+- **Ollama:** Running on port 11434
+- **OpenClaw Gateway:** Running on port 18789
+
+## Ollama Models
+- **Default:** phi4-mini:latest
+- **Available:** qwen2.5:3b, qwen2.5:7b, qwen3.5:0.8b, qwen3.5:latest, llama3:8b, mistral
+
+## Important Protocols
+- **Memory Organization:** Ask before creating new folders/categories
+- **Log Format:** Date + Time + Request + Action + Result
+- **Backup:** Keep redundancy on pendrive and local
+- **Monitoramento 24/7:** Supervisor (CT 103) monitora todos os outros
+- **Nada de ação destrutiva sem autorização do Acib**
+
+## Key Learnings
+- Telegram plugin must be enabled separately: `openclaw plugins enable telegram`
+- Channel config ≠ Plugin enabled
+- Pendrive backups in /mnt/meu-pendrive/Stark_Backup/
+
+## ⚠️ PROTOCOLO DE BACKUP DE SESSÕES (2026-04-03)
+- Sessões do OpenClaw NÃO persistem entre reinicializações
+- Backup Local: `/root/.openclaw/backups/sessions/`
+- Script: `/root/.openclaw/scripts/backup-sessions.sh`
+- Cron: a cada 60 minutos, retenção 10 backups
+
+## ⚠️ REDIMENSIONAMENTO DISCOS - 2026-04-03
+- 101 Mails: 67GB → 25GB ✅
+- 102 DATASVR: 45GB → 100GB ✅
+- 103 Supervisor: 60GB → 20GB ✅
+- 104 Vorcaro: 70GB → 20GB ✅
+- 105 OfficeBoy: 70GB → 20GB ✅
+- 106 Seguranca: 67GB → 20GB ✅
+- 107: 35GB (novo)
+- **100 Stark: FALHOU** (teimoso, não para via pct stop)
+- Thin pool livre: ~16GB
+
+## Equipe de Agentes - ATUALIZADO (2026-04-03)
+
+| CT | Nome | RAM | Cores | Disk | Especialidade | Status |
+|----|------|-----|-------|------|---------------|--------|
+| 100 | **Stark** 🤖 | 4GB | 2 | 120GB | Coordenação/Geral | 🟢 |
+| 101 | **Mails** 📧 | 4GB | 2 | 67GB | Emails | 🟢 192.168.0.240 |
+| 102 | **DATASVR** 💾 | 5GB | 2 | 45GB | Armazenamento/Backup | 🟢 192.168.0.72 |
+| 103 | **Supervisor** 👁️ | 4GB | 2 | 60GB | Monitoramento 24/7 | 🟢 192.168.0.42 |
+| 104 | **Vorcaro** 🎯 | 2GB | 2 | 70GB | API Finance | ⚠️ 192.168.0.172 |
+| 105 | **OfficeBoy** 📋 | 2GB | 2 | 70GB | Tarefas Admin | 🟢 192.168.0.117 |
+| **106** | **Seguranca** 🔒 | 2GB | 2 | 67GB | Segurança/Portas | 🟢 192.168.0.231 |
+
+**Rede:** Todos em DHCP bridge vmbr0 | **OS:** Ubuntu amd64
+
+## Sistema Multi-Agente - Arquitetura de Equipe
+
+### Regras de Monitoramento (OBRIGATÓRIO)
+1. Supervisor (CT 103) monitora todos os outros 24/7
+2. Se algum falhar → LOG → Notificar Stark → Notificar Acib → Pedir AUTORIZAÇÃO → Reparar
+3. Nada de ação destrutiva sem aprovação
+
+### Fluxo de Falha:
+```
+Agente falha → Supervisor detecta → Log registra → Stark verifica 
+→ Stark notifica Acib → Acib autoriza → Stark repara
+```
+
+## Credenciais
+
+| CT | IP | Senha Root |
+|----|----|------------|
+| Mails (101) | 192.168.0.240 | Rcmp814k@# |
+| DATASVR (102) | 192.168.0.72 | Rcmp@814k$1982 |
+| Supervisor (103) | 192.168.0.42 | Rcmp814k@# |
+| Seguranca (106) | 192.168.0.231 | Rcmp814k |
+| OfficeBoy (105) | 192.168.0.117 | Rcmp814k@# |
+
+## 📂 DADOS COMPARTILHADOS
+**Pasta:** `/mnt/data/` (DATASVR - 500GB)
+- Estrutura LAN: `/mnt/data/LAN/`
+- Todos agentes acessam esta pasta
+- Acib acessa via Windows (Samba: `\\192.168.0.72`)
+
+## 📊 Análises Financeiras - Nubank (2026-04-03)
+- Relatório completo: `/root/DOCS/LAN/Relatorios/Financeiros/ANALISE_COMPLETA_MARCO_2026.md`
+- Base JSON: `/root/DOCS/LAN/Documentos/Financeiros/Nubank/relatorio_marco2026.json`
+- Conta PJ Principal (65): R$ -196,96 líquido em Março
+- 128 transações analisadas
+- **Documento:** `memory/PROJETO.md`
+- **Fase 1:** ✅ Arquitetura base + Stark como orquestrador
+- **Fase 2:** 🔜 Configurar Mails (CT 101) para email acibabbadecastro@gmail.com
+
+## Skills Disponíveis no OpenClaw
+- `clawflow` - workflow multi-tarefa
+- `clawflow-inbox-triage` - triagem de inbox
+- `healthcheck` - segurança/auditoria
+- `node-connect` - diagnóstico de conexão
+- `skill-creator` - criar/editar skills
+- `weather` - clima
+
+Verificar novas em: https://clawhub.ai
+
+## SAMU (CT 107) - Agente Supervisor de Reinício
+- **CT:** 107
+- **IP:** (pendente - Acib vai fornecer)
+- **Senha Root:** Rcmp814k
+- **Função:** Verificar se Stark está offline → Se offline, iniciar Stark → Executar `openclaw launch --model ollama/minimax-m2.7:cloud`
+- **Status:** A criar
+
+## SAMU (CT 107) - Especificações Completas
+
+### Função Principal:
+Verificar a cada 10 minutos se Stark está online
+
+### Se Stark ficar OFFLINE:
+
+#### CENÁRIO 1: SAMU consegue corrigir
+- SAMU reinicia Stark automaticamente
+- Email para acib@outlook.com:
+  - Tema: "Falha no stark Corrigida"
+  - Horário que Stark ficou offline
+  - Tempo que ficou offline
+  - Motivos (verificar logs)
+  - Ação tomada para reativar
+
+#### CENÁRIO 2: SAMU NÃO consegue resolver
+- Email CRÍTICO para acib@outlook.com:
+  - Tema: "Alerta Crítico - Stark Offline"
+  - Horário da falha
+  - Motivos aparentes
+  - Últimas interações do Stark com outros agentes
+  - Alterações em portas, configurações
+  - Status dos outros agentes
+
+### Verificações:
+- Checar a cada 10 minutos
+- Verificar: gateway status, SSH, processo openclaw
+- Log de todas as verificações
+
+### Contato de Email:
+- Destinatário: acib@outlook.com
+- Originador: MailBot (CT 101)
+
+## Arquivo de Aprendizados
+- **Location:** /root/.openclaw/workspace/MEMORY_LEARNINGS.md
+- **Conteúdo:** 10 lições aprendidas com problemas reais
+- **Formato:** Problema → Causa → Prevenção → Solução
+- **Última atualização:** 2026-04-03
+
+## Lições Chave (Resumidas)
+
+| # | Problema | Solução |
+|---|----------|---------|
+| 1 | Shell compatibility (dash vs bash) | Usar `bash /script.sh` |
+| 2 | Curl não instalado | `apt-get install -y curl wget` |
+| 3 | Gateway mode não configurado | `openclaw config set gateway.mode local` |
+| 4 | SSH key não no destino | Adicionar ao authorized_keys |
+| 5 | HD ZFS não monta | `wipefs -a` + format ext4 |
+| 6 | parted não disponível | Usar `sfdisk` ou `fdisk` |
+| 7 | Lock dpkg | Esperar ou matar processo |
+| 8 | Aprovação OpenClaw | `/approve <id> allow-once` |
+| 9 | Bind mount CT | `pct set <vmid> -mp0 /host,/ct/path` |
+| 10 | SSH key auth | Adicionar chave pública no destino |
+
+
+## PENDENCIAS IMPORTANTES (2026-04-03)
+
+### 1. Configurar Telegram
+- Status: PENDENTE
+- Prioridade: ALTA
+- Quem: Stark + MailBot
+- Necessário: Bot token do Telegram
+
+### 2. Configurar WhatsApp
+- Status: PENDENTE  
+- Prioridade: ALTA
+- Quem: MailBot
+- Necessário: Número de telefone + QR code
+
+### 3. SAMU - Escopo Exclusivo
+- SAMU (CT 107) é EXCLUSIVO para socorrer o Stark
+- NÃO monitora outros agentes (isso é job do Supervisor)
+- Fluxo:
+  1. Verifica se Stark está offline
+  2. Pede ao MailBot para enviar email de alerta
+  3. Executa ações de reativação
+  4. Envia email de status/corrigido
+  5. Reporta por todos os canais disponíveis (email, Telegram, WhatsApp)
+
+## PENDENCIAS - GitHub (2026-04-03)
+
+### Criar Repositório GitHub para Documentação
+- **Status:** PENDENTE
+- **Prioridade:** MÉDIA
+- **Objetivo:** Versionar documentação da equipe Stark
+- **Estrutura planejada:**
+  - docs/ (documentação)
+  - scripts/ (scripts dos agentes)
+  - configs/ (configurações)
+  - aprendizados/ (MEMORY_LEARNINGS)
+
+## Telegram Bot
+- **Bot Name:** StarK
+- **Username:** @acibabbade_bot
+- **Bot Token:** 8674882792:AAElFaYiUSNoZ7j37L8R5865p5pTaO4wWr0
+- **Chat ID Acib:** 1866226415
+- **Status:** Precisava ser reconfigurado
+
+## ⚠️ Telegram - TOKEN INVALIDO (2026-04-03)
+- Token antigo: 8674882792:AAElFaYiUSNoZ7j37L8R5865p5pTaO4wWr0
+- Motivo: 401 Unauthorized - token expirado ou revokeado
+- Solução: Gerar novo token via @BotFather
+- Status: AGUARDANDO novo token
+
+## NUBANK - CONTAS E EXTRATOS
+
+### Identificadores das 3 Contas
+| ID Completo | Conta | Tipo | Titular |
+|------------|-------|------|---------|
+| CNPJ 65.384.056/0001-32 | 986080174-7 | PJ | ABBADE Informatica |
+| CNPJ 20.153.208/0001-58 | 118844303 | PJ | (mesma titularidade) |
+| CPF 307.572.858-64 | 169842561 | PF | ACIB ABBADE DE CASTRO |
+
+### Extratos - Marco 2026
+| Conta | Transacoes | Entradas | Saidas | Liquido |
+|-------|------------|----------|--------|---------|
+| 65.384:986080174-7 | 128 | +R$ 13.746,50 | -R$ 13.943,46 | -R$ 196,96 |
+| 20.153:118844303 | 2* | +R$ 355,00 | -R$ 354,46 | +R$ 0,54 |
+| 307.572:169842561 | 38 | +R$ 3.295,07 | -R$ 3.440,93 | -R$ 145,86 |
+
+### Extratos - Fevereiro 2026 (PF)
+| Conta | Transacoes | Entradas | Saidas | Liquido |
+|-------|------------|----------|--------|---------|
+| 307.572:169842561 | 78 | +R$ 9.712,73 | -R$ 9.588,54 | +R$ 124,19 |
+
+* 20.153:118844303 - apenas 16 a 31/Mar (extrato incompleto)
+
+### Emails Nubank na Caixa (7 total)
+- 536: Verifique seu email (02/04)
+- 538: Transferência realizada com sucesso (02/04)
+- 541: Transferência realizada com sucesso (02/04)
+- 548: Você recebeu uma transferência pelo Pix (02/04)
+- 549: Você recebeu uma transferência pelo Pix (03/04)
+- 552: Seu extrato da conta Nu Empresas - **ANEXOS BAIXADOS** (04/04)
+- 553: Nu Empresas: o extrato solicitado está pronto - **ANEXOS BAIXADOS** (04/04)
+
+### Config MailBot (CT 101)
+- Email: acibabbade@gmail.com
+- App Password: mhkfdxmrpeaeangc
+- Status: ✅ FUNCIONANDO

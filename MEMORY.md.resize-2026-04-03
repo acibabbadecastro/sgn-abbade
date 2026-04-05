@@ -1,0 +1,28 @@
+# RESIZE CONCLUÍDO - 2026-04-03
+
+## RESULTADO FINAL
+
+| CT | Nome | Anterior | Atual | Economia |
+|----|------|---------|-------|----------|
+| 101 | Mails | 67GB | 25GB | -42GB |
+| 102 | DATASVR | 45GB | 100GB | +55GB |
+| 103 | Supervisor | 60GB | 20GB | -40GB |
+| 104 | Vorcaro | 70GB | 20GB | -50GB |
+| 105 | OfficeBoy | 70GB | 20GB | -50GB |
+| 106 | Seguranca | 67GB | 20GB | -47GB |
+| 107 | ??? | - | 35GB | - |
+| 100 | Stark | 120GB | 120GB | FALHOU (teimoso) |
+
+**Total Anterior:** 611GB
+**Total Atual:** 340GB
+**Economia:** ~271GB
+
+## CT 100 (STARK) - NÃO REDIMENSIONADO
+- Motivo: pct stop não funciona (parece protegido/HA)
+- Solução: Reiniciar via Proxmox UI ou aceitar 120GB
+- Uso atual: 12% (14GB de 120GB)
+
+## OBSERVAÇÕES
+- CT 107 detectado (35GB) - não estava no planejamento inicial
+- Pendrive (/mnt/meu-pendrive) está como mp0 em CT 100 (ro=1)
+- Thin pool livre: ~16GB
