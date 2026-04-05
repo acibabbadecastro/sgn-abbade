@@ -12,16 +12,15 @@ require_once 'includes/config.php';
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 50%, #1b3a5c 100%);
             min-height: 100vh;
             color: #e0e0e0;
         }
         .container { display: flex; min-height: 100vh; }
         .sidebar {
             width: 320px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(13, 27, 42, 0.95);
+            border-right: 1px solid rgba(100, 180, 255, 0.15);
             position: fixed;
             height: 100vh;
             overflow-y: auto;
@@ -31,11 +30,11 @@ require_once 'includes/config.php';
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(100, 180, 255, 0.15);
         }
         .logo-icon { font-size: 60px; margin-bottom: 15px; }
-        .logo-area h1 { color: #00d4ff; font-size: 22px; font-weight: 600; }
-        .logo-area p { color: #666; font-size: 12px; margin-top: 5px; }
+        .logo-area h1 { color: #64b4ff; font-size: 22px; font-weight: 600; }
+        .logo-area p { color: #7a9cc4; font-size: 12px; margin-top: 5px; }
         
         .menu-section { margin-bottom: 10px; }
         
@@ -44,18 +43,19 @@ require_once 'includes/config.php';
             align-items: center;
             width: 100%;
             padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(100, 180, 255, 0.05);
+            border: 1px solid rgba(100, 180, 255, 0.1);
             border-radius: 12px;
-            color: #a0a0a0;
+            color: #a0b8d0;
             text-decoration: none;
             font-size: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .menu-parent:hover {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
+            background: rgba(100, 180, 255, 0.1);
+            border-color: rgba(100, 180, 255, 0.3);
+            color: #64b4ff;
         }
         .menu-parent .icon { font-size: 22px; margin-right: 15px; }
         .menu-parent .arrow { margin-left: auto; font-size: 14px; transition: transform 0.3s ease; }
@@ -72,31 +72,31 @@ require_once 'includes/config.php';
             align-items: center;
             padding: 12px 20px;
             margin: 4px 0;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(100, 180, 255, 0.03);
             border-radius: 8px;
-            color: #888;
+            color: #7a9cc4;
             text-decoration: none;
             font-size: 14px;
             transition: all 0.2s ease;
         }
         .submenu-item:hover {
-            background: rgba(0, 212, 255, 0.1);
-            color: #00d4ff;
+            background: rgba(100, 180, 255, 0.1);
+            color: #64b4ff;
             transform: translateX(5px);
         }
         .submenu-item .icon { margin-right: 10px; font-size: 16px; }
         
-        .menu-parent.financeiro:hover { border-color: rgba(0, 255, 100, 0.3); }
-        .menu-parent.financeiro.active { background: rgba(0, 255, 100, 0.1); border-color: rgba(0, 255, 100, 0.3); color: #00ff64; }
+        .menu-parent.financeiro:hover { border-color: rgba(100, 200, 255, 0.4); }
+        .menu-parent.financeiro.active { background: rgba(100, 200, 255, 0.1); border-color: rgba(100, 200, 255, 0.4); color: #64c8ff; }
         
-        .menu-parent.clientes:hover { border-color: rgba(0, 212, 255, 0.3); }
-        .menu-parent.clientes.active { background: rgba(0, 212, 255, 0.1); border-color: rgba(0, 212, 255, 0.3); color: #00d4ff; }
+        .menu-parent.clientes:hover { border-color: rgba(100, 180, 255, 0.4); }
+        .menu-parent.clientes.active { background: rgba(100, 180, 255, 0.1); border-color: rgba(100, 180, 255, 0.4); color: #64b4ff; }
         
-        .menu-parent.os:hover { border-color: rgba(255, 193, 7, 0.3); }
-        .menu-parent.os.active { background: rgba(255, 193, 7, 0.1); border-color: rgba(255, 193, 7, 0.3); color: #ffc107; }
+        .menu-parent.os:hover { border-color: rgba(255, 200, 100, 0.4); }
+        .menu-parent.os.active { background: rgba(255, 200, 100, 0.1); border-color: rgba(255, 200, 100, 0.4); color: #ffc864; }
         
-        .menu-parent.estoque:hover { border-color: rgba(255, 107, 107, 0.3); }
-        .menu-parent.estoque.active { background: rgba(255, 107, 107, 0.1); border-color: rgba(255, 107, 107, 0.3); color: #ff6b6b; }
+        .menu-parent.estoque:hover { border-color: rgba(180, 130, 255, 0.4); }
+        .menu-parent.estoque.active { background: rgba(180, 130, 255, 0.1); border-color: rgba(180, 130, 255, 0.4); color: #b482ff; }
         
         .main-content {
             margin-left: 320px;
@@ -112,19 +112,19 @@ require_once 'includes/config.php';
             max-width: 600px;
         }
         .welcome h2 { color: #fff; font-size: 32px; margin-bottom: 15px; }
-        .welcome p { color: #888; font-size: 16px; line-height: 1.6; }
+        .welcome p { color: #7a9cc4; font-size: 16px; line-height: 1.6; }
         .welcome .emoji { font-size: 80px; margin-bottom: 20px; }
         
         .info-box {
             margin-top: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(100, 180, 255, 0.08);
+            border: 1px solid rgba(100, 180, 255, 0.2);
             border-radius: 16px;
             padding: 25px 35px;
             text-align: center;
         }
-        .info-box p { color: #666; font-size: 13px; }
-        .info-box .date { color: #00d4ff; font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+        .info-box p { color: #7a9cc4; font-size: 13px; }
+        .info-box .date { color: #64b4ff; font-size: 18px; font-weight: 600; margin-bottom: 5px; }
     </style>
 </head>
 <body>

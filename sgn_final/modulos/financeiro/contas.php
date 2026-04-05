@@ -1,8 +1,6 @@
 <?php
 // Contas Bancárias
 require_once '../../includes/config.php';
-
-// Buscar contas
 $contas = $pdo->query("SELECT * FROM financeiro.contas_bancarias ORDER BY apelido")->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -13,60 +11,42 @@ $contas = $pdo->query("SELECT * FROM financeiro.contas_bancarias ORDER BY apelid
     <title>Contas Bancárias - SGN</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 50%, #1b3a5c 100%); min-height: 100vh; color: #e0e0e0; }
         .container { display: flex; min-height: 100vh; }
-        .sidebar {
-            width: 280px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        .logo-area { padding: 30px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
-        .logo-icon { font-size: 50px; margin-bottom: 10px; }
-        .logo-area h1 { color: #00d4ff; font-size: 18px; }
-        .menu { padding: 20px 0; }
-        .menu-title { padding: 0 25px 10px; color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .menu-item {
-            display: flex; align-items: center;
-            padding: 14px 25px; margin: 2px 15px;
-            border-radius: 10px;
-            color: #a0a0a0; text-decoration: none; font-size: 14px;
-        }
-        .menu-item:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
-        .menu-item.active { background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 153, 204, 0.2) 100%); color: #00d4ff; border: 1px solid rgba(0, 212, 255, 0.3); }
-        .menu-item .icon { margin-right: 12px; font-size: 18px; }
-        .main-content { margin-left: 280px; flex: 1; padding: 30px; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .header h2 { color: #fff; font-size: 28px; }
-        .contas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-        .conta-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-        .conta-card:hover { transform: translateY(-5px); border-color: rgba(0, 212, 255, 0.5); }
-        .conta-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .conta-tipo { padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .conta-tipo.pj { background: rgba(0, 212, 255, 0.2); color: #00d4ff; }
-        .conta-tipo.pf { background: rgba(0, 255, 100, 0.2); color: #00ff64; }
-        .status-ativa { padding: 4px 10px; border-radius: 4px; font-size: 11px; background: rgba(0, 255, 100, 0.2); color: #00ff64; }
-        .status-inativa { padding: 4px 10px; border-radius: 4px; font-size: 11px; background: rgba(255, 107, 107, 0.2); color: #ff6b6b; }
-        .conta-nome { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 5px; }
-        .conta-dados { color: #888; font-size: 14px; margin-bottom: 5px; }
-        .conta-saldo { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-        .conta-saldo-label { color: #888; font-size: 12px; margin-bottom: 5px; }
-        .conta-saldo-valor { font-size: 28px; font-weight: 700; color: #00ff64; }
-        .conta-banco { color: #00d4ff; font-size: 14px; margin-top: 10px; }
+        .sidebar { width: 320px; background: rgba(13, 27, 42, 0.95); border-right: 1px solid rgba(100, 180, 255, 0.15); position: fixed; height: 100vh; overflow-y: auto; padding: 30px 20px; }
+        .logo-area { text-align: center; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(100, 180, 255, 0.15); }
+        .logo-icon { font-size: 60px; margin-bottom: 15px; }
+        .logo-area h1 { color: #64b4ff; font-size: 22px; font-weight: 600; }
+        .logo-area p { color: #7a9cc4; font-size: 12px; margin-top: 5px; }
+        .menu-section { margin-bottom: 10px; }
+        .menu-parent { display: flex; align-items: center; width: 100%; padding: 16px 20px; background: rgba(100, 180, 255, 0.05); border: 1px solid rgba(100, 180, 255, 0.1); border-radius: 12px; color: #a0b8d0; text-decoration: none; font-size: 15px; cursor: pointer; transition: all 0.3s ease; }
+        .menu-parent:hover, .menu-parent.active { background: rgba(100, 200, 255, 0.1); border-color: rgba(100, 200, 255, 0.3); color: #64b4ff; }
+        .menu-parent .icon { font-size: 22px; margin-right: 15px; }
+        .menu-parent .arrow { margin-left: auto; font-size: 14px; }
+        .submenu { display: none; padding: 10px 0 10px 30px; }
+        .submenu.open { display: block; }
+        .submenu-item { display: flex; align-items: center; padding: 12px 20px; margin: 4px 0; background: rgba(100, 180, 255, 0.03); border-radius: 8px; color: #7a9cc4; text-decoration: none; font-size: 14px; transition: all 0.2s ease; }
+        .submenu-item:hover, .submenu-item.active { background: rgba(100, 180, 255, 0.1); color: #64b4ff; transform: translateX(5px); }
+        .submenu-item .icon { margin-right: 10px; font-size: 16px; }
+        .main-content { margin-left: 320px; flex: 1; padding: 40px; }
+        .header { margin-bottom: 40px; }
+        .header h2 { color: #fff; font-size: 32px; margin-bottom: 10px; }
+        .header p { color: #7a9cc4; font-size: 14px; }
+        .contas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .conta-card { background: rgba(100, 180, 255, 0.08); border: 1px solid rgba(100, 180, 255, 0.2); border-radius: 16px; padding: 30px; transition: all 0.3s ease; }
+        .conta-card:hover { transform: translateY(-5px); border-color: rgba(100, 180, 255, 0.4); }
+        .conta-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge-pj { background: rgba(100, 180, 255, 0.2); color: #64b4ff; }
+        .badge-pf { background: rgba(0, 230, 118, 0.2); color: #00e676; }
+        .badge-ativa { background: rgba(0, 230, 118, 0.2); color: #00e676; }
+        .badge-inativa { background: rgba(255, 107, 107, 0.2); color: #ff6b6b; }
+        .conta-nome { font-size: 24px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+        .conta-dado { color: #7a9cc4; font-size: 14px; margin-bottom: 8px; }
+        .conta-dado strong { color: #a0b8d0; }
+        .conta-saldo { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(100, 180, 255, 0.15); }
+        .conta-saldo-label { color: #7a9cc4; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; }
+        .conta-saldo-valor { font-size: 32px; font-weight: 700; color: #64b4ff; }
     </style>
 </head>
 <body>
@@ -75,53 +55,71 @@ $contas = $pdo->query("SELECT * FROM financeiro.contas_bancarias ORDER BY apelid
             <div class="logo-area">
                 <div class="logo-icon">🏢</div>
                 <h1>ABBADE Technologies</h1>
+                <p>Sistema de Gestão de Negócios</p>
             </div>
-            <div class="menu">
-                <div class="menu-title">Financeiro</div>
-                <a href="index.php" class="menu-item"><span class="icon">📊</span>Resumo</a>
-                <a href="contas.php" class="menu-item active"><span class="icon">🏦</span>Contas Bancárias</a>
-                <a href="movimentacoes.php" class="menu-item"><span class="icon">💵</span>Movimentações</a>
-                <a href="categorias.php" class="menu-item"><span class="icon">🏷️</span>Categorias</a>
-                <a href="fornecedores.php" class="menu-item"><span class="icon">🤝</span>Fornecedores/Clientes</a>
-                
-                <div class="menu-title" style="margin-top: 20px;">Voltar</div>
-                <a href="../../index.php" class="menu-item"><span class="icon">←</span>Dashboard Principal</a>
+            
+            <div class="menu-section">
+                <div class="menu-parent" onclick="toggleSubmenu('financeiro')">
+                    <span class="icon">💰</span>
+                    <span>Financeiro</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="submenu open" id="submenu-financeiro">
+                    <a href="index.php" class="submenu-item"><span class="icon">📊</span> Resumo</a>
+                    <a href="contas.php" class="submenu-item active"><span class="icon">🏦</span> Contas Bancárias</a>
+                    <a href="movimentacoes.php" class="submenu-item"><span class="icon">💵</span> Movimentações</a>
+                    <a href="categorias.php" class="submenu-item"><span class="icon">🏷️</span> Categorias</a>
+                    <a href="fornecedores.php" class="submenu-item"><span class="icon">🤝</span> Fornecedores</a>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <div class="menu-parent" onclick="location.href='../../index.php'">
+                    <span class="icon">🏠</span>
+                    <span>Voltar ao Início</span>
+                </div>
             </div>
         </nav>
 
         <main class="main-content">
             <div class="header">
                 <h2>🏦 Contas Bancárias</h2>
-                <div style="color: #888;">Total: <?php echo count($contas); ?> contas</div>
+                <p><?php echo count($contas); ?> contas cadastradas</p>
             </div>
 
             <div class="contas-grid">
                 <?php foreach ($contas as $c): ?>
                 <div class="conta-card">
                     <div class="conta-header">
-                        <div class="conta-tipo <?php echo $c['tipo_pessoa'] == 'PJ' ? 'pj' : 'pf'; ?>">
+                        <span class="badge <?php echo $c['tipo_pessoa'] == 'PJ' ? 'badge-pj' : 'badge-pf'; ?>">
                             <?php echo $c['tipo_pessoa']; ?>
-                        </div>
-                        <div class="<?php echo $c['ativa'] ? 'status-ativa' : 'status-inativa'; ?>">
+                        </span>
+                        <span class="badge <?php echo $c['ativa'] ? 'badge-ativa' : 'badge-inativa'; ?>">
                             <?php echo $c['ativa'] ? 'ATIVA' : 'INATIVA'; ?>
-                        </div>
+                        </span>
                     </div>
-                    
                     <div class="conta-nome"><?php echo htmlspecialchars($c['apelido']); ?></div>
-                    <div class="conta-dados"><strong>Titular:</strong> <?php echo htmlspecialchars($c['titular']); ?></div>
-                    <div class="conta-dados"><strong>CPF/CNPJ:</strong> <?php echo htmlspecialchars($c['cpf_cnpj']); ?></div>
-                    <div class="conta-dados"><strong>Conta:</strong> <?php echo htmlspecialchars($c['numero_conta']); ?></div>
-                    
-                    <div class="conta-banco"><?php echo htmlspecialchars($c['banco']); ?></div>
-                    
+                    <div class="conta-dado"><strong>Titular:</strong> <?php echo htmlspecialchars($c['titular']); ?></div>
+                    <div class="conta-dado"><strong>CPF/CNPJ:</strong> <?php echo htmlspecialchars($c['cpf_cnpj']); ?></div>
+                    <div class="conta-dado"><strong>Conta:</strong> <?php echo htmlspecialchars($c['numero_conta']); ?></div>
+                    <div class="conta-dado"><strong>Banco:</strong> <?php echo htmlspecialchars($c['banco']); ?></div>
                     <div class="conta-saldo">
                         <div class="conta-saldo-label">Saldo Atual</div>
-                        <div class="conta-saldo-valor"><?php echo formatarMoeda($c['saldo_atual'] ?? 0); ?></div>
+                        <div class="conta-saldo-valor">R$ <?php echo number_format($c['saldo_atual'] ?? 0, 2, ',', '.'); ?></div>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
         </main>
     </div>
+    
+    <script>
+        function toggleSubmenu(id) {
+            document.querySelectorAll('.submenu').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('.menu-parent').forEach(el => el.classList.remove('active'));
+            document.getElementById('submenu-' + id).classList.add('open');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
