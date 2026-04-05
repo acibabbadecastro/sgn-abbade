@@ -37,42 +37,66 @@ require_once 'includes/config.php';
         .logo-area h1 { color: #00d4ff; font-size: 22px; font-weight: 600; }
         .logo-area p { color: #666; font-size: 12px; margin-top: 5px; }
         
-        .section-title {
-            color: #666;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            padding-left: 10px;
-        }
+        .menu-section { margin-bottom: 10px; }
         
-        .modulo-btn {
+        .menu-parent {
             display: flex;
             align-items: center;
             width: 100%;
-            padding: 18px 20px;
-            margin-bottom: 10px;
+            padding: 16px 20px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             color: #a0a0a0;
             text-decoration: none;
             font-size: 15px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
-        .modulo-btn:hover {
+        .menu-parent:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+        .menu-parent .icon { font-size: 22px; margin-right: 15px; }
+        .menu-parent .arrow { margin-left: auto; font-size: 14px; transition: transform 0.3s ease; }
+        .menu-parent.active .arrow { transform: rotate(180deg); }
+        
+        .submenu {
+            display: none;
+            padding: 10px 0 10px 30px;
+        }
+        .submenu.open { display: block; }
+        
+        .submenu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            margin: 4px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .submenu-item:hover {
             background: rgba(0, 212, 255, 0.1);
-            border-color: rgba(0, 212, 255, 0.3);
             color: #00d4ff;
             transform: translateX(5px);
         }
-        .modulo-btn .icon { font-size: 24px; margin-right: 15px; }
-        .modulo-btn .arrow { margin-left: auto; font-size: 18px; opacity: 0.5; }
+        .submenu-item .icon { margin-right: 10px; font-size: 16px; }
         
-        .modulo-btn.financeiro:hover { background: rgba(0, 255, 100, 0.1); border-color: rgba(0, 255, 100, 0.3); color: #00ff64; }
-        .modulo-btn.clientes:hover { background: rgba(0, 212, 255, 0.1); border-color: rgba(0, 212, 255, 0.3); color: #00d4ff; }
-        .modulo-btn.os:hover { background: rgba(255, 193, 7, 0.1); border-color: rgba(255, 193, 7, 0.3); color: #ffc107; }
-        .modulo-btn.estoque:hover { background: rgba(255, 107, 107, 0.1); border-color: rgba(255, 107, 107, 0.3); color: #ff6b6b; }
+        .menu-parent.financeiro:hover { border-color: rgba(0, 255, 100, 0.3); }
+        .menu-parent.financeiro.active { background: rgba(0, 255, 100, 0.1); border-color: rgba(0, 255, 100, 0.3); color: #00ff64; }
+        
+        .menu-parent.clientes:hover { border-color: rgba(0, 212, 255, 0.3); }
+        .menu-parent.clientes.active { background: rgba(0, 212, 255, 0.1); border-color: rgba(0, 212, 255, 0.3); color: #00d4ff; }
+        
+        .menu-parent.os:hover { border-color: rgba(255, 193, 7, 0.3); }
+        .menu-parent.os.active { background: rgba(255, 193, 7, 0.1); border-color: rgba(255, 193, 7, 0.3); color: #ffc107; }
+        
+        .menu-parent.estoque:hover { border-color: rgba(255, 107, 107, 0.3); }
+        .menu-parent.estoque.active { background: rgba(255, 107, 107, 0.1); border-color: rgba(255, 107, 107, 0.3); color: #ff6b6b; }
         
         .main-content {
             margin-left: 320px;
@@ -87,16 +111,8 @@ require_once 'includes/config.php';
             text-align: center;
             max-width: 600px;
         }
-        .welcome h2 {
-            color: #fff;
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-        .welcome p {
-            color: #888;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+        .welcome h2 { color: #fff; font-size: 32px; margin-bottom: 15px; }
+        .welcome p { color: #888; font-size: 16px; line-height: 1.6; }
         .welcome .emoji { font-size: 80px; margin-bottom: 20px; }
         
         .info-box {
@@ -120,31 +136,73 @@ require_once 'includes/config.php';
                 <p>Sistema de Gestão de Negócios</p>
             </div>
             
-            <div class="section-title">Módulos</div>
+            <!-- FINANCEIRO -->
+            <div class="menu-section">
+                <div class="menu-parent financeiro" onclick="toggleSubmenu('financeiro')">
+                    <span class="icon">💰</span>
+                    <span>Financeiro</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="submenu" id="submenu-financeiro">
+                    <a href="modulos/financeiro/index.php" class="submenu-item">
+                        <span class="icon">📊</span> Resumo
+                    </a>
+                    <a href="modulos/financeiro/contas.php" class="submenu-item">
+                        <span class="icon">🏦</span> Contas Bancárias
+                    </a>
+                    <a href="modulos/financeiro/movimentacoes.php" class="submenu-item">
+                        <span class="icon">💵</span> Movimentações
+                    </a>
+                    <a href="modulos/financeiro/categorias.php" class="submenu-item">
+                        <span class="icon">🏷️</span> Categorias
+                    </a>
+                    <a href="modulos/financeiro/fornecedores.php" class="submenu-item">
+                        <span class="icon">🤝</span> Fornecedores
+                    </a>
+                </div>
+            </div>
             
-            <a href="modulos/financeiro/index.php" class="modulo-btn financeiro">
-                <span class="icon">💰</span>
-                <span>Financeiro</span>
-                <span class="arrow">→</span>
-            </a>
+            <!-- CLIENTES -->
+            <div class="menu-section">
+                <div class="menu-parent clientes" onclick="toggleSubmenu('clientes')">
+                    <span class="icon">👥</span>
+                    <span>Clientes</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="submenu" id="submenu-clientes">
+                    <a href="modulos/clientes/index.php" class="submenu-item">
+                        <span class="icon">📋</span> Lista de Clientes
+                    </a>
+                </div>
+            </div>
             
-            <a href="modulos/clientes/index.php" class="modulo-btn clientes">
-                <span class="icon">👥</span>
-                <span>Clientes</span>
-                <span class="arrow">→</span>
-            </a>
+            <!-- ORDENS DE SERVIÇO -->
+            <div class="menu-section">
+                <div class="menu-parent os" onclick="toggleSubmenu('os')">
+                    <span class="icon">🔧</span>
+                    <span>Ordens de Serviço</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="submenu" id="submenu-os">
+                    <a href="modulos/os/index.php" class="submenu-item">
+                        <span class="icon">📋</span> Lista de OS
+                    </a>
+                </div>
+            </div>
             
-            <a href="modulos/os/index.php" class="modulo-btn os">
-                <span class="icon">🔧</span>
-                <span>Ordens de Serviço</span>
-                <span class="arrow">→</span>
-            </a>
-            
-            <a href="modulos/estoque/index.php" class="modulo-btn estoque">
-                <span class="icon">📦</span>
-                <span>Estoque</span>
-                <span class="arrow">→</span>
-            </a>
+            <!-- ESTOQUE -->
+            <div class="menu-section">
+                <div class="menu-parent estoque" onclick="toggleSubmenu('estoque')">
+                    <span class="icon">📦</span>
+                    <span>Estoque</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="submenu" id="submenu-estoque">
+                    <a href="modulos/estoque/index.php" class="submenu-item">
+                        <span class="icon">📋</span> Lista de Produtos
+                    </a>
+                </div>
+            </div>
         </nav>
 
         <main class="main-content">
@@ -155,10 +213,27 @@ require_once 'includes/config.php';
                 
                 <div class="info-box">
                     <div class="date"><?php echo date('d/m/Y'); ?></div>
-                    <p>Escolha uma das opções acima para gerenciar seu negócio</p>
+                    <p>Clique nos módulos para ver as opções disponíveis</p>
                 </div>
             </div>
         </main>
     </div>
+    
+    <script>
+        function toggleSubmenu(id) {
+            // Fecha todos os submenus
+            document.querySelectorAll('.submenu').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('.menu-parent').forEach(el => el.classList.remove('active'));
+            
+            // Abre o clicado
+            const submenu = document.getElementById('submenu-' + id);
+            const parent = event.currentTarget;
+            
+            if (submenu) {
+                submenu.classList.add('open');
+                parent.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
