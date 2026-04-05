@@ -48,6 +48,25 @@ Desenvolvido por **Acib Abbade de Castro** para a empresa **ABBADE Technologies*
 
 ## ✨ Funcionalidades
 
+### 🆕 **NOVIDADES v1.1.0**
+
+#### 🔐 Dashboard Privado
+- ❌ **Sem valores financeiros** visíveis na tela inicial
+- ✅ Apenas contagens (contas, clientes, serviços)
+- 💡 Acesse **Financeiro → Resumo** para ver valores
+
+#### 🔢 Código Único por Transação
+- Formato: `{TIPO}-{CONTA}-{DIREÇÃO}-{SEQUÊNCIA}`
+- Exemplos: `PJ-65-IN-0001`, `PJ-20-OUT-0001`, `PF-169-IN-0001`
+- Processador automático de extratos em `/home/master/LAN`
+
+#### 🔍 Busca por CNPJ
+- Cadastro de fornecedores com consulta por CNPJ
+- Máscara automática de formatação
+- Lista completa com filtros
+
+---
+
 ### 💰 Módulo Financeiro
 - ✅ Gerenciamento de até 4 contas bancárias
 - ✅ Extratos com filtros avançados (data, valor, tipo)
