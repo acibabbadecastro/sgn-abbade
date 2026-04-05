@@ -61,8 +61,7 @@ function getClientes($pdo) {
     $sql = "SELECT * FROM financeiro.fornecedores_clientes 
             WHERE ativo = true AND tipo IN ('cliente', 'ambos')
             ORDER BY nome";
-    return $pdo-
->query($sql)->fetchAll();
+    return $pdo->query($sql)->fetchAll();
 }
 
 function getMovimentacoes($pdo, $limit = 50) {
