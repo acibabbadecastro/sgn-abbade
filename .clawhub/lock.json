@@ -4,6 +4,58 @@
     "unified-session": {
       "version": "1.3.0",
       "installedAt": 1775257101886
+    },
+    "google-search": {
+      "version": "1.0.0",
+      "installedAt": 1776019505259
+    },
+    "free-google-search-with-browser": {
+      "version": "0.0.1",
+      "installedAt": 1776019552969
+    },
+    "security-scan": {
+      "version": "1.0.0",
+      "installedAt": 1776019572189
+    },
+    "sql-toolkit": {
+      "version": "1.0.0",
+      "installedAt": 1776019626811
+    },
+    "docker-helper": {
+      "version": "2.0.0",
+      "installedAt": 1776019657986
+    },
+    "openclaw-backup": {
+      "version": "1.0.0",
+      "installedAt": 1776019701834
+    },
+    "smart-cron": {
+      "version": "1.0.0",
+      "installedAt": 1776019734094
+    },
+    "cnpj-lookup": {
+      "version": "1.0.0",
+      "installedAt": 1776020658854
+    },
+    "finance-report-analyzer": {
+      "version": "1.2.0",
+      "installedAt": 1776247350894
+    },
+    "finance": {
+      "version": "1.1.2",
+      "installedAt": 1776247360815
+    },
+    "finance-radar": {
+      "version": "1.1.0",
+      "installedAt": 1776247376837
+    },
+    "memory-never-forget": {
+      "version": "4.1.3",
+      "installedAt": 1776636167520
+    },
+    "android-sms-gateway": {
+      "version": "2.0.0",
+      "installedAt": 1776656764065
     }
   }
 }

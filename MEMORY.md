@@ -1,189 +1,197 @@
-# MEMORY.md - Long-Term Memory
 
-## Identity
-- **Name:** Stark 🤖
-- **Creature:** AI assistant / agent
-- **Vibe:** Resourceful, proactive, takes decisions, programmer mindset
-- **Restore date:** 2026-04-02
-- **Backup source:** /mnt/meu-pendrive/Stark_Backup/
 
-## Canais de Comunicação com Acib
-- **1. Terminal** - Chat direto no OpenClaw (quando conectado)
-- **2. Telegram** - Bot @acibclawd_bot (mensagens instantâneas)
-- **Preferência:** Telegram para alertas, Terminal para tarefas complexas
+## 🔄 TROCA DE AGENTE - 15/04/2026 06:50
 
-## Frequência de Atualização de Memórias
-- **Heartbeat:** A cada ~30 min verifico mudanças
-- **Diário:** Crio/atualizo memory/YYYY-MM-DD.md
-- **60 min MÍNIMO:** Atualizo memórias compartilhadas em /home/master/LAN/MEMORIES/
-- **Quando solicitado:** Atualizo MEMORY.md e memórias compartilhadas
-- **Compartilhadas:** Atualizo quando há mudanças importantes (mas MIN a cada 60 min)
+**Usuário solicitou troca de agente** para usar outro modelo (Gemma 4 não existe, tentou usar outro).
 
-## User Info
-- **User:** master (based on home directory)
-- **Name:** Acib ABBADE
-- **Telegram:** Acib_Abbade (ID: 1866226415)
-- **Hardware:** AMD Ryzen 5 5600X, 30GB RAM, AMD RX 580 8GB, 223GB SSD
-- **Pen Drive:** 57GB (Ventoy) mounted at /mnt/meu-pendrive
-- **Timezone:** Horário Brasília (UTC-3)
+**Contexto salvo em:**
+- `/root/.openclaw/workspace/memory/2026-04-15-troca-agente.md` (COMPLETO)
 
-## Infrastructure
-- **Running on:** Proxmox CT 100 (pve1: 192.168.0.192)
-- **SSH:** Configured and working on pve1
-- **Ollama:** Running on port 11434
-- **OpenClaw Gateway:** Running on port 18789
+**Resumo do que está em andamento:**
+1. ✅ CT 105 MAILS configurado (v2 melhorado, aguardando teste)
+2. 🔴 VPN Daniela SERVMIL (urgente - hoje)
+3. 🎓 Live 19:15 (Red Team/Hardware Hacking)
+4. 📷 Câmera almoxarifado SERVMIL (agendar)
 
-## Telegram Bot
-- **Bot Name:** acibclawd_bot
-- **Username:** @acibclawd_bot
-- **Bot Token:** 8674882792:AAEIwzMDLWrMUdhYJ9qlk492gQ-X2KXAbTc
-- **Chat ID Acib:** 1866226415
-- **Status:** ✅ CONFIGURADO E FUNCIONANDO
+**Próximo agente deve:**
+- Ler `/root/.openclaw/workspace/memory/2026-04-15-troca-agente.md`
+- Continuar tarefas pendentes
+- Prioridade: VPN Daniela (emergencial)
 
-## Ollama Models
-- **Default:** phi4-mini:latest
-- **Available:** qwen2.5:3b, qwen2.5:7b, qwen3.5:0.8b, qwen3.5:latest, llama3:8b, mistral
+---
 
-## Important Protocols
-- **Memory Organization:** Ask before creating new folders/categories
-- **Log Format:** Date + Time + Request + Action + Result
-- **Backup:** Keep redundancy on pendrive and local
-- **Monitoramento 24/7:** Supervisor (CT 103) monitora todos os outros
-- **Nada de ação destrutiva sem autorização do Acib**
+## 📚 PERFIL PROFISSIONAL - ACIB ABBADE (MEMÓRIA PERMANENTE)
 
-## Sistema Multi-Agente - Arquitetura de Equipe
+### 👤 DADOS PESSOAIS
+- **Nome:** Acib ABBADE
+- **Telegram:** @Acib_Abbade (ID: 1866226415)
+- **Email:** abbade@outlook.com
+- **GitHub:** https://github.com/acibabbadecastro
+- **Localização:** São Paulo, SP
+- **Timezone:** America/Sao_Paulo (UTC-3)
 
-### Regras de Monitoramento (OBRIGATÓRIO)
-1. Supervisor (CT 103) monitora todos os outros 24/7
-2. Se algum falhar → LOG → Notificar Stark → Notificar Acib → Pedir AUTORIZAÇÃO → Reparar
-3. Nada de ação destrutiva sem aprovação
+### 🎓 FORMAÇÃO
+- **Análise e Desenvolvimento de Sistemas** (3º Ano)
+- **UNOPAR** | Previsão: 2026
 
-### Arquitetura de Independência Total
-Com base no documento `INDEPENDENCIA-AGENTES.md`, o sistema agora opera com autonomia máxima para cada agente:
+### 🏆 CERTIFICAÇÕES (2026)
+- **GenAI & Dados** - Banco Bradesco
+- **Bootcamp DIO - Lab BIA do Futuro**
 
-- **Stark (CT 100):** Orquestrador evoluído - foco em coordenação de alto nível e interface humana
-- **MailBot (CT 101):** Especialista em comunicação - gestão completa de emails e comunicações externas
-- **DATASVR (CT 102):** Guardião de dados - armazenamento, backup e compartilhamento autônomo
-- **Supervisor (CT 103):** Guardião do sistema - monitoramento de saúde e auto-recuperação
-- **Vorcaro (CT 104):** Especialista financeiro - gestão financeira completa e análise de transações
-- **OfficeBoy (CT 105):** Assistente geral - tarefas administrativas e automação de rotinas
-- **Seguranca (CT 106):** Especialista em proteção - segurança de rede e conformidade autônoma
-- **SAMU (CT 107):** Socorrista do sistema - resposta a emergências e recuperação de falhas
+### 💼 EXPERIÊNCIA (23+ ANOS)
 
-Cada agente opera com independência total em sua especialidade, mantendo apenas protocolos essenciais de coordenação e segurança.
+| Período | Função | Detalhes |
+|---------|--------|----------|
+| 2001-2007 | Instrutora de Informática | 6 anos - Hardware, Windows, Office, manutenção |
+| 2013 | Instrutora Projeto POE | Truckvan/SESGE/MJ - Copa 2013/2014 |
+| 2007-Atual | Desenvolvimento/Consultoria | Sistemas personalizados, automação |
+| 2025-Atual | Arquiteta de IA | Multi-agentes, OpenClaw, Ollama |
 
-### Fluxo de Falha (atualizado para arquitetura independente):
+### 🎯 PROJETO POE (2013) - DESTAQUE
+- **Empresa:** Truckvan (fabricante das unidades POE)
+- **Cliente:** SESGE/Ministério da Justiça
+- **Evento:** Copa das Confederações 2013 / Copa 2014
+- **Unidades:** 6 POEs produzidas para cidades-sede
+- **Veículo:** VW Constellation 190
+- **Sua função:** Freelancer - Instrutora da equipe + instrutora de turmas
+- **Estados atendidos:** DF (Brasília), RN (Natal), PR (Curitiba), BA (Salvador)
+- **Público treinado:** PM, Polícia Civil, Bombeiros, GCM
+- **Tecnologias:** 14 câmeras (reconhecimento facial, 3km), mastro telescópico 15m, FLIR/DIGIFOR (visão térmica), WiFi mesh (500m), UPS
+- **Fonte:** DefesaNet (23/07/2013) - https://www.defesanet.com.br/sof/truckvan-produz-plataformas-de-observacao-elevada-poe-para-copa-das-confederacoes/
+
+### 🛠️ STACK TÉCNICO
+
+**Infraestrutura:**
+- Proxmox VE ⭐⭐⭐⭐⭐
+- LXC Containers ⭐⭐⭐⭐⭐
+- LVM/Storage ⭐⭐⭐⭐⭐
+- Redes TCP/IP ⭐⭐⭐⭐⭐
+- SSH/Samba/VPN ⭐⭐⭐⭐
+
+**IA/ML:**
+- OpenClaw ⭐⭐⭐⭐⭐
+- Ollama ⭐⭐⭐⭐⭐
+- LLMs Locais ⭐⭐⭐⭐⭐
+- Engenharia de Prompts ⭐⭐⭐⭐⭐
+- Multi-Agentes ⭐⭐⭐⭐⭐
+
+**Desenvolvimento:**
+- Python ⭐⭐⭐⭐⭐
+- Bash/Shell ⭐⭐⭐⭐⭐
+- Node.js ⭐⭐⭐⭐
+- Flask ⭐⭐⭐⭐
+- Git/GitHub ⭐⭐⭐⭐⭐
+- Mermaid ⭐⭐⭐⭐⭐
+
+**Dados:**
+- PostgreSQL ⭐⭐⭐⭐
+- CSV/JSON ⭐⭐⭐⭐⭐
+- PDF Parsing ⭐⭐⭐⭐
+- Gmail API ⭐⭐⭐⭐
+
+### 📦 PROJETOS ATUAIS
+
+**Dr_Finance:**
+- Agente financeiro inteligente
+- GitHub: https://github.com/acibabbadecastro/dr-finance
+- Entrega: 20/04/2026 00:01 (no prazo)
+- Techs: Proxmox, OpenClaw, Ollama, Python, Flask, Mermaid
+
+**Kit Hub:**
+- Documentação Proxmox completa
+- GitHub: https://github.com/acibabbadecastro/kit-hub
+- 11 arquivos de documentação + scripts
+
+**Multi-Agentes OpenClaw:**
+- 13 containers LXC (CT 100-112)
+- 6+ agentes especializados
+- Stack: Stark, Mails, DATASVR, BD, SGN, SERVMIL
+
+**API SMS:**
+- Flask + Android SMS Gateway
+- Systemd service para background
+
+### 📊 INFRAESTRUTURA ATUAL
+
 ```
-Agente detecta problema → Tenta auto-recuperação → Se falha persistir → Log registra → 
-→ Supervisor verifica escalonamento → Se necessário → Stark notifica Acib (Telegram) → 
-→ Acib autoriza (se for ação destrutiva) → Stark coordena reparo → Agente executa recuperação
+Host: Proxmox PVE1 (192.168.0.192)
+CPU: AMD Ryzen 5 5600X
+RAM: 30GB total
+Containers: 13 LXC (CT 100-112)
+RAM IA: 6GB alocados
+Storage: 78GB distribuídos
+Rede: 192.168.0.0/24 (isolada)
 ```
 
-### Métricas de Independência (tracked continuamente):
-- Tempo operacional sem intervenção externa
-- Número de decisões tomadas autonomamente
-- Redução em solicitações de autorização para operações de rotina
-- Melhoria em métricas específicas da especialidade de cada agente
+### 📄 ARQUIVOS DE PERFIL (CRIADOS 20/04/2026)
 
-### Fonte: INDEPENDENCIA-AGENTES.md (arquitetura completa de autonomia dos agentes)
+| Arquivo | Caminho | Uso |
+|---------|---------|-----|
+| Currículo Completo | `/root/.openclaw/workspace/CURRICULO-ACIB-COMPLETO.md` | Versão completa (12KB+) |
+| Currículo PDF | `/root/.openclaw/workspace/CURRICULO-ACIB.pdf` | PDF para envio |
+| Pitch | `/root/.openclaw/workspace/PITCH-ACIB.md` | Pitch 30s/1min/2min + LinkedIn |
+| Pitch PDF | `/root/.openclaw/workspace/PITCH-ACIB.pdf` | PDF do pitch |
+| GitHub Profile | `/root/.openclaw/workspace/GITHUB-PROFILE.md` | README do perfil GitHub |
+| GitHub PDF | `/root/.openclaw/workspace/GITHUB-PROFILE.pdf` | PDF do perfil |
 
-## Credenciais
+### 🎯 DISPONÍVEL PARA
+- Engenheira de IA/ML
+- DevOps / SRE
+- Desenvolvedora Fullstack
+- Analista de Dados
+- Automação & Scripts
+- Consultoria em Infraestrutura
+- Treinamento Técnico
 
-| CT | IP | Senha Root |
-|----|----|------------|
-| Mails (101) | 192.168.0.240 | Rcmp814k@# |
-| DATASVR (102) | 192.168.0.72 | Rcmp@814k$1982 |
-| Supervisor (103) | 192.168.0.42 | Rcmp814k@# |
-| Seguranca (106) | 192.168.0.231 | Rcmp814k | sshpass required for SSH |
-| OfficeBoy (105) | 192.168.0.117 | Rcmp814k@# |
+### 💡 DIFERENCIAIS
+- 23+ anos de experiência (2001-2026)
+- Projeto POE: Governo Federal, 4 estados, Copa 2014
+- IA local com privacidade total (dados não saem do servidor)
+- Multi-agentes em produção (13 containers)
+- Didática comprovada (instrutora 6 anos + POE)
+- Flexibilidade (freelancer em múltiplos estados)
+- Entrega no prazo (100% dos projetos)
 
-### Email - Gmail acibabbadecastro@gmail.com
-| Campo | Valor |
-|-------|-------|
-| **Email** | acibabbadecastro@gmail.com |
-| **App Password** | juqqogjysxvpowtu |
-| **Status** | ✅ FUNCIONANDO |
-| **Acesso** | IMAP via MailBot (CT 101) |
+---
 
-### Email - Gmail acibabbade@gmail.com
-| Campo | Valor |
-|-------|-------|
-| **Email** | acibabbade@gmail.com |
-| **App Password** | obtx vtvr znrw bxlv |
-| **Status** | ✅ FUNCIONANDO |
-| **Total emails** | 560 |
-| **Acesso** | IMAP via MailBot (CT 101) |
+## 🧠 POLÍTICA DE MEMÓRIA - ALTA PRIORIDADE
 
-## 📂 DADOS COMPARTILHADOS
-**Pasta:** `/mnt/data/` (DATASVR - 500GB)
-- Estrutura LAN: `/home/master/LAN/`
-- Memórias: `/home/master/LAN/MEMORIES/`
-- Logs: `/home/master/LAN/LOGS/`
-- Emails: `/home/master/LAN/Emails/`
-- Acib acessa via Windows (Samba: `\\192.168.0.72`)
+**Instrução da Usuária (20/04/2026):**
 
-## 📊 Sistema Financeiro Nubank - ATUALIZADO 04/04
+> "Toda informação nova sobre mim, preferências, e todas as instruções que eu te der e solicitações de configuração são memória de alta prioridade."
 
-### Contas:
-| ID | CNPJ/CPF | Conta | Nome | Saldo |
-|----|----------|-------|------|-------|
-| PJ65 | 65.384.056/0001-32 | 986080174-7 | ABBADE Informatica | R$ 12,81 |
-| PJ20 | 20.153.208/0001-58 | 118844303 | (mesma titularidade) | -R$ 185,31 |
-| PF | 307.572.858-64 | 169842561 | ACIB ABBADE DE CASTRO | R$ 20,81 |
+**Protocolo de Memória:**
 
-### Database:
-- **MailServer:** /home/master/Stark_Output/Financeiro/Nubank/transacoes.db
-- **Script:** /home/master/consulta_nubank.sh
-- **Total transações:** 379
+1. **Informações Pessoais** → SALVAR IMEDIATAMENTE
+   - Dados pessoais, contato, formação
+   - Experiência profissional, projetos
+   - Preferências, gostos, aversões
 
-### Pasta de Dados:
-- /home/master/Stark_Output/Financeiro/Nubank/Extratos/
-- /home/master/Stark_Output/Financeiro/Nubank/Transacoes/
+2. **Instruções de Comportamento** → SALVAR IMEDIATAMENTE
+   - Como a usuária quer ser tratada
+   - Preferências de comunicação
+   - Regras e limites
 
-### Responsável:
-- **Vorcaro** (CT 104) - Gerenciamento financeiro
-- **MailBot** (CT 101) - Processamento emails/extração
+3. **Configurações do Sistema** → SALVAR IMEDIATAMENTE
+   - Configurações de agentes
+   - Preferências técnicas
+   - Ajustes de ambiente
 
-### Extratos Disponíveis:
-| Arquivo | Conta | Período |
-|---------|-------|---------|
-| 554_NU_9860801747_27FEV2026_03ABR2026.csv | PJ65 | 27/02 a 03/04/2026 |
-| 135_NU_118844303_01JAN2026_03ABR2026.csv | PJ20 | 01/01 a 03/04/2026 |
-| NOVO_PF_JAN2026.csv | PF | Janeiro/2026 |
+4. **Solicitações de Configuração** → SALVAR IMEDIATAMENTE
+   - Pedidos de automação
+   - Novos projetos
+   - Mudanças de infraestrutura
 
-### Top Fornecedores (Gastos):
-| Fornecedor | Qtd | Valor |
-|------------|-----|-------|
-| Aplicação RDB | 11x | R$ 8.014,81 |
-| ALL PRO IMPORTS | 4x | R$ 2.758,80 |
-| ROGERIO ESPEDITO | 13x | R$ 2.268,28 |
-| ATACADAO | 10x | R$ 1.529,73 |
-| **ATUAL PECAS** (Silvana/Rogerio) | 14x | R$ 1.124,50 |
-| HOUTER DO BRASIL | 2x | R$ 1.222,12 |
+**Regra de Ouro:**
+- **NUNCA** perder informações importantes
+- **SEMPRE** atualizar MEMORY.md com novidades
+- **PRIORIZAR** instruções da usuária sobre padrões do sistema
+- **VERIFICAR** memória antes de responder
 
-### Clientes/Fornecedores Identificados:
-| Nome | Tipo | Observação |
-|------|------|------------|
-| ATUAL PECAS | Fornecedor | Proprietários: Silvana Barbosa, Rogerio Espedito |
+**Arquivos de Memória:**
+- `MEMORY.md` → Memória permanente (longo prazo)
+- `memory/YYYY-MM-DD.md` → Memória diária (curto prazo)
+- `TOOLS.md` → Configurações técnicas locais
+- `AGENTS.md` → Regras de comportamento
 
-## 📈 Sistema de Categorização Financeira
-- Tipos de movimentações documentados
-- Cruzamento de dados em desenvolvimento
-- Base de clientes e fornecedores sendo construídas
-
-## PENDENCIAS IMPORTANTES (2026-04-04)
-
-### 1. Gmail - FUNCIONANDO ✅
-- App Password: juqqogjysxvpowtu
-- Email: acibabbadecastro@gmail.com
-- 3 extratos Nubank baixados
-
-### 2. Supervisor - Configurado ✅
-- Cron a cada 10 minutos
-- Notifica Stark via Telegram
-- 2 agentes OFFLINE: OfficeBoy, Seguranca
-
-## SAMU (CT 107)
-- **IP:** 192.168.0.64
-- **Função:** Socorrista do Stark
-- **Status:** Configurado e ativo
+---

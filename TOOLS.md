@@ -2,38 +2,35 @@
 
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
-## What Goes Here
+## DATASVR - LOCAL OFICIAL (ATUALIZADO 2026-04-06)
 
-Things like:
+**Samba:** `\\192.168.0.72\LAN\`
+**Path no DATASVR:** `/home/master/LAN/`
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
-
-## Examples
-
-```markdown
-### Cameras
-
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
+### Pastas do Samba LAN
+```
+1. Acib/
+2. BACKUP_CRITICO/
+3. Configs_Agentes/
+4. Documentacao/
+5. Documentos/
+6. Emails/
+7. Inventario/
+8. LOGS/
+9. Logs/
+10. MD/
+11. MEMORIES/
+12. Relatorios/
+13. Stark_Output/
+14. carambola/
+15. pve1/
 ```
 
-## Why Separate?
+### MEU LOCAL (Acib)
+**Path:** `\\192.168.0.72\LAN\Acib\`
+**Descrição:** Pasta pessoal do Acib
 
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+⚠️ **REGRA CRÍTICA:** TODOS os arquivos gerados devem ser salvos SOMENTE em `\\192.168.0.72\LAN\`. NUNCA em outro local.
 
 ---
 

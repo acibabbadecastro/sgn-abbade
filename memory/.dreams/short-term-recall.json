@@ -1,0 +1,1574 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-20T16:33:33.660Z",
+  "entries": {
+    "memory:memory/2026-04-08.md:1:51": {
+      "key": "memory:memory/2026-04-08.md:1:51",
+      "path": "memory/2026-04-08.md",
+      "startLine": 1,
+      "endLine": 51,
+      "source": "memory",
+      "snippet": "# 2026-04-08 - CRITICAL INCIDENT ## 🚨 INCIDENTE CRÍTICO - 05:01 AM **Status:** MÚLTIPLOS AGENTES OFFLINE ### Agentes DOWN (6 de 8): - ❌ CT 101 MailBot (192.168.0.240) - DOWN - ❌ CT 103 Supervisor (192.168.0.42) - DOWN - ❌ CT 104 Vorcaro (192.168.0.172) - DOWN - ❌ CT 105 OfficeBoy (192.168.0.117) - DOWN - ❌ CT 106 Seguranca (192.168.0.231) - DOWN - ❌ CT 107 SAMU (192.168.0.64) - DOWN ### Agentes UP (2 de 8): - ✅ CT 100 Stark (192.168.0.192) - ONLINE (este container) - ✅ CT 102 DATASVR (192.168.0.72) - ONLINE (acesso SSH OK) ### Ações Tomadas: 1. ✅ Detectado via heartbeat check 2. ✅ Documentado em memory/2026-04-08.md 3. ⏳ Notificar Acib via Telegram (URGENTE) 4. ⏳ Aguardar orientação",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4.2360472661959365,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:18:55.021Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "b2a2e6fdd6a0",
+        "fcc3c6a6d7b9",
+        "c860cf6d709e",
+        "add2f3c5e71a",
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-12",
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "192.168.0.240",
+        "192.168.0.42",
+        "192.168.0.172",
+        "192.168.0.117",
+        "192.168.0.231",
+        "192.168.0.64",
+        "192.168.0.192",
+        "192.168.0.72"
+      ]
+    },
+    "memory:memory/2026-03-24.md:180:235": {
+      "key": "memory:memory/2026-03-24.md:180:235",
+      "path": "memory/2026-03-24.md",
+      "startLine": 180,
+      "endLine": 235,
+      "source": "memory",
+      "snippet": "│ ├── devices/ │ ├── extensions/ │ ├── identity/ │ ├── logs/ │ └── openclaw.json # Configuração principal └── .config/ ├── autostart/ # Inicialização automática │ └── openclaw.desktop └── systemd/user/ └── openclaw.service ``` ### Pen Drive (Backup) ``` /media/master/Ventoy/ ├── Stark_Backup/ │ ├── Scripts/ │ │ ├── ATIVAR-LOGIN-AUTOMATICO.sh │ │ ├── BACKUP-AUTOMATICO.sh │ │ ├── RESTAURAR-BACKUP.sh │ │ └── README.txt │ └── backups/ # Backups (a criar) ├── ubuntu-24.04.4-desktop-amd64.iso ├── archlinux-x86_64.iso ├── linuxmint-22.3-cinnamon-64bit.iso ├── Zorin-OS-18-Education-64-bit-r3.iso ├── proxmox-ve_9.1-1.iso ├──",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7149432068979781,
+      "maxScore": 0.7149432068979781,
+      "firstRecalledAt": "2026-04-10T12:18:55.021Z",
+      "lastRecalledAt": "2026-04-10T12:18:55.021Z",
+      "queryHashes": [
+        "b2a2e6fdd6a0"
+      ],
+      "recallDays": [
+        "2026-04-10"
+      ],
+      "conceptTags": [
+        "backup",
+        "backups",
+        "openclaw.json",
+        "openclaw.desktop",
+        "systemd/user",
+        "openclaw.service",
+        "media/master/ventoy",
+        "stark-backup"
+      ]
+    },
+    "memory:memory/2026-04-07.md:1:22": {
+      "key": "memory:memory/2026-04-07.md:1:22",
+      "path": "memory/2026-04-07.md",
+      "startLine": 1,
+      "endLine": 22,
+      "source": "memory",
+      "snippet": "# 2026-04-07 - Log do Dia ## Cron Jobs Executados ### 13:15 - Backup de Sessões OpenClaw - **Job ID:** 4a72e14b-f00a-4fdd-962d-da1e43d49e08 - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Mensagem:** \"Backup de sessões concluído\" ## 2026-04-07 19:08 - Console do Stark RESOLVIDO Problema: Console do Stark (CT 100) com tela preta no Proxmox Web Causa: Configuração de TTYs incorreta Solucao: Adicionado ao /etc/pve/lxc/100.conf: - lxc.tty.max: 4 - lxc.console.path: tty0 - lxc.cgroup.devices.allow para tty devices Acao: Reiniciado container - console funcionando",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.419606056648648,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:18:55.021Z",
+      "lastRecalledAt": "2026-04-14T22:15:35.357Z",
+      "queryHashes": [
+        "b2a2e6fdd6a0",
+        "cf834c7a97c7",
+        "15ed6d064e0b"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "backup",
+        "etc/pve/lxc/100.conf",
+        "lxc.tty.max",
+        "lxc.console.path",
+        "lxc.cgroup.devices.allow",
+        "log",
+        "dia",
+        "cron"
+      ]
+    },
+    "memory:memory/2026-04-05.md:165:215": {
+      "key": "memory:memory/2026-04-05.md:165:215",
+      "path": "memory/2026-04-05.md",
+      "startLine": 165,
+      "endLine": 215,
+      "source": "memory",
+      "snippet": "**Aguardando:** Foto do comprovante de pagamento do Acib [Sun Apr 5 23:15 -03 2026] Backup Sessions OpenClaw - Concluído com sucesso ## [02:05] SGN - Admin BD Criado Banco SGN criado com sucesso (192.168.0.109:5432). Schemas: estoque, clientes, os, financeiro, fornecedores, garantia, agenda Pagina admin_bd.php criada em http://192.168.0.99/admin_bd.php Mostra todos os schemas e tabelas com links para admin_view.php Empresa proprietaria cadastrada: - CNPJ: 65.384.056/0001-32 - Nome: ACIB ABBADE DE CASTRO ## [2026-04-06 09:46] URLs e Caminhos do SGN ### URLs do SGN (CT 104 - 192.168.0.99) | Pagina | URL | |--------|-----| | SGN Principal | http://192.168.0.99 | | Admin BD | http://192.1",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.7985743536262404,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:29:29.578Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "302cd6123be2",
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "192.168.0.109",
+        "admin-bd.php",
+        "192.168.0.99/admin-bd.php",
+        "admin-view.php",
+        "65.384.056/0001-32",
+        "192.168.0.99",
+        "192.1"
+      ]
+    },
+    "memory:memory/2026-04-05.md:30:92": {
+      "key": "memory:memory/2026-04-05.md:30:92",
+      "path": "memory/2026-04-05.md",
+      "startLine": 30,
+      "endLine": 92,
+      "source": "memory",
+      "snippet": "**Repositório:** https://github.com/acibabbadecastro/sgn-abbade **Push:** 19:14 - 7e30a3e..8a88b3f **Status:** Funcional, 10 arquivos PHP --- ## [22:32] SGN - Levantamento de Requisitos (Fase de Captura) ### Contexto - **Acib** é o Product Owner - Estamos na fase de **levantamento de requisitos** (não implementação ainda) - Objetivo: Montar sistema para gerenciar assistência técnica + lojinha ### Estrutura Proposta ( schemas PostgreSQL ) ``` financas (banco único) ├── estoque.* -- produtos, categorias, estoque ├── clientes.* -- clientes e fornecedores ├── os.* -- ordens de serviço, orçamentos ├── financeiro.* -- contas, movimentações ├── garantia.* -- controle de ga",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.3361857626581,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:29:29.578Z",
+      "lastRecalledAt": "2026-04-19T21:37:44.740Z",
+      "queryHashes": [
+        "302cd6123be2",
+        "65e757ff2df1",
+        "2d3558b694e5",
+        "6822f2fa6f91",
+        "cac69c8b40da",
+        "e853a80cd79c"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-11",
+        "2026-04-12",
+        "2026-04-17",
+        "2026-04-19"
+      ],
+      "conceptTags": [
+        "repositório",
+        "https",
+        "github.com",
+        "acibabbadecastro",
+        "sgn",
+        "abbade",
+        "push",
+        "7e30a3e"
+      ]
+    },
+    "memory:memory/2026-04-05.md:121:173": {
+      "key": "memory:memory/2026-04-05.md:121:173",
+      "path": "memory/2026-04-05.md",
+      "startLine": 121,
+      "endLine": 173,
+      "source": "memory",
+      "snippet": "- Histórico de compras por produto - Base para calcularMarkup --- ## [22:40] Ações Pendentes - [ ] Documento completo em `/home/master/LAN/MD/Elaboracao_SGN_Estoque.md` (criar) - [ ] Aguardar foto do comprovante de pagamento (Acib vai enviar) - [ ] Definir mais detalhes dos fornecedores (sites, emails) ## [22:40] Acesso DATASVR - IP: 192.168.0.72 - Samba: `\\\\192.168.0.72\\LAN\\` - Usuário: master | Senha: Rcmp814k@# - Pasta MD criada com Acib_Info_Completa.md ## [22:40] SGN Web - IP: 192.168.0.99 - Apache/PHP + PostgreSQL (192.168.0.109) - Ainda vazio (estrutura de tables apenas) ## [22:40] PVE Host - IP: 192.168.0.192 - Acesso: `pct exec <CT_ID> -- comando` - CT 104 = SGN | CT 103 = Pos",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.7794611862865926,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:29:29.578Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "302cd6123be2",
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "192.168.0.72",
+        "acib-info-completa.md",
+        "192.168.0.99",
+        "apache/php",
+        "192.168.0.109",
+        "192.168.0.192",
+        "ct-id",
+        "histórico"
+      ]
+    },
+    "memory:memory/2026-04-06.md:71:99": {
+      "key": "memory:memory/2026-04-06.md:71:99",
+      "path": "memory/2026-04-06.md",
+      "startLine": 71,
+      "endLine": 99,
+      "source": "memory",
+      "snippet": "- Manter cópias de backup sempre [Mon Apr 6 20:15:08 -03 2026] Backup de sessões concluído [20:15] ✓ Backup Sessions OpenClaw - Concluído com sucesso ## [23:31] CRISIS - Perda de Memória Detectada **Problema:** Conversas da tarde (2026-04-06) sobre SGN foram perdidas. **Impacto:** Prejuízo ao Acib, retrabalho, falha crítica. **Ações Corretivas:** 1. ✅ Criado PROTOCOLO_PERSISTENCIA.md 2. ✅ Criado PRD_SGN_2026-04-06.md no DATASVR 3. ✅ Estrutura de pastas: /home/master/LAN/PROJETOS/PRD/ 4. ✅ Alerta automático se 60 min sem atualização **Regra Nova:** - Toda sessão >30 min = resumo obrigatório - Todo projeto = PRD imediato - Todo dado crítico = DATASVR + MEMORY.md **Resumo do que foi recup",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.7572523590764206,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:29:29.578Z",
+      "lastRecalledAt": "2026-04-16T01:23:36.947Z",
+      "queryHashes": [
+        "302cd6123be2",
+        "ab953f3d1ab0"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "backup",
+        "protocolo-persistencia.md",
+        "prd-sgn-2026-04-06.md",
+        "home/master/lan/projetos/prd",
+        "memory.md",
+        "manter",
+        "cópias",
+        "sempre"
+      ]
+    },
+    "memory:memory/2026-04-06.md:32:79": {
+      "key": "memory:memory/2026-04-06.md:32:79",
+      "path": "memory/2026-04-06.md",
+      "startLine": 32,
+      "endLine": 79,
+      "source": "memory",
+      "snippet": "- Emails encontrados: 554 total, 10 processados - Inventário: 23 emails, 4 anexos, 135.7 KB - Relatório: /root/.openclaw/logs/supervisor_report.json ## LOCAL DEFINITIVO (11:14) **Samba:** `\\\\192.168.0.72\\LAN\\` **Path no DATASVR:** `/home/master/LAN/` REGRA: TODO e QUALQUER arquivo gerado vai SOMENTE neste local. NUNCA usar outro path. [Mon Apr 6 11:15:06 -03 2026] Backup Sessions OpenClaw: concluído com sucesso ## MODELO DE DESIGN SGN (20:05) **Status:** ATIVO e em USO ### Paleta de Cores - **Fundo principal:** #f5f0e6 (creme) - **Sidebar/Fundo verde:** #2d4a2d (verde ervamate escuro) - **Sidebar gradiente:** #2d4a2d → #1e3a1e - **Verde texto claro:** #d4e8d4, #a8c8a8, #8fbc8f - **Texto",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.7503073746747626,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T12:29:29.578Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "302cd6123be2",
+        "ab953f3d1ab0",
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "135.7",
+        "192.168.0.72",
+        "home/master/lan",
+        "sidebar/fundo",
+        "emails",
+        "encontrados",
+        "total"
+      ]
+    },
+    "memory:memory/2026-04-09.md:259:307": {
+      "key": "memory:memory/2026-04-09.md:259:307",
+      "path": "memory/2026-04-09.md",
+      "startLine": 259,
+      "endLine": 307,
+      "source": "memory",
+      "snippet": "| One Fusion Plus | R$ 290,00 | Inclusa | **R$ 290,00** | | **TOTAL KAUANE** | **R$ 735,00** | **Inclusa** | **R$ 735,00** | **Status:** ⏳ Aguardando autorização do Sr. Paulo --- ## 📱 ORÇAMENTO - LINCOLN (FILHO DA ELI) **Data:** 09/04/2026 **Aparelho:** Moto G8 Power **Peça:** Frontal S/A (R$ 64,00 - já comprada) **Mão de Obra:** A definir **Status:** ⏳ Aguardando definição --- ## 📊 RESUMO FINANCEIRO DO DIA | Item | Valor | |------|-------| | **Recebido:** | R$ 495,00 (Notebook Ana) | | **Orçado:** | R$ 2.750,00 (Acer R$ 1.300 + Dell R$ 1.450) | | **OS Pendentes:** | R$ 735,00 (Kauane) + A definir (Lincoln) | | **Peças Compradas:** | R$ 305,00 (8 peças) | | **Total Potencial",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.6784102325127566,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T15:57:26.080Z",
+      "lastRecalledAt": "2026-04-15T16:52:41.058Z",
+      "queryHashes": [
+        "a72eb73e7273",
+        "2d3558b694e5",
+        "add2f3c5e71a"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-12",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "09/04/2026",
+        "s/a",
+        "2.750",
+        "1.300",
+        "1.450",
+        "one",
+        "fusion",
+        "plus"
+      ]
+    },
+    "memory:memory/2026-04-04.md:117:175": {
+      "key": "memory:memory/2026-04-04.md:117:175",
+      "path": "memory/2026-04-04.md",
+      "startLine": 117,
+      "endLine": 175,
+      "source": "memory",
+      "snippet": "## 16:57 - Backup Sessions OpenClaw (cron) - Script `/root/.openclaw/scripts/backup-sessions.sh` executado com sucesso --- ## SISTEMA COMPROMISSOS CRIADO (23:35) **Local:** `/home/master/LAN/MEMORIES/Compromissos/` ### Compromissos Cadastrados: | ID | Titulo | Data | Prioridade | Status | |----|--------|------|------------|--------| | 1 | Contato Anderson - Servmil | Segunda-feira | alta | pendente | | 2 | Sávio buscar PC | - | media | pendente | | 3 | Análise notebook Miss Slade (orçamento) | - | media | pendente | | 4 | Análise notebook Abel (orçamento) | - | media | pendente | --- ## CLIENTE PRINCIPAL: SERVMIL (23:36) **Nome:** Servmil **CNPJ:** 04.XXX.XXX/0001-XX (a confirmar nas",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.5668360081027055,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-10T15:57:26.080Z",
+      "lastRecalledAt": "2026-04-19T22:32:44.599Z",
+      "queryHashes": [
+        "a72eb73e7273",
+        "2d3558b694e5",
+        "6822f2fa6f91",
+        "6222ac346139",
+        "cac69c8b40da",
+        "e48d139f1a42"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-12",
+        "2026-04-17",
+        "2026-04-19"
+      ],
+      "conceptTags": [
+        "backup",
+        "segunda-feira",
+        "04.xxx.xxx/0001-xx",
+        "openclaw",
+        "cron",
+        "script",
+        "root",
+        "scripts"
+      ]
+    },
+    "memory:memory/2026-04-09.md:45:99": {
+      "key": "memory:memory/2026-04-09.md:45:99",
+      "path": "memory/2026-04-09.md",
+      "startLine": 45,
+      "endLine": 99,
+      "source": "memory",
+      "snippet": "**Data:** 09/04/2026 21:37 **Tipo:** Pesquisa de preços de mercado ### Valores Encontrados (2026): | Vendedor | Configuração | Preço | Estado | |----------|--------------|-------|--------| | **Forcetech (DF)** | i5 + 10GB RAM + SSD 120GB + HD 500GB + Tela Touch + Teclado iluminado | **R$ 1.600,00** | Usado - Excelente | | **Mercado Livre** | Vários anúncios | R$ 1.200 - R$ 1.800 | Usado | | **Zoom/Saldão** | i5 + 4GB RAM + HD 500GB + SSD 20GB | R$ 1.400 - R$ 1.700 | Recondicionado | ### Nosso Notebook (Acer M5-481T-6195): | Item | Especificação | |------|---------------| | **Modelo** | M5-481T-6195 | | **Processador** | i5-3317U (3ª geração) | | **RAM** | 4GB (provável) | | **Armazenam",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.5525076090603425,
+      "maxScore": 0.7764499631177015,
+      "firstRecalledAt": "2026-04-10T15:57:26.080Z",
+      "lastRecalledAt": "2026-04-12T18:08:15.614Z",
+      "queryHashes": [
+        "a72eb73e7273",
+        "2d3558b694e5"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "09/04/2026",
+        "1.600",
+        "1.200",
+        "1.800",
+        "zoom/saldão",
+        "1.400",
+        "1.700",
+        "m5-481t-6195"
+      ]
+    },
+    "memory:memory/2026-04-05.md:83:132": {
+      "key": "memory:memory/2026-04-05.md:83:132",
+      "path": "memory/2026-04-05.md",
+      "startLine": 83,
+      "endLine": 132,
+      "source": "memory",
+      "snippet": "| Brother | Toner e Tinta | | HP | Toner e Tinta | | Epson | Toner e Tinta | #### Requisitos CRÍTICOS do Sistema **1. Importação via NF-e (PRIORIDADE MÁXIMA)** - Formatos: XML (NF-e oficial), CSV, PDF - Extrair: fornecedor, CNPJ, data, produtos, quantidades, valores, número/série NF-e - Atualização automática de estoque após importação - Controle de gastos por fornecedor **2. Cadastro de Produtos** - Código automático (ex: INFO-001, CEL-001, VND-001) - Código de barras (leitor ou manual) - Campos: nome, marca, categoria, preço custo/venda, quantidade - Palavras-chave para busca **3. Campos importantes nos produtos** - Código do fornecedor (referência cruzada) - Compatibilidade (ex: \"Brot",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8173876403169983,
+      "maxScore": 0.8173876403169983,
+      "firstRecalledAt": "2026-04-11T12:44:00.632Z",
+      "lastRecalledAt": "2026-04-11T12:44:00.632Z",
+      "queryHashes": [
+        "65e757ff2df1"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "nf-e",
+        "número/série",
+        "info-001",
+        "cel-001",
+        "vnd-001",
+        "custo/venda",
+        "palavras-chave",
+        "brother"
+      ]
+    },
+    "memory:memory/2026-04-10.md:1:26": {
+      "key": "memory:memory/2026-04-10.md:1:26",
+      "path": "memory/2026-04-10.md",
+      "startLine": 1,
+      "endLine": 26,
+      "source": "memory",
+      "snippet": "# Memória do Dia - 2026-04-10 ## 🕐 11:15 AM - Backup de Sessões OpenClaw **[CRON JOB: 4a72e14b-f00a-4fdd-962d-da1e43d49e08]** - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Timestamp:** Fri Apr 10 11:15:11 -03 2026 O backup das sessões OpenClaw foi executado automaticamente via cron job e finalizado sem erros. --- *Registro automático do sistema* 2026-04-10 12:55 - Compromissos de hoje adicionados: - Sail: carregador Ana - Shopee: devolução pacote - Hall Imports: retirar equipamento - Atual Distribuidora: peças 2026-04-10 13:02 - Atual Distribuidora: - Trocar: Moto G15 (errada) → Moto G35 (correta) - Cliente - Comprar: Tela iPhon",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8020119702239886,
+      "maxScore": 0.8020119702239886,
+      "firstRecalledAt": "2026-04-11T12:44:00.632Z",
+      "lastRecalledAt": "2026-04-11T12:44:00.632Z",
+      "queryHashes": [
+        "65e757ff2df1"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "backup",
+        "memória",
+        "dia",
+        "sessões",
+        "openclaw",
+        "cron",
+        "job",
+        "4a72e14b"
+      ]
+    },
+    "memory:memory/2026-04-04.md:1:54": {
+      "key": "memory:memory/2026-04-04.md:1:54",
+      "path": "memory/2026-04-04.md",
+      "startLine": 1,
+      "endLine": 54,
+      "source": "memory",
+      "snippet": "[2026-04-04 00:57] BackupSessions: concluído com sucesso ## Backup Sessions (02:57 AM) - Script executado via cron - Resultado: OK - Log: /root/.openclaw/logs/backup-sessions.log ## Backup Sessions (04:57) - Script: /root/.openclaw/scripts/backup-sessions.sh - Status: ✅ Concluído com sucesso ## 09:15 - Execução MailBot Autônomo (cron) - Script: `/root/.openclaw/scripts/mailbot-autonomo.sh` - Status: ✅ Sucesso (código 0) - Resultado: Verificação de emails concluída - Total na caixa: 556 emails - Nenhum email novo (IDs 547-556 já processados) - Logs: `/root/.openclaw/logs/mailbot-autonomo.log` [2026-04-04 09:20:11] OfficeBoy executado: 0 emails classificados ## Estrutura Pasta Finan",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.784062234865271,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-11T12:44:00.632Z",
+      "lastRecalledAt": "2026-04-20T16:33:33.660Z",
+      "queryHashes": [
+        "65e757ff2df1",
+        "15ed6d064e0b",
+        "68f7f805964d",
+        "63c828d96f4a",
+        "0932493d2562"
+      ],
+      "recallDays": [
+        "2026-04-11",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-17",
+        "2026-04-20"
+      ],
+      "conceptTags": [
+        "backup",
+        "backups",
+        "547-556",
+        "backupsessions",
+        "concluído",
+        "com",
+        "sucesso",
+        "script"
+      ]
+    },
+    "memory:memory/2026-04-03.md:39:79": {
+      "key": "memory:memory/2026-04-03.md:39:79",
+      "path": "memory/2026-04-03.md",
+      "startLine": 39,
+      "endLine": 79,
+      "source": "memory",
+      "snippet": "- Stark e Telegram compartilham contexto ✅ ### SAMU e Supervisor - PROBLEMA RESOLVIDO - IPs estavam ERRADOS: usavam 192.168.0.192 (pve1) em vez de 192.168.0.21 (Stark) - Stark CT 100 IP real: 192.168.0.21 - SAMU e Supervisor ficavam me detectando offline → tentavam reiniciar → loop! - **Solução:** Removido cron automático de ambos; IPs corrigidos ### Sistema Guardian Criado - Arquivo: `/root/.openclaw/workspace/guardian.sh` - Palavra mágica: `LIBERAR` (ativa SAMU + Supervisor em emergência) - Comandos: `/guard save`, `/guard emergencia`, `/guard normal`, `/guard status` - Modo normal: DORMANT (silencioso) ### IP Correto dos Agentes (ATUALIZADO) | CT | Nome | IP | |----|------|-----| | 100",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.5802609396509673,
+      "maxScore": 0.7901526331157018,
+      "firstRecalledAt": "2026-04-12T03:05:53.870Z",
+      "lastRecalledAt": "2026-04-12T16:06:13.151Z",
+      "queryHashes": [
+        "fcc3c6a6d7b9",
+        "c860cf6d709e"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "192.168.0.192",
+        "192.168.0.21",
+        "openclaw/workspace/guardian.sh",
+        "stark",
+        "telegram",
+        "compartilham",
+        "contexto",
+        "samu"
+      ]
+    },
+    "memory:memory/2026-04-08.md:77:126": {
+      "key": "memory:memory/2026-04-08.md:77:126",
+      "path": "memory/2026-04-08.md",
+      "startLine": 77,
+      "endLine": 126,
+      "source": "memory",
+      "snippet": "--- ## 🔧 NOVOS SERVIÇOS REGISTRADOS ### Segurança Elétrica (URGENTE): - **Isolar contato da bateria com parte metálica do rack** - Risco de curto-circuito! ### Infraestrutura: - **Elevar altura do rack de rede** - Procurar solução de apoio - **Isolar cabeamento do rack** - Estética e organização ### Rede/Internet: - **Verificar aumento de internet** - Solicitação do cliente - **Trocar placa de rede Murilo** - Mini PC Express/1000 ### Controle/Estatística: - **Sistema de controle de consumo** - Anotar contador da impressora para calcular uso mensal e prever trocas --- ## 📊 COMPROMISSOS SERVMIL - STATUS 08/04 12:28 **Concluídos:** 8 (incluindo 2 da Servmil hoje) **Pendentes Servmil",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.5034936243329198,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-12T03:05:53.870Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "fcc3c6a6d7b9",
+        "2d3558b694e5",
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "curto-circuito",
+        "rede/internet",
+        "express/1000",
+        "controle/estatística",
+        "08/04",
+        "novos",
+        "serviços",
+        "registrados"
+      ]
+    },
+    "memory:memory/2026-04-08.md:39:88": {
+      "key": "memory:memory/2026-04-08.md:39:88",
+      "path": "memory/2026-04-08.md",
+      "startLine": 39,
+      "endLine": 88,
+      "source": "memory",
+      "snippet": "**Data:** 08/04/2026 **Técnico:** Acib ABBADE --- ## ✅ SERVIÇOS CONCLUÍDOS ### 1. Substituição de Suprimentos - Impressora Brother | Peça | Capacidade | Status | |------|------------|--------| | Fotocondutor (Unidade de Imagem) | 30.000 impressões | ✅ Instalado 10:42 | | Toner | 20.000 impressões | ✅ Instalado 10:42 | ### 2. Teste de Durabilidade do Nobreak - **Início:** 11:42 - **Término:** 12:11 - **Duração:** **29 minutos** ⚠️ - **Conclusão:** Autonomia BAIXA - considerar troca de bateria - **Recomendação:** Bateria ideal deve durar 60+ minutos para equipamentos críticos --- ## 📦 ESTOQUE DE SUPRIMENTOS ENCONTRADO **Inventário completo verificado na Servmil:** | Suprimento | Qua",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.7512563990102907,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-12T03:05:53.870Z",
+      "lastRecalledAt": "2026-04-18T00:47:17.481Z",
+      "queryHashes": [
+        "fcc3c6a6d7b9",
+        "dd39b9b5156b",
+        "f2d8bf70da8e"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "08/04/2026",
+        "30.000",
+        "20.000",
+        "data",
+        "técnico",
+        "acib",
+        "abbade",
+        "serviços"
+      ]
+    },
+    "memory:memory/2026-03-24.md:92:143": {
+      "key": "memory:memory/2026-03-24.md:92:143",
+      "path": "memory/2026-03-24.md",
+      "startLine": 92,
+      "endLine": 143,
+      "source": "memory",
+      "snippet": "| qwen3.5:latest | Qwen 3.5 | 6.6 GB | 262144 | 8192 | | llama3:8b | Llama 3 8B | 4.7 GB | 8192 | 8192 | | mistral:latest | Mistral | 4.4 GB | 32768 | 8192 | ### Modelo Padrão Atual - **Primário:** `ollama/phi4-mini:latest` (configurado HOJE) ### Serviços Ativos | Serviço | Status | PID | |---------|--------|-----| | openclaw | Ativo | 6000 | | openclaw-onboard | Ativo | 6008 | | openclaw-gateway | Ativo | 7358 | | ollama | Ativo | 2408 | ### Inicialização Automática - ** systemd:** `~/.config/systemd/user/openclaw.service` ✅ configurado - **Autostart GNOME:** `~/.config/autostart/openclaw.desktop` ✅ configurado --- ## 📦 PROGRAMAS INSTALADOS (Pós-Instalação SO) ### Data da Instalação:",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8221872694809493,
+      "maxScore": 0.8221872694809493,
+      "firstRecalledAt": "2026-04-12T16:06:13.151Z",
+      "lastRecalledAt": "2026-04-12T16:06:13.151Z",
+      "queryHashes": [
+        "c860cf6d709e"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "gateway",
+        "qwen3.5",
+        "3.5",
+        "6.6",
+        "4.7",
+        "4.4",
+        "ollama/phi4-mini",
+        "openclaw-onboard"
+      ]
+    },
+    "memory:memory/2026-03-24.md:52:102": {
+      "key": "memory:memory/2026-03-24.md:52:102",
+      "path": "memory/2026-03-24.md",
+      "startLine": 52,
+      "endLine": 102,
+      "source": "memory",
+      "snippet": "## 🖥️ SISTEMA OPERACIONAL ### Ubuntu 24.04 LTS - **Kernel:** 6.17.0-19-generic (HWE - Hardware Enablement) - **Arquitetura:** x86_64 - **Usuário principal:** master (UID 1000) - **Shell:** bash - **Display Manager:** GDM3 (GNOME Display Manager) - **Desktop:** GNOME (versão 46+) ### Boot - **Tipo:** UEFI - **Bootloader:** GRUB 2.12 - **Secure Boot:** Shim assinado + shim-signed - **Gerenciador de boot:** efibootmgr - **Ordem de boot:** Ubuntu (0000) → Hard Drive (0004) → USB (0003) - **Timeout:** 2 segundos ### Rede - **Network Manager:** Ativo - **VPN:** OpenVPN instalada e configurada - **Gerenciador VPN:** network-manager-openvpn + gnome --- ## 🤖 AGENTE STARK (OpenClaw) ### Config",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8205388345451335,
+      "maxScore": 0.8205388345451335,
+      "firstRecalledAt": "2026-04-12T16:06:13.151Z",
+      "lastRecalledAt": "2026-04-12T16:06:13.151Z",
+      "queryHashes": [
+        "c860cf6d709e"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "network",
+        "24.04",
+        "6.17.0-19-generic",
+        "x86-64",
+        "2.12",
+        "shim-signed",
+        "network-manager-openvpn",
+        "sistema"
+      ]
+    },
+    "memory:memory/2026-03-24.md:132:194": {
+      "key": "memory:memory/2026-03-24.md:132:194",
+      "path": "memory/2026-03-24.md",
+      "startLine": 132,
+      "endLine": 194,
+      "source": "memory",
+      "snippet": "- **curl** - Transferência de arquivos #### Sistema e Boot - **efibootmgr** - Gerenciador boot UEFI - **grub-efi-amd64** (2.12) - Bootloader GRUB - **grub-efi-amd64-signed** - GRUB assinado Secure Boot - **shim-signed** - Shim Secure Boot - **linux-generic-hwe-24.04** - Kernel mais recente #### Hardware - **lm-sensors** - Monitoramento sensores --- ## 🌐 INTEGRAÇÕES ### Telegram - **Bot Token:** 8674882792:AAElFaYiUSNoZ7j37L8R5865p5pTaO4wWr0 - **Status:** Ativo - **DM Policy:** pairing (emparelhamento obrigatório) - **Grupos:** Exige menção (@stark) ### Web Search - **Provider:** DuckDuckGo - **Status:** Ativo --- ## 📂 ESTRUTURA DE ARQUIVOS ### OpenClaw Workspace ``` /home/master/.",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.7817211643408313,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-12T16:06:13.151Z",
+      "lastRecalledAt": "2026-04-15T16:52:41.058Z",
+      "queryHashes": [
+        "c860cf6d709e",
+        "add2f3c5e71a"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "grub-efi-amd64",
+        "2.12",
+        "grub-efi-amd64-signed",
+        "shim-signed",
+        "linux-generic-hwe-24.04",
+        "lm-sensors",
+        "home/master",
+        "curl"
+      ]
+    },
+    "memory:memory/2026-04-10.md:1:21": {
+      "key": "memory:memory/2026-04-10.md:1:21",
+      "path": "memory/2026-04-10.md",
+      "startLine": 1,
+      "endLine": 21,
+      "source": "memory",
+      "snippet": "# Log - 2026-04-10 ## 🔄 Backup Sessions OpenClaw **Horário:** 22:15 (America/Sao_Paulo) **Job ID:** 4a72e14b-f00a-4fdd-962d-da1e43d49e08 **Status:** ✅ Concluído com sucesso **Comando executado:** ```bash bash /root/.openclaw/scripts/backup-sessions.sh ``` **Saída:** ``` [Fri Apr 10 22:15:12 -03 2026] Backup de sessões concluído ``` --- *Backup agendado via cron - Registro automático*",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-14T22:15:35.357Z",
+      "lastRecalledAt": "2026-04-17T23:28:56.101Z",
+      "queryHashes": [
+        "15ed6d064e0b",
+        "fe4535d9eb0a",
+        "63c828d96f4a"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "america/sao-paulo",
+        "log",
+        "openclaw",
+        "horário",
+        "america",
+        "sao-paulo",
+        "job"
+      ]
+    },
+    "memory:memory/2026-04-11.md:1:7": {
+      "key": "memory:memory/2026-04-11.md:1:7",
+      "path": "memory/2026-04-11.md",
+      "startLine": 1,
+      "endLine": 7,
+      "source": "memory",
+      "snippet": "## 2026-04-11 22:15 - Backup de Sessões OpenClaw - **Cron job:** 4a72e14b-f00a-4fdd-962d-da1e43d49e08 - **Script:** /root/.openclaw/scripts/backup-sessions.sh - **Status:** ✅ Concluído - **Log:** [Sat Apr 11 22:15:36 -03 2026] Backup de sessões concluído",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 6,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-14T22:15:35.357Z",
+      "lastRecalledAt": "2026-04-17T23:28:56.101Z",
+      "queryHashes": [
+        "15ed6d064e0b",
+        "fe4535d9eb0a",
+        "0c1fe0b07614",
+        "63c828d96f4a",
+        "ab953f3d1ab0"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "sessões",
+        "openclaw",
+        "cron",
+        "job",
+        "4a72e14b",
+        "f00a",
+        "4fdd"
+      ]
+    },
+    "memory:memory/2026-04-05.md:1:42": {
+      "key": "memory:memory/2026-04-05.md:1:42",
+      "path": "memory/2026-04-05.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "[Sun Apr 5 02:57 -03 2026] Backup Sessions OpenClaw - OK [Sun Apr 5 02:57 -03 2026] Backup Sessions OpenClaw - OK [2026-04-05 03:00] MailBot Autonomo: 10 emails processados (7 financeiros, 3 agendamentos). Inventário: 15 emails, 4 anexos, 135.7 KB. Relatório enviado ao Supervisor. [2026-04-05 07:00] MailBot Autonomo: 10 emails processados (4 MercadoPago, 2 Nubank PJ65, 4 outros). Inventário: 19 emails, 4 anexos, 135.7 KB. Relatório atualizado em supervisor_report.json. ## [06:55] Atualização Memória 60 min - STATUS_STARK.md atualizado em /home/master/LAN/MEMORIES/ - stark_status.json atualizado em /root/.openclaw/logs/ - Log registrado em /home/master/LAN/LOGS/Stark/atualizacoes.log - Sta",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 6,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-14T22:15:35.357Z",
+      "lastRecalledAt": "2026-04-19T21:37:50.951Z",
+      "queryHashes": [
+        "15ed6d064e0b",
+        "add2f3c5e71a",
+        "d871dd754b49",
+        "6222ac346139",
+        "9985a9cd239b"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-19"
+      ],
+      "conceptTags": [
+        "backup",
+        "135.7",
+        "supervisor-report.json",
+        "status-stark.md",
+        "home/master/lan/memories",
+        "stark-status.json",
+        "openclaw/logs",
+        "sun"
+      ]
+    },
+    "memory:memory/2026-04-14.md:1:37": {
+      "key": "memory:memory/2026-04-14.md:1:37",
+      "path": "memory/2026-04-14.md",
+      "startLine": 1,
+      "endLine": 37,
+      "source": "memory",
+      "snippet": "# 2026-04-14 - Log do Dia ## Cron Job: Backup Sessions OpenClaw **Horário:** 16:15 BRT (19:15 UTC) **Comando:** `/root/.openclaw/scripts/backup-sessions.sh` **Status:** ✅ Concluído com sucesso **Output:** `[Tue Apr 14 16:16:49 -03 2026] Backup de sessões concluído` --- ## Cron Job: Backup Sessions OpenClaw **Horário:** 17:15 BRT (20:15 UTC) **Comando:** `/root/.openclaw/scripts/backup-sessions.sh` **Status:** ✅ Concluído com sucesso **Output:** `[Tue Apr 14 17:15:13 -03 2026] Backup de sessões concluído` --- ## Cron Job: Backup Sessions OpenClaw **Horário:** 19:15 BRT (22:15 UTC) **Job ID:** 4a72e14b-f00a-4fdd-962d-da1e43d49e08 **Comando:** `/root/.openclaw/scripts/backup-sessions.sh",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-14T23:15:24.801Z",
+      "lastRecalledAt": "2026-04-14T23:15:24.801Z",
+      "queryHashes": [
+        "fe4535d9eb0a"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "backup",
+        "log",
+        "dia",
+        "cron",
+        "job",
+        "openclaw",
+        "horário",
+        "brt"
+      ]
+    },
+    "memory:memory/2026-04-03.md:321:413": {
+      "key": "memory:memory/2026-04-03.md:321:413",
+      "path": "memory/2026-04-03.md",
+      "startLine": 321,
+      "endLine": 413,
+      "source": "memory",
+      "snippet": "### Estrutura para Anexos ``` Emails/ ├── Financeiro/Nubank/anexos/ ├── Financeiro/Outros/anexos/ ├── NFe/Compra/[ANO]/[EMPRESA]/[MÊS]/ └── ... ``` ### Formato de Nome ``` [DATA]_[INSTITUICAO]_[TIPO_ANEXO].[ext] ``` ### Ferramenta ```bash himalaya attachment download [ID] --dir [PASTA] ``` ### Data 2026-04-03 22:40 --- ## 22:41 BRT - CORREÇÃO ESTRUTURA (IMPORTANTÍSSIMO!) ### Estrutura que Acib especificou: #### NFe - NOTA FISCAL ELETRÔNICA ``` NFe/ ├── Compra/ │ └── [ANO]/ │ └── [EMPRESA]/ │ └── [MÊS]/ └── Emitidas/ └── [ANO]/ └── [EMPRESA]/ └── [MÊS]/ ``` #### Financeiro (hierarquia por Instituição/Ano/Mês/Dia/Tipo) ``` Financeiro/[INSTITUIÇ",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3.8199775127703006,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T10:09:52.696Z",
+      "lastRecalledAt": "2026-04-20T16:33:33.660Z",
+      "queryHashes": [
+        "68f7f805964d",
+        "dd39b9b5156b",
+        "cac69c8b40da",
+        "0932493d2562"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-17",
+        "2026-04-20"
+      ],
+      "conceptTags": [
+        "financeiro/nubank/anexos",
+        "financeiro/outros/anexos",
+        "nfe/compra",
+        "tipo-anexo",
+        "instituição/ano/mês/dia/tipo",
+        "estrutura",
+        "anexos",
+        "emails"
+      ]
+    },
+    "memory:memory/2026-04-04.md:86:128": {
+      "key": "memory:memory/2026-04-04.md:86:128",
+      "path": "memory/2026-04-04.md",
+      "startLine": 86,
+      "endLine": 128,
+      "source": "memory",
+      "snippet": "| Conta | Arquivo | Período | Transações | |-------|---------|---------|------------| | PJ 65 | 554_NU_9860801747_27FEV2026_03ABR2026.csv | 27/02/2026 a 03/04/2026 | 151 | | PJ 20 | 135_NU_118844303_01JAN2026_03ABR2026.csv | 01/01/2026 a 03/04/2026 | 173 | | PF | NOVO_PF_JAN2026.csv (adicional) | 01/01/2026 a 31/01/2026 | 56 | ## PENDENCIAS (16:49 04/04) ### 1. Desligamento PVE1 - **Status:** PENDENTE - Aguardando autorização - **Ação:** Desligar Proxmox (PVE1) - **Impacto:** Vai derrubar todos os containers (Stark, MailBot, Supervisor, etc.) - **Motivo:** Não informado ainda ### 2. Script de Consultas Nubank - **Status:** Criado no MailServer - **Local:** /home/master/consulta_nubank.sh",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T10:09:52.696Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "68f7f805964d",
+        "add2f3c5e71a",
+        "6822f2fa6f91",
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "27/02/2026",
+        "03/04/2026",
+        "01/01/2026",
+        "novo-pf-jan2026.csv",
+        "31/01/2026",
+        "04/04",
+        "home/master/consulta-nubank.sh",
+        "conta"
+      ]
+    },
+    "memory:memory/2026-04-09.md:86:145": {
+      "key": "memory:memory/2026-04-09.md:86:145",
+      "path": "memory/2026-04-09.md",
+      "startLine": 86,
+      "endLine": 145,
+      "source": "memory",
+      "snippet": "- **Economia cliente:** R$ 300,00 (19%) **Recomendação:** Manter orçamento. Se cliente negociar, possível baixar para R$ 1.200-1.250. --- --- ## 🤖 OPENCLAW UPDATE **Data:** 09/04/2026 **Versão Anterior:** 2026.4.2 (d74a122) **Versão Atual:** 2026.4.9 (0512059) **Comando:** `npm install -g openclaw@2026.4.9` **Status:** ✅ Instalado com sucesso --- ## 🚀 NOVOS PROJETOS INICIADOS ### **PROJETO 1: PLATAFORMA DE IA PARA E-MAILS** **Data:** 09/04/2026 23:18 **Status:** 📋 Planejamento Inicial **Prioridade:** ALTA **Visão:** ``` SaaS para pequenas/médias empresas gerenciarem e-mails automaticamente com IA: • Triagem automática • Respostas inteligentes • Workflows personalizáv",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T16:52:41.058Z",
+      "lastRecalledAt": "2026-04-15T16:52:41.058Z",
+      "queryHashes": [
+        "add2f3c5e71a"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "1.200-1.250",
+        "09/04/2026",
+        "2026.4.2",
+        "2026.4.9",
+        "e-mails",
+        "pequenas/médias",
+        "economia",
+        "cliente"
+      ]
+    },
+    "memory:memory/2026-04-03.md:1:46": {
+      "key": "memory:memory/2026-04-03.md:1:46",
+      "path": "memory/2026-04-03.md",
+      "startLine": 1,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "# 2026-04-03 - Registro do Dia ## Problema: Perda de Sessões - Um dia inteiro de conversas foi perdido (02/04) - Motivo: sessões não persistem entre reinicializações - O pendrive está montado como `ro` (read-only) ## Ações Tomadas 1. Criado script de backup: `/root/.openclaw/scripts/backup-sessions.sh` 2. Backup inicial salvo em: `/root/.openclaw/backups/sessions/` 3. Cron job criado (ID: `4a72e14b-f00a-4fdd-962d-da1e43d49e08`) - roda a cada 60 min 4. MEMORY.md atualizado com o novo protocolo ## Pendrive - `/mnt/meu-pendrive` está como `ro` (read-only) - Não é possível salvar backups diretamente no pendrive - Solução: backup local em `/root/.openclaw/backups/` ## Pendências - Verificar p",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T17:31:46.906Z",
+      "lastRecalledAt": "2026-04-16T01:23:36.947Z",
+      "queryHashes": [
+        "0c1fe0b07614",
+        "ab953f3d1ab0"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "backup",
+        "backups",
+        "02/04",
+        "read-only",
+        "openclaw/backups/sessions",
+        "memory.md",
+        "mnt/meu-pendrive",
+        "openclaw/backups"
+      ]
+    },
+    "memory:memory/2026-04-15.md:1:14": {
+      "key": "memory:memory/2026-04-15.md:1:14",
+      "path": "memory/2026-04-15.md",
+      "startLine": 1,
+      "endLine": 14,
+      "source": "memory",
+      "snippet": "# 2026-04-15 - Quarta-feira ## Cron Jobs Executados ### 14:16 - Backup Sessions OpenClaw - **Job ID:** 4a72e14b-f00a-4fdd-962d-da1e43d49e08 - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Output:** `[Wed Apr 15 14:16:52 -03 2026] Backup de sessões concluído` --- *Log gerado automaticamente pelo sistema de cron do OpenClaw*",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T17:31:46.906Z",
+      "lastRecalledAt": "2026-04-15T21:02:20.783Z",
+      "queryHashes": [
+        "0c1fe0b07614",
+        "63c828d96f4a"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "backup",
+        "quarta-feira",
+        "quarta",
+        "feira",
+        "cron",
+        "jobs",
+        "executados",
+        "openclaw"
+      ]
+    },
+    "memory:memory/2026-04-06.md:1:41": {
+      "key": "memory:memory/2026-04-06.md:1:41",
+      "path": "memory/2026-04-06.md",
+      "startLine": 1,
+      "endLine": 41,
+      "source": "memory",
+      "snippet": "# 2026-04-06 - Diário de Bordo ## 00:03 - Heartbeat Noturno - Sistema operando normalmente - Thin Pool: 16% (baixo, saudável) - Revisão de status não detectou alertas pendentes - Próximo ciclo: ~00:33 [2026-04-06 02:00] MailBot Autonomo: ✅ Sucesso | 10 emails processados | 23 inventory | 4 anexos [02:15] Backup de sessões OpenClaw concluído ## 05:15 - Backup Sessions (Cron) - Script `/root/.openclaw/scripts/backup-sessions.sh` executado com sucesso via cron ## 10:15 UTC - Backup Sessions (Cron) - Backup de sessões OpenClaw concluído com sucesso [2026-04-06 09:02] MailBot Autonomo: executado com sucesso. 10 emails processados (MercadoPago: 3, Nubank: 2, Outros: 5). Inventário: 23 emails, 4",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T17:31:46.906Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "0c1fe0b07614",
+        "ab953f3d1ab0",
+        "dd39b9b5156b",
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "diário",
+        "bordo",
+        "heartbeat",
+        "noturno",
+        "sistema",
+        "operando",
+        "normalmente"
+      ]
+    },
+    "memory:memory/2026-04-12.md:1:47": {
+      "key": "memory:memory/2026-04-12.md:1:47",
+      "path": "memory/2026-04-12.md",
+      "startLine": 1,
+      "endLine": 47,
+      "source": "memory",
+      "snippet": "[Sun Apr 12 03:15:36 -03 2026] Backup de sessões concluído [Sun Apr 12 04:15:38 -03 2026] Backup de sessões concluído (cron:4a72e14b) [Sun Apr 12 06:16:42 -03 2026] Backup de sessões concluído [Sun Apr 12 07:15:13 -03 2026] Backup de sessões concluído [Sun Apr 12 08:15:13 -03 2026] Backup de sessões concluído (cron:4a72e14b) [Sun Apr 12 17:15:39 -03 2026] Backup de sessões concluído (cron:4a72e14b) --- ## 📱 INVESTIGAÇÃO SMS - SKILL REMOVIDA (14:28) **Skill antiga:** `teltel-send-sms-text-message` **Status:** ❌ REMOVIDA do ClawHub em Fev 2026 **Motivo:** \"False positive suspicious flagging\" (Issue #314 GitHub) **API:** api.teltel.io (provavelmente inativa) **Conclusão:** Não tem como rein",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-15T17:31:46.906Z",
+      "lastRecalledAt": "2026-04-18T00:47:17.481Z",
+      "queryHashes": [
+        "0c1fe0b07614",
+        "aa8079dc8718",
+        "dd39b9b5156b",
+        "cac69c8b40da",
+        "f2d8bf70da8e"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "teltel-send-sms-text-message",
+        "api.teltel.io",
+        "sun",
+        "apr",
+        "sessões",
+        "concluído",
+        "cron"
+      ]
+    },
+    "memory:memory/2026-04-15.md:43:65": {
+      "key": "memory:memory/2026-04-15.md:43:65",
+      "path": "memory/2026-04-15.md",
+      "startLine": 43,
+      "endLine": 65,
+      "source": "memory",
+      "snippet": "- 📅 Alertas/Eventos: 2 emails ### 20:18 - Backup Automático (Cron) - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Timestamp:** 2026-04-15_20-18 - **Destino:** `/root/.openclaw/backups/sessions/` - **Retenção:** Últimos 10 backups mantidos --- ### 22:18 - Backup Automático (Cron) - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Timestamp:** 2026-04-15_22-18 - **Destino:** `/root/.openclaw/backups/sessions/` - **Retenção:** Últimos 10 backups mantidos --- ## Notas do Dia *Gerado automaticamente pelo sistema de cron*",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-16T01:23:36.947Z",
+      "lastRecalledAt": "2026-04-16T01:23:36.947Z",
+      "queryHashes": [
+        "ab953f3d1ab0"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "backup",
+        "backups",
+        "alertas/eventos",
+        "2026-04-15-20-18",
+        "openclaw/backups/sessions",
+        "2026-04-15-22-18",
+        "alertas",
+        "eventos"
+      ]
+    },
+    "memory:memory/2026-04-15.md:1:54": {
+      "key": "memory:memory/2026-04-15.md:1:54",
+      "path": "memory/2026-04-15.md",
+      "startLine": 1,
+      "endLine": 54,
+      "source": "memory",
+      "snippet": "# Log do Dia - 2026-04-15 ## Backups de Sessões OpenClaw ### 18:18 - Backup Automático (Cron) - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Timestamp:** 2026-04-15_18-18 - **Destino:** `/root/.openclaw/backups/sessions/` - **Retenção:** Últimos 10 backups mantidos ### 19:18 - Backup Automático (Cron) - **Script:** `/root/.openclaw/scripts/backup-sessions.sh` - **Status:** ✅ Concluído com sucesso - **Timestamp:** 2026-04-15_19-18 - **Destino:** `/root/.openclaw/backups/sessions/` - **Retenção:** Últimos 10 backups mantidos --- ## Execução MailBot Autônomo - 20:01 ### Execução do Script - **Script:** `/root/.openclaw/scripts/mailbot.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-16T01:23:36.947Z",
+      "lastRecalledAt": "2026-04-16T01:23:36.947Z",
+      "queryHashes": [
+        "ab953f3d1ab0"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "backup",
+        "backups",
+        "2026-04-15-18-18",
+        "openclaw/backups/sessions",
+        "2026-04-15-19-18",
+        "openclaw/scripts/mailbot",
+        "log",
+        "dia"
+      ]
+    },
+    "memory:memory/2026-04-04.md:162:196": {
+      "key": "memory:memory/2026-04-04.md:162:196",
+      "path": "memory/2026-04-04.md",
+      "startLine": 162,
+      "endLine": 196,
+      "source": "memory",
+      "snippet": "## AÇÕES IMPORTANTES (23:37) ### Desligamento PVE1: - **Status:** ✅ EXECUTADO - Acib confirmou com \"SIM\" - PVE1 desligado às 23:38 aproximadamente ### Supervisor - IGNORAR: - Acib pediu para NÃO notificar sobre: - Agente Seguranca (CT 106) - Agente OfficeBoy (CT 105) - atualizar HEARTBEAT.md ### FTP para Servmil (PENDENTE): - Acib quer criar servidor FTP para receber impressões de saneamento - Cliente: Servmil (principal) - Detalhes pendentes --- ## NOVAS TAREFAS (23:38) 1. **Levar 1_UNIDADE de imagem de impressora para Servmil** (pendente) 2. **Cadastrar mais clientes e fornecedores** conforme transações 3. **Sistema FTP** para Servmil (pendente detalhes) --- ## MEMÓRIA COMPARTI",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T18:21:21.048Z",
+      "lastRecalledAt": "2026-04-19T21:37:44.740Z",
+      "queryHashes": [
+        "6822f2fa6f91",
+        "6222ac346139",
+        "cac69c8b40da",
+        "e853a80cd79c"
+      ],
+      "recallDays": [
+        "2026-04-17",
+        "2026-04-19"
+      ],
+      "conceptTags": [
+        "heartbeat.md",
+        "1-unidade",
+        "ações",
+        "importantes",
+        "desligamento",
+        "pve1",
+        "status",
+        "executado"
+      ]
+    },
+    "memory:memory/2026-04-08.md:116:144": {
+      "key": "memory:memory/2026-04-08.md:116:144",
+      "path": "memory/2026-04-08.md",
+      "startLine": 116,
+      "endLine": 144,
+      "source": "memory",
+      "snippet": "- [ ] Isolar cabeamento do rack (estética) - [ ] Elevar altura do rack --- ## 💡 OBSERVAÇÕES IMPORTANTES 1. **Nobreak:** 29 minutos de autonomia é BAIXO. Risco de equipamentos desligarem em queda de energia. Recomendar troca de bateria. 2. **Estoque:** Servmil bem suprida com 112k impressões totais. Tambor (12k) será o primeiro a exigir atenção. 3. **Controle Estatístico:** Iniciar registro do contador da impressora hoje para calcular consumo mensal e prever trocas futuras. 4. **Segurança:** Isolar bateria do rack é PRIORIDADE MÁXIMA - risco de curto-circuito e danos aos equipamentos. --- ## 📁 ARQUIVOS ATUALIZADOS - `/home/master/LAN/MEMORIES/Clientes/SERVI_MIL.json` - Equipamentos",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T18:21:21.048Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "6822f2fa6f91",
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "curto-circuito",
+        "isolar",
+        "cabeamento",
+        "rack",
+        "estética",
+        "elevar",
+        "altura",
+        "observações"
+      ]
+    },
+    "memory:memory/2026-04-03.md:186:272": {
+      "key": "memory:memory/2026-04-03.md:186:272",
+      "path": "memory/2026-04-03.md",
+      "startLine": 186,
+      "endLine": 272,
+      "source": "memory",
+      "snippet": "OfficeBoy/Emails/ ├── Financeiro/ (Nubank, MercadoPago, Outros) ├── Reunioes/ (Convocacoes, Atas) ├── Alertas/ (Sistemas, Seguranca, Vencimentos) ├── Compromissos/ (Agenda, Calendario) ├── Orcamentos/ (Recebidos, Enviados, Aprovados) ├── Prefeitura/ (Licitacoes, NotasFiscais, Alvaras, Fiscalizacao) └── Outros/ ``` ### Fluxo MailBot → OfficeBoy → salva emails categorizados → outros agentes acessam quando necessário ### Vorcaro Acessa Financeiro para processar e analisar ### Data 2026-04-03 21:44 --- ## 21:47 BRT - Estrutura Final Definitiva ### Pasta Raiz (TODOS) ``` \\\\192.168.0.72\\LAN\\Stark_Output\\ ``` ### Estrutura ``` Stark_Output/ ├── Emails/ # TODOS acessam │",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T18:21:21.048Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "6822f2fa6f91",
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "officeboy/emails",
+        "192.168.0.72",
+        "stark-output",
+        "officeboy",
+        "emails",
+        "financeiro",
+        "nubank",
+        "mercadopago"
+      ]
+    },
+    "memory:memory/2026-04-03.md:117:196": {
+      "key": "memory:memory/2026-04-03.md:117:196",
+      "path": "memory/2026-04-03.md",
+      "startLine": 117,
+      "endLine": 196,
+      "source": "memory",
+      "snippet": "- Fazer backup em `/home/master/LAN/Stark_Output/Backups/` --- ## 21:34 BRT - OfficeBoy Configuração ### Estrutura de Emails ``` Stark_Output/OfficeBoy/Emails/ ├── Nubank/Conta1/Conta2/ ├── MercadoPago/NF-e/Comprovantes/Extratos/ ├── Fornecedores/XMLs/ └── Movimentacoes/ ``` ### Contas Fixas a Cadastrar - EDP Bandeirantes (energia) - Fibra VIvo, Internet Movel Vivo, Fibra Netjacarei ### Provedor OfficeBoy (CT 105) - está OFFLINE, precisa reinstall --- ## 21:35 BRT - LEMBRETE IMPORTANTE ### Local OBRIGATÓRIO para TUDO: ``` \\\\192.168.0.72\\LAN\\Stark_Output\\ ``` ### Qualquer estrutura de pasta criada deve começar em: - `Stark_Output/` como raiz - Exemplos: - `Stark_Output/OfficeBoy/..",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T18:21:21.048Z",
+      "lastRecalledAt": "2026-04-20T16:32:13.656Z",
+      "queryHashes": [
+        "6822f2fa6f91",
+        "cac69c8b40da",
+        "347a7f124a97"
+      ],
+      "recallDays": [
+        "2026-04-17",
+        "2026-04-20"
+      ],
+      "conceptTags": [
+        "backup",
+        "backups",
+        "stark-output/officeboy/emails",
+        "nubank/conta1/conta2",
+        "fornecedores/xmls",
+        "192.168.0.72",
+        "stark-output",
+        "stark-output/officeboy"
+      ]
+    },
+    "memory:memory/2026-04-03.md:247:344": {
+      "key": "memory:memory/2026-04-03.md:247:344",
+      "path": "memory/2026-04-03.md",
+      "startLine": 247,
+      "endLine": 344,
+      "source": "memory",
+      "snippet": "## 21:55 BRT - Estrutura NF-e ### Hierarquia ``` NFe/[ANO]/[EMPRESA]/[MÊS]/XML|PDF ``` ### Exemplo ``` NFe/2026/Shopee/Abril/XML/ NFe/2026/MercadoPago/Abril/PDF/ ``` ### Local `Stark_Output/Emails/NFe/` ### Data 2026-04-03 21:55 --- ## 21:58 BRT - REGRAS DE ORGANIZAÇÃO DE EMAILS (PERMANENTE) ### Pasta Raiz ``` \\\\192.168.0.72\\LAN\\Stark_Output\\ ``` ### Estrutura de Emails ``` Stark_Output/Emails/ ├── Financeiro/ │ ├── Nubank/ │ └── MercadoPago/ ├── Reunioes/ ├── Alertas/ ├── Compromissos/ ├── Orcamentos/ ├── Prefeitura/ ├── NFe/ │ ├── Compra/ │ │ └── [ANO]/ │ │ └── [EMPRESA]/ │ │ └── [MÊS]/ │ └── Emitidas/ │ └── [ANO]/ │ └── [EMPRESA]/ │",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T18:21:21.048Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "6822f2fa6f91",
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "nf-e",
+        "nfe/2026/shopee/abril/xml",
+        "nfe/2026/mercadopago/abril/pdf",
+        "stark-output/emails/nfe",
+        "192.168.0.72",
+        "stark-output",
+        "stark-output/emails",
+        "brt"
+      ]
+    },
+    "memory:memory/2026-04-13.md:1:20": {
+      "key": "memory:memory/2026-04-13.md:1:20",
+      "path": "memory/2026-04-13.md",
+      "startLine": 1,
+      "endLine": 20,
+      "source": "memory",
+      "snippet": "--- ## ✅ SERVMIL - NOTEBOOK BRYAN - ENTREGUE (2026-04-13) **Data:** 13/04/2026 (ontem) **Cliente:** SERVMIL **Contato:** Bryan **Serviço:** Entrega de notebook Dell **Valor:** R$ 1.450,00 **Status:** ✅ **CONCLUÍDO** **Observações:** - Notebook Dell entregue ao Bryan - Valor: R$ 1.450,00 - Cliente SERVMIL (melhor cliente) ---",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.807197848516994,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T18:21:50.255Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "dd39b9b5156b",
+        "cac69c8b40da",
+        "b5a86307359a"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "13/04/2026",
+        "1.450",
+        "servmil",
+        "notebook",
+        "bryan",
+        "entregue",
+        "data",
+        "ontem"
+      ]
+    },
+    "memory:memory/2026-04-04.md:45:93": {
+      "key": "memory:memory/2026-04-04.md:45:93",
+      "path": "memory/2026-04-04.md",
+      "startLine": 45,
+      "endLine": 93,
+      "source": "memory",
+      "snippet": "### Estrutura de Dados - Transações Campos completos por transação (ver arquivo: memory/NUBANK_ARQUITETURA.md) ### Fluxo: 1. MailBot detecta email do Nubank 2. Extrai todos os dados da transação 3. Salva em /home/master/LAN/Emails/Processado/Financeiro/Nubank/Transacoes/ 4. Categoriza automaticamente 5. Gera resumos ### Categorias de Transações: - PIX_ENTRADA / PIX_SAIDA - TED_ENTRADA / TED_SAIDA - DOC_ENTRADA / DOC_SAIDA - DEBITO_CARTAO / CREDITO_CARTAO - BOLETO - PAGAMENTO_TED - RECEITA / DESPESA - TRANSFERENCIA - ESTORNO - JUROS / MULTA - INVESTIMENTO (Caixinha) ## ⚠️ CONTAS NUBANK - CORREÇÃO PENDENTE (14:16) ### Identificadores das 3 Contas: | ID | CNPJ/CPF | Conta | Nome | Tipo | |",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T22:36:41.703Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "memory/nubank-arquitetura.md",
+        "pix-entrada",
+        "pix-saida",
+        "ted-entrada",
+        "ted-saida",
+        "doc-entrada",
+        "doc-saida",
+        "debito-cartao"
+      ]
+    },
+    "memory:memory/2026-03-24.md:1:64": {
+      "key": "memory:memory/2026-03-24.md:1:64",
+      "path": "memory/2026-03-24.md",
+      "startLine": 1,
+      "endLine": 64,
+      "source": "memory",
+      "snippet": "# 24/03/2026 - Registro Completo do Sistema --- ## 📅 CONTEXTO DA CONVERSA **Data:** 24/03/2026 **Início:** ~11:00 (horário Brasília) **Usuário:** Acib ABBADE (Telegram: Acib_Abbade, ID: 1866226415) **Objetivo:** Configurar sistema para rodar apenas modelos de IA locais, sem API externa --- ## 💻 HARDWARE DO SISTEMA ### CPU - **Modelo:** AMD Ryzen 5 5600X - **Núcleos:** 6 - **Threads:** 12 - **Frequência:** Escala dinâmica (67% no momento) - **NUMA:** 1 nó (0-11) ### Memória RAM - **Total:** 30 GB - **Em uso:** ~12 GB - **Livre:** ~2.6 GB - **Compartilhada:** 89 MB - **Cache/Buffer:** 15 GB - **Disponível:** 17 GB - **Swap:** 8 GB (não utilizado) ### GPU (Placa de Vídeo) - **Modelo:*",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T22:36:41.703Z",
+      "lastRecalledAt": "2026-04-17T22:36:41.703Z",
+      "queryHashes": [
+        "6222ac346139"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "24/03/2026",
+        "acib-abbade",
+        "0-11",
+        "2.6",
+        "cache/buffer",
+        "registro",
+        "completo",
+        "sistema"
+      ]
+    },
+    "memory:memory/2026-04-17.md:1:42": {
+      "key": "memory:memory/2026-04-17.md:1:42",
+      "path": "memory/2026-04-17.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "# Log - 2026-04-17 ## 🕒 19:00 - Cron: MailBot Autônomo **Job ID:** 2203a56f-bfd2-4040-8149-ba7be9e1931d **Execução:** /root/.openclaw/scripts/mailbot.py - **Status:** ✅ SUCESSO - **Duração:** ~42 segundos - **Exit Code:** 0 **Resultados:** - Total de emails na caixa: 639 - Emails processados: 10 - Contas analisadas: - Nubank/PJ_65.384.056: 9 emails - Outros: 1 email **Inventário Gerado:** - 188 emails indexados - 3 anexos encontrados - 166.4 KB de dados **Ações:** - ✅ Log registrado: `/root/.openclaw/logs/mailbot_cron_2026-04-17_2200.json` - ✅ Relatório enviado ao Supervisor: `/root/.openclaw/logs/supervisor_report.json` **Observações:** - Foco em transferências e recebimentos Nu",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T23:28:56.101Z",
+      "lastRecalledAt": "2026-04-17T23:28:56.101Z",
+      "queryHashes": [
+        "15ed6d064e0b"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "openclaw/scripts/mailbot.py",
+        "nubank/pj-65.384.056",
+        "166.4",
+        "log",
+        "cron",
+        "mailbot",
+        "autônomo",
+        "job"
+      ]
+    },
+    "memory:memory/2026-04-15.md:1:25": {
+      "key": "memory:memory/2026-04-15.md:1:25",
+      "path": "memory/2026-04-15.md",
+      "startLine": 1,
+      "endLine": 25,
+      "source": "memory",
+      "snippet": "# 2026-04-15 - Log de Atividades ## 23:00 - MailBot Autônomo (Cron Task) **Task ID:** `2203a56f-bfd2-4040-8149-ba7be9e1931d` - Executado script: `/root/.openclaw/scripts/mailbot.py` - Status: ✅ Sucesso - Duração: ~39 segundos - Emails processados: 10 - MercadoPago/Principal: 1 - Nubank/PJ_65.384.056: 5 - Outros: 4 - Inventário gerado: 167 emails, 3 anexos, 166.4 KB - Relatório Supervisor: `/root/.openclaw/logs/supervisor_report.json` ## 23:18 - Backup Sessions OpenClaw (Cron Task) **Task ID:** `4a72e14b-f00a-4fdd-962d-da1e43d49e08` - Script executado: `/root/.openclaw/scripts/backup-sessions.sh` - Status: ✅ Sucesso - Mensagem: `Backup de sessões concluído`",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-17T23:28:56.101Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "15ed6d064e0b",
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "openclaw/scripts/mailbot.py",
+        "mercadopago/principal",
+        "nubank/pj-65.384.056",
+        "166.4",
+        "log",
+        "atividades",
+        "mailbot"
+      ]
+    },
+    "memory:memory/2026-04-16.md:1:12": {
+      "key": "memory:memory/2026-04-16.md:1:12",
+      "path": "memory/2026-04-16.md",
+      "startLine": 1,
+      "endLine": 12,
+      "source": "memory",
+      "snippet": "# 2026-04-16 - Registro de Atividades ## Backup de Sessões OpenClaw **Horário:** 22:23 (BRT) / 01:23 UTC **Job ID:** 4a72e14b-f00a-4fdd-962d-da1e43d49e08 **Script:** /root/.openclaw/scripts/backup-sessions.sh **Status:** ✅ Concluído --- *Auto-registro gerado pelo sistema cron*",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-18T00:27:45.862Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "auto-registro",
+        "registro",
+        "atividades",
+        "sessões",
+        "openclaw",
+        "horário",
+        "brt"
+      ]
+    },
+    "memory:memory/2026-04-03.md:394:428": {
+      "key": "memory:memory/2026-04-03.md:394:428",
+      "path": "memory/2026-04-03.md",
+      "startLine": 394,
+      "endLine": 428,
+      "source": "memory",
+      "snippet": "| PJ 2 | 20.153.208/0001-58 | | PF | 307.572.858-64 | ### Estrutura Financeiro: ``` Financeiro/Nubank/ ├── 65.384.056-0001-32/ (PJ Principal) ├── 20.153.208-0001-58/ (PJ 2) └── 307.572.858-64/ (PF) └── [ANO]/[MÊS]/[DIA]/[TIPO]/ ``` ### Data 2026-04-03 22:50 --- ## 22:54 BRT - REGRA: SEMPRE BAIXAR ANEXOS ### Regra OBRIGATÓRIA SEMPRE que um email tiver anexo (qualquer tipo), BAIXAR e salvar na pasta correta. ### Como identificar anexos: - No corpo do email: \"Este e-mail contém arquivos anexados\" - Tipos: PDF, XML, CSV, etc ### Salvar em: ``` Financeiro/[INSTITUIÇÃO]/[CONTA]/[ANO]/[MÊS]/[DIA]/Comprovantes/ ``` ### Data 2026-04-03 22:54 [2026-04-04 02:57 UTC] Backup de sessões",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8077797723228837,
+      "maxScore": 0.8077797723228837,
+      "firstRecalledAt": "2026-04-18T00:27:45.862Z",
+      "lastRecalledAt": "2026-04-18T00:27:45.862Z",
+      "queryHashes": [
+        "cac69c8b40da"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "backup",
+        "20.153.208/0001-58",
+        "307.572.858-64",
+        "financeiro/nubank",
+        "65.384.056-0001-32",
+        "20.153.208-0001-58",
+        "e-mail",
+        "20.153.208"
+      ]
+    },
+    "memory:memory/2026-04-19.md:34:81": {
+      "key": "memory:memory/2026-04-19.md:34:81",
+      "path": "memory/2026-04-19.md",
+      "startLine": 34,
+      "endLine": 81,
+      "source": "memory",
+      "snippet": "- Funções de ativação: ReLU, Sigmoid, Tanh - Processo: Forward → Erro → Backpropagation - Aplicações: regressão, classificação, NLP ### 6. Notícias - Invasões Hackers Governo BR - Pesquisa sobre ataques recentes (Operação Real State, INSS, BTG) - Ataques triplicaram em 2026 - Gov.br comprometido, procurações falsas ### 7. Notebook Dell Latitude 5420 - Discussão sobre reset de BIOS - Métodos: via software, jumper, ou código de bypass ### 8. Commits Realizados Hoje - feat: Notebook do Google Colab - simplify: Projeto reduzido ao mínimo - style: Humanizando mensagens - refactor: Código mais limpo - chore: Simplificando requirements --- ## Arquivos Criados/Modificados 1. `/home/master/LA",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-19T23:39:12.374Z",
+      "lastRecalledAt": "2026-04-19T23:39:12.374Z",
+      "queryHashes": [
+        "828a672c1f89"
+      ],
+      "recallDays": [
+        "2026-04-19"
+      ],
+      "conceptTags": [
+        "gov.br",
+        "criados/modificados",
+        "home/master/la",
+        "funções",
+        "ativação",
+        "relu",
+        "sigmoid",
+        "tanh"
+      ]
+    },
+    "memory:memory/2026-04-19.md:1:43": {
+      "key": "memory:memory/2026-04-19.md:1:43",
+      "path": "memory/2026-04-19.md",
+      "startLine": 1,
+      "endLine": 43,
+      "source": "memory",
+      "snippet": "# Log do Dia - 2026-04-19 ## Resumo da Conversa com Acib ### 1. Problema das Memórias Perdidas - Discussão sobre perda de ~25 dias de conversas devido a sobrescrição por cron jobs - Decisão: Criar sistema de backup robusto em /home/master/LAN/MEMORIES/STARK-KNOWLEDGE/ - Estrutura criada: RESCUE, INSTRUCTIONS, EVOLUTION, BACKUP-DAILY ### 2. Preferências de Comunicação (IMPORTANTE) - Usuário solicitou: escrever SEMPRE como humano - Códigos menos robotizados - Emojis: máximo 10% (uso sutil) - Linguagem natural e fluída - **ARMAZENAR PERMANENTEMENTE** ### 3. Projeto DIO - Assistente de Voz Criado repositório GitHub completo: - **URL:** https://github.com/acibabbadecastro/dio-voice-assistant",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-19T23:39:12.374Z",
+      "lastRecalledAt": "2026-04-19T23:39:12.374Z",
+      "queryHashes": [
+        "828a672c1f89"
+      ],
+      "recallDays": [
+        "2026-04-19"
+      ],
+      "conceptTags": [
+        "backup",
+        "backup-daily",
+        "log",
+        "dia",
+        "resumo",
+        "conversa",
+        "com",
+        "acib"
+      ]
+    }
+  }
+}

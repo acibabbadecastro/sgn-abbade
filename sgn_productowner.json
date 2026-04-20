@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "projeto": "SGN - Sistema de Gerenciamento de Negócios",
+    "versao": "1.0",
+    "owner": "Acib ABBADE",
+    "ultima_atualizacao": "2026-04-07T15:35:00-03:00",
+    "updated_by": "cron",
+    "status_geral": "PARCIALMENTE_FUNCIONAL"
+  },
+  "infraestrutura": {
+    "container_web": {
+      "ct_id": 104,
+      "ip": "192.168.0.99",
+      "hostname": "Vorcaro",
+      "funcao": "Apache/PHP",
+      "status": "ONLINE"
+    },
+    "container_banco": {
+      "ct_id": 103,
+      "ip": "192.168.0.109",
+      "hostname": "Supervisor",
+      "funcao": "PostgreSQL",
+      "banco": "sgn",
+      "porta": 5432,
+      "usuario": "acib",
+      "status": "ONLINE"
+    },
+    "datasvr": {
+      "ct_id": 102,
+      "ip": "192.168.0.72",
+      "hostname": "DATASVR",
+      "funcao": "Armazenamento/Samba",
+      "share_windows": "\\\\192.168.0.72\\LAN\\",
+      "path_local": "/home/master/LAN/",
+      "status": "ONLINE"
+    },
+    "github": {
+      "url": "https://github.com/acibabbadecastro/sgn-abbade.git",
+      "branch": "master",
+      "ultimo_push": "2026-04-05 19:14"
+    }
+  },
+  "urls": {
+    "sgn_principal": "http://192.168.0.99",
+    "admin_bd": "http://192.168.0.99/admin_bd.php",
+    "dashboard": "http://192.168.0.99/dashboard.php",
+    "admin_view": "http://192.168.0.99/admin_view.php",
+    "design_backup_local": "/tmp/sgn_index_novo.php",
+    "design_backup_rede": "\\\\192.168.0.72\\LAN\\Acib\\sgn_index_novo.php"
+  },
+  "design_sistema": {
+    "status": "ATIVO_EM_USO",
+    "paleta_cores": {
+      "fundo_principal": "#f5f0e6",
+      "sidebar_fundo": "#2d4a2d",
+      "sidebar_gradiente": "#2d4a2d → #1e3a1e",
+      "verde_texto_claro": "#d4e8d4",
+      "texto_escuro": "#3d3d3d",
+      "bordas": "#e8e0d0",
+      "vermelho_logout": "rgba(180, 80, 80)"
+    },
+    "layout": {
+      "sidebar": "Fixa à esquerda (260px)",
+      "main_content": "Fundo creme",
+      "menu": "Botões verticais",
+      "cards": "Sem valores (só ícones e labels)"
+    },
+    "arquivo_producao": "/var/www/html/index.php no CT 104"
+  },
+  "database": {
+    "host": "192.168.0.109",
+    "porta": 5432,
+    "nome": "sgn",
+    "usuario": "acib",
+    "empresa_proprietaria": {
+      "cnpj": "65.384.056/0001-32",
+      "nome": "ACIB ABBADE DE CASTRO"
+    },
+    "schemas": {
+      "estoque": {
+        "tabelas": ["categorias", "produtos", "atributos", "atributos_produto"],
+        "status": "FUNCIONANDO"
+      },
+      "clientes": {
+        "tabelas": ["clientes", "aparelhos"],
+        "status": "FUNCIONANDO"
+      },
+      "os": {
+        "tabelas": ["ordens_servico", "servicos_os", "pecas_os", "forma_pagamento"],
+        "status": "FUNCIONANDO"
+      },
+      "financeiro": {
+        "tabelas": ["contas", "movimentacoes", "categorias", "contas_bancarias", "fornecedores_clientes"],
+        "status": "FUNCIONANDO",
+        "integracao_nubank": "ATIVA"
+      },
+      "fornecedores": {
+        "tabelas": ["fornecedores", "compras"],
+        "status": "FUNCIONANDO"
+      },
+      "garantia": {
+        "tabelas": ["garantias"],
+        "status": "FUNCIONANDO"
+      },
+      "agenda": {
+        "tabelas": ["eventos"],
+        "status": "FUNCIONANDO"
+      }
+    }
+  },
+  "modulos": [
+    {
+      "nome": "Dashboard",
+      "status": "FUNCIONANDO",
+      "prioridade": "ALTA",
+      "url": "http://192.168.0.99/dashboard.php"
+    },
+    {
+      "nome": "Admin BD",
+      "status": "FUNCIONANDO",
+      "prioridade": "ALTA",
+      "url": "http://192.168.0.99/admin_bd.php",
+      "descricao": "Visualização de schemas e tabelas"
+    },
+    {
+      "nome": "Estoque",
+      "status": "FUNCIONANDO",
+      "prioridade": "ALTA",
+      "submodulos": ["Categorias", "Produtos", "Atributos"]
+    },
+    {
+      "nome": "Clientes",
+      "status": "FUNCIONANDO",
+      "prioridade": "ALTA",
+      "submodulos": ["Cadastro", "Aparelhos"]
+    },
+    {
+      "nome": "Ordens de Serviço (OS)",
+      "status": "FUNCIONANDO",
+      "prioridade": "ALTA",
+      "submodulos": ["OS", "Serviços", "Peças", "Pagamento"]
+    },
+    {
+      "nome": "Financeiro",
+      "status": "FUNCIONANDO",
+      "prioridade": "ALTA",
+      "integracao_nubank": "ATIVA",
+      "contas_monitoradas": ["PJ65", "PJ20", "PF"],
+      "submodulos": ["Contas", "Movimentações", "Categorias", "Fornecedores/Clientes"]
+    },
+    {
+      "nome": "Fornecedores",
+      "status": "FUNCIONANDO",
+      "prioridade": "MEDIA",
+      "submodulos": ["Cadastro", "Compras"]
+    },
+    {
+      "nome": "Garantia",
+      "status": "FUNCIONANDO",
+      "prioridade": "MEDIA",
+      "submodulos": ["Controle de Garantias"]
+    },
+    {
+      "nome": "Agenda",
+      "status": "FUNCIONANDO",
+      "prioridade": "MEDIA",
+      "submodulos": ["Eventos"]
+    },
+    {
+      "nome": "PDV",
+      "status": "PENDENTE",
+      "prioridade": "ALTA",
+      "observacao": "Módulo de ponto de venda ainda não implementado"
+    },
+    {
+      "nome": "Vendas",
+      "status": "PENDENTE",
+      "prioridade": "ALTA",
+      "observacao": "Módulo de gestão de vendas ainda não implementado"
+    },
+    {
+      "nome": "Alertas Email",
+      "status": "COM_ERRO",
+      "prioridade": "MEDIA",
+      "observacao": "alertas_email.php precisa de correção"
+    }
+  ],
+  "pendencias": {
+    "criticas": [
+      {
+        "id": "PDV-001",
+        "descricao": "Implementar módulo PDV",
+        "prioridade": "ALTA",
+        "status": "NAO_INICIADO"
+      },
+      {
+        "id": "VENDAS-001",
+        "descricao": "Implementar módulo Vendas",
+        "prioridade": "ALTA",
+        "status": "NAO_INICIADO"
+      },
+      {
+        "id": "FIX-001",
+        "descricao": "Corrigir alertas_email.php",
+        "prioridade": "MEDIA",
+        "status": "PENDENTE"
+      }
+    ],
+    "importantes": [
+      {
+        "id": "TABELA-001",
+        "descricao": "Criar tabela produtos-fornecedores (integração estoque ↔ fornecedores)",
+        "data": "2026-04-07",
+        "status": "AGUARDANDO_REQUISITOS",
+        "nota": "Definir campos: preço, código fornecedor, lead time, etc."
+      },
+      {
+        "id": "BACKUP-001",
+        "descricao": "Implementar sistema de backup de segurança (antes de expor online)",
+        "prioridade": "ALTA",
+        "status": "NAO_INICIADO",
+        "componentes": [
+          "Backup automatizado diário PostgreSQL",
+          "Backup arquivos SGN",
+          "Storage offsite (DATASVR + nuvem)",
+          "Testes de restauração"
+        ],
+        "bloqueia": "LOJA_VIRTUAL"
+      },
+      {
+        "id": "LOJA-001",
+        "descricao": "Loja virtual com domínio próprio",
+        "data": "2026-04-07",
+        "status": "AGUARDANDO_BACKUP",
+        "arquitetura": "Cloudflare Tunnel → SGN",
+        "pendencias": ["Definir domínio", "Configurar Cloudflare", "SSL automático"],
+        "nota": "NÃO INICIAR antes do sistema de backup"
+      },
+      {
+        "id": "STANDBY-001",
+        "descricao": "Criar Stark-Hot-Standby (failover container)",
+        "prioridade": "ALTA",
+        "status": "NAO_INICIADO",
+        "arquitetura": "CT 108 ou CT 110 como mirror do Stark",
+        "requisitos": [
+          "Mesmos recursos (4GB RAM, 2 vCPU)",
+          "Sincronização contínua de memórias",
+          "Health check entre containers",
+          "Failover automático"
+        ]
+      }
+    ]
+  },
+  "financeiro_integracao": {
+    "nubank": {
+      "status": "ATIVO",
+      "contas": [
+        {
+          "id": "PJ65",
+          "cnpj": "65.384.056/0001-32",
+          "conta": "986080174-7",
+          "nome": "ABBADE Informatica",
+          "saldo": "R$ 12,81"
+        },
+        {
+          "id": "PJ20",
+          "cnpj": "20.153.208/0001-58",
+          "conta": "118844303",
+          "nome": "(mesma titularidade)",
+          "saldo": "-R$ 185,31"
+        },
+        {
+          "id": "PF",
+          "cpf": "307.572.858-64",
+          "conta": "169842561",
+          "nome": "ACIB ABBADE DE CASTRO",
+          "saldo": "R$ 20,81"
+        }
+      ],
+      "total_transacoes": 379,
+      "database": "/home/master/Stark_Output/Financeiro/Nubank/transacoes.db"
+    }
+  },
+  "historico_atualizacoes": [
+    {
+      "data": "2026-04-07",
+      "hora": "15:35",
+      "evento": "Atualização automática do product owner (cron)",
+      "tipo": "ATUALIZACAO"
+    },
+    {
+      "data": "2026-04-06",
+      "hora": "23:31",
+      "evento": "Crisis - Perda de memória detectada e recuperada",
+      "tipo": "CORRECAO",
+      "acoes": [
+        "Criado PROTOCOLO_PERSISTENCIA.md",
+        "Criado PRD_SGN_2026-04-06.md no DATASVR",
+        "Estrutura de pastas /home/master/LAN/PROJETOS/PRD/"
+      ]
+    },
+    {
+      "data": "2026-04-06",
+      "hora": "20:05",
+      "evento": "Design SGN implementado e ativado",
+      "tipo": "MELHORIA",
+      "detalhes": "Paleta creme + verde erva-mate definida como oficial"
+    },
+    {
+      "data": "2026-04-05",
+      "hora": "22:40",
+      "evento": "SGN Web e Banco configurados",
+      "tipo": "IMPLANTACAO",
+      "detalhes": "CT 104 (Apache/PHP) e CT 103 (PostgreSQL) configurados"
+    },
+    {
+      "data": "2026-04-05",
+      "hora": "02:05",
+      "evento": "Admin BD criado",
+      "tipo": "MELHORIA",
+      "url": "http://192.168.0.99/admin_bd.php"
+    },
+    {
+      "data": "2026-04-05",
+      "hora": "19:14",
+      "evento": "Último push no GitHub",
+      "tipo": "VERSAO"
+    }
+  ],
+  "metricas": {
+    "total_modulos": 12,
+    "modulos_funcionando": 9,
+    "modulos_pendentes": 2,
+    "modulos_com_erro": 1,
+    "schemas_database": 7,
+    "tabelas_database": 19,
+    "containers_ativos": 3
+  },
+  "regras_criticas": [
+    "NUNCA sobrescrever arquivos de produção sem autorização",
+    "TODO arquivo gerado deve ir para DATASVR (\\\\192.168.0.72\\LAN\\)",
+    "Manter cópias de backup sempre",
+    "Nada de ação destrutiva sem autorização do Acib"
+  ]
+}

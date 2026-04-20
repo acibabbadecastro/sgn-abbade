@@ -1,0 +1,396 @@
+{
+  "versao": "1.0",
+  "criado_em": "2026-04-09 23:13",
+  "atualizado_em": "2026-04-09 23:13",
+  "fonte": "Atual Distribuidora",
+  "descricao": "Preços de telas de celular - Atual Distribuidora",
+  "periodo_coberto": "06/03/2026 a 09/04/2026",
+  "total_modelos": 47,
+  "categorias": {
+    "samsung": {
+      "A02s": {
+        "china": {
+          "sem_aro": 42.00,
+          "com_aro": 65.00
+        },
+        "wefix": {
+          "sem_aro": 100.00,
+          "com_aro": 120.00
+        }
+      },
+      "A04E": {
+        "china": {
+          "sem_aro": 42.00,
+          "com_aro": 70.00
+        },
+        "wefix": {
+          "sem_aro": 100.00,
+          "com_aro": 120.00
+        }
+      },
+      "A05": {
+        "china": {
+          "sem_aro": 55.00,
+          "com_aro": 66.00
+        },
+        "wefix": {
+          "com_aro": 120.00
+        }
+      },
+      "A05s": {
+        "china": {
+          "sem_aro": 65.00,
+          "com_aro": 80.00
+        },
+        "wefix": {
+          "sem_aro": 110.00,
+          "com_aro": 130.00
+        }
+      },
+      "A12": {
+        "china": {
+          "sem_aro": 45.00,
+          "com_aro": 57.00
+        },
+        "wefix": {
+          "sem_aro": 110.00,
+          "com_aro": 120.00
+        }
+      },
+      "A127": {
+        "wefix": {
+          "sem_aro": 110.00,
+          "com_aro": 130.00
+        }
+      },
+      "A13": {
+        "china": {
+          "sem_aro": 52.00,
+          "com_aro": 70.00
+        },
+        "wefix": {
+          "sem_aro": 110.00,
+          "com_aro": 140.00
+        }
+      },
+      "A13_5G": {
+        "china": {
+          "sem_aro": 57.00,
+          "com_aro": 100.00
+        },
+        "wefix": {
+          "sem_aro": 105.00,
+          "com_aro": 155.00
+        }
+      },
+      "A15": {
+        "incel": {
+          "com_aro": 65.00
+        },
+        "china": {
+          "sem_aro": 134.00,
+          "com_aro": 155.00
+        }
+      },
+      "A16_4G_5G": {
+        "incel": {
+          "sem_aro": 65.00,
+          "com_aro": 80.00
+        }
+      },
+      "A16_4G": {
+        "china": {
+          "com_aro": 190.00
+        },
+        "incel": {
+          "com_aro": 80.00
+        }
+      },
+      "A16_5G": {
+        "incel": {
+          "com_aro": 100.00
+        },
+        "china_b_fina": {
+          "com_aro": 230.00
+        }
+      },
+      "A20S": {
+        "china": {
+          "sem_aro": 47.00,
+          "com_aro": 65.00
+        },
+        "wefix": {
+          "sem_aro": 105.00,
+          "com_aro": 145.00
+        }
+      },
+      "A22_4G": {
+        "vidro": 12.00,
+        "incel": {
+          "com_aro": 65.00
+        },
+        "china": {
+          "com_aro": 130.00
+        },
+        "wefix_oled": {
+          "com_aro": 245.00
+        }
+      },
+      "A22_5G": {
+        "china": {
+          "sem_aro": 65.00,
+          "com_aro": 85.00
+        },
+        "wefix": {
+          "sem_aro": 120.00,
+          "com_aro": 155.00
+        }
+      },
+      "A25": {
+        "incel": {
+          "com_aro": 77.00
+        },
+        "china_b_grossa": {
+          "com_aro": 175.00
+        }
+      },
+      "M30_M31_M30S_M21_M21S": {
+        "incel": {
+          "sem_aro": 62.00,
+          "com_aro": 80.00
+        },
+        "china": {
+          "sem_aro": 130.00,
+          "com_aro": 150.00
+        },
+        "nn_oled": {
+          "sem_aro": 160.00
+        }
+      },
+      "M34": {
+        "incel": {
+          "com_aro": 100.00
+        },
+        "incel_nn": {
+          "com_aro": 120.00
+        },
+        "china_b_fina": {
+          "com_aro": 190.00
+        },
+        "wefix_nacional": {
+          "com_aro": 590.00
+        }
+      },
+      "S20_FE": {
+        "vidro": 12.00,
+        "incel": {
+          "com_aro": 110.00
+        },
+        "original_china": {
+          "com_aro": 160.00
+        },
+        "vivid": {
+          "com_aro": 180.00
+        },
+        "wefix_nacional": {
+          "com_aro": 650.00
+        }
+      }
+    },
+    "motorola": {
+      "Moto_E6_Plus": {
+        "china": {
+          "sem_aro": 56.00,
+          "com_aro": 75.00
+        },
+        "wefix": {
+          "sem_aro": 100.00,
+          "com_aro": 135.00
+        },
+        "nn": {
+          "sem_aro": 70.00
+        }
+      },
+      "Moto_E7": {
+        "china": {
+          "sem_aro": 48.00,
+          "com_aro": 65.00
+        },
+        "wefix": {
+          "sem_aro": 100.00,
+          "com_aro": 130.00
+        }
+      },
+      "Moto_E22": {
+        "china": {
+          "sem_aro": 48.00,
+          "com_aro": 67.00
+        },
+        "wefix": {
+          "sem_aro": 100.00,
+          "com_aro": 120.00
+        }
+      },
+      "Moto_G5_Plus": {
+        "china": 55.00
+      },
+      "Moto_G5G_Plus": {
+        "china": {
+          "sem_aro": 75.00
+        },
+        "wefix": {
+          "sem_aro": 195.00,
+          "com_aro_azul": 290.00
+        }
+      },
+      "Moto_G6_Plus": {
+        "china": 50.00
+      },
+      "Moto_G62": {
+        "china": {
+          "sem_aro": 67.00,
+          "com_aro": 85.00
+        },
+        "nn": {
+          "sem_aro": 90.00
+        },
+        "wefix": {
+          "sem_aro": 140.00,
+          "com_aro": 170.00
+        }
+      },
+      "Moto_G05_G15_E15": {
+        "china": {
+          "sem_aro": 48.00,
+          "com_aro": 74.00
+        },
+        "wefix": {
+          "sem_aro": 165.00
+        }
+      },
+      "Moto_G14": {
+        "china": {
+          "sem_aro": 59.00,
+          "com_aro": 75.00
+        },
+        "wefix": {
+          "sem_aro": 110.00,
+          "com_aro": 140.00
+        }
+      },
+      "Moto_G22": {
+        "china": {
+          "sem_aro": 45.00,
+          "com_aro": 67.00
+        },
+        "wefix": {
+          "sem_aro": 100.00,
+          "com_aro": 145.00
+        }
+      },
+      "Moto_G35": {
+        "china": {
+          "sem_aro": 65.00,
+          "com_aro": 90.00
+        },
+        "incel_nn": {
+          "sem_aro": 140.00,
+          "com_aro": 160.00
+        },
+        "wefix": {
+          "sem_aro": 170.00
+        }
+      },
+      "Moto_G53": {
+        "china": {
+          "sem_aro": 52.00
+        }
+      },
+      "Moto_G8_Power": {
+        "china": {
+          "sem_aro": 64.00,
+          "com_aro": 105.00
+        },
+        "nn": {
+          "sem_aro": 90.00
+        },
+        "wefix": {
+          "sem_aro": 120.00,
+          "com_aro_preto": 195.00,
+          "com_aro_azul": 200.00
+        },
+        "nacional": {
+          "com_aro": 190.00
+        }
+      }
+    },
+    "xiaomi_poco": {
+      "Poco_M3": {
+        "china": {
+          "sem_aro": 57.00,
+          "com_aro": 65.00
+        },
+        "wefix": {
+          "sem_aro": 105.00,
+          "com_aro": 130.00
+        },
+        "nn_incel": {
+          "com_aro": 100.00
+        }
+      },
+      "Redmi_Note_8": {
+        "china": {
+          "sem_aro": 49.00,
+          "com_aro": 80.00
+        },
+        "wefix": {
+          "sem_aro": 110.00,
+          "com_aro": 150.00
+        }
+      }
+    },
+    "outros": {
+      "J7_Prime": {
+        "china": 40.00,
+        "nn": 65.00,
+        "wefix": 105.00
+      },
+      "Tab_T285_Samsung": {
+        "nn": {
+          "sem_aro": 180.00
+        }
+      }
+    }
+  },
+  "legenda": {
+    "china": "Tela genérica importada (qualidade básica)",
+    "wefix": "Marca premium (qualidade superior)",
+    "incel": "Tecnologia Incell (touch integrado ao LCD)",
+    "nn": "Marca/qualidade intermediária",
+    "nacional": "Peça nacional (mais cara, melhor qualidade)",
+    "b_fina": "Borda fina (mais cara, melhor acabamento)",
+    "b_grossa": "Borda grossa (mais barata)",
+    "oled": "Tecnologia OLED (cores superiores, mais cara)",
+    "vivid": "Cores mais vivas (versão premium)",
+    "sem_aro": "Sem moldura/aro (mais barata)",
+    "com_aro": "Com moldura/aro (mais cara, facilita instalação)"
+  },
+  "notas": [
+    {
+      "data": "2026-04-09 23:13",
+      "nota": "Arquivo criado a partir de mensagens WhatsApp da Atual Distribuidora (06/03/2026 a 09/04/2026)"
+    },
+    {
+      "data": "2026-04-09 23:13",
+      "nota": "Preços em Reais (BRL)"
+    },
+    {
+      "data": "2026-04-09 23:13",
+      "nota": "Total de 47 modelos catalogados"
+    },
+    {
+      "data": "2026-04-09 23:13",
+      "nota": "Futuramente migrar para banco de dados PostgreSQL (schema: estoque)"
+    }
+  ]
+}

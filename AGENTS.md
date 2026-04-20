@@ -172,9 +172,6 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
 
-Default heartbeat prompt:
-`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
-
 You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.
 
 ### Heartbeat vs Cron: When to Use Each
@@ -257,3 +254,43 @@ Consulte `INDEPENDENCIA-AGENTES.md` para o plano completo de autonomia dos agent
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+---
+
+## ⚡ OTIMIZAÇÕES DE PERFORMANCE (2026-04-16)
+
+### Para evitar "parado pensando":
+
+**1. Modo Rápido (configurável pelo usuário):**
+- Quando Acib mandar "rápido" ou "sem enrolar" → responder direto, sem contexto extra
+- Consultas simples → resposta imediata
+- Só carregar dados quando realmente necessário
+
+**2. Cache de Dados Frequentes:**
+- Totais financeiros → cache de 1 hora
+- Status de containers → cache de 30 min
+- Lista de compromissos → atualizar só quando mudar
+
+**3. Respostas Diretas:**
+- Evitar repetição de contexto que Acib já sabe
+- Não explicar o óbvio
+- Ir direto ao ponto
+
+**4. Pre-processamento:**
+- Manter dados financeiros sempre atualizados em background
+- Verificar limites fiscal automaticamente
+- Alertar só quando necessário (sem perguntar)
+
+**5. Comandos Rápidos que Acib pode usar:**
+- "status" → resumo imediato dos limites
+- "rapido" ou "/q" → modo silencioso, só ação
+- "salva" → gravar sem explicar o que fez
+
+### Quando NÃO otimizar:
+- Decisões importantes (manter análise completa)
+- Configurações de segurança (sem pressa)
+- Primeira vez fazendo algo (explicar direito)
+
+---
+
+*Last updated: 2026-04-16 - Adicionadas otimizações de performance*

@@ -1,0 +1,36 @@
+{
+  "name": "acib-reminders",
+  "version": "1.0",
+  "enabled": true,
+  "user": "Acib ABBADE",
+  "telegram_id": "1866226415",
+  "settings": {
+    "check_interval_hours": 4,
+    "alert_before_hours": 48,
+    "quiet_hours": {
+      "start": 23,
+      "end": 8
+    },
+    "telegram_alerts": true,
+    "group_similar": true,
+    "max_alerts_per_day": 5
+  },
+  "sources": {
+    "faculdade": {
+      "enabled": true,
+      "database": "sgn",
+      "table": "academico.compromissos",
+      "host": "192.168.0.109",
+      "access_via": "PVE1"
+    },
+    "trabalho": {
+      "enabled": true,
+      "database": "sgn",
+      "schemas": ["agenda", "financeiro"]
+    },
+    "pessoal": {
+      "enabled": true,
+      "path": "/home/master/LAN/MEMORIES/Compromissos/"
+    }
+  }
+}

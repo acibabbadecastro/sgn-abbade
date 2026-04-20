@@ -1,0 +1,57 @@
+{
+  "session": {
+    "key": "agent:main:telegram:direct:1866226415",
+    "user": "Acib ABBADE (1866226415)",
+    "model": "ollama/kimi-k2.5:cloud",
+    "timestamp": "2026-04-16T21:38:00-03:00"
+  },
+  "persona": {
+    "name": "Stark",
+    "role": "Orquestrador CT 100",
+    "mode": "rápido (otimizado tokens)"
+  },
+  "critical_files": [
+    "SOUL.md",
+    "USER.md",
+    "AGENTS.md",
+    "HEARTBEAT.md",
+    "RESUMO_EXECUTIVO.md",
+    "memory/2026-04-16.md"
+  ],
+  "fiscal_status": {
+    "mei_entradas": 42673.96,
+    "mei_limite": 81000.00,
+    "mei_percentual": 52.7,
+    "mei_restante": 38326.04,
+    "pf_entradas": 4268.24,
+    "pf_limite": 28559.70,
+    "pf_percentual": 14.9,
+    "pf_restante": 24291.46,
+    "recomendacao": "Use PJ65 (MEI tranquilo)"
+  },
+  "containers": {
+    "CT100": {"name": "Stark", "ip": "192.168.0.21"},
+    "CT105": {"name": "MAILS", "ip": "192.168.0.224"},
+    "CT103": {"name": "BD", "ip": "192.168.0.109"},
+    "CT102": {"name": "DATASVR", "ip": "192.168.0.72"}
+  },
+  "rules": [
+    "Modo rápido: max 2 linhas",
+    "Ações destrutivas: pedir autorização",
+    "Memória: atualizar a cada 4h",
+    "Cache ativo: não consultar desnecessariamente"
+  ],
+  "pending": [
+    "Anderson - Servmil (alta)",
+    "Holter - pedido Renato (alta)",
+    "Sávio (média)",
+    "Notebook Miss Slade (média)",
+    "Notebook Abel (média)"
+  ],
+  "created_today": [
+    "Schema fiscal no PostgreSQL",
+    "Skill monitor-fiscal-acib",
+    "Esquilo Fiscal (scripts/esquilo_fiscal.py)",
+    "IDs únicos anti-duplicação"
+  ]
+}

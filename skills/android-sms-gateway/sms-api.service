@@ -1,0 +1,29 @@
+[Unit]
+Description=API Local de SMS - Dr_Finance
+Documentation=https://github.com/acibabbadecastro/dr-finance
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/dr-finance
+ExecStart=/usr/bin/python3 /opt/dr-finance/api-local.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sms-api
+
+# Variáveis de ambiente
+Environment="SMS_GATEWAY_URL=http://192.168.0.100:8080"
+Environment="SMS_GATEWAY_TOKEN=seu-token-aqui"
+Environment="SMS_API_URL=http://localhost:5000"
+
+# Security
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/dr-finance /var/log/sms-api
+
+[Install]
+WantedBy=multi-user.target

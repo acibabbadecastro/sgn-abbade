@@ -1,0 +1,20 @@
+{
+  "name": "acib-profile",
+  "version": "1.0",
+  "enabled": true,
+  "auto_backup": true,
+  "backup_interval_minutes": 60,
+  "datasvr_path": "/home/master/LAN/MEMORIES/STARK-KNOWLEDGE/",
+  "local_path": "/root/.openclaw/workspace/memory/",
+  "rules": {
+    "communication_style": "human",
+    "max_emojis_percent": 10,
+    "language": "natural_direct",
+    "ask_before_destructive": true
+  },
+  "user": {
+    "name": "Acib ABBADE",
+    "telegram_id": "1866226415",
+    "timezone": "America/Sao_Paulo"
+  }
+}

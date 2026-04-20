@@ -1,0 +1,90 @@
+============================================
+INSTRUÇÕES - Monitor Fiscal Automático
+============================================
+
+SKILL CRIADA: monitor-fiscal-acib
+PACKAGE: ~/.openclaw/workspace/skills/monitor-fiscal-acib.skill
+
+## Para adicionar ao Cron Job:
+
+Editar: /root/.openclaw/cron/jobs.json
+
+Adicionar antes do último "]":
+
+    {
+      "id": "monitor-fiscal-diario",
+      "agentId": "main",
+      "sessionKey": "agent:main:telegram:direct:1866226415",
+      "name": "Monitor Fiscal - Verificação de Emails",
+      "description": "Verifica emails Nubank, processa extratos e alerta sobre limites fiscais",
+      "enabled": true,
+      "createdAtMs": 1776360000000,
+      "updatedAtMs": 1776360000000,
+      "schedule": {
+        "expr": "0 9,15,21 * * *",
+        "kind": "cron",
+        "tz": "America/Sao_Paulo"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "MONITOR_FISCAL_VERIFICAR_EMAILS"
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {}
+    }
+
+Frequência: 3x ao dia (09:00, 15:00, 21:00)
+
+## Configuração Inicial:
+
+1. Configurar Gmail API:
+   python3 ~/.openclaw/workspace/skills/monitor-fiscal-acib/scripts/setup_gmail_auth.py
+
+2. Testar manualmente:
+   python3 ~/.openclaw/workspace/skills/monitor-fiscal-acib/scripts/administrar_emails_financeiros.py
+
+3. Verificar relatórios em:
+   /home/master/LAN/RELATORIOS/financeiro/
+
+## O que o sistema faz:
+
+✅ Verifica emails do Nubank (PJ65, PJ20, PF)
+✅ Extrai e processa CSVs automaticamente
+✅ Calcula acumulados mensais/anuais
+✅ Verifica limites MEI (R$ 81.000) e IRPF (R$ 28.559)
+✅ Alerta em 70%, 85%, 95%
+✅ Sugere conta para receber pagamentos
+✅ Prioridade: PJ65 → PF → Esposa
+
+## Arquivos Importantes:
+
+- SKILL.md: Documentação completa
+- verificar_emails.py: Busca emails e extrai anexos
+- administrar_emails_financeiros.py: Sistema completo de administração
+- setup_gmail_auth.py: Configuração da API Gmail
+- cron_verificador.sh: Script para execução automática
+
+## Limites Fiscais Monitorados:
+
+MEI (Microempreendedor Individual):
+- Limite Anual: R$ 81.000,00
+- Contas: PJ65 + PJ20
+- Alertas: 70% (R$ 56.700), 85% (R$ 68.850), 95% (R$ 76.950)
+
+IRPF (Isenção):
+- Limite Anual: R$ 28.559,70
+- Conta: PF (307.572.858-64)
+- Alertas: 70% (R$ 19.991), 85% (R$ 24.275), 95% (R$ 27.131)
+
+## Quando usar cada conta:
+
+- MEI < 70%: Usar PJ65 (preferencial) ou PJ20
+- MEI 70-85%: Preferir PF para valores grandes
+- MEI 85-95%: Obrigatório migrar para PF ou Esposa
+- MEI > 95%: SÓ usar Esposa ou PF
+
+============================================
