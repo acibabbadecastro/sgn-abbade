@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 5px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.bloco {
+    flex: 1;
+    min-width: 150px;
+    padding: 30px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.bloco h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.bloco p {
+    font-size: 1em;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 5px;
+}
+
+/* ===========================================
+   MEDIA QUERIES - RESPONSIVIDADE
+   =========================================== */
+
+/* Breakpoint 1280px+ - Desktop (6 colunas) */
+@media (min-width: 1280px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .bloco {
+        flex: 0 0 calc(16.666% - 20px); /* 6 blocos = 100% / 6 = 16.666% */
+    }
+}
+
+/* Breakpoint 768px+ - Tablet (3 colunas) */
+@media (min-width: 768px) and (max-width: 1279px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .bloco {
+        flex: 0 0 calc(33.333% - 20px); /* 3 blocos = 100% / 3 = 33.333% */
+    }
+}
+
+/* Breakpoint 480px+ - Telas pequenas (2 colunas) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .bloco {
+        flex: 0 0 calc(50% - 20px); /* 2 blocos = 100% / 2 = 50% */
+    }
+}
+
+/* Breakpoint < 480px - Smartphone (1 coluna) */
+@media (max-width: 479px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bloco {
+        flex: 0 0 100%; /* 1 bloco por linha */
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .bloco h2 {
+        font-size: 1.2em;
+    }
+}

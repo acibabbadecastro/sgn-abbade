@@ -3,151 +3,189 @@ name: acib-preferences
 description: Learn and apply Acib ABBADE's personal preferences, patterns, and workflows. Use when interacting with Acib (Telegram ID 1866226415) to maintain continuity, apply learned patterns, and provide personalized assistance. Triggers on any task where context about Acib's preferences, history, or workflows would improve the response.
 ---
 
-# Acib Preferences - Personal Profile & Workflows
+# Acib Preferences - Sistema de Aprendizado Pessoal
 
-## Identity
-- **Name:** Acib ABBADE
-- **Telegram:** @Acib_Abbade (ID: 1866226415)
-- **Timezone:** America/Sao_Paulo (UTC-3)
-- **Role:** System administrator, entrepreneur, multi-agent system architect
+## 🎯 Objetivo
 
-## Core Preferences
+Capturar, armazenar e aplicar automaticamente as preferências, padrões e workflows de Acib ABBADE em todas as interações futuras.
 
-### Communication Style
-- **Language:** Portuguese (Brazil)
-- **Tone:** Direct, professional, technical when needed
-- **Response style:** Values concise, actionable information over verbose explanations
-- **Decision making:** Prefers I take technical decisions but ALWAYS asks authorization for destructive actions
+## 📋 Quando Usar Esta Skill
 
-### Critical Rules (NEVER BREAK)
-1. **Data Destruction:** Any DELETE/REMOVE/DESTROY requires EXPLICIT authorization
-2. **External Actions:** Ask before sending emails, tweets, public posts
-3. **Privacy:** NEVER exfiltrate private data
-4. **Authorization Pattern:** Present clear description + reason, wait for /Aprovar or /Negar
+**Sempre que:**
+- Acib expressar preferência sobre qualquer aspecto do trabalho
+- Novo padrão de comportamento ser identificado
+- Decisão importante sobre projeto ou configuração for tomada
+- Informação pessoal relevante for compartilhada
+- Workflow específico for estabelecido
 
-### Business Context
-- **Primary Business:** Technology services, electronics sales (All Pro Imports)
-- **Key Client:** SERVMIL (Saulo/Saulinho) - "Melhor cliente"
-- **Infrastructure:** Proxmox VE with 13+ containers
-- **Data Storage:** DATASVR (192.168.0.72) via Samba \\192.168.0.72\LAN\
+## 🧠 Sistema de Aprendizado
 
-## Workflows & Patterns
+### **1. CAPTURA AUTOMÁTICA**
 
-### Financial Monitoring
-- **Accounts:**
-  - PJ65 (65.384.056/0001-32) - MEI limit R$ 81.000/year
-  - PJ20 (20.153.208/0001-58) - MEI limit R$ 81.000/year
-  - PF (307.572.858-64) - IRPF isenção limit R$ 28.559,70/year
-- **Alert Thresholds:** 70%, 85%, 95% of limits
-- **Frequency:** Monitor monthly, alert on proximity to limits
-- **Data Integrity:** CRITICAL - prevent duplicates, ensure accuracy
+Toda nova informação sobre Acib deve ser:
+- ✅ Identificada imediatamente
+- ✅ Classificada por categoria
+- ✅ Armazenada na estrutura correta
+- ✅ Aplicada em interações futuras
 
-### System Administration
-- **Proxmox Access:** pve1 (192.168.0.192), senha Rcmp814k@#
-- **Container SSH:** sshpass -p 'Rcmp814k' with StrictHostKeyChecking=no
-- **DATASVR SSH:** Different password Rcmp@814k$1982
-- **Preferred Pattern:** sshpass for automation
+### **2. CATEGORIAS DE PREFERÊNCIAS**
 
-### Memory Management
-- **Frequency:** 4 HOURS (NOVA REGRA CRÍTICA 16/04/2026)
-- **Location:** /home/master/LAN/MEMORIES/
-- **Logs:** /home/master/LAN/LOGS/Stark/
-- **Local Backup:** /root/.openclaw/backups/sessions/
+| Categoria | Arquivo | O que armazenar |
+|-----------|---------|-----------------|
+| **Perfil Pessoal** | `references/perfil.md` | Dados pessoais, contatos, formação |
+| **Preferências Técnicas** | `references/tecnicas.md` | Stack favorito, ferramentas, padrões de código |
+| **Workflows** | `references/workflows.md` | Processos preferidos, sequências de trabalho |
+| **Decisões** | `references/decisoes.md` | Escolhas importantes, arquiteturas, regras de negócio |
+| **Clientes/Projetos** | `references/projetos.md` | Informações específicas de cada cliente |
+| **Comunicação** | `references/comunicacao.md` | Estilo de comunicação, tom preferido |
+| **Automações** | `references/automacoes.md` | Scripts, cron jobs, tarefas automatizadas |
+| **Acessos/Segurança** | `references/acessos.md` | Credenciais, logs de acesso, monitoramento |
 
-### Email Processing
-- **Gmail:** acibabbadecastro@gmail.com
-- **App Password:** juqqogjysxvpowtu
-- **Key Identifiers:**
-  - "Saulo" = SERVMIL owner
-  - "SERVMIL" = priority client
-  - Nubank extratos = process immediately
+### **3. FORMATO DE REGISTRO**
 
-## Technical Stack
+```markdown
+## [DATA] - [CATEGORIA]
 
-### Database (CT 103 - 192.168.0.109:5432)
-- **Database:** sgn
-- **User:** acib
-- **Password:** Rcmp814k@#
-- **Schemas:** estoque, clientes, os, financeiro, fornecedores, garantia, agenda
-
-### Web Applications
-- **SGN:** http://192.168.0.99 (separate server, not container)
-- **Admin:** http://192.168.0.99/admin_bd.php
-
-### Multi-Agent System
-| CT | Name | IP | Function |
-|----|------|-----|----------|
-| 100 | Stark | 192.168.0.21 | Orquestrador |
-| 101 | STARK | 192.168.0.240 | MailBot |
-| 102 | DATASVR | 192.168.0.72 | Storage/Samba |
-| 103 | BD | 192.168.0.109 | PostgreSQL |
-| 105 | MAILS | 192.168.0.224 | Email processing |
-| ... | ... | ... | ... |
-
-## Common Tasks & Patterns
-
-### Financial Analysis
-1. Always verify for duplicates before processing
-2. Use ONLY one file per account (latest extract)
-3. Generate IDs: e0001, e0002... for entries; s0001, s0002... for exits
-4. Monthly breakdown with subtotals
-
-### Data Processing
-1. **PJ65/PJ20:** Semicolon delimiter (;) CSVs from Nubank
-2. **PF:** Comma delimiter (,) CSVs
-3. **Duplication Check:** Compare file hashes or timestamps
-
-### Cron Job Management
-- **Config file:** /root/.openclaw/cron/jobs.json
-- **Frequency changes:** Require authorization
-- **Current critical jobs:**
-  - Backup: every 60 min
-  - Memory update: every 4 hours
-  - MailBot: every hour
-
-## Alerts & Monitoring
-
-### Thresholds
-- **Thin Pool:** Alert if >80%
-- **Container Status:** Check RUNNING state
-- **MEI Limits:** Alert at 70%, 85%, 95%
-- **IRPF Limit:** Alert at 70%, 85%, 95%
-
-### Notification Policy
-- **CRITICAL:** Immediate notification (system failures, data loss risk)
-- **IMPORTANT:** Daily summary if pending
-- **ROUTINE:** Silent operation, log only
-
-## Learning Tracker
-
-### Preferences Learned
-- [x] 4-hour memory update frequency (16/04/2026)
-- [x] No duplicate data in financial reports
-- [x] Silent backup notifications (only failures)
-- [x] PJ65/PJ20 format differences (semicolon vs comma)
-- [x] Authorization required for destructive actions
-
-### Patterns to Learn
-- [ ] Email classification priorities
-- [ ] Client communication preferences
-- [ ] Report formatting preferences
-- [ ] Automation scheduling preferences
-
-## Reference Files
-- See [references/financial-limits.md](references/financial-limits.md) for detailed monitoring thresholds
-- See [references/container-map.md](references/container-map.md) for infrastructure details
-- See [references/authorization-matrix.md](references/authorization-matrix.md) for decision authority
-
-## Quick Commands
-```bash
-# Check all containers
-for ct in 100 101 102 103 104 105 106 107 108 109 110 111 112; do
-  sshpass -p 'Rcmp814k' ssh -o StrictHostKeyChecking=no root@192.168.0.XX "hostname" 2>/dev/null
-done
-
-# Access DATASVR
-sshpass -p 'Rcmp@814k$1982' ssh -o StrictHostKeyChecking=no root@192.168.0.72
-
-# Update memories (manual trigger)
-# Copy from memory/ to /home/master/LAN/MEMORIES/
+**Contexto:** [Onde/quando aconteceu]
+**Preferência identificada:** [O que foi aprendido]
+**Aplicação:** [Como usar no futuro]
+**Prioridade:** 🔴 Alta / 🟡 Média / 🟢 Baixa
 ```
+
+## 🔄 FLUXO DE APRENDIZADO
+
+### **Na Primeira Interação:**
+1. Ler `MEMORY.md` para contexto histórico
+2. Verificar `references/` por preferências específicas
+3. Aplicar padrões aprendidos
+4. Observar novas preferências
+
+### **Durante a Interação:**
+1. Detectar nova preferência ou padrão
+2. Confirmar com Acib (se necessário)
+3. Registrar imediatamente em `references/`
+4. Atualizar `MEMORY.md` se for informação permanente
+
+### **Ao Finalizar:**
+1. Revisar se novas preferências foram identificadas
+2. Garantir backup na ARCA (DATASVR)
+3. Confirmar aprendizado com Acib (opcional)
+
+## 📝 REGRAS DE OURO
+
+### **NUNCA:**
+- ❌ Esquecer informação que Acib compartilhou
+- ❌ Assumir preferências sem confirmação
+- ❌ Sobrescrever dados sem backup
+- ❌ Perder contexto entre sessões
+
+### **SEMPRE:**
+- ✅ Documentar preferências na primeira ocorrência
+- ✅ Aplicar padrões aprendidos automaticamente
+- ✅ Fazer backup na ARCA
+- ✅ Confirmar quando houver dúvida
+- ✅ Manter estrutura organizada
+
+## 🎯 EXEMPLOS DE APLICAÇÃO
+
+### **Exemplo 1: Preferência Técnica**
+```
+Acib: "Sempre use cores vibrantes nos meus sites"
+↓
+Registrar em: references/tecnicas.md
+↓
+Próximo site: Aplicar paleta vibrante automaticamente
+```
+
+### **Exemplo 2: Workflow Específico**
+```
+Acib: "Sempre faça backup antes de deploy"
+↓
+Registrar em: references/workflows.md
+↓
+Próximo deploy: Backup automático antes de iniciar
+```
+
+### **Exemplo 3: Decisão Arquitetural**
+```
+Acib: "Prefiro CTs separados para cada projeto"
+↓
+Registrar em: references/decisoes.md
+↓
+Novo projeto: Sugerir arquitetura com CTs separados
+```
+
+## 📁 ESTRUTURA DE ARQUIVOS
+
+```
+acib-preferences/
+├── SKILL.md (este arquivo)
+├── references/
+│   ├── perfil.md          # Dados pessoais e profissionais
+│   ├── tecnicas.md        # Preferências técnicas
+│   ├── workflows.md       # Processos e padrões de trabalho
+│   ├── decisoes.md        # Decisões importantes
+│   ├── projetos.md        # Info específica de projetos
+│   ├── comunicacao.md     # Estilo de comunicação
+│   └── automacoes.md      # Tarefas automatizadas
+└── scripts/
+    └── update-preferences.sh  # Script para atualizar preferências
+```
+
+## 🔧 INTEGRAÇÃO COM SISTEMA
+
+### **Ao Iniciar Sessão:**
+1. Carregar `MEMORY.md` (memória geral)
+2. Verificar `references/perfil.md` (dados pessoais)
+3. Identificar contexto da conversa
+4. Aplicar preferências relevantes
+
+### **Durante Sessão:**
+1. Monitorar por novas preferências
+2. Registrar imediatamente
+3. Aplicar em tempo real
+4. Confirmar quando necessário
+
+### **Heartbeat/Verificação:**
+1. Revisar preferências aprendidas recentemente
+2. Verificar consistência
+3. Fazer backup na ARCA
+4. Atualizar documentação se necessário
+
+## 🚀 IMPLEMENTAÇÃO
+
+### **Scripts Disponíveis:**
+
+**`scripts/update-preferences.sh`:**
+- Atualiza preferências de forma estruturada
+- Faz backup automático na ARCA
+- Valida consistência dos dados
+
+### **Comandos:**
+
+```bash
+# Atualizar preferência
+./scripts/update-preferences.sh --categoria [tipo] --conteudo "[preferência]"
+
+# Listar preferências por categoria
+./scripts/update-preferences.sh --listar [categoria]
+
+# Buscar preferência específica
+./scripts/update-preferences.sh --buscar "[termo]"
+```
+
+## ✅ CHECKLIST DE APRENDIZADO
+
+- [ ] Identificar preferência na interação
+- [ ] Classificar por categoria
+- [ ] Registrar em arquivo correto
+- [ ] Fazer backup na ARCA
+- [ ] Aplicar em próximas interações
+- [ ] Confirmar com Acib (se necessário)
+
+---
+
+**Versão:** 1.0  
+**Criado em:** 27/04/2026  
+**Última atualização:** 27/04/2026  
+**Status:** ✅ Ativo e em aprendizado contínuo

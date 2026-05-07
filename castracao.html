@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castração Solidária - Amigos de 4 Patas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #4CAF50 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🐾 🏥 🐾 💉 🐾 🐕 🐾 🐈 🐾';
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.15;
+            top: 20px;
+            left: -100px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.98);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* Menu de Navegação */
+        .nav-menu {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu a {
+            color: #2E7D32;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu a:hover {
+            background: #e8f5e9;
+            transform: translateY(-2px);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Cards de Informações */
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-left: 6px solid #2E7D32;
+        }
+
+        .info-card h2 {
+            color: #2E7D32;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h3 {
+            color: #F57C00;
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+        }
+
+        .info-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .info-card li {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        /* Card de Destaque - Mutirão */
+        .mutirao-card {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 50px rgba(196, 69, 105, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mutirao-card::before {
+            content: '🐾';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            top: -20px;
+            right: -20px;
+        }
+
+        .mutirao-card h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mutirao-card .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 2px solid white;
+        }
+
+        .mutirao-card .data-destaque {
+            background: white;
+            color: #C44569;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .mutirao-card .data-destaque .dia {
+            font-size: 3rem;
+            font-weight: 900;
+            display: block;
+        }
+
+        .mutirao-card .data-destaque .mes {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .mutirao-card ul li {
+            color: rgba(255,255,255,0.95);
+            margin: 12px 0;
+            font-size: 1.05rem;
+        }
+
+        .mutirao-card strong {
+            color: white;
+        }
+
+        /* Tabela de Informações */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .info-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-table td:first-child {
+            font-weight: 700;
+            color: #2E7D32;
+            width: 40%;
+        }
+
+        /* Botões de Ação */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px 5px;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+        }
+
+        .btn-phone {
+            background: linear-gradient(135deg, #F57C00, #E65100);
+        }
+
+        /* Alertas */
+        .alert {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left: 5px solid #F57C00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .alert-warning {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border-left-color: #dc3545;
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+            border-left-color: #17a2b8;
+        }
+
+        .alert strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #856404;
+        }
+
+        .alert-warning strong {
+            color: #721c24;
+        }
+
+        .alert-info strong {
+            color: #0c5460;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin: 5px 0;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                margin: 5px;
+                font-size: 0.9rem;
+            }
+
+            .info-card {
+                padding: 25px;
+            }
+
+            .info-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .info-table td:first-child {
+                background: #e8f5e9;
+                padding: 10px 15px;
+            }
+        }
+
+        /* Animação de Pulse */
+        .pulse {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>💉 Castração Solidária</h1>
+        <p>Informações sobre mutirões e programas de castração gratuita em Jacareí e região</p>
+    </section>
+
+    <!-- Menu de Navegação -->
+    <nav class="nav-menu">
+        <a href="index.html"><i class="fas fa-home"></i> Início</a>
+        <a href="perdidos.html"><i class="fas fa-search-location"></i> Perdidos</a>
+        <a href="avistados.html"><i class="fas fa-eye"></i> Avistados</a>
+        <a href="adocao.html"><i class="fas fa-heart"></i> Adoção</a>
+        <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="container">
+
+        <!-- MUTIRÃO JACAREÍ - DESTAQUE -->
+        <div class="mutirao-card pulse">
+            <h2><i class="fas fa-calendar-alt"></i> Próximo Mutirão - Jacareí</h2>
+            <span class="badge">📍 BAIRRO PAGADOR ANDRADE</span>
+            
+            <div class="data-destaque">
+                <span class="dia">03</span>
+                <span class="mes">MAIO 2026</span>
+                <div style="margin-top: 10px; font-weight: 600;">SÁBADO</div>
+            </div>
+
+            <h3><i class="fas fa-map-marker-alt"></i> Local das Cirurgias:</h3>
+            <p><strong>Igreja do Divino Espírito Santo</strong><br>
+            Bairro Pagador Andrade - Jacareí/SP</p>
+
+            <h3><i class="fas fa-clipboard-list"></i> Informações Importantes:</h3>
+            <ul>
+                <li><strong>Cadastramento:</strong> Já encerrado (foi nos dias 23 e 24 de abril)</li>
+                <li><strong>Horário:</strong> A confirmar no local</li>
+                <li><strong>Público:</strong> Exclusivo para moradores do Pagador Andrade e regiões adjacentes</li>
+                <li><strong>Documentos necessários:</strong> RG/CNH + Comprovante de residência</li>
+            </ul>
+
+            <h3><i class="fas fa-exclamation-triangle"></i> Atenção:</h3>
+            <ul>
+                <li>✅ Animais devem estar em boas condições de saúde</li>
+                <li>❌ <strong>Cães braquicefálicos NÃO serão atendidos</strong> (Pug, Bulldog, Shih Tzu, etc.)</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="tel:+5512991565949" class="btn btn-phone">
+                    <i class="fas fa-phone-alt"></i> (12) 99156-5949
+                </a>
+            </div>
+        </div>
+
+        <!-- Informações Gerais -->
+        <div class="info-card">
+            <h2><i class="fas fa-info-circle"></i> Sobre o Programa de Castração</h2>
+            
+            <p>A castração é realizada de forma <strong>gratuita</strong> pela Prefeitura de Jacareí, por meio da Secretaria de Meio Ambiente e Planejamento Urbano. Os tutores de cães e gatos podem participar mediante cadastramento prévio.</p>
+
+            <h3><i class="fas fa-check-circle"></i> Condições para a Castração:</h3>
+            <ul>
+                <li>O procedimento é simples e relativamente rápido</li>
+                <li>Realizado por equipe veterinária profissional</li>
+                <li>É necessário agendamento/cadastro prévio</li>
+                <li>Vagas limitadas por mutirão</li>
+            </ul>
+
+            <h3><i class="fas fa-file-alt"></i> Documentos Necessários:</h3>
+            <ul>
+                <li>Documento oficial com foto (RG, CNH)</li>
+                <li>Comprovante de residência atualizado</li>
+                <li>Carteira de vacinação do animal (se tiver)</li>
+            </ul>
+        </div>
+
+        <!-- Cuidados Pré-Operatórios -->
+        <div class="info-card">
+            <h2><i class="fas fa-heartbeat"></i> Cuidados Antes da Cirurgia</h2>
+            
+            <div class="alert alert-info">
+                <strong>📋 Orientações Pré-Operatórias:</strong>
+                <ul>
+                    <li><strong>Jejum alimentar:</strong> 8 horas antes da cirurgia</li>
+                    <li><strong>Jejum de água:</strong> 2 horas antes da cirurgia</li>
+                    <li>Traga seu animal em caixa de transporte ou coleira/guia</li>
+                    <li>Esteja atento ao horário agendado</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cuidados Pós-Operatórios -->
+        <div class="info-card">
+            <h2><i class="fas fa-band-aid"></i> Cuidados Após a Cirurgia</h2>
+            
+            <h3>Para CÃES:</h3>
+            <ul>
+                <li>Uso obrigatório do colar elisabetano por 10-14 dias</li>
+                <li>Evitar pulos e corridas por 7 dias</li>
+                <li>Manter o local da incisão limpo e seco</li>
+                <li>Retornar para retirada de pontos após 7-10 dias</li>
+            </ul>
+
+            <h3>Para GATOS:</h3>
+            <ul>
+                <li>Manter em ambiente calmo e tranquilo</li>
+                <li>Oferecer alimentação leve nas primeiras 24h</li>
+                <li>Observar comportamento e apetite</li>
+                <li>Em caso de dúvida, contatar o veterinário</li>
+            </ul>
+
+            <div class="alert">
+                <strong>⚠️ Sinais de Alerta - Procure ajuda se notar:</strong>
+                <ul>
+                    <li>Inchaço excessivo no local da incisão</li>
+                    <li>Secreção ou sangramento</li>
+                    <li>Falta de apetite por mais de 24h</li>
+                    <li>Letargia extrema ou vômitos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Por Que Castrar? -->
+        <div class="info-card">
+            <h2><i class="fas fa-paw"></i> Por Que Castrar Seu Pet?</h2>
+            
+            <div class="info-table">
+                <table>
+                    <tr>
+                        <td><i class="fas fa-users"></i> Controle Populacional</td>
+                        <td>Evita o abandono e reduz animais em situação de rua</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-shield-alt"></i> Saúde do Animal</td>
+                        <td>Previne câncer de mama, útero, próstata e outras doenças</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-home"></i> Comportamento</td>
+                        <td>Reduz marcação territorial, fugas e agressividade</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-coins"></i> Economia</td>
+                        <td>Castração gratuita vs. custos de criação de filhotes</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-globe"></i> Bem-estar Social</td>
+                        <td>Contribui para cidades mais sustentáveis (ODS 11)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Contatos Úteis -->
+        <div class="info-card">
+            <h2><i class="fas fa-address-book"></i> Contatos Úteis</h2>
+            
+            <h3>Prefeitura de Jacareí - Proteção Animal</h3>
+            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (12) 99156-5949</p>
+            <p><i class="fas fa-globe"></i> <strong>Site:</strong> <a href="https://www.jacarei.sp.gov.br/castracao/" target="_blank">www.jacarei.sp.gov.br/castracao/</a></p>
+            
+            <h3>Secretaria de Meio Ambiente</h3>
+            <p>Responsável pelo programa de castração gratuita em Jacareí</p>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://wa.me/5512991565949?text=Olá! Gostaria de informações sobre castração" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- Dúvidas Frequentes -->
+        <div class="info-card">
+            <h2><i class="fas fa-question-circle"></i> Dúvidas Frequentes</h2>
+            
+            <h3>Qual a idade ideal para castrar?</h3>
+            <p>A partir de 4 meses de idade, conforme avaliação veterinária.</p>
+
+            <h3>Macho ou fêmea, qual castrar primeiro?</h3>
+            <p>Ambos são importantes! Fêmeas previnem câncer de mama e útero. Machos reduzem marcação territorial e problemas de próstata.</p>
+
+            <h3>O animal muda de comportamento?</h3>
+            <p>Pode ficar mais calmo, reduzir fugas e marcação territorial. A personalidade continua a mesma!</p>
+
+            <h3>Quanto tempo dura a recuperação?</h3>
+            <p>Gatos: 3-5 dias. Cães: 7-10 dias. Seguindo as orientações pós-operatórias.</p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="info-card" style="text-align: center; background: linear-gradient(135deg, #e8f5e9, #fff3e0);">
+            <h2><i class="fas fa-bullhorn"></i> Fique Atento!</h2>
+            <p>Os mutirões de castração acontecem periodicamente em diferentes bairros de Jacareí.</p>
+            <p><strong> acompanhe nosso site e redes sociais para saber das próximas datas!</strong></p>
+            
+            <div style="margin-top: 25px;">
+                <a href="index.html" class="btn">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Início
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>🐾 Projeto Amigos de 4 Patas - 2026</p>
+        <p>Bairro Parque Meia Lua - Jacareí/SP</p>
+        <p style="font-size: 0.9rem; opacity: 0.6;">Projeto de Extensão II - UNOPAR - Análise e Desenvolvimento de Sistemas</p>
+    </footer>
+
+</body>
+</html>

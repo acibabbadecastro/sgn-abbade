@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais Perdidos - Amigos de 4 Patas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 25px;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 50%, #F8B500 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.3); }
+        
+        /* Share Section */
+        .share-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .share-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .share-btn:hover { transform: scale(1.05); }
+        .share-facebook { background: #1877f2; }
+        .share-whatsapp { background: #25d366; }
+        .share-twitter { background: #000; }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, #ffffff 0%, #fff9f9 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .newsletter-section h3 {
+            color: #C44569;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .newsletter-section p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .newsletter-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #FF6B9D, #C44569);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Content placeholder */
+        .content-area {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            min-height: 300px;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #4a69bd 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        footer a { color: white; opacity: 0.8; text-decoration: none; }
+        footer a:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1><i class="fas fa-search-location"></i> Animais Perdidos</h1>
+        <p>Ajude a encontrar os pets que estão desaparecidos no bairro</p>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar para Home</a>
+    </header>
+
+    <div class="container">
+        <!-- Conteúdo da página -->
+        <div class="content-area">
+            <h2 style="color: #333; margin-bottom: 20px;">Lista de Animais Perdidos</h2>
+            <p style="color: #666;">Os animais cadastrados aparecerão aqui.</p>
+            <!-- Cards de animais perdidos serão inseridos aqui -->
+        </div>
+
+        <!-- Botões de Compartilhamento -->
+        <div class="share-section">
+            <h3><i class="fas fa-share-alt"></i> Compartilhe esta página</h3>
+            <p style="margin-bottom: 20px; color: #666;">Quanto mais pessoas souberem, maiores as chances de encontrar!</p>
+            <div class="share-buttons">
+                <a href="#" class="share-btn share-facebook" data-share="facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="#" class="share-btn share-whatsapp" data-share="whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#" class="share-btn share-twitter" data-share="twitter">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter-section">
+            <h3><i class="fas fa-envelope"></i> Receba Alertas</h3>
+            <p>Cadastre-se para receber notificações quando novos animais forem perdidos no bairro.</p>
+            <form class="newsletter-form" id="form-newsletter">
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+                <input type="tel" name="whatsapp" placeholder="WhatsApp (opcional)" pattern="[0-9]{11}">
+                <button type="submit"><i class="fas fa-paper-plane"></i> Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>🐾 Amigos de 4 Patas</strong></p>
+        <p>Parque Meia Lua - São Paulo</p>
+        <p style="margin-top: 15px;">
+            <a href="index.html">Home</a> | 
+            <a href="perdidos.html">Perdidos</a> | 
+            <a href="avistados.html">Avistados</a> | 
+            <a href="adocao.html">Adoção</a>
+        </p>
+        <p style="opacity: 0.6; margin-top: 20px; font-size: 0.9rem;">
+            © 2026 Amigos de 4 Patas. Projeto de Extensão Universitária - UNOPAR
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="amigos4patas-newsletter.js"></script>
+    <script src="amigos4patas-compartilhar.js"></script>
+</body>
+</html>

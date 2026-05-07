@@ -1,0 +1,12 @@
+# Proteger arquivo de dados da newsletter
+# Negar acesso direto a arquivos JSON
+
+<Files "*.json">
+    Deny from all
+</Files>
+
+# Permitir apenas acesso via PHP
+<Files "newsletter.json">
+    Order Deny,Allow
+    Deny from all
+</Files>

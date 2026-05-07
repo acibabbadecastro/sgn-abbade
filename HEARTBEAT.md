@@ -1,21 +1,22 @@
 # HEARTBEAT.md - Periodic Checks
 
-## IPs Corretos dos Agentes (ATUALIZADO 2026-04-12 19:00)
+## IPs Corretos dos Agentes (ATUALIZADO 2026-04-30 13:40)
 | CT | Nome | IP | Porta | Status Real |
 |----|------|-----|-------|-------------|
 | 100 | Stark | 192.168.0.21 | 18789 | ✅ ONLINE |
-| 101 | STARK (ex-Mails) | 192.168.0.240 | 18789 | ✅ ONLINE |
+| 101 | STARK2 | 192.168.0.240 | 18789 | ⏳ STOPPED |
 | 102 | DATASVR | 192.168.0.72 | 18789 | ✅ ONLINE |
-| 103 | BD | 192.168.0.109 | 18789 | ✅ ONLINE |
+| 103 | BD | 192.168.0.109 | 18789 | ⏳ STOPPED |
 | 104 | SGN | 192.168.0.99 | 18789 | ✅ ONLINE |
-| 105 | MAILS | 192.168.0.224 | 18789 | ✅ ONLINE |
-| 106 | Vorcaro | DHCP | 18789 | ✅ ONLINE |
-| 107 | SAMU | 192.168.0.64 | 18789 | ✅ ONLINE |
-| 108 | Scraper | DHCP | 18789 | ✅ ONLINE |
-| 109 | ADM-SERVMIL | DHCP | 18789 | ✅ ONLINE |
-| 110 | bd-servmil | DHCP | 18789 | ✅ ONLINE |
-| 111 | Fe-Servmil | DHCP | 18789 | ✅ ONLINE |
-| 112 | Analista-Servmil | DHCP | 18789 | ✅ ONLINE |
+| 105 | MAILS | 192.168.0.224 | 18789 | ⏳ STOPPED |
+| 106 | gerente-fin | 192.168.0.??? | 18789 | ✅ ONLINE |
+| 107 | 4pets | 192.168.0.200 | 80 | ✅ ONLINE |
+| 108 | myrobot | DHCP | 18789 | ⏳ STOPPED |
+| 109 | ADM-SERVMIL | DHCP | 18789 | ⏳ STOPPED |
+| 110 | bd-servmil | DHCP | 18789 | ⏳ STOPPED |
+| 111 | Fe-Servmil | DHCP | 18789 | ⏳ STOPPED |
+| 112 | Analista-Servmil | DHCP | 18789 | ⏳ STOPPED |
+| 113 | Hermes1 | DHCP | 18789 | ⏳ STOPPED |
 
 ## ✅ STATUS GERAL:
 - **Total containers:** 13 (CT 112 adicionado em 2026-04-12 19:00)
@@ -57,45 +58,37 @@ sshpass -p 'Rcmp814k' ssh -o StrictHostKeyChecking=no -o PreferredAuthentication
 3. **REGRA:** Só notificar se houver PROBLEMA ou mudança crítica
 4. Status normal = HEARTBEAT_OK silencioso
 
-## 🔄 ATUALIZAÇÃO DE MEMÓRIAS (CONFIGURADO)
+## 🔄 VERIFICAÇÃO DO SITE 4PETS
 
 ### **Frequência:**
 ```
-✅ 4 HORAS: Atualização automática de memórias compartilhadas (NOVA REGRA CRÍTICA 16/04)
-📍 Local: /home/master/LAN/MEMORIES/
-🔔 Notificações: APENAS FALHAS CRÍTICAS
+✅ 3 VEZES AO DIA: Verificação de status do site
+🕘 Horários: 08:00 | 14:00 | 20:00
+🔔 Notificações: APENAS SE FALHAR
 ```
 
-### **Checklist (a cada 4h):**
-1. Verificar mudanças em memory/*.md
-2. Sincronizar com /home/master/LAN/MEMORIES/
-3. **Verificar falhas/saúde do sistema**
-4. **Se FALHA CRÍTICA detectada** → Notificar Acib imediatamente
-5. **Se tudo OK** → HEARTBEAT_OK (silêncio total)
+### **Checklist (3x ao dia):**
+1. Testar https://amigos4patas.com.br
+2. Verificar HTTP 200
+3. **Se ONLINE:** HEARTBEAT_OK (silêncio)
+4. **Se FALHAR:** Notificar Acib imediatamente
 
 ### **Política de Notificação:**
 ```
-🚨 FALHAS CRÍTICAS: Notificar IMEDIATAMENTE
-   • Gateway offline
-   • Containers críticos OFFLINE
-   • Banco de dados indisponível
-   • Serviços essenciais falhando
-   • Erros de sistema repetidos
+🚨 SITE OFFLINE: Notificar IMEDIATAMENTE
+   • HTTP diferente de 200
+   • Timeout na conexão
+   • DNS falhando
 
 🔕 NÃO NOTIFICAR:
-   • Atualizações de rotina
-   • Lembretes de compromissos
-   • Status normal do sistema
-   • Informações informativas
-
-🌅 10:00 e 🌆 19:00:
-   • APENAS se houver algo MUITO relevante
-   • Caso contrário: silêncio
+   • Status normal (online)
+   • Apenas registrar no log
 ```
 
 ### **Regra de Ouro:**
-- Memórias compartilhadas: ATUALIZAR A CADA **4 HORAS** (alterado 16/04/2026)
-- Notificações: **APENAS FALHAS CRÍTICAS**
+- Memórias compartilhadas: ATUALIZAR A CADA **4 HORAS**
+- Site 4Pets: VERIFICAR **3 VEZES AO DIA** (08:00, 14:00, 20:00)
+- Notificações: **APENAS FALHAS**
 - Se tudo OK → HEARTBEAT_OK (não incomodar)
 - Se falha detectada → Verificar e notificar Acib
 
@@ -179,3 +172,36 @@ Apesar da independência, certas situações ainda requerem coordenação:
 - Situações que excedem o escopo de autonomia definida
 
 Lembrete: A independência não significa isolamento total, mas sim autonomia máxima com coordenação minimalista e eficaz.
+## 🐾 4PETS - SERVIDOR DO SITE AMIGOS 4 PATAS (CT 107)
+| Campo | Valor |
+|-------|-------|
+| **CT** | 107 |
+| **Nome** | 4pets |
+| **IP** | 192.168.0.200 |
+| **Path** | /var/www/amigos4patas/ |
+| **Server** | nginx/1.26.3 (Ubuntu) |
+| **Status** | ✅ RUNNING |
+
+**Arquivos Principais:**
+- index.html (Página inicial)
+- sobre.html (Sobre)
+- perdidos.html, avistados.html, adocao.html
+- castracao.html, utilidade-publica.html
+- doacoes.html, diy.html, servicos.html
+
+**Acesso:**
+```bash
+ssh root@192.168.0.200
+# Senha: Rcmp814k@#
+```
+
+**Deploy:**
+```bash
+scp *.html root@192.168.0.200:/var/www/amigos4patas/
+```
+
+**Último Deploy:** 30/04/2026 13:40
+- ✅ Slogan: "Comunidade Unida, Cidade Sustentável, Vida Protegida"
+- ✅ ODS 11, 15, 17 atualizados
+- ✅ 4 páginas de Utilidade Pública
+- ✅ Vídeo do comedouro comunitário

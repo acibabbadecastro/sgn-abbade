@@ -1,0 +1,51 @@
+{
+  "botName": "Stark Família",
+  "botUsername": "@stark_familia_bot",
+  "botToken": "8558193763:AAExVtcUT8OHZUm4HZs5xU8eRkqjf2gME5w",
+  "owner": "Viviane",
+  "workspace": "/root/.openclaw/workspace/bots/viviane-bot/",
+  
+  "access": {
+    "memories": true,
+    "projects": true,
+    "finance_basic": true,
+    "emails": true,
+    "containers_status": true,
+    "documents": true,
+    "calendar": true,
+    "reminders": true,
+    
+    "credentials": false,
+    "ssh_keys": false,
+    "api_tokens": false,
+    "infra_config": false,
+    "system_logs": false,
+    "acib_personal": false
+  },
+  
+  "personality": {
+    "name": "Stark Família",
+    "tone": "amigável, prestativo, familiar",
+    "language": "pt-BR",
+    "emoji_usage": "moderado",
+    "formality": "informal"
+  },
+  
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "8558193763:AAExVtcUT8OHZUm4HZs5xU8eRkqjf2gME5w",
+      "allowFrom": [
+        "5512988013359"
+      ],
+      "dmPolicy": "allowlist"
+    }
+  },
+  
+  "models": {
+    "defaults": {
+      "primary": "ollama/qwen3.5:cloud",
+      "workspace": "/root/.openclaw/workspace"
+    }
+  }
+}

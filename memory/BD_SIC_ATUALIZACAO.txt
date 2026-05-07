@@ -1,0 +1,11 @@
+🗄️ BANCO DE DADOS SIC - ATUALIZADO
+
+Sistema: SICNET - Banco de Dados
+
+Usuário BD: servmil
+Senha BD (ATUALIZADA): Rcmp814k
+Senha anterior: Rcmp814k@# (com @# no final)
+Requisitos senha: Mínimo 8 caracteres, maiúscula, minúscula e número
+Data atualização: 24/04/2026 11:00
+
+⚠️ ATENÇÃO: Senha atualizada! Usar Rcmp814k (sem @# no final)

@@ -1,0 +1,220 @@
+{
+  "fornecedor": "Atual Peças",
+  "ultima_atualizacao": "2026-04-20T17:32:00-03:00",
+  "fonte": "WhatsApp",
+  "moeda": "BRL",
+  "telas": [
+    {
+      "modelo": "Moto E30/E40",
+      "qualidade": "China",
+      "aro": false,
+      "preco": 48.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E30/E40",
+      "qualidade": "China",
+      "aro": true,
+      "preco": 65.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E30/E40",
+      "qualidade": "WEFIX",
+      "aro": false,
+      "preco": 100.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E30/E40",
+      "qualidade": "WEFIX",
+      "aro": true,
+      "preco": 120.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E13",
+      "qualidade": "China",
+      "aro": false,
+      "preco": 50.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E13",
+      "qualidade": "China",
+      "aro": true,
+      "preco": 105.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E13",
+      "qualidade": "WEFIX",
+      "aro": false,
+      "preco": 100.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto E13",
+      "qualidade": "WEFIX",
+      "aro": true,
+      "preco": 130.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Moto G15/G05/E15",
+      "qualidade": "China",
+      "aro": false,
+      "preco": 48.00,
+      "observacoes": "Compatível: G15, G05, E15"
+    },
+    {
+      "modelo": "Moto G15/G05/E15",
+      "qualidade": "China",
+      "aro": true,
+      "preco": 71.00,
+      "observacoes": "Compatível: G15, G05, E15"
+    },
+    {
+      "modelo": "Moto G15/G05/E15",
+      "qualidade": "WEFIX",
+      "aro": false,
+      "preco": 165.00,
+      "observacoes": "Compatível: G15, G05, E15"
+    },
+    {
+      "modelo": "A50",
+      "qualidade": "Incel",
+      "aro": true,
+      "preco": 56.00,
+      "observacoes": "Incell"
+    },
+    {
+      "modelo": "A50",
+      "qualidade": "Original China",
+      "aro": true,
+      "preco": 125.00,
+      "observacoes": "Réplica alta qualidade"
+    },
+    {
+      "modelo": "Poco C75",
+      "qualidade": "China",
+      "aro": false,
+      "preco": 60.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Poco C75",
+      "qualidade": "China",
+      "aro": true,
+      "preco": 80.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Poco C75",
+      "qualidade": "WEFIX",
+      "aro": false,
+      "preco": 125.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "Poco C75",
+      "qualidade": "WEFIX",
+      "aro": true,
+      "preco": 140.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "China",
+      "cor": "Preto",
+      "aro": null,
+      "preco": 55.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "China",
+      "cor": "Branco",
+      "aro": null,
+      "preco": 55.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "NN",
+      "cor": "Preto",
+      "aro": null,
+      "preco": 75.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "NN",
+      "cor": "Branco",
+      "aro": null,
+      "preco": 75.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "VIVID",
+      "cor": "Preto",
+      "aro": null,
+      "preco": 75.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "VIVID",
+      "cor": "Branco",
+      "aro": null,
+      "preco": 75.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "Macaquinho VIVID",
+      "cor": "Preto",
+      "aro": null,
+      "preco": 95.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "Macaquinho VIVID",
+      "cor": "Branco",
+      "aro": null,
+      "preco": 95.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "WEFIX",
+      "cor": "Preto",
+      "aro": null,
+      "preco": 120.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "iPhone 7",
+      "qualidade": "WEFIX",
+      "cor": "Branco",
+      "aro": null,
+      "preco": 120.00,
+      "observacoes": ""
+    }
+  ],
+  "estatisticas": {
+    "total_itens": 24,
+    "menor_preco": 48.00,
+    "maior_preco": 165.00,
+    "preco_medio": 89.79,
+    "modelos_cadastrados": 8
+  },
+  "notas": [
+    "Fornecedor iguala ou supera oferta concorrente (enviar print)",
+    "Cores iPhone: Preto e Branco mesmo preço",
+    "Modelos G15/G05/E15 usam mesma tela",
+    "Aro adiciona R$ 17-25 em média"
+  ]
+}

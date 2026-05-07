@@ -1,0 +1,134 @@
+{
+  "fornecedor": "Atual Peças",
+  "ultima_atualizacao": "2026-04-20T20:35:00-03:00",
+  "fonte": "WhatsApp",
+  "moeda": "BRL",
+  "privacidade": "LOCAL_NAO_GITHUB",
+  "categoria": "Peliculas/Vidros",
+  "modelos": [
+    {
+      "modelo": "A52",
+      "tipo": "Vidro",
+      "qualidade": null,
+      "aro": null,
+      "cor": null,
+      "borda": null,
+      "preco": 12.00,
+      "observacoes": "Só o vidro/película"
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "Incell",
+      "aro": true,
+      "cor": null,
+      "borda": null,
+      "preco": 77.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "China",
+      "aro": true,
+      "cor": null,
+      "borda": "Grossa",
+      "preco": 160.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "China",
+      "aro": true,
+      "cor": null,
+      "borda": "Fina",
+      "preco": 175.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "NN/Incell",
+      "aro": true,
+      "cor": null,
+      "borda": null,
+      "preco": 120.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "NN/Incell",
+      "aro": true,
+      "cor": "Roxo",
+      "borda": null,
+      "preco": 145.00,
+      "observacoes": "Aro roxo"
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "OLED WEFIX",
+      "aro": true,
+      "cor": null,
+      "borda": "Grossa",
+      "preco": 290.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "OLED WEFIX",
+      "aro": true,
+      "cor": "Roxo",
+      "borda": "Fina",
+      "preco": 330.00,
+      "observacoes": "Aro roxo + borda fina"
+    },
+    {
+      "modelo": "A52",
+      "tipo": "Tela",
+      "qualidade": "WEFIX",
+      "aro": true,
+      "cor": "Preto",
+      "borda": "Fina",
+      "preco": 330.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52s",
+      "tipo": "Tela",
+      "qualidade": "OLED WEFIX",
+      "aro": true,
+      "cor": null,
+      "borda": "Grossa",
+      "preco": 290.00,
+      "observacoes": ""
+    },
+    {
+      "modelo": "A52s/A528",
+      "tipo": "Tela",
+      "qualidade": "OLED WEFIX",
+      "aro": true,
+      "cor": null,
+      "borda": "Fina",
+      "preco": 340.00,
+      "observacoes": "Compatível: A52s, A528"
+    }
+  ],
+  "estatisticas": {
+    "total_itens": 11,
+    "menor_preco": 12.00,
+    "maior_preco": 340.00,
+    "preco_medio": 197.18,
+    "modelos_cadastrados": 2
+  },
+  "notas": [
+    "Vidro avulso: R$ 12,00 (só a película)",
+    "Cores: Roxo e Preto disponíveis",
+    "Borda fina é mais cara (R$ 15-50 a mais)",
+    "A52s e A528 usam mesma tela",
+    "OLED WEFIX: Melhor qualidade (R$ 290-340)"
+  ]
+}

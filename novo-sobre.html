@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Amigos de 4 Patas</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #f5f5f5; 
+            line-height: 1.6;
+        }
+        header { 
+            background: linear-gradient(135deg, #2E7D32, #1B5E20); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 10px 0 0; font-size: 1.2rem; opacity: 0.9; }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 20px auto; 
+            padding: 30px; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        h2 { 
+            color: #F57C00; 
+            border-bottom: 3px solid #F57C00; 
+            padding-bottom: 10px; 
+            margin-top: 40px;
+            font-size: 1.8rem;
+        }
+        h2:first-child { margin-top: 0; }
+        
+        h3 {
+            color: #2E7D32;
+            margin-top: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .destaque { 
+            background: linear-gradient(135deg, #e8f5e9, #fff3e0); 
+            padding: 25px; 
+            border-radius: 10px; 
+            margin: 25px 0; 
+            border-left: 5px solid #F57C00; 
+        }
+        
+        .destaque strong {
+            color: #2E7D32;
+            font-size: 1.1rem;
+        }
+        
+        .acao-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2E7D32;
+        }
+        
+        .acao-item h3 {
+            margin-top: 0;
+            color: #F57C00;
+        }
+        
+        ul {
+            padding-left: 25px;
+        }
+        
+        ul li {
+            margin: 10px 0;
+        }
+        
+        .ods-section {
+            background: linear-gradient(135deg, #2E7D32, #F57C00);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .ods-section h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .ods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .ods-card {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .ods-card strong {
+            color: #2E7D32;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .btn { 
+            display: inline-block; 
+            padding: 15px 30px; 
+            margin: 10px 5px; 
+            background: #F57C00; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover { 
+            background: #E65100; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245,124,0,0.4);
+        }
+        
+        .btn-secundario { 
+            background: #2E7D32; 
+        }
+        
+        .btn-secundario:hover { 
+            background: #1B5E20; 
+        }
+        
+        .menu { 
+            text-align: center; 
+            margin: 25px 0; 
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .menu a { 
+            color: #2E7D32; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu a:hover {
+            background: #e8f5e9;
+        }
+        
+        .contato-info {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .contato-info p {
+            margin: 10px 0;
+        }
+        
+        footer { 
+            text-align: center; 
+            padding: 30px; 
+            color: #666; 
+            margin-top: 40px;
+            background: #f5f5f5;
+            border-top: 3px solid #2E7D32;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .projeto-unopar {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .projeto-unopar strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        
+        .slogan-banner {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        .slogan-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<script src=js/patinhas.js></script></head>
+<body>
+    <header>
+        <h1>🐾 Amigos de 4 Patas</h1>
+        <p>Bairro Parque Meia Lua - Proteção Animal</p>
+    </header>
+    
+    <div class="menu">
+        <a href="index.html">← Início</a>
+        <a href="perdidos.html">Perdidos</a>
+        <a href="avistados.html">Avistados</a>
+        <a href="adocao.html">Adoção</a>
+    </div>
+    
+    <div class="container">
+        <div class="slogan-banner">
+            <p class="slogan-text">🤝 Comunidade Unida, 🏙️ Cidade Sustentável, 🐾 Vida Protegida</p>
+        </div>
+        
+        <h2>🐾 Como Tudo Começou</h2>
+        
+        <div class="destaque">
+            <strong>Nossa História no Bairro Parque Meia Lua</strong>
+            <p>O projeto <strong>Amigos de 4 Patas</strong> nasceu de uma constatação simples, mas urgente: <strong>há muitos animais abandonados e soltos em nossa comunidade</strong>, e as pessoas que tentam ajudar muitas vezes agem sozinhas, sem conseguir se conectar.</p>
+        </div>
+        
+        <h2>🎯 O Problema que Encontramos</h2>
+        
+        <p>Ao percorrer o bairro, identificamos:</p>
+        
+        <ul>
+            <li><strong>Protetores isolados:</strong> Pessoas que resgatam, cuidam e alimentam animais "em silêncio e por conta própria", sem apoio e sem visibilidade</li>
+            <li><strong>Falta de comunicação:</strong> Quem perde um pet não sabe onde procurar. Quem avista um animal abandonado não sabe a quem recorrer</li>
+            <li><strong>Informações dispersas:</strong> Datas de castração solidária, pontos de doação e canais de denúncia chegam poucos e mal</li>
+            <li><strong>Animais soltos:</strong> A quantidade de cães e gatos de rua só aumenta, com riscos para a saúde pública e o bem-estar dos próprios animais</li>
+        </ul>
+        
+        <h2>💡 Nossa Solução</h2>
+        
+        <p>Decidimos <strong>centralizar as informações</strong> e <strong>conectar as pessoas</strong>. Criamos este site como uma ferramenta de comunicação entre:</p>
+        
+        <ul>
+            <li>Quem <strong>perdeu</strong> um animal</li>
+            <li>Quem <strong>avistou</strong> um animal perdido ou abandonado</li>
+            <li>Quem <strong>resgata</strong> e cuida de animais</li>
+            <li>Quem quer <strong>adotar</strong></li>
+            <li>Quem quer <strong>denunciar</strong> maus-tratos</li>
+            <li>Quem quer <strong>ajudar</strong> com doações ou voluntariado</li>
+        </ul>
+        
+        <div class="destaque">
+            <strong>🌍 Alinhamento com os ODS da ONU:</strong>
+            <p style="margin-top: 10px;">Este projeto está alinhado com três Objetivos de Desenvolvimento Sustentável:</p>
+            <ul style="margin-top: 10px;">
+                <li><strong>ODS 11 (Cidades Sustentáveis):</strong> Organização comunitária e melhoria da qualidade de vida urbana</li>
+                <li><strong>ODS 15 (Vida Terrestre):</strong> Proteção e bem-estar dos animais</li>
+                <li><strong>ODS 17 (Parcerias):</strong> Integração entre cidadãos, protetores e instituições para alcançar objetivos comuns</li>
+            </ul>
+        </div>
+        
+        <h2>🤝 O Que Já Fizemos</h2>
+        
+        <div class="acao-item">
+            <h3>🗺️ Mapeamento da Comunidade</h3>
+            <p>Entramos em contato com protetores independentes do bairro — aqueles que agem sozinhos, sem alarde, mas com muito amor pelos animais.</p>
+        </div>
+        
+        <div class="acao-item">
+            <h3>📢 Canal de Denúncias</h3>
+            <p>Criamos um espaço para receber denúncias de abandono e maus-tratos, direcionando para quem pode ajudar.</p>
+        </div>
+        
+        <div class="acao-item">
+            <h3>📋 Central de Informações</h3>
+            <p>Reunimos e divulgamos dados sobre:</p>
+            <ul>
+                <li>Animais <strong>perdidos</strong> e <strong>encontrados</strong></li>
+                <li>Animais disponíveis para <strong>adoção</strong></li>
+                <li><strong>Castrações solidárias</strong> — datas, locais e documentos necessários</li>
+                <li>Pontos de <strong>doação</strong> (ração, medicamentos, materiais)</li>
+            </ul>
+        </div>
+        
+        <div class="acao-item">
+            <h3>🤝 Busca de Parcerias</h3>
+            <p>Já enviamos e-mails e estamos em conversa com clínicas veterinárias, ONGs e órgãos públicos para ampliar nossa rede de apoio.</p>
+        </div>
+        
+        <div class="acao-item" style="background: linear-gradient(135deg, #e8f5e9, #e3f2fd); border-left-color: #2E7D32;">
+            <h3>🏥 Impacto na Saúde Pública</h3>
+            <p>Embora o foco principal seja a organização comunitária e proteção animal, o projeto contribui <strong>indiretamente para a saúde pública</strong> através de:</p>
+            <ul style="margin-top: 10px;">
+                <li><strong>Controle de zoonoses:</strong> Animais monitorados e vacinados reduzem riscos de raiva, leptospirose e outras doenças</li>
+                <li><strong>Redução de focos sanitários:</strong> Menos animais abandonados significa menos acúmulo de resíduos e riscos sanitários</li>
+                <li><strong>ducação em saúde:</strong> Divulgação de informações sobre posse responsável e cuidados com animais</li>
+                <li><strong>Bem-estar comunitário:</strong> Bairro com animais saudáveis é um bairro com mais qualidade de vida para todos</li>
+            </ul>
+            <p style="margin-top: 15px; font-style: italic; color: #666;">"Proteção animal e saúde pública caminham juntas - cuidar dos animais é cuidar da comunidade." </p>
+        </div>
+        
+        <div class="acao-item">
+            <h3>📱 Comunicação Acessível</h3>
+            <p>O <strong>QR Code</strong> na nossa página inicial permite que qualquer morador, ao avistar um animal na rua, entre instantaneamente no nosso grupo de WhatsApp e envie foto com localização. <strong>Sem burocracia, sem barreiras.</strong></p>
+        </div>
+        
+        <div class="ods-section">
+            <h3>🌍 Objetivos de Desenvolvimento Sustentável (ODS)</h3>
+            <p>Este projeto contribui diretamente para os seguintes ODS da ONU:</p>
+            <div class="ods-grid">
+                <div class="ods-card">
+                    <strong>ODS 11</strong>
+                    Cidades e comunidades sustentáveis — Organização comunitária, bem-estar urbano e qualidade de vida
+                </div>
+                <div class="ods-card">
+                    <strong>ODS 15</strong>
+                    Vida terrestre — Proteção animal, bem-estar de cães e gatos, redução de maus-tratos
+                </div>
+                <div class="ods-card">
+                    <strong>ODS 17</strong>
+                    Parcerias e meios de implementação — Integração entre moradores, protetores e instituições para alcançar objetivos comuns
+                </div>
+            </div>
+        </div>
+        
+        <h2>🌟 Nosso Objetivo</h2>
+        
+        <p>Queremos <strong>reduzir a quantidade de animais soltos</strong> no Parque Meia Lua através de:</p>
+        
+        <ul>
+            <li><strong>Informação:</strong> Tudo em um só lugar, fácil de encontrar</li>
+            <li><strong>Comunicação:</strong> Conectar quem precisa de ajuda com quem pode ajudar</li>
+            <li><strong>Divulgação:</strong> Castrações, adoções, eventos — todos sabendo</li>
+            <li><strong>Engajamento:</strong> Transformar moradores em protetores, protetores em rede</li>
+        </ul>
+        
+        <h2>📍 Onde Estamos</h2>
+        
+        <div class="contato-info">
+            <p><strong>Bairro Parque Meia Lua</strong></p>
+            <p>Jacareí/SP</p>
+            <br>
+            <p>📱 <strong>Grupo WhatsApp:</strong> Aponte seu celular para o QR Code na página inicial</p>
+            <p>📧 <strong>E-mail:</strong> amigos4patas@gmail.com</p>
+        </div>
+        
+        <h2>💚 Faça Parte</h2>
+        
+        <p>Você pode ajudar de várias formas:</p>
+        <ul>
+            <li><strong>Adote</strong> um animal</li>
+            <li><strong>Divulgue</strong> nosso trabalho</li>
+            <li><strong>Doe</strong> ração, medicamentos ou materiais</li>
+            <li><strong>Seja voluntário</strong> nos resgates e eventos</li>
+            <li><strong>Denuncie</strong> maus-tratos</li>
+            <li><strong>Castre</strong> seu pet (e ajude outros a castrar)</li>
+        </ul>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://wa.me/5512988974666?text=Olá! Quero fazer parte do projeto Amigos de 4 Patas" class="btn">💚 Quero Participar!</a>
+        </div>
+        
+        <div class="projeto-unopar">
+            <strong>🎓 Projeto de Extensão II</strong>
+            <p>Este site foi desenvolvido como parte do Projeto de Extensão II da <strong>UNOPAR</strong> — Análise e Desenvolvimento de Sistemas, em parceria com a comunidade do Parque Meia Lua.</p>
+            <p><strong>Desenvolvido por:</strong> Acib Abbade</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="btn btn-secundario">← Voltar ao Início</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>🐾 Projeto Amigos de 4 Patas - 2026</p>
+        <p>Desenvolvido com 💚 por Acib Abbade</p>
+        <p style="font-size: 0.9rem; color: #999;">Projeto de Extensão II - UNOPAR</p>
+    </footer>
+</body>
+</html>

@@ -26,7 +26,7 @@ log "Timestamp: $TIMESTAMP"
 # Criar arquivo tarball
 TARBALL="/tmp/workspace_backup_${TIMESTAMP}.tar.gz"
 log "Criando tarball: $TARBALL"
-tar -czf "$TARBALL" -C "$(dirname $WORKSPACE)" "$(basename $WORKSPACE)" --exclude='node_modules' --exclude='.git' 2>/dev/null
+tar -czf "$TARBALL" --exclude='node_modules' --exclude='.git' -C "$(dirname $WORKSPACE)" "$(basename $WORKSPACE)" 2>/dev/null
 
 log "Tarball criado: $(du -h $TARBALL | cut -f1)"
 

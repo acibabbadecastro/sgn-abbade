@@ -1,0 +1,22 @@
+[Unit]
+Description=Monitor PVE1 Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace/PROJETOS/MONITOR-PVE1
+ExecStart=/usr/bin/python3 app.py
+Restart=always
+RestartSec=10
+
+# Environment
+Environment=PYTHONUNBUFFERED=1
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=monitor-pve1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Amigos de 4 Patas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+
+        /* NAVBAR FIXA */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .navbar-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .navbar-logo-text {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .navbar-menu a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            padding: 70px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* SECTIONS */
+        .section {
+            background: white;
+            padding: 50px 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #C44569;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* BENEFITS GRID */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #28a745;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .benefit-card h3 {
+            color: #28a745;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* VACCINATION INFO */
+        .vaccination-section {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffffff 100%);
+            border-left: 5px solid #dc3545;
+        }
+
+        .vaccination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .vaccine-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .vaccine-card h4 {
+            color: #dc3545;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .vaccine-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .vaccine-dates {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .vaccine-dates strong {
+            color: #2E7D32;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .alert-box {
+            background: #ffebee;
+            border: 2px solid #dc3545;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .alert-box h4 {
+            color: #dc3545;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .alert-box ul {
+            margin-left: 20px;
+            color: #c62828;
+        }
+
+        .alert-box li {
+            margin: 8px 0;
+        }
+
+        /* STATS */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 8px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+                height: 60px;
+            }
+
+            .navbar-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .navbar-menu {
+                gap: 10px;
+            }
+
+            .navbar-menu a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            body {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR FIXA -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon">
+                <i class="fas fa-dog" style="color: #FF6B9D; font-size: 28px;"></i>
+            </div>
+            <span class="navbar-logo-text">Amigos de 4 Patas</span>
+        </a>
+        <div class="navbar-menu">
+            <a href="index.html">Início</a>
+            <a href="perdidos.html">Perdidos</a>
+            <a href="avistados.html">Avistados</a>
+            <a href="adocao.html">Adoção</a>
+            <a href="castracao.html">Castração</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Sobre o Projeto</h1>
+        <p>Cuidando dos animais, protegendo a comunidade, transformando vidas</p>
+    </section>
+
+    <div class="container">
+        <!-- NOSSA HISTÓRIA -->
+        <div class="section">
+            <h2><i class="fas fa-heart"></i> Nossa História</h2>
+            <p>
+                O <strong>Amigos de 4 Patas</strong> nasceu no <strong>Parque Meia Lua</strong>, 
+                onde um pequeno grupo de moradores se reuniu preocupado com o crescente número 
+                de animais abandonados nas ruas. O que começou como uma conversa entre vizinhos 
+                rapidamente se transformou em um movimento de amor e cuidado.
+            </p>
+            <p>
+                Vimos cães e gatos sem lar, sem vacinação, convivendo com nossas crianças e idosos. 
+                Percebemos que o problema não era só dos animais — era nosso, da comunidade inteira. 
+                A falta de controle populacional, a ausência de cuidados veterinários e o abandono 
+                estavam criando uma crise de saúde pública silenciosa.
+            </p>
+            <p>
+                Hoje, mantemos nossas raízes no Parque Meia Lua, mas trabalhamos para expandir 
+                nossas ações para toda a cidade. Porque cada vida importa. Porque saúde pública 
+                começa com amor aos animais.
+            </p>
+        </div>
+
+        <!-- ESTATÍSTICAS -->
+        <div class="section">
+            <h2><i class="fas fa-chart-line"></i> O Problema em Números</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <span class="stat-number">30 milhões</span>
+                    <span class="stat-label">Animais abandonados no Brasil</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1 milhão/ano</span>
+                    <span class="stat-label">Animais sacrificados por ano</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Não têm vacinação alguma</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Zoonoses identificadas</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic; color: #666;">
+                Fonte: OMS, Ministério da Saúde, IBGE
+            </p>
+        </div>
+
+        <!-- BENEFÍCIOS PARA COMUNIDADE -->
+        <div class="section">
+            <h2><i class="fas fa-users"></i> Benefícios para Sua Comunidade</h2>
+            <p>
+                Quando cuidamos dos animais de rua, toda a comunidade se beneficia. 
+                Veja como nossas ações impactam positivamente o seu dia a dia:
+            </p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3><i class="fas fa-shield-alt"></i> Saúde Pública Protegida</h3>
+                    <p>
+                        Animais vacinados não transmitem doenças. Reduzimos riscos de 
+                        raiva, leptospirose, esporotricose e outras zoonoses que afetam 
+                        principalmente crianças e idosos. Uma comunidade com animais 
+                        saudáveis é uma comunidade mais segura.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-home"></i> Ruas Mais Seguras</h3>
+                    <p>
+                        Menos animais abandonados significa menos acidentes de trânsito, 
+                        menos sofrimento nas ruas e comunidades mais tranquilas para 
+                        famílias caminharem. Crianças podem brincar sem medo.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-syringe"></i> Controle de Zoonoses</h3>
+                    <p>
+                        A vacinação preventiva é a arma mais eficaz contra doenças que 
+                        passam de animais para humanos. Campanhas regulares protegem 
+                        toda a população, especialmente grupos vulneráveis.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-baby"></i> Proteção às Crianças</h3>
+                    <p>
+                        Crianças são as mais vulneráveis a zoonoses e acidentes com 
+                        animais de rua. Nosso trabalho cria um ambiente mais seguro 
+                        para os pequenos brincarem livres de riscos.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Adoção Responsável</h3>
+                    <p>
+                        Conectamos animais resgatados a famílias amorosas. Cada adoção 
+                        é uma vida salva e um espaço liberado para resgatar outro animal 
+                        em situação de risco.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Educação e Conscientização</h3>
+                    <p>
+                        Ensinamos posse responsável, sinais de doenças, importância da 
+                        castração e vacinação. Informação é o primeiro passo para a 
+                        mudança sustentável.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VACINAÇÃO -->
+        <div class="section vaccination-section">
+            <h2><i class="fas fa-syringe"></i> Campanhas de Vacinação</h2>
+            <p>
+                A vacinação é nossa principal arma contra zoonoses. Trabalhamos em parceria 
+                com a <strong>Prefeitura de São Paulo</strong> para garantir que animais 
+                de rua e de famílias carentes recebam proteção gratuita.
+            </p>
+            
+            <div class="vaccination-grid">
+                <div class="vaccine-card">
+                    <h4>🦇 Vacina Antirrábica</h4>
+                    <p>
+                        Protege contra a raiva, doença 100% fatal em humanos e animais. 
+                        Obrigatória por lei e oferecida gratuitamente pela prefeitura.
+                    </p>
+                    <div class="vaccine-dates">
+                        <strong>📅 Próximas Campanhas:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #555;">
+                            <li><strong>Agosto 2026:</strong> Campanha Nacional de Vacinação Antirrábica</li>
+                            <li><strong>Todo sábado:</strong> Postos volantes em parques municipais</li>
+                            <li><strong>Sob demanda:</strong> Agendamento via Zoonoses</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="vaccine-card">
+                    <h4>🏥 Vacinas Múltiplas</h4>
+                    <p>
+                        Para cães: Quádrupla, Quíntupla ou Óctupla (cinomose, parvovirose, 
+                        hepatite, adenovirose, parainfluenza, leptospirose).
+                        Para gatos: Tríplice felina (panleucopenia, rinotraqueíte, calicivirose).
+                    </p>
+                    <div class="vaccine-dates">
+                        <strong>📅 Onde Vacinar:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #555;">
+                            <li>CCZ - Centro de Controle de Zoonoses</li>
+                            <li>Hospitais Veterinários Públicos</li>
+                            <li>Eventos especiais do Amigos de 4 Patas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Por Que Vacinar é Urgente?</h4>
+                <ul>
+                    <li><strong>Raiva:</strong> Transmitida por mordida, 100% fatal sem tratamento</li>
+                    <li><strong>Leptospirose:</strong> Contato com urina de rato/cão, causa insuficiência renal</li>
+                    <li><strong>Esporotricose:</strong> Fungo transmitido por arranhões de gato, afeta pele e olhos</li>
+                    <li><strong>Leishmaniose:</strong> Picada de mosquito-palha, pode ser fatal</li>
+                    <li><strong>Toxoplasmose:</strong> Risco para gestantes e imunossuprimidos</li>
+                </ul>
+            </div>
+
+            <p style="margin-top: 25px; text-align: center;">
+                <strong>📞 Agende a vacinação do seu animal ou denuncie animais sem cuidados:</strong><br>
+                <a href="tel:156" style="color: #C44569; font-size: 1.5rem; font-weight: 800; text-decoration: none;">
+                    📞 156 (Prefeitura de São Paulo)
+                </a>
+            </p>
+        </div>
+
+        <!-- ODS -->
+        <div class="section">
+            <h2><i class="fas fa-globe-americas"></i> Alinhado com os ODS da ONU</h2>
+            <p>
+                Nosso trabalho contribui diretamente para os Objetivos de Desenvolvimento 
+                Sustentável da Organização das Nações Unidas:
+            </p>
+            <div class="benefits-grid">
+                <div class="benefit-card" style="border-left-color: #28a745;">
+                    <h3 style="color: #28a745;">ODS 3: Saúde e Bem-Estar</h3>
+                    <p>
+                        Prevenção de zoonoses, promoção da saúde pública e bem-estar 
+                        animal como parte integrante da saúde humana.
+                    </p>
+                </div>
+                <div class="benefit-card" style="border-left-color: #fd7e14;">
+                    <h3 style="color: #fd7e14;">ODS 11: Cidades Sustentáveis</h3>
+                    <p>
+                        Comunidades que cuidam dos animais são mais seguras, inclusivas 
+                        e sustentáveis para todos os residentes.
+                    </p>
+                </div>
+                <div class="benefit-card" style="border-left-color: #20c997;">
+                    <h3 style="color: #20c997;">ODS 15: Vida Terrestre</h3>
+                    <p>
+                        Proteção do bem-estar animal, controle populacional ético e 
+                        respeito à vida de todas as espécies.
+                    </p>
+                </div>
+                <div class="benefit-card" style="border-left-color: #007bff;">
+                    <h3 style="color: #007bff;">ODS 17: Parcerias</h3>
+                    <p>
+                        Colaboração entre governo, ONGs, veterinários e comunidade 
+                        para implementar soluções sustentáveis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p><strong>Amigos de 4 Patas - Parque Meia Lua</strong></p>
+        <p>Comunidade Unida, Cidade Sustentável, Vida Protegida</p>
+        <p style="margin-top: 15px; font-size: 0.9rem;">
+            <i class="fas fa-map-marker-alt"></i> Parque Meia Lua, São Paulo - SP<br>
+            <i class="fas fa-envelope"></i> contato@amigos4patas.com.br<br>
+            <i class="fas fa-phone"></i> 156 (Prefeitura)
+        </p>
+    </footer>
+</body>
+</html>

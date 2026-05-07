@@ -1,0 +1,35 @@
+# MAXIMOUS v2.0 - Arquivos Ignorados
+
+# Dados sensíveis
+secure/
+.secret
+.user-preferences.conf
+*.key
+*.pem
+
+# Backups locais (mantidos no DATASVR)
+backups/
+backups-local/
+
+# Logs
+tmp/
+temp/
+*.log
+
+# Dados do usuário (mantidos no DATASVR)
+data/*.json
+data/*.log
+
+# Índices temporários
+.index.tmp
+*.tmp
+
+# Configurações de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

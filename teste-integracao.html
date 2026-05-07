@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Integração - Amigos de 4 Patas</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f5f5f5; }
+        .test-card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #FF6B9D; }
+        h2 { color: #C44569; font-size: 1.2rem; margin-top: 0; }
+        .success { color: #27ae60; }
+        .error { color: #e74c3c; }
+        .info { color: #3498db; }
+        button { padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
+        .btn-fb { background: #1877f2; color: white; }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-tw { background: #1da1f2; color: white; }
+        .btn-copy { background: #2d3436; color: white; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .status { padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .status.ok { background: #d4edda; border: 1px solid #c3e6cb; }
+        .status.fail { background: #f8d7da; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste de Integração - Amigos de 4 Patas</h1>
+    <p>Data: <span id="data"></span></p>
+
+    <div class="test-card">
+        <h2>✅ 1. Newsletter Module</h2>
+        <div id="newsletter-status"></div>
+        <form class="newsletter-form" id="form-teste" style="max-width: 400px; margin-top: 15px;">
+            <input type="text" name="nome" placeholder="Seu nome" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 10px; width: 100%;"><br>
+            <input type="email" name="email" placeholder="Seu e-mail" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 10px; width: 100%;"><br>
+            <input type="tel" name="whatsapp" placeholder="WhatsApp (DDD + número)" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 10px; width: 100%;"><br>
+            <button type="submit" style="background: #FF6B9D; color: white; width: 100%;">Testar Inscrição</button>
+        </form>
+    </div>
+
+    <div class="test-card">
+        <h2>✅ 2. Botões de Compartilhamento</h2>
+        <div id="share-status"></div>
+        <div style="margin-top: 15px;">
+            <button class="btn-fb" onclick="testShare('facebook')"><i class="fab fa-facebook-f"></i> Facebook</button>
+            <button class="btn-wa" onclick="testShare('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+            <button class="btn-tw" onclick="testShare('twitter')"><i class="fab fa-twitter"></i> Twitter</button>
+            <button class="btn-copy" onclick="testShare('copy')"><i class="fas fa-link"></i> Copiar Link</button>
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>✅ 3. Compartilhamento de Animal Específico</h2>
+        <div id="animal-status"></div>
+        <button class="btn-wa" onclick="testShareAnimal()" style="margin-top: 15px;">
+            <i class="fab fa-whatsapp"></i> Compartilhar Animal (Thor)
+        </button>
+    </div>
+
+    <div class="test-card">
+        <h2>📊 4. Estatísticas de Compartilhamento</h2>
+        <pre id="stats">Carregando...</pre>
+        <button onclick="atualizarStats()" style="background: #3498db; color: white;">Atualizar Stats</button>
+        <button onclick="limparStats()" style="background: #e74c3c; color: white;">Limpar Stats</button>
+    </div>
+
+    <div class="test-card">
+        <h2>📁 5. Verificação de Arquivos</h2>
+        <div id="files-check"></div>
+    </div>
+
+    <script src="amigos4patas-newsletter.js"></script>
+    <script src="amigos4patas-compartilhar.js"></script>
+    <script>
+        // Atualiza data
+        document.getElementById('data').textContent = new Date().toLocaleString('pt-BR');
+
+        // Testa carregamento dos módulos
+        window.addEventListener('DOMContentLoaded', function() {
+            // Newsletter
+            const newsletterOk = typeof window.Amigos4Patas !== 'undefined' && 
+                                 typeof window.Amigos4Patas.Newsletter !== 'undefined';
+            document.getElementById('newsletter-status').innerHTML = newsletterOk 
+                ? '<div class="status ok">✅ Newsletter module carregado com sucesso!</div>'
+                : '<div class="status fail">❌ Erro ao carregar newsletter module</div>';
+
+            // Compartilhamento
+            const shareOk = typeof window.Amigos4Patas !== 'undefined' && 
+                           typeof window.Amigos4Patas.Compartilhar !== 'undefined';
+            document.getElementById('share-status').innerHTML = shareOk
+                ? '<div class="status ok">✅ Compartilhar module carregado com sucesso!</div>'
+                : '<div class="status fail">❌ Erro ao carregar compartilhar module</div>';
+
+            // Animal específico
+            document.getElementById('animal-status').innerHTML = shareOk
+                ? '<div class="status ok">✅ API de compartilhamento de animais disponível</div>'
+                : '<div class="status fail">❌ API indisponível</div>';
+
+            // Verifica arquivos
+            checkFiles();
+            atualizarStats();
+        });
+
+        function testShare(rede) {
+            const funcs = {
+                'facebook': () => window.Amigos4Patas.Compartilhar.facebook(),
+                'whatsapp': () => window.Amigos4Patas.Compartilhar.whatsapp(),
+                'twitter': () => window.Amigos4Patas.Compartilhar.twitter(),
+                'copy': () => window.Amigos4Patas.Compartilhar.copiar()
+            };
+            
+            try {
+                funcs[rede]();
+                console.log(`✅ Teste ${rede} executado`);
+            } catch (e) {
+                console.error(`❌ Erro no teste ${rede}:`, e);
+            }
+        }
+
+        function testShareAnimal() {
+            const animal = {
+                tipo: 'perdido',
+                nome: 'Thor',
+                local: 'Parque Meia Lua',
+                data: '01/05/2026',
+                contato: '(12) 99999-8888'
+            };
+            window.Amigos4Patas.Compartilhar.animal(animal, 'whatsapp');
+        }
+
+        function atualizarStats() {
+            const stats = JSON.parse(localStorage.getItem('a4p_compartilhamentos') || '{}');
+            document.getElementById('stats').textContent = JSON.stringify(stats, null, 2);
+        }
+
+        function limparStats() {
+            localStorage.removeItem('a4p_compartilhamentos');
+            document.getElementById('stats').textContent = '{}';
+            alert('Estatísticas limpas!');
+        }
+
+        function checkFiles() {
+            const files = [
+                'amigos4patas-index-novo.html',
+                'amigos4patas-perdidos.html',
+                'amigos4patas-avistados.html',
+                'amigos4patas-adocao.html',
+                'amigos4patas-newsletter.js',
+                'amigos4patas-compartilhar.js',
+                'salvar-inscricao.php',
+                'data/newsletter.json'
+            ];
+
+            let html = '<ul>';
+            files.forEach(file => {
+                // Não podemos verificar existência real via JS no client
+                html += `<li>📄 ${file} <span class="info">(verificar manualmente)</span></li>`;
+            });
+            html += '</ul>';
+            document.getElementById('files-check').innerHTML = html;
+        }
+
+        // Atualiza stats a cada 5 segundos
+        setInterval(atualizarStats, 5000);
+    </script>
+</body>
+</html>

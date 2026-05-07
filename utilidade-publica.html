@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilidade Pública - Amigos de 4 Patas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 50%, #BA68C8 100%);
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🐾 📚 🐾 🛠️ 🐾 🏥 🐾 💝 🐾';
+            position: absolute;
+            font-size: 45px;
+            opacity: 0.15;
+            top: 25px;
+            left: -100px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.98);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* Menu de Navegação */
+        .nav-menu {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu a {
+            color: #7B1FA2;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            background: #f3e5f5;
+            transform: translateY(-2px);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Grid de Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Cores específicas para cada card */
+        .card-castracao .card-icon { color: #4CAF50; }
+        .card-castracao:hover { border-bottom: 4px solid #4CAF50; }
+
+        .card-doacoes .card-icon { color: #FF6B9D; }
+        .card-doacoes:hover { border-bottom: 4px solid #FF6B9D; }
+
+        .card-diy .card-icon { color: #FF9800; }
+        .card-diy:hover { border-bottom: 4px solid #FF9800; }
+
+        .card-servicos .card-icon { color: #2196F3; }
+        .card-servicos:hover { border-bottom: 4px solid #2196F3; }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .nav-menu a { 
+                margin: 5px; 
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1><i class="fas fa-hand-holding-heart"></i> Utilidade Pública</h1>
+        <p>Recursos essenciais para cuidar melhor do seu melhor amigo</p>
+    </section>
+
+    <!-- Menu de Navegação -->
+    <nav class="nav-menu">
+        <a href="amigos4patas-index-novo.html"><i class="fas fa-home"></i> Início</a>
+        <a href="perdidos.html"><i class="fas fa-search-location"></i> Perdidos</a>
+        <a href="avistados.html"><i class="fas fa-eye"></i> Avistados</a>
+        <a href="adocao.html"><i class="fas fa-heart"></i> Adoção</a>
+        <a href="castracao.html"><i class="fas fa-syringe"></i> Castração</a>
+        <a href="utilidade-publica.html"><i class="fas fa-book"></i> Utilidade Pública</a>
+        <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+    </nav>
+
+    <!-- Cards de Serviços -->
+    <div class="container">
+        <div class="cards-grid">
+            <!-- Card Castração -->
+            <a href="castracao.html" class="card card-castracao">
+                <span class="card-icon">🏥</span>
+                <h3>Castração</h3>
+                <p>Clínicas parceiras, programas gratuitos e orientações sobre castração responsável</p>
+            </a>
+
+            <!-- Card Doações -->
+            <a href="doacoes.html" class="card card-doacoes">
+                <span class="card-icon">💝</span>
+                <h3>Doações</h3>
+                <p>Pontos de coleta, necessidades atuais e como você pode ajudar os animais</p>
+            </a>
+
+            <!-- Card DIY -->
+            <a href="diy.html" class="card card-diy">
+                <span class="card-icon">🛠️</span>
+                <h3>Faça Você Mesmo</h3>
+                <p>Tutoriais de camas caseiras, brinquedos, petiscos e primeiros socorros</p>
+            </a>
+
+            <!-- Card Serviços -->
+            <a href="servicos.html" class="card card-servicos">
+                <span class="card-icon">📞</span>
+                <h3>Serviços</h3>
+                <p>Clínicas veterinárias, emergência 24h, órgãos públicos e disque denúncia</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Amigos de 4 Patas - Parque Meia Lua © 2026</p>
+        <p>Unidos pela proteção dos nossos animais 🐾</p>
+    </footer>
+</body>
+</html>

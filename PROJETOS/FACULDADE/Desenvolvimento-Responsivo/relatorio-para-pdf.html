@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório Aula Prática 2 - Desenvolvimento Responsivo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h1 { text-align: center; }
+        .info-aluno {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .breakpoint {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .conclusao {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .assinatura {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .assinatura-line {
+            border-top: 1px solid #333;
+            width: 300px;
+            margin: 20px auto;
+        }
+        @media print {
+            body { max-width: none; }
+            pre { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 RELATÓRIO DE AULA PRÁTICA 2</h1>
+    <h2 style="text-align: center; border: none;">Desenvolvimento Responsivo</h2>
+
+    <div class="info-aluno">
+        <strong>Aluno:</strong> Acib Abbade de Castro<br>
+        <strong>RA:</strong> 3850892305<br>
+        <strong>Curso:</strong> Análise e Desenvolvimento de Sistemas<br>
+        <strong>Instituição:</strong> UNOPAR<br>
+        <strong>Data:</strong> 02/05/2026
+    </div>
+
+    <h2>1. OBJETIVO DA ATIVIDADE</h2>
+    <p>Implementar a responsividade em uma página web, garantindo boa usabilidade em diferentes dispositivos (desktop, tablet, smartphone) através de Media Queries CSS.</p>
+
+    <h2>2. DESCRIÇÃO DOS PROCEDIMENTOS</h2>
+    <h3>2.1 Ferramentas Utilizadas</h3>
+    <ul>
+        <li><strong>Editor:</strong> VS Code / Replit (https://replit.com)</li>
+        <li><strong>Linguagens:</strong> HTML5 e CSS3</li>
+        <li><strong>Técnica:</strong> Media Queries com breakpoints</li>
+    </ul>
+
+    <h3>2.2 Breakpoints Implementados</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Breakpoint</th>
+                <th>Largura</th>
+                <th>Dispositivo</th>
+                <th>Colunas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>BP1</strong></td>
+                <td>≥1280px</td>
+                <td>Desktop</td>
+                <td>6 colunas</td>
+            </tr>
+            <tr>
+                <td><strong>BP2</strong></td>
+                <td>768px - 1279px</td>
+                <td>Tablet</td>
+                <td>3 colunas</td>
+            </tr>
+            <tr>
+                <td><strong>BP3</strong></td>
+                <td>480px - 767px</td>
+                <td>Telas pequenas</td>
+                <td>2 colunas</td>
+            </tr>
+            <tr>
+                <td><strong>BP4</strong></td>
+                <td>&lt;480px</td>
+                <td>Smartphone</td>
+                <td>1 coluna</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. CÓDIGOS IMPLEMENTADOS</h2>
+    <h3>3.1 Arquivo: index.html</h3>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Desenvolvimento Responsivo - Aula Prática 2&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Desenvolvimento Responsivo&lt;/h1&gt;
+        &lt;p&gt;Aula Prática 2 - UNOPAR&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="bloco" style="background-color: #e74c3c;"&gt;
+                &lt;h2&gt;Bloco 1&lt;/h2&gt;
+                &lt;p&gt;Conteúdo do bloco 1&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="bloco" style="background-color: #3498db;"&gt;
+                &lt;h2&gt;Bloco 2&lt;/h2&gt;
+                &lt;p&gt;Conteúdo do bloco 2&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="bloco" style="background-color: #2ecc71;"&gt;
+                &lt;h2&gt;Bloco 3&lt;/h2&gt;
+                &lt;p&gt;Conteúdo do bloco 3&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="bloco" style="background-color: #f39c12;"&gt;
+                &lt;h2&gt;Bloco 4&lt;/h2&gt;
+                &lt;p&gt;Conteúdo do bloco 4&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="bloco" style="background-color: #9b59b6;"&gt;
+                &lt;h2&gt;Bloco 5&lt;/h2&gt;
+                &lt;p&gt;Conteúdo do bloco 5&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="bloco" style="background-color: #1abc9c;"&gt;
+                &lt;h2&gt;Bloco 6&lt;/h2&gt;
+                &lt;p&gt;Conteúdo do bloco 6&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Acib Abbade de Castro - Análise e Desenvolvimento de Sistemas - UNOPAR&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <h3>3.2 Arquivo: style.css (Media Queries)</h3>
+    <pre>
+/* Breakpoint 1280px+ - Desktop (6 colunas) */
+@media (min-width: 1280px) {
+    .bloco {
+        flex: 0 0 calc(16.666% - 20px);
+    }
+}
+
+/* Breakpoint 768px+ - Tablet (3 colunas) */
+@media (min-width: 768px) and (max-width: 1279px) {
+    .bloco {
+        flex: 0 0 calc(33.333% - 20px);
+    }
+}
+
+/* Breakpoint 480px+ - Telas pequenas (2 colunas) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .bloco {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+/* Breakpoint &lt; 480px - Smartphone (1 coluna) */
+@media (max-width: 479px) {
+    .bloco {
+        flex: 0 0 100%;
+    }
+}
+    </pre>
+
+    <h2>4. EXPLICAÇÃO TÉCNICA</h2>
+    <p>A <strong>responsividade web</strong> permite que uma página se adapte automaticamente ao tamanho da tela do dispositivo do usuário, garantindo boa usabilidade em desktops, tablets e smartphones.</p>
+    
+    <p>As <strong>Media Queries</strong> são regras CSS que aplicam estilos condicionalmente baseadas em características do dispositivo (largura, altura, orientação, etc.).</p>
+
+    <div class="breakpoint">
+        <strong>Breakpoint 1 (≥1280px):</strong> Desktop - 6 colunas (16.666% cada bloco)<br>
+        <strong>Breakpoint 2 (768px - 1279px):</strong> Tablet - 3 colunas (33.333% cada bloco)<br>
+        <strong>Breakpoint 3 (480px - 767px):</strong> Telas pequenas - 2 colunas (50% cada bloco)<br>
+        <strong>Breakpoint 4 (&lt;480px):</strong> Smartphone - 1 coluna (100% largura)
+    </div>
+
+    <h2>5. TESTES REALIZADOS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Largura da Tela</th>
+                <th>Nº Colunas</th>
+                <th>Visualização</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1920px</td>
+                <td>6</td>
+                <td>Todos blocos em 1 linha</td>
+            </tr>
+            <tr>
+                <td>1280px</td>
+                <td>6</td>
+                <td>Todos blocos em 1 linha</td>
+            </tr>
+            <tr>
+                <td>1024px</td>
+                <td>3</td>
+                <td>2 linhas de 3 blocos</td>
+            </tr>
+            <tr>
+                <td>768px</td>
+                <td>3</td>
+                <td>2 linhas de 3 blocos</td>
+            </tr>
+            <tr>
+                <td>600px</td>
+                <td>2</td>
+                <td>3 linhas de 2 blocos</td>
+            </tr>
+            <tr>
+                <td>480px</td>
+                <td>2</td>
+                <td>3 linhas de 2 blocos</td>
+            </tr>
+            <tr>
+                <td>375px</td>
+                <td>1</td>
+                <td>6 linhas de 1 bloco</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="conclusao">
+        <h2>6. CONCLUSÃO</h2>
+        <p>A atividade permitiu compreender na prática como implementar responsividade em páginas web utilizando Media Queries CSS. Os 4 breakpoints garantem que o conteúdo seja exibido de forma adequada em qualquer dispositivo, desde desktops até smartphones.</p>
+        <p><strong>Competências desenvolvidas:</strong> Uso de Flexbox, Media Queries, cálculo de porcentagens, teste em múltiplos dispositivos e boas práticas de desenvolvimento responsivo.</p>
+    </div>
+
+    <h2>7. REFERÊNCIAS</h2>
+    <ul>
+        <li>MDN Web Docs - Media Queries: https://developer.mozilla.org/pt-BR/docs/Web/CSS/Media_Queries</li>
+        <li>W3Schools - Responsive Web Design: https://www.w3schools.com/css/css_rwd_intro.asp</li>
+        <li>Replit - Editor Online: https://replit.com</li>
+    </ul>
+
+    <div class="assinatura">
+        <p>Taubaté/SP, 02 de maio de 2026</p>
+        <div class="assinatura-line"></div>
+        <p><strong>Acib Abbade de Castro</strong></p>
+    </div>
+</body>
+</html>

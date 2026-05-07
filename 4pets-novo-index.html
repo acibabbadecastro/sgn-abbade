@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos de 4 Patas - Parque Meia Lua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+
+        /* NAVBAR FIXA */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .navbar-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .navbar-logo-text {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .navbar-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION - HUMANIZADA */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 20px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* ILUSTRAÇÕES CACHORRO E GATO */
+        .mascots-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 50px 20px;
+            background: white;
+            margin: 30px auto;
+            max-width: 1000px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .mascot-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .mascot-svg {
+            width: 200px;
+            height: 200px;
+        }
+
+        .mascot-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #C44569;
+            margin-top: 15px;
+        }
+
+        .gesture-text {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* ODS SECTION */
+        .ods-section {
+            background: white;
+            padding: 60px 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .ods-title {
+            font-size: 2.2rem;
+            color: #C44569;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .ods-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .ods-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .ods-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .ods-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .ods-3 { border-color: #28a745; }
+        .ods-3 h4 { color: #28a745; }
+        
+        .ods-11 { border-color: #fd7e14; }
+        .ods-11 h4 { color: #fd7e14; }
+        
+        .ods-15 { border-color: #20c997; }
+        .ods-15 h4 { color: #20c997; }
+        
+        .ods-17 { border-color: #007bff; }
+        .ods-17 h4 { color: #007bff; }
+
+        /* ORIGEM PROJECT */
+        .origin-section {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffffff 100%);
+            padding: 60px 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .origin-title {
+            font-size: 2rem;
+            color: #d35400;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .origin-text {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* BENEFITS */
+        .benefits-section {
+            background: white;
+            padding: 60px 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .benefits-title {
+            font-size: 2.2rem;
+            color: #C44569;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #28a745;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .benefit-card h3 {
+            color: #28a745;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+                height: 60px;
+            }
+
+            .navbar-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .navbar-menu {
+                gap: 10px;
+            }
+
+            .navbar-menu a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            body {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .mascots-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .mascot-svg {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR FIXA -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon">
+                <i class="fas fa-dog" style="color: #FF6B9D; font-size: 28px;"></i>
+            </div>
+            <span class="navbar-logo-text">Amigos de 4 Patas</span>
+        </a>
+        <div class="navbar-menu">
+            <a href="index.html">Início</a>
+            <a href="perdidos.html">Perdidos</a>
+            <a href="avistados.html">Avistados</a>
+            <a href="adocao.html">Adoção</a>
+            <a href="castracao.html">Castração</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - HUMANIZADA -->
+    <section class="hero">
+        <h1>Amigos de 4 Patas</h1>
+        <p class="hero-subtitle">Comunidade Unida, Cidade Sustentável, Vida Protegida</p>
+        <p class="hero-description">
+            Você já parou para pensar nos animais que vivem nas ruas do nosso bairro? 
+            Cães e gatos abandonados se multiplicam sem controle, sem vacinação, 
+            convivendo com nossas crianças e idosos. O risco de doenças como raiva, 
+            leptospirose e esporotricose é real e preocupa famílias inteiras.
+            <br><br>
+            <strong>Nós nascemos no Parque Meia Lua</strong> — um pequeno grupo de pessoas 
+            que se importa. Mas nosso sonho é maior: queremos levar cuidado, conscientização 
+            e ação para toda a cidade. Porque cada vida importa. Porque saúde pública 
+            começa com amor aos animais.
+        </p>
+    </section>
+
+    <!-- ILUSTRAÇÕES CACHORRO E GATO -->
+    <section class="mascots-section">
+        <div class="mascot-container">
+            <!-- SVG CACHORRO SORRINDO -->
+            <svg class="mascot-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corpo -->
+                <ellipse cx="100" cy="120" rx="70" ry="60" fill="#FFB347"/>
+                <!-- Cabeça -->
+                <circle cx="100" cy="80" r="50" fill="#FFB347"/>
+                <!-- Orelhas -->
+                <ellipse cx="60" cy="60" rx="20" ry="30" fill="#D48806" transform="rotate(-20 60 60)"/>
+                <ellipse cx="140" cy="60" rx="20" ry="30" fill="#D48806" transform="rotate(20 140 60)"/>
+                <!-- Olhos -->
+                <ellipse cx="85" cy="75" rx="12" ry="15" fill="white"/>
+                <ellipse cx="115" cy="75" rx="12" ry="15" fill="white"/>
+                <circle cx="88" cy="78" r="6" fill="#333"/>
+                <circle cx="118" cy="78" r="6" fill="#333"/>
+                <!-- Nariz -->
+                <ellipse cx="100" cy="90" rx="10" ry="8" fill="#333"/>
+                <!-- Sorriso -->
+                <path d="M 85 100 Q 100 115 115 100" stroke="#333" stroke-width="3" fill="none"/>
+                <!-- Língua -->
+                <ellipse cx="100" cy="108" rx="8" ry="10" fill="#FF6B9D"/>
+                <!-- Pata acenando -->
+                <ellipse cx="150" cy="130" rx="25" ry="15" fill="#FFB347" transform="rotate(30 150 130)"/>
+                <!-- Dedos da pata -->
+                <circle cx="165" cy="125" r="5" fill="#D48806"/>
+                <circle cx="170" cy="135" r="5" fill="#D48806"/>
+                <circle cx="165" cy="145" r="5" fill="#D48806"/>
+            </svg>
+            <div class="mascot-label">🐕 Bem-vindo!</div>
+            <div class="gesture-text">"Vem você também!"</div>
+        </div>
+        <div class="mascot-container">
+            <!-- SVG GATO SORRINDO -->
+            <svg class="mascot-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corpo -->
+                <ellipse cx="100" cy="130" rx="60" ry="50" fill="#A8A8A8"/>
+                <!-- Cabeça -->
+                <circle cx="100" cy="85" r="45" fill="#A8A8A8"/>
+                <!-- Orelhas pontudas -->
+                <polygon points="55,55 70,20 85,55" fill="#888"/>
+                <polygon points="115,55 130,20 145,55" fill="#888"/>
+                <!-- Olhos -->
+                <ellipse cx="85" cy="80" rx="14" ry="18" fill="white"/>
+                <ellipse cx="115" cy="80" rx="14" ry="18" fill="white"/>
+                <ellipse cx="87" cy="82" rx="8" ry="12" fill="#4CAF50"/>
+                <ellipse cx="117" cy="82" rx="8" ry="12" fill="#4CAF50"/>
+                <circle cx="89" cy="80" r="3" fill="#333"/>
+                <circle cx="119" cy="80" r="3" fill="#333"/>
+                <!-- Nariz -->
+                <polygon points="100,95 95,102 105,102" fill="#FFB6C1"/>
+                <!-- Bigodes -->
+                <line x1="70" y1="95" x2="50" y2="90" stroke="#333" stroke-width="2"/>
+                <line x1="70" y1="100" x2="50" y2="100" stroke="#333" stroke-width="2"/>
+                <line x1="70" y1="105" x2="50" y2="110" stroke="#333" stroke-width="2"/>
+                <line x1="130" y1="95" x2="150" y2="90" stroke="#333" stroke-width="2"/>
+                <line x1="130" y1="100" x2="150" y2="100" stroke="#333" stroke-width="2"/>
+                <line x1="130" y1="105" x2="150" y2="110" stroke="#333" stroke-width="2"/>
+                <!-- Sorriso -->
+                <path d="M 90 108 Q 100 118 110 108" stroke="#333" stroke-width="2" fill="none"/>
+                <!-- Pata acenando -->
+                <ellipse cx="145" cy="140" rx="20" ry="12" fill="#A8A8A8" transform="rotate(30 145 140)"/>
+                <!-- Dedos da pata -->
+                <circle cx="158" cy="135" r="4" fill="#888"/>
+                <circle cx="162" cy="142" r="4" fill="#888"/>
+                <circle cx="158" cy="149" r="4" fill="#888"/>
+            </svg>
+            <div class="mascot-label">🐱 Junte-se a nós!</div>
+            <div class="gesture-text">"Vem você também!"</div>
+        </div>
+    </section>
+
+    <!-- ORIGEM DO PROJETO -->
+    <section class="origin-section">
+        <h2 class="origin-title">🏡 Nossa Origem</h2>
+        <p class="origin-text">
+            Tudo começou no <strong>Parque Meia Lua</strong>, onde um pequeno grupo de moradores 
+            se reuniu preocupado com o crescente número de animais abandonados nas ruas. 
+            O que era uma iniciativa local rapidamente mostrou que o problema era maior — 
+            e nossa visão também.
+            <br><br>
+            Hoje, mantemos nossas raízes no Meia Lua, mas trabalhamos para expandir 
+            o cuidado, a conscientização e as ações de saúde pública para toda a cidade. 
+            Porque quando cuidamos dos animais, cuidamos de toda a comunidade.
+        </p>
+    </section>
+
+    <!-- ODS -->
+    <section class="ods-section">
+        <h2 class="ods-title">🌍 Alinhado com os Objetivos de Desenvolvimento Sustentável (ODS)</h2>
+        <div class="ods-container">
+            <div class="ods-card ods-3">
+                <h4>ODS 3: Saúde e Bem-Estar</h4>
+                <p>
+                    A vacinação animal previne zoonoses como raiva, leptospirose e 
+                    esporotricose. Cuidar dos animais é proteger crianças, idosos 
+                    e toda a família. Saúde pública começa com prevenção.
+                </p>
+            </div>
+            <div class="ods-card ods-11">
+                <h4>ODS 11: Cidades e Comunidades Sustentáveis</h4>
+                <p>
+                    Comunidades que cuidam dos animais são mais seguras, saudáveis 
+                    e acolhedoras. Ruas sem animais abandonados em sofrimento são 
+                    ruas onde famílias prosperam.
+                </p>
+            </div>
+            <div class="ods-card ods-15">
+                <h4>ODS 15: Vida Terrestre</h4>
+                <p>
+                    Cada cão e gato merece dignidade, cuidado e um lar. Controle 
+                    populacional ético, adoção responsável e respeito à vida animal 
+                    são pilares do nosso trabalho.
+                </p>
+            </div>
+            <div class="ods-card ods-17">
+                <h4>ODS 17: Parcerias e Meios de Implementação</h4>
+                <p>
+                    Sozinhos vamos devagar, juntos vamos longe. Parcerias com 
+                    prefeitura, ONGs, veterinários e a comunidade são essenciais 
+                    para transformar vidas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS PARA COMUNIDADE -->
+    <section class="benefits-section">
+        <h2 class="benefits-title">💚 Benefícios para Sua Comunidade</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3><i class="fas fa-shield-alt"></i> Saúde Pública Protegida</h3>
+                <p>
+                    Animais vacinados não transmitem doenças. Reduzimos riscos de 
+                    raiva, leptospirose, esporotricose e outras zoonoses que afetam 
+                    crianças e idosos.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <h3><i class="fas fa-home"></i> Ruas Mais Seguras</h3>
+                <p>
+                    Menos animais abandonados significa menos acidentes, menos 
+                    sofrimento nas ruas e comunidades mais tranquilas para famílias 
+                    caminharem.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <h3><i class="fas fa-heart"></i> Adoção Responsável</h3>
+                <p>
+                    Conectamos animais resgatados a famílias amorosas. Cada adoção 
+                    é uma vida salva e um espaço liberado para resgatar outro animal.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <h3><i class="fas fa-users"></i> Comunidade Unida</h3>
+                <p>
+                    Quando cuidamos juntos dos animais, fortalecemos laços entre 
+                    vizinhos. O bem-estar animal une pessoas em torno de um propósito maior.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <h3><i class="fas fa-syringe"></i> Castração Gratuita</h3>
+                <p>
+                    Controle populacional ético e gratuito previne abandono. 
+                    Menos ninhadas = menos animais nas ruas. Solução definitiva 
+                    e humanitária.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <h3><i class="fas fa-graduation-cap"></i> Conscientização</h3>
+                <p>
+                    Educação é a base da mudança. Ensinamos posse responsável, 
+                    sinais de doenças e como ajudar animais em situação de rua.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p><strong>Amigos de 4 Patas - Parque Meia Lua</strong></p>
+        <p>Comunidade Unida, Cidade Sustentável, Vida Protegida</p>
+        <p style="margin-top: 15px; font-size: 0.9rem;">
+            <i class="fas fa-map-marker-alt"></i> Parque Meia Lua, São Paulo - SP<br>
+            <i class="fas fa-envelope"></i> contato@amigos4patas.com.br
+        </p>
+    </footer>
+</body>
+</html>

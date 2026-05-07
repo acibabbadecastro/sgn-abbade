@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfólio - Sistemas Distribuídos - Acib Abbade de Castro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: #fff;
+        }
+        
+        /* CAPA */
+        .capa {
+            text-align: center;
+            padding: 40px 20px;
+            page-break-after: always;
+        }
+        
+        .capa h1 {
+            font-size: 16pt;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+        
+        .capa h2 {
+            font-size: 14pt;
+            margin-bottom: 60px;
+        }
+        
+        .capa .autor {
+            font-size: 12pt;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .capa .ra {
+            font-size: 12pt;
+            margin-bottom: 80px;
+        }
+        
+        .capa .descricao {
+            font-size: 11pt;
+            text-align: justify;
+            margin: 0 40px 60px 40px;
+            line-height: 1.8;
+        }
+        
+        .capa .orientador {
+            font-size: 11pt;
+            margin-bottom: 100px;
+        }
+        
+        .capa .local-data {
+            font-size: 11pt;
+            text-transform: uppercase;
+        }
+        
+        /* FOLHA DE ROSTO */
+        .folha-rosto {
+            padding: 40px 20px;
+            page-break-after: always;
+        }
+        
+        .folha-rosto .topo {
+            text-align: center;
+            font-size: 11pt;
+            text-transform: uppercase;
+            margin-bottom: 80px;
+        }
+        
+        .folha-rosto .autor {
+            text-align: right;
+            font-size: 11pt;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        
+        .folha-rosto .titulo {
+            text-align: center;
+            font-size: 14pt;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .folha-rosto .subtitulo {
+            text-align: center;
+            font-size: 11pt;
+            margin-bottom: 60px;
+        }
+        
+        .folha-rosto .descricao {
+            text-align: justify;
+            font-size: 10pt;
+            margin: 0 60px 0 0;
+            line-height: 1.8;
+        }
+        
+        .folha-rosto .local-data {
+            text-align: center;
+            font-size: 11pt;
+            text-transform: uppercase;
+            margin-top: 60px;
+        }
+        
+        /* SUMÁRIO */
+        .sumario {
+            padding: 40px 20px;
+            page-break-after: always;
+        }
+        
+        .sumario h2 {
+            text-align: center;
+            font-size: 14pt;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        
+        .sumario ul {
+            list-style: none;
+        }
+        
+        .sumario li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .sumario li a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .sumario .pagina {
+            float: right;
+        }
+        
+        .sumario .nivel-2 {
+            padding-left: 20px;
+            font-size: 10pt;
+        }
+        
+        /* CONTEÚDO */
+        .conteudo {
+            padding: 20px 0;
+        }
+        
+        h1 {
+            font-size: 14pt;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+            page-break-before: always;
+        }
+        
+        h1:first-of-type {
+            page-break-before: auto;
+        }
+        
+        h2 {
+            font-size: 12pt;
+            text-transform: uppercase;
+            margin: 25px 0 15px 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            font-size: 11pt;
+            text-transform: uppercase;
+            margin: 20px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .check {
+            list-style: none;
+        }
+        
+        .check li:before {
+            content: "✓ ";
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        /* CÓDIGO */
+        pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+        }
+        
+        /* PRINTS */
+        .print-placeholder {
+            background: #f9f9f9;
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+            page-break-inside: avoid;
+        }
+        
+        .print-placeholder strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        /* TABELA DE PRINTS */
+        .tabela-prints {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 10pt;
+        }
+        
+        .tabela-prints th,
+        .tabela-prints td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .tabela-prints th {
+            background: #f4f4f4;
+            font-weight: bold;
+        }
+        
+        .tabela-prints tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        /* RODAPÉ */
+        .rodape {
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+        
+        /* PAGE BREAK */
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .capa,
+            .folha-rosto,
+            .sumario,
+            h1 {
+                page-break-after: always;
+            }
+            
+            .print-placeholder {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CAPA -->
+    <div class="capa">
+        <h1>UNIVERSIDADE UNOPAR<br>ANÁLISE E DESENVOLVIMENTO DE SISTEMAS</h1>
+        
+        <div class="autor">ACIB ABBADE DE CASTRO</div>
+        <div class="ra">RA 3850892303</div>
+        
+        <div class="descricao">
+            Relatório de aula prática solicitado no curso de Análise e Desenvolvimento de Sistemas como requisito parcial para a obtenção de pontos na matéria de Sistemas Distribuídos, para a média semestral.
+        </div>
+        
+        <div class="orientador">
+            Orientador: Anderson Emidio de Macedo Goncalves
+        </div>
+        
+        <div class="local-data">
+            JACAREÍ-SP<br>2025
+        </div>
+    </div>
+
+    <!-- FOLHA DE ROSTO -->
+    <div class="folha-rosto">
+        <div class="topo">
+            UNIVERSIDADE UNOPAR<br>
+            ANÁLISE E DESENVOLVIMENTO DE SISTEMAS
+        </div>
+        
+        <div class="autor">
+            ACIB ABBADE DE CASTRO<br>
+            RA 3850892303
+        </div>
+        
+        <div class="titulo">
+            PORTFÓLIO - RELATÓRIO DE AULA PRÁTICA
+        </div>
+        
+        <div class="subtitulo">
+            SISTEMAS DISTRIBUÍDOS
+        </div>
+        
+        <div class="descricao">
+            Relatório de aula prática solicitado no curso de Análise e Desenvolvimento de Sistemas como requisito parcial para a obtenção de pontos na matéria de Sistemas Distribuídos, para a média semestral.
+            <br><br>
+            Orientador: Anderson Emidio de Macedo Goncalves
+        </div>
+        
+        <div class="local-data">
+            JACAREÍ – SP<br>2025
+        </div>
+    </div>
+
+    <!-- SUMÁRIO -->
+    <div class="sumario">
+        <h2>SUMÁRIO</h2>
+        <ul>
+            <li><a href="#intro">1. INTRODUÇÃO</a> <span class="pagina">4</span></li>
+            <li><a href="#dev">2. DESENVOLVIMENTO</a> <span class="pagina">4</span></li>
+            <li class="nivel-2">2.1 Sincronização de Relógios com NTP <span class="pagina">4</span></li>
+            <li class="nivel-2">2.2 Conteinerização com Docker <span class="pagina">5</span></li>
+            <li class="nivel-2">2.3 Análise de Protocolos com Wireshark <span class="pagina">6</span></li>
+            <li class="nivel-2">2.4 Virtualização com VirtualBox <span class="pagina">7</span></li>
+            <li><a href="#result">3. RESULTADOS</a> <span class="pagina">8</span></li>
+            <li><a href="#conclusao">4. CONCLUSÃO</a> <span class="pagina">10</span></li>
+        </ul>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+        
+        <!-- 1. INTRODUÇÃO -->
+        <h1 id="intro">1. INTRODUÇÃO</h1>
+        
+        <p>Este trabalho foi desenvolvido para a disciplina de Sistemas Distribuídos com o objetivo de aplicar conceitos fundamentais de sincronização de relógios, conteinerização, virtualização e análise de protocolos de rede.</p>
+        
+        <p>As atividades práticas realizadas foram:</p>
+        
+        <ul class="check">
+            <li>Sincronização de relógios utilizando servidor NTP nos sistemas Windows 10 e Linux (WSL)</li>
+            <li>Orquestração de contêineres com Docker Swarm (5 réplicas do servidor Apache)</li>
+            <li>Análise de tráfego de rede com o Wireshark</li>
+            <li>Criação de máquina virtual com Oracle VirtualBox</li>
+        </ul>
+        
+        <p>Foi utilizado o Windows 10 como sistema operacional base, WSL (Windows Subsystem for Linux) para os comandos Linux e Docker Desktop para a orquestração dos contêineres.</p>
+
+        <!-- 2. DESENVOLVIMENTO -->
+        <h1 id="dev">2. DESENVOLVIMENTO</h1>
+        
+        <h2>2.1 Sincronização de Relógios com NTP</h2>
+        
+        <h3>No Windows 10:</h3>
+        <p>Abri o Prompt de Comando (CMD) como Administrador e executei os seguintes comandos:</p>
+        
+        <pre>w32tm /config /syncfromflags:manual /manualpeerlist:0.pool.ntp.org
+net stop w32time
+net start w32time
+w32tm /resync /rediscover</pre>
+        
+        <p>Estes comandos configuram o servidor NTP, reiniciam o serviço de horário e forçam a sincronização.</p>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 1]</strong>
+            CMD com os 4 comandos NTP executados
+        </div>
+        
+        <h3>No Linux (WSL/Ubuntu):</h3>
+        <p>Acessei o terminal do Ubuntu via WSL e executei:</p>
+        
+        <pre>sudo apt update
+sudo apt install ntp -y</pre>
+        
+        <p>Em seguida, editei o arquivo de configuração <code>/etc/ntp.conf</code> substituindo os pools padrão por:</p>
+        
+        <pre>pool pool.ntp.br iburst</pre>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 2]</strong>
+            Edição do arquivo ntp.conf
+        </div>
+        
+        <p>Reiniciei o serviço e verifiquei a sincronização:</p>
+        
+        <pre>sudo service ntp restart
+ntpq -p</pre>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 3]</strong>
+            Comando ntpq -p mostrando a sincronização
+        </div>
+
+        <h2>2.2 Conteinerização com Docker</h2>
+        
+        <p>Inicializei o cluster Docker Swarm:</p>
+        
+        <pre>docker swarm init</pre>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 4]</strong>
+            Comando docker swarm init
+        </div>
+        
+        <p>Criei um serviço chamado "WEB" com 5 réplicas do servidor Apache:</p>
+        
+        <pre>docker service create --name WEB --publish 80:80 --replicas=5 httpd</pre>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 5]</strong>
+            Comando docker service create
+        </div>
+        
+        <p>Verifiquei as 5 réplicas rodando:</p>
+        
+        <pre>docker service ps WEB</pre>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 6]</strong>
+            docker service ps WEB mostrando 5 réplicas com STATUS Running
+        </div>
+        
+        <p>Testei o servidor Apache no navegador acessando http://localhost:</p>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 7]</strong>
+            Navegador mostrando a página "It works!" do Apache
+        </div>
+
+        <h2>2.3 Análise de Protocolos com Wireshark</h2>
+        
+        <p>Baixei e instalei o Wireshark no site oficial (https://www.wireshark.org). Após a instalação, reiniciei o computador para ativar o driver Npcap.</p>
+        
+        <p>Abri o Wireshark como Administrador e iniciei a captura de pacotes na interface Wi-Fi.</p>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 8]</strong>
+            Wireshark capturando pacotes (linhas coloridas)
+        </div>
+        
+        <p>Apliquei o filtro "http" para visualizar apenas o tráfego web.</p>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 9]</strong>
+            Wireshark com filtro http aplicado
+        </div>
+
+        <h2>2.4 Virtualização com VirtualBox</h2>
+        
+        <p>Baixei e instalei o Oracle VirtualBox no site oficial (https://www.virtualbox.org). Criei uma nova máquina virtual com as seguintes configurações:</p>
+        
+        <ul>
+            <li><strong>Nome:</strong> MinhaVM</li>
+            <li><strong>Tipo:</strong> Linux</li>
+            <li><strong>Memória RAM:</strong> 2GB (2048 MB)</li>
+            <li><strong>Disco rígido:</strong> 25GB</li>
+            <li><strong>ISO:</strong> Ubuntu 22.04 LTS</li>
+        </ul>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 10]</strong>
+            Tela de criação da VM no VirtualBox
+        </div>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 11]</strong>
+            Configuração de hardware da VM
+        </div>
+        
+        <p>Iniciei a máquina virtual e realizei a instalação do sistema operacional Linux.</p>
+        
+        <div class="print-placeholder">
+            <strong>[INSERIR PRINT 12]</strong>
+            VM rodando com a instalação do Linux
+        </div>
+
+        <!-- 3. RESULTADOS -->
+        <h1 id="result">3. RESULTADOS</h1>
+        
+        <p>Todas as atividades práticas foram concluídas com sucesso.</p>
+        
+        <p><strong>NTP:</strong> A sincronização de relógios foi configurada tanto no Windows quanto no Linux, utilizando o servidor pool.ntp.br. O comando ntpq -p confirmou a comunicação com os servidores de horário.</p>
+        
+        <p><strong>Docker:</strong> O cluster Swarm foi inicializado com sucesso. O serviço WEB foi criado com 5 réplicas do Apache, e todas as 5 instâncias ficaram com STATUS "Running". O navegador exibiu a página "It works!", comprovando o funcionamento do servidor web orquestrado.</p>
+        
+        <p><strong>Wireshark:</strong> O analisador de protocolos capturou os pacotes de rede corretamente, permitindo visualizar o tráfego HTTP e aplicar filtros para análise específica.</p>
+        
+        <p><strong>VirtualBox:</strong> A máquina virtual foi criada e o sistema operacional Linux foi instalado com sucesso, demonstrando o conceito de virtualização.</p>
+
+        <!-- 4. CONCLUSÃO -->
+        <h1 id="conclusao">4. CONCLUSÃO</h1>
+        
+        <p>Através deste trabalho prático, compreendi os fundamentos de Sistemas Distribuídos, incluindo:</p>
+        
+        <p><strong>Sincronização temporal (NTP):</strong> essencial para serviços como autenticação e acesso remoto, evitando falhas causadas por diferenças de horário entre máquinas.</p>
+        
+        <p><strong>Conteinerização e orquestração (Docker Swarm):</strong> permite criar serviços distribuídos com múltiplas réplicas, garantindo escalabilidade e alta disponibilidade.</p>
+        
+        <p><strong>Análise de protocolos (Wireshark):</strong> ferramenta fundamental para monitoramento e troubleshooting de redes.</p>
+        
+        <p><strong>Virtualização (VirtualBox):</strong> possibilita executar múltiplos sistemas operacionais em um único hardware, otimizando recursos.</p>
+        
+        <p>O projeto me mostrou a importância dos sistemas distribuídos no cenário atual da computação, onde serviços precisam ser escaláveis, confiáveis e eficientes. Todos os objetivos de aprendizagem foram alcançados com sucesso.</p>
+
+        <!-- TABELA DE PRINTS -->
+        <h2>📸 LOCALIZAÇÃO DOS PRINTS</h2>
+        
+        <table class="tabela-prints">
+            <thead>
+                <tr>
+                    <th>Print</th>
+                    <th>Onde colocar</th>
+                    <th>O que mostrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Print 1</td>
+                    <td>Seção 2.1</td>
+                    <td>CMD com os 4 comandos NTP</td>
+                </tr>
+                <tr>
+                    <td>Print 2</td>
+                    <td>Seção 2.1</td>
+                    <td>Arquivo ntp.conf editado</td>
+                </tr>
+                <tr>
+                    <td>Print 3</td>
+                    <td>Seção 2.1</td>
+                    <td>Comando ntpq -p</td>
+                </tr>
+                <tr>
+                    <td>Print 4</td>
+                    <td>Seção 2.2</td>
+                    <td>docker swarm init</td>
+                </tr>
+                <tr>
+                    <td>Print 5</td>
+                    <td>Seção 2.2</td>
+                    <td>docker service create</td>
+                </tr>
+                <tr>
+                    <td>Print 6</td>
+                    <td>Seção 2.2</td>
+                    <td>docker service ps WEB (5 réplicas)</td>
+                </tr>
+                <tr>
+                    <td>Print 7</td>
+                    <td>Seção 2.2</td>
+                    <td>Navegador "It works!"</td>
+                </tr>
+                <tr>
+                    <td>Print 8</td>
+                    <td>Seção 2.3</td>
+                    <td>Wireshark capturando</td>
+                </tr>
+                <tr>
+                    <td>Print 9</td>
+                    <td>Seção 2.3</td>
+                    <td>Wireshark com filtro http</td>
+                </tr>
+                <tr>
+                    <td>Print 10</td>
+                    <td>Seção 2.4</td>
+                    <td>Tela "Novo" do VirtualBox</td>
+                </tr>
+                <tr>
+                    <td>Print 11</td>
+                    <td>Seção 2.4</td>
+                    <td>Configurações de hardware</td>
+                </tr>
+                <tr>
+                    <td>Print 12</td>
+                    <td>Seção 2.4</td>
+                    <td>VM instalando/rodando</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            Acib Abbade de Castro - RA 3850892303<br>
+            Universidade UNOPAR - Análise e Desenvolvimento de Sistemas<br>
+            Sistemas Distribuídos - 2025
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações - Amigos de 4 Patas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 50%, #F8B500 100%);
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🐾 💝 🐾 🎁 🐾 ❤️ 🐾 🤝 🐾';
+            position: absolute;
+            font-size: 45px;
+            opacity: 0.15;
+            top: 25px;
+            left: -100px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.98);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* Menu de Navegação */
+        .nav-menu {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu a {
+            color: #C44569;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            background: #fce4ec;
+            transform: translateY(-2px);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Seções */
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #C44569;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 800;
+        }
+
+        .section h2 i {
+            font-size: 2.2rem;
+        }
+
+        /* Pontos de Coleta */
+        .pontos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .ponto-card {
+            background: #fce4ec;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #C44569;
+        }
+
+        .ponto-card h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .ponto-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .ponto-card i {
+            color: #C44569;
+            margin-right: 8px;
+        }
+
+        /* Lista de Necessidades */
+        .necessidades-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .necessidades-list li {
+            padding: 15px 20px;
+            background: #fff3e0;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .necessidades-list li i {
+            font-size: 1.3rem;
+            color: #FF6B9D;
+        }
+
+        .necessidades-list li.urgente {
+            background: #ffcdd2;
+            border-left: 4px solid #d32f2f;
+        }
+
+        /* Como Ajudar */
+        .ajuda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .ajuda-card {
+            background: #e8f5e9;
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            border: 2px solid #4CAF50;
+        }
+
+        .ajuda-card i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .ajuda-card h3 {
+            font-size: 1.3rem;
+            color: #2e7d32;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .ajuda-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* PIX Section */
+        .pix-section {
+            background: linear-gradient(135deg, #4CAF50, #2e7d32);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .pix-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .pix-key {
+            background: white;
+            color: #2e7d32;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+
+        .pix-section p {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .nav-menu a { 
+                margin: 5px; 
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .section {
+                padding: 25px 20px;
+            }
+            .pontos-grid, .ajuda-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1><i class="fas fa-heart"></i> Doações</h1>
+        <p>Sua ajuda transforma vidas! Veja como contribuir com nossos animais</p>
+    </section>
+
+    <!-- Menu de Navegação -->
+    <nav class="nav-menu">
+        <a href="amigos4patas-index-novo.html"><i class="fas fa-home"></i> Início</a>
+        <a href="utilidade-publica.html"><i class="fas fa-book"></i> Utilidade Pública</a>
+        <a href="castracao.html"><i class="fas fa-syringe"></i> Castração</a>
+        <a href="diy.html"><i class="fas fa-tools"></i> DIY</a>
+        <a href="servicos.html"><i class="fas fa-phone"></i> Serviços</a>
+    </nav>
+
+    <div class="container">
+        <!-- Pontos de Coleta -->
+        <section class="section">
+            <h2><i class="fas fa-map-marker-alt"></i> Pontos de Coleta</h2>
+            <div class="pontos-grid">
+                <div class="ponto-card">
+                    <h3><i class="fas fa-store"></i> Pet Shop Amigo Fiel</h3>
+                    <p><i class="fas fa-clock"></i> Seg-Sáb: 8h às 19h</p>
+                    <p><i class="fas fa-map-pin"></i> Rua das Flores, 123 - Centro</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-1111</p>
+                </div>
+
+                <div class="ponto-card">
+                    <h3><i class="fas fa-clinic-medical"></i> Clínica Vet Vida Animal</h3>
+                    <p><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h</p>
+                    <p><i class="fas fa-map-pin"></i> Av. Principal, 456 - Jardim das Acácias</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-2222</p>
+                </div>
+
+                <div class="ponto-card">
+                    <h3><i class="fas fa-home"></i> Parque Meia Lua</h3>
+                    <p><i class="fas fa-clock"></i> Todos os dias: 7h às 17h</p>
+                    <p><i class="fas fa-map-pin"></i> Entrada principal do parque</p>
+                    <p><i class="fas fa-user"></i> Falar com voluntários</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Necessidades Atuais -->
+        <section class="section">
+            <h2><i class="fas fa-clipboard-list"></i> Necessidades Atuais</h2>
+            <ul class="necessidades-list">
+                <li class="urgente">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Ração para cães (todos os portes)</strong> - Estoque crítico
+                </li>
+                <li class="urgente">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Ração para gatos</strong> - Estoque crítico
+                </li>
+                <li>
+                    <i class="fas fa-pill"></i>
+                    <strong>Medicamentos básicos</strong> - Anti-inflamatórios, antibióticos
+                </li>
+                <li>
+                    <i class="fas fa-tint"></i>
+                    <strong>Material de limpeza</strong> - Desinfetantes, sacos de lixo
+                </li>
+                <li>
+                    <i class="fas fa-bed"></i>
+                    <strong>Camas e cobertores</strong> - Para o inverno
+                </li>
+                <li>
+                    <i class="fas fa-gamepad"></i>
+                    <strong>Brinquedos</strong> - Para enriquecimento ambiental
+                </li>
+            </ul>
+        </section>
+
+        <!-- Como Ajudar -->
+        <section class="section">
+            <h2><i class="fas fa-hands-helping"></i> Como Ajudar</h2>
+            <div class="ajuda-grid">
+                <div class="ajuda-card">
+                    <i class="fas fa-donate"></i>
+                    <h3>Doação Financeira</h3>
+                    <p>Qualquer valor ajuda! Usamos para comprar ração, medicamentos e custear tratamentos</p>
+                </div>
+
+                <div class="ajuda-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Doação de Itens</h3>
+                    <p>Ração, medicamentos, material de limpeza e outros itens nos pontos de coleta</p>
+                </div>
+
+                <div class="ajuda-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Voluntariado</h3>
+                    <p>Dedique algumas horas do seu tempo para cuidar dos nossos animais</p>
+                </div>
+
+                <div class="ajuda-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Divulgação</h3>
+                    <p>Compartilhe nosso trabalho nas redes sociais e ajude a espalhar a causa</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PIX -->
+        <section class="pix-section">
+            <h3><i class="fas fa-qrcode"></i> Doe via PIX</h3>
+            <p>Chave PIX (Email/Celular):</p>
+            <div class="pix-key">amigos4patas@exemplo.com.br</div>
+            <p>OU</p>
+            <div class="pix-key">Chave Aleatória: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</div>
+            <p>Titular: Associação Amigos de 4 Patas<br>CNPJ: XX.XXX.XXX/0001-XX</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Amigos de 4 Patas - Parque Meia Lua © 2026</p>
+        <p>Unidos pela proteção dos nossos animais 🐾</p>
+    </footer>
+</body>
+</html>

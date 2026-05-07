@@ -1,0 +1,53 @@
+## SSH KEYS
+-rw-------  1 root root   280 Apr  5 20:44 authorized_keys
+-rw-------  1 root root   399 Apr  5 18:54 github_key
+-rw-r--r--  1 root root    94 Apr  5 18:54 github_key.pub
+-rw-------  1 root root   399 Apr  2 16:16 id_ed25519
+-rw-r--r--  1 root root    92 Apr  2 16:16 id_ed25519.pub
+
+## GIT CONFIG
+	name = Acib ABBADE
+	email = abbade@outlook.com
+
+## DOTENV FILES
+/root/.openclaw/plugin-runtime-deps/openclaw-unknown-7908c19ba4e0/node_modules/bottleneck/.env
+/root/.openclaw/plugin-runtime-deps/openclaw-2026.4.24-dc8bba2d41c6/node_modules/bottleneck/.env
+
+## APPLICATION CONFIGS
+✅ Himalaya: ~/.config/himalaya/config.toml
+
+## KNOWN HOSTS
+Host seguranca
+Host seguranca
+Host github.com-sgn
+Host github.com
+
+## OPENCLAW SKILLS
+SKILLS-PRD-COMPLETO.md
+acib-preferences
+acib-preferences-clawhub
+acib-preferences.skill
+acib-profile
+acib-reminders
+android-sms-gateway
+auto-config-detector
+cnpj-lookup
+context-preserver
+docker-helper
+finance
+finance-radar
+finance-report-analyzer
+free-google-search-with-browser
+google-search
+memory-never-forget
+monitor-fiscal-acib
+monitor-fiscal-acib.skill
+new-session-detector
+new-session-prep
+openclaw-backup
+security-scan
+smart-cron
+sql-toolkit
+unified-session
+user-context-maximizer
+user-context-maximizer-package

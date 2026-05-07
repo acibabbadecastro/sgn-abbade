@@ -1,0 +1,15 @@
+# NUNCA COMMITAR ESTE DIRETÓRIO
+# Sistema de Credenciais - ULTRA-CRÍTICO
+
+# Ignorar tudo
+*
+
+# Exceto este .gitignore
+!.gitignore
+
+# Nunca versionar:
+# - Chaves SSH
+# - Tokens de API
+# - Senhas
+# - Certificados
+# - Logs de acesso

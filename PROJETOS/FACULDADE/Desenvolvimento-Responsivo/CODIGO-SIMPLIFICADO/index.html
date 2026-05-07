@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Prática 2 - Responsivo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+        h1 { text-align: center; margin-bottom: 20px; }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .bloco {
+            flex: 1;
+            min-width: 100px;
+            padding: 40px 20px;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        /* Desktop: 6 colunas (1280px+) */
+        @media (min-width: 1280px) {
+            .bloco { flex: 0 0 16.666%; }
+        }
+        
+        /* Tablet: 3 colunas (768px - 1279px) */
+        @media (min-width: 768px) and (max-width: 1279px) {
+            .bloco { flex: 0 0 33.333%; }
+        }
+        
+        /* Telas pequenas: 2 colunas (480px - 767px) */
+        @media (min-width: 480px) and (max-width: 767px) {
+            .bloco { flex: 0 0 50%; }
+        }
+        
+        /* Smartphone: 1 coluna (<480px) */
+        @media (max-width: 479px) {
+            .bloco { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Desenvolvimento Responsivo - UNOPAR</h1>
+    <div class="container">
+        <div class="bloco" style="background:#e74c3c"><h2>Bloco 1</h2><p>Conteúdo 1</p></div>
+        <div class="bloco" style="background:#3498db"><h2>Bloco 2</h2><p>Conteúdo 2</p></div>
+        <div class="bloco" style="background:#2ecc71"><h2>Bloco 3</h2><p>Conteúdo 3</p></div>
+        <div class="bloco" style="background:#f39c12"><h2>Bloco 4</h2><p>Conteúdo 4</p></div>
+        <div class="bloco" style="background:#9b59b6"><h2>Bloco 5</h2><p>Conteúdo 5</p></div>
+        <div class="bloco" style="background:#1abc9c"><h2>Bloco 6</h2><p>Conteúdo 6</p></div>
+    </div>
+</body>
+</html>

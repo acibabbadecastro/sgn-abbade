@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Newsletter e Compartilhamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-card h2 {
+            color: #FF6B9D;
+            margin-top: 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .status.ok { background: #27ae60; color: white; }
+        .status.fail { background: #e74c3c; color: white; }
+        .status.warn { background: #f39c12; color: white; }
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .btn-fb { background: #1877f2; color: white; }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-tw { background: #1da1f2; color: white; }
+        .btn-copy { background: #2d3436; color: white; }
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #FF6B9D, #C44569);
+            color: white;
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #FF6B9D;">🧪 Teste - Newsletter e Compartilhamento</h1>
+    <p style="text-align: center; color: #666;">Amigos de 4 Patas - Projeto UNOPAR</p>
+
+    <!-- TESTE 1: CARREGAMENTO DE ARQUIVOS -->
+    <div class="test-card">
+        <h2>Teste 1: Carregamento de Arquivos</h2>
+        <div id="teste1"></div>
+    </div>
+
+    <!-- TESTE 2: FORMULÁRIO NEWSLETTER -->
+    <div class="test-card">
+        <h2>Teste 2: Formulário Newsletter</h2>
+        <form class="newsletter-form" id="form-teste">
+            <input type="text" name="nome" placeholder="Seu nome *" required>
+            <input type="email" name="email" placeholder="Seu e-mail *" required>
+            <input type="tel" name="whatsapp" placeholder="WhatsApp (opcional)">
+            <button type="submit" class="btn-submit">📧 Testar Inscrição</button>
+        </form>
+        <div id="teste2-result" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- TESTE 3: BOTÕES DE COMPARTILHAMENTO -->
+    <div class="test-card">
+        <h2>Teste 3: Botões de Compartilhamento</h2>
+        <p>Clique em cada botão para testar:</p>
+        <button class="btn-fb" onclick="testarFacebook()">📘 Facebook</button>
+        <button class="btn-wa" onclick="testarWhatsApp()">💬 WhatsApp</button>
+        <button class="btn-tw" onclick="testarTwitter()">🐦 Twitter</button>
+        <button class="btn-copy" onclick="testarCopiar()">📋 Copiar Link</button>
+        <div id="teste3-result" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- TESTE 4: API GLOBAL -->
+    <div class="test-card">
+        <h2>Teste 4: API Global</h2>
+        <p>Verificando se as APIs estão expostas:</p>
+        <div id="teste4"></div>
+    </div>
+
+    <!-- TESTE 5: LOCALSTORAGE -->
+    <div class="test-card">
+        <h2>Teste 5: LocalStorage</h2>
+        <button onclick="verificarLocalStorage()">📊 Verificar Dados</button>
+        <button onclick="limparLocalStorage()" style="background: #e74c3c; color: white;">🗑️ Limpar Dados</button>
+        <pre id="teste5">Clique em "Verificar Dados"</pre>
+    </div>
+
+    <script src="amigos4patas-newsletter.js"></script>
+    <script src="amigos4patas-compartilhar.js"></script>
+    
+    <script>
+        // TESTE 1: Verificar carregamento
+        setTimeout(() => {
+            const teste1 = document.getElementById('teste1');
+            const jsNewsletter = typeof window.Amigos4Patas !== 'undefined' && window.Amigos4Patas.Newsletter;
+            const jsCompartilhar = typeof window.Amigos4Patas !== 'undefined' && window.Amigos4Patas.Compartilhar;
+            
+            let html = '<div style="margin: 10px 0;">';
+            html += `<div>amigos4patas-newsletter.js: <span class="status ${jsNewsletter ? 'ok' : 'fail'}">${jsNewsletter ? '✅ CARREGADO' : '❌ NÃO CARREGADO'}</span></div>`;
+            html += `<div>amigos4patas-compartilhar.js: <span class="status ${jsCompartilhar ? 'ok' : 'fail'}">${jsCompartilhar ? '✅ CARREGADO' : '❌ NÃO CARREGADO'}</span></div>`;
+            html += '</div>';
+            
+            teste1.innerHTML = html;
+        }, 500);
+
+        // TESTE 2: Formulário
+        document.getElementById('form-teste').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const resultDiv = document.getElementById('teste2-result');
+            const form = e.target;
+            const data = new FormData(form);
+            
+            resultDiv.innerHTML = '<p style="color: #3498db;">⏳ Enviando...</p>';
+            
+            try {
+                const response = await fetch('salvar-inscricao.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(Object.fromEntries(data))
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    resultDiv.innerHTML = `<p style="color: #27ae60;">✅ SUCESSO: ${result.message}</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p style="color: #e74c3c;">❌ ERRO: ${result.message}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: #e74c3c;">❌ ERRO DE REDE: ${error.message}</p>`;
+            }
+        });
+
+        // TESTE 3: Compartilhamento
+        function testarFacebook() {
+            if (window.Amigos4Patas && window.Amigos4Patas.Compartilhar) {
+                window.Amigos4Patas.Compartilhar.facebook();
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #27ae60;">✅ Facebook acionado!</span>';
+            } else {
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #e74c3c;">❌ API não carregada</span>';
+            }
+        }
+
+        function testarWhatsApp() {
+            if (window.Amigos4Patas && window.Amigos4Patas.Compartilhar) {
+                window.Amigos4Patas.Compartilhar.whatsapp();
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #27ae60;">✅ WhatsApp acionado!</span>';
+            } else {
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #e74c3c;">❌ API não carregada</span>';
+            }
+        }
+
+        function testarTwitter() {
+            if (window.Amigos4Patas && window.Amigos4Patas.Compartilhar) {
+                window.Amigos4Patas.Compartilhar.twitter();
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #27ae60;">✅ Twitter acionado!</span>';
+            } else {
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #e74c3c;">❌ API não carregada</span>';
+            }
+        }
+
+        function testarCopiar() {
+            if (window.Amigos4Patas && window.Amigos4Patas.Compartilhar) {
+                window.Amigos4Patas.Compartilhar.copiar();
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #27ae60;">✅ Link copiado!</span>';
+            } else {
+                document.getElementById('teste3-result').innerHTML = '<span style="color: #e74c3c;">❌ API não carregada</span>';
+            }
+        }
+
+        // TESTE 4: API Global
+        setTimeout(() => {
+            const teste4 = document.getElementById('teste4');
+            let html = '<div style="margin: 10px 0;">';
+            
+            if (window.Amigos4Patas) {
+                html += '<div style="margin: 10px 0;"><strong>window.Amigos4Patas:</strong> <span class="status ok">✅ EXISTE</span></div>';
+                
+                if (window.Amigos4Patas.Newsletter) {
+                    html += '<div style="margin: 10px 0; padding-left: 20px;">';
+                    html += '<strong>Newsletter API:</strong> <span class="status ok">✅ DISPONÍVEL</span><br>';
+                    html += `<small>Métodos: subscribe</small>`;
+                    html += '</div>';
+                }
+                
+                if (window.Amigos4Patas.Compartilhar) {
+                    html += '<div style="margin: 10px 0; padding-left: 20px;">';
+                    html += '<strong>Compartilhar API:</strong> <span class="status ok">✅ DISPONÍVEL</span><br>';
+                    html += `<small>Métodos: facebook, whatsapp, twitter, copiar, animal, registrar</small>`;
+                    html += '</div>';
+                }
+            } else {
+                html += '<div>API Global: <span class="status fail">❌ NÃO EXISTE</span></div>';
+            }
+            
+            html += '</div>';
+            teste4.innerHTML = html;
+        }, 500);
+
+        // TESTE 5: LocalStorage
+        function verificarLocalStorage() {
+            const output = document.getElementById('teste5');
+            const dados = {
+                newsletter_pending: localStorage.getItem('a4p_newsletter_pending'),
+                compartilhamentos: localStorage.getItem('a4p_compartilhamentos')
+            };
+            
+            output.textContent = JSON.stringify(dados, null, 2);
+        }
+
+        function limparLocalStorage() {
+            localStorage.removeItem('a4p_newsletter_pending');
+            localStorage.removeItem('a4p_compartilhamentos');
+            document.getElementById('teste5').textContent = 'Dados limpos!';
+        }
+    </script>
+</body>
+</html>

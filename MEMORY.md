@@ -1,5 +1,71 @@
 
 
+## 🔴 PROJETO MYROBOT - PRIORIDADE MÁXIMA (NOVO 28/04/2026)
+
+**Nome:** MYROBOT (ou MYROBOT UM)  
+**Tema:** Bioimpedância  
+**Prioridade:** 🔴 **MÁXIMA** (junto com Portfólios UNOPAR)  
+**Status:** ✅ Iniciado - Aguardando briefing completo  
+**Prazo:** A definir com Acib  
+**Origem:** Bioimpedância pessoal de Acib (imagem)
+
+### Descrição Preliminar:
+Projeto relacionado a **bioimpedância** - técnica de medição elétrica do corpo humano para análise de composição corporal.
+
+### Estrutura Criada:
+- `~/workspace/PROJETOS/MYROBOT/` - Workspace local
+- `\\192.168.0.72\LAN\Acib\PROJETOS\MYROBOT\` - ARCA (quando online)
+
+### Documentação:
+- `PROJECT-MYROBOT-PRIORIDADE-MAXIMA.md` - Documentação principal
+- `research/BIOIMPEDANCIA-REFERENCIAS.md` - Pesquisa técnica
+
+### ⚠️ AGUARDANDO:
+- [ ] Briefing completo de Acib
+- [ ] Definição de escopo
+- [ ] Cronograma de entregas
+- [ ] Especificações técnicas detalhadas
+
+---
+
+*Last updated: 2026-05-06 - Atualizado pré-update OpenClaw + Adicionado Liga Virtual da Copa 2026*
+
+---
+
+## 🔴 LIGA VIRTUAL DA COPA 2026 - PRIORIDADE MÁXIMA (NOVO 05/05/2026)
+
+**Nome:** Liga Virtual da Copa do Mundo 2026  
+**Tema:** Plataforma de apostas e bolões para Copa 2026  
+**Prioridade:** 🔴 **MÁXIMA**  
+**Status:** 🟢 Em Desenvolvimento  
+**Prazo:** 11 de Junho de 2026 (37 dias restantes)  
+**Container:** CT 114 (liga-virtual) - 192.168.0.67
+
+### Arquitetura:
+- **Backend:** Node.js 20 + PostgreSQL 17
+- **Frontend:** React
+- **Clone:** CT 115 para failover (a criar)
+- **4Pets:** CT 107 mantido limpo (só site 4Pets)
+
+### Funcionalidades:
+- Previsões de jogos
+- Bolões privados
+- Apostas entre times
+- Pagamentos PIX
+- Prêmios especiais
+- API Futebol em tempo real
+
+### Modelo de Negócios:
+- Taxa plataforma: 10% sobre prêmios
+- API Futebol: R$ 50-150/mês
+- Patrocínios: Variável
+
+### Documentação:
+- `/root/.openclaw/workspace/projetos/liga-virtual-copa-2026/`
+- Backup ARCA: `\\192.168.0.72\LAN\Acib\PROJETOS\LIGA-VIRTUAL\`
+
+---
+
 ## 🔄 TROCA DE AGENTE - 15/04/2026 06:50
 
 **Usuário solicitou troca de agente** para usar outro modelo (Gemma 4 não existe, tentou usar outro).
@@ -24,6 +90,7 @@
 
 ### 👤 DADOS PESSOAIS
 - **Nome:** Acib ABBADE
+- **Título Profissional:** Arquiteto de Sistemas Cognitivos Autônomos
 - **Telegram:** @Acib_Abbade (ID: 1866226415)
 - **Email:** abbade@outlook.com
 - **GitHub:** https://github.com/acibabbadecastro
@@ -182,6 +249,16 @@ Rede: 192.168.0.0/24 (isolada)
    - Novos projetos
    - Mudanças de infraestrutura
 
+5. **FORMAÇÃO ACADÊMICA (NOVO - 26/04/2026)** → **NUNCA ESQUECER**
+   - Curso: Análise e Desenvolvimento de Sistemas - UNOPAR
+   - Semestre: 5º (previsão formatura 2026)
+   - Disciplinas: 6 matérias
+   - Projeto Extensão II: Amigos de 4 Patas - Bairro Parque Meia Lua
+   - Portal: https://meunovoportal.unopar.com.br
+   - Login: 30757385864 | Senha: [CREDENCIAIS-UNOPAR.md]
+   - Arquivo principal: FACULDADE-FORMACAO-COMPLETA.md
+   - **PRIORIDADE MÁXIMA:** Provas e trabalhos da faculdade
+
 **Regra de Ouro:**
 - **NUNCA** perder informações importantes
 - **SEMPRE** atualizar MEMORY.md com novidades
@@ -193,5 +270,84 @@ Rede: 192.168.0.0/24 (isolada)
 - `memory/YYYY-MM-DD.md` → Memória diária (curto prazo)
 - `TOOLS.md` → Configurações técnicas locais
 - `AGENTS.md` → Regras de comportamento
+- `FACULDADE-FORMACAO-COMPLETA.md` → **FORMAÇÃO ACADÊMICA (CRÍTICO)**
 
 ---
+
+## 🎓 FORMAÇÃO ACADÊMICA PERMANENTE
+
+**Registrado em 26/04/2026:**
+
+| Campo | Valor |
+|-------|-------|
+| **Curso** | Análise e Desenvolvimento de Sistemas |
+| **Instituição** | UNOPAR |
+| **Semestre Atual** | 5º Semestre |
+| **Previsão Formatura** | 2026 |
+| **Portal** | meunovoportal.unopar.com.br |
+| **Login** | 30757385864 |
+| **Status** | Cursando |
+
+**Projeto de Extensão II (10.000 pts):**
+- Tema: Amigos de 4 Patas - Bairro Parque Meia Lua
+- ODS: 11 (Cidades), 3 (Saúde), 15 (Vida Terrestre)
+- Entrega: 02/05/2026
+- Arquivo: PROJETO-EXTENSAO-AMIGOS-4-PATAS.md
+- **Status:** Relatório completo, aguardando depoimento
+
+**⚠️ NUNCA ESQUECER:**
+- Verificar provas e trabalhos da faculdade
+- Lembretes de entregas (AVs, portfólios)
+- Atualizar cronograma acadêmico
+
+**Sempre que o usuário mencionar:** "faculdade", "prova", "trabalho", "entrega", "UNOPAR" → **VERIFICAR FACULDADE-FORMACAO-COMPLETA.md IMEDIATAMENTE**
+
+---
+\n## 🔐 CREDENCIAIS DE INFRAESTRUTURA\n\n### Proxmox (PVE)\n**Arquivo:** ACESSO_PVE.md\n- Host: pve1 (192.168.0.192)\n- Usuário: root\n- Senha: Ver ACESSO_PVE.md\n- Interface: https://192.168.0.192:8006\n\n### Containers (8 CTs)\nTodos documentados em ACESSO_PVE.md\n\n### ⚠️ Segurança\n**ATENÇÃO:** Credenciais em arquivos separados\n- ACESSO_PVE.md - Acesso Proxmox\n- BACKUP_CRITICO.md - Outras credenciais\n
+
+## 🔐 CREDENCIAIS DE INFRAESTRUTURA - ATUALIZADO 23/04/2026
+
+### Proxmox (PVE)
+**Arquivo:** ACESSO_PVE.md
+- Host: pve1 (192.168.0.192)
+- Usuario: root
+- Senha: Rcmp814k@#
+- Web: https://192.168.0.192:8006
+- Comando acesso CT100: pct exec 100 -- /bin/bash
+
+### Incidente Recuperacao CT100
+**Arquivo:** INCIDENTE-CT100-2026-04-23.md
+- Data: 23/04/2026
+- Duracao: 36 minutos
+- Causa: Atualizacao OpenClaw removeu Node.js
+- Solucao: Reinstalacao completa
+- Status: RESOLVIDO
+
+### Containers (8 CTs)
+- CT 100: Stark (OpenClaw) - 192.168.0.21
+- CT 101: MailBot - 192.168.0.240
+- CT 102: DATASVR - 192.168.0.72
+- CT 103: Supervisor - 192.168.0.42
+- CT 104: Vorcaro - 192.168.0.172
+- CT 105: OfficeBoy - 192.168.0.117
+- CT 106: Seguranca - 192.168.0.231
+- CT 107: SAMU - 192.168.0.64
+
+
+
+## 📱 GRUPO TELEGRAM MULTI-AGENTE (2026-05-03)
+
+**Nome:** Acib, Stark, STARK2eSTARK2
+
+**Participantes:**
+- Acib ABBADE (humana)
+- Stark (CT 100) - @acib_abbade_bot
+- STARK2 (CT 101) - @acib_abbade_bot
+
+**Status:** Criado e configurado
+**Chat ID:** A identificar (grupo Telegram)
+
+**Funcionamento:**
+- Ambos agentes respondem no grupo
+- Stark (CT 100) = Principal
+- STARK2 (CT 101) = Secundário/Suporte

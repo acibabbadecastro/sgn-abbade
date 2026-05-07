@@ -1,0 +1,476 @@
+<!-- 
+  Site Amigos de 4 Patas - Projeto de Extensao II UNOPAR
+  Feito por Acib Abbade - Analise e Desenvolvimento de Sistemas
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amigos de 4 Patas - Projeto de Extensao II UNOPAR</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Banner Projeto Extensao */
+    .banner-extensao {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .banner-extensao strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff6b9d 0%, #feca57 100%);
+      padding: 50px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: white;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #2e7d32;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 700;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* Secao Projeto */
+    .secao-projeto {
+      background: white;
+      border-radius: 20px;
+      padding: 35px;
+      margin: 25px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-left: 5px solid #667eea;
+    }
+
+    .secao-projeto h2 {
+      color: #667eea;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .secao-projeto p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    /* ODS */
+    .ods-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .ods-card {
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .ods-card strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .ods-card span {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    /* Secoes de acao */
+    .acoes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .acao {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .acao:hover {
+      transform: translateY(-3px);
+    }
+
+    .acao .icone {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .acao h3 {
+      color: #2c3e50;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .acao p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .btn-rosa {
+      background: #ff6b9d;
+      color: white;
+    }
+
+    .btn-rosa:hover {
+      background: #e55a8b;
+    }
+
+    .btn-verde {
+      background: #27ae60;
+      color: white;
+    }
+
+    .btn-verde:hover {
+      background: #1e8449;
+    }
+
+    .btn-laranja {
+      background: #f39c12;
+      color: white;
+    }
+
+    .btn-laranja:hover {
+      background: #d68910;
+    }
+
+    /* Impacto */
+    .impacto {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 25px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .impacto h2 {
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+    }
+
+    .impacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .impacto-item {
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .impacto-numero {
+      font-size: 2.5rem;
+      font-weight: 900;
+      display: block;
+    }
+
+    .impacto-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Doar */
+    .doar {
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      color: white;
+      padding: 40px 25px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .doar h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .doar p {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .doar .btn-branco {
+      background: white;
+      color: #27ae60;
+      padding: 12px 35px;
+      font-size: 1rem;
+    }
+
+    .doar .btn-branco:hover {
+      background: #f0f0f0;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 30px;
+    }
+
+    footer p {
+      margin: 8px 0;
+      opacity: 0.9;
+    }
+
+    footer a {
+      color: #ff6b9d;
+      text-decoration: none;
+    }
+
+    footer .unopar {
+      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        margin: 0 8px;
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
+      
+      .secao-projeto h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Banner Projeto Extensao -->
+  <div class="banner-extensao">
+    <strong>🎓 Projeto de Extensao II - UNOPAR</strong>
+    Analise e Desenvolvimento de Sistemas - 5º Semestre
+  </div>
+
+  <header>
+    <h1>🐾 Amigos de 4 Patas</h1>
+    <p>Parque Meia Lua - Protecao Animal</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="perdidos.html">Perdidos</a>
+    <a href="avistados.html">Avistados</a>
+    <a href="adocao.html">Adocao</a>
+    <a href="sobre.html">Sobre o Projeto</a>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Sobre o Projeto -->
+    <section class="secao-projeto">
+      <h2>🎯 Sobre Este Projeto</h2>
+      <p>
+        Este site foi desenvolvido como parte do <strong>Projeto de Extensao II</strong> 
+        do curso de <strong>Analise e Desenvolvimento de Sistemas</strong> da UNOPAR.
+      </p>
+      <p>
+        O objetivo e <strong>centralizar informacoes sobre bem-estar animal</strong> no 
+        bairro Parque Meia Lua, conectando protetores, moradores e animais que 
+        precisam de ajuda.
+      </p>
+      
+      <h3 style="margin-top: 20px; color: #333;">🌍 Objetivos de Desenvolvimento Sustentavel (ODS)</h3>
+      <div class="ods-container">
+        <div class="ods-card">
+          <strong>ODS 11</strong>
+          <span>Cidades Sustentaveis</span>
+        </div>
+        <div class="ods-card">
+          <strong>ODS 3</strong>
+          <span>Saude e Bem-Estar</span>
+        </div>
+        <div class="ods-card">
+          <strong>ODS 15</strong>
+          <span>Vida Terrestre</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acoes -->
+    <section class="acoes">
+      
+      <div class="acao">
+        <div class="icone">😿</div>
+        <h3>Animais Perdidos</h3>
+        <p>Cadastre seu pet perdido e mobilize a comunidade para ajudar na busca.</p>
+        <a href="cadastrar-perdido.html" class="btn btn-rosa">Cadastrar Perdido</a>
+      </div>
+
+      <div class="acao">
+        <div class="icone">👀</div>
+        <h3>Avistamentos</h3>
+        <p>Avistou um animal perdido? Informe e ajude a reunir uma familia.</p>
+        <a href="cadastrar-avistamento.html" class="btn btn-laranja">Registrar Avistamento</a>
+      </div>
+
+      <div class="acao">
+        <div class="icone">🐕</div>
+        <h3>Adocao Responsavel</h3>
+        <p>Encontre seu novo melhor amigo. Animais esperando por um lar.</p>
+        <a href="adocao.html" class="btn btn-verde">Ver Animais</a>
+      </div>
+
+    </section>
+
+    <!-- Impacto -->
+    <section class="impacto">
+      <h2>📊 Nosso Impacto no Bairro</h2>
+      
+      <div class="impacto-grid">
+        <div class="impacto-item">
+          <span class="impacto-numero">0</span>
+          <span class="impacto-label">Animais Perdidos Cadastrados</span>
+        </div>
+        <div class="impacto-item">
+          <span class="impacto-numero">0</span>
+          <span class="impacto-label">Animais Reencontrados</span>
+        </div>
+        <div class="impacto-item">
+          <span class="impacto-numero">0</span>
+          <span class="impacto-label">Adocoes Realizadas</span>
+        </div>
+        <div class="impacto-item">
+          <span class="impacto-numero">0</span>
+          <span class="impacto-label">Resgates</span>
+        </div>
+      </div>
+      
+      <p style="margin-top: 25px; font-size: 1.05rem;">
+        Ajude a mudar esses numeros! Participe do projeto 💚
+      </p>
+    </section>
+
+    <!-- Doar -->
+    <section class="doar">
+      <h2>🏠 Quer Doar um Animal?</h2>
+      <p>
+        Tem um bichinho que precisa de um novo lar? Cadastre aqui e ajude 
+        a encontrar uma familia que vai cuidar com amor!
+      </p>
+      <div style="font-size: 2.5rem; margin: 20px 0;">🐕 🐈 🐇</div>
+      <a href="cadastrar-adocao.html" class="btn btn-branco">
+        Cadastrar para Doacao
+      </a>
+      <p style="margin-top: 15px; font-size: 0.95rem; opacity: 0.95;">
+        E gratuito e rapido! 💚
+      </p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p><strong>🐾 Amigos de 4 Patas</strong></p>
+    <p>Parque Meia Lua - Jacarei/SP</p>
+    <p>Feito com 💚 por <a href="mailto:abbade@outlook.com">Acib Abbade</a></p>
+    
+    <div class="unopar">
+      🎓 Projeto de Extensao II<br>
+      UNOPAR - Analise e Desenvolvimento de Sistemas
+    </div>
+  </footer>
+
+</body>
+</html>

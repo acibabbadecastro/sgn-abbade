@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais Avistados - Amigos de 4 Patas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #C44569;
+            --accent: #F8B500;
+            --dark: #2d3436;
+            --light: #ffffff;
+            --gradient: linear-gradient(135deg, #FF6B9D 0%, #C44569 50%, #F8B500 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: var(--gradient); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+        .logo i { font-size: 2rem; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
+        main { margin-top: 80px; padding: 2rem 0; }
+        .page-header { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 3rem 0; text-align: center; margin-bottom: 2rem; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .page-header p { font-size: 1.1rem; opacity: 0.9; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; }
+        .info-box h3 { color: #1976D2; margin-bottom: 0.5rem; }
+        .animals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 0; }
+        .animal-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .animal-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .animal-img { width: 100%; height: 250px; object-fit: cover; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; }
+        .animal-content { padding: 1.5rem; }
+        .animal-content h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .animal-content p { color: #666; margin-bottom: 1rem; }
+        .animal-meta { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.9rem; color: #888; }
+        .animal-meta i { color: var(--secondary); }
+        .tag { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
+        .tag-avistado { background: #e8f5e9; color: #2e7d32; }
+        .tag-procurando-dono { background: #fff3e0; color: #ef6c00; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn-primary { background: var(--gradient); color: white; }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255,107,157,0.4); }
+        .share-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; }
+        .share-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: transform 0.3s; border: none; }
+        .share-btn:hover { transform: scale(1.1); }
+        .share-fb { background: #1877f2; }
+        .share-wa { background: #25d366; }
+        .share-tw { background: #1da1f2; }
+        .share-link { background: var(--dark); }
+        footer { background: var(--dark); color: white; padding: 3rem 0 1rem; margin-top: 3rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h3 { color: var(--primary); margin-bottom: 1rem; }
+        .footer-section a { color: #aaa; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #444; color: #888; }
+        @media (max-width: 768px) {
+            nav ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--gradient); flex-direction: column; padding: 1rem; gap: 1rem; }
+            nav ul.active { display: flex; }
+            .mobile-menu { display: block; }
+            .page-header h1 { font-size: 2rem; }
+        }
+        
+        /* Toast animations */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .toast-notification, .toast-share {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 10000;
+            font-weight: 600;
+            animation: slideIn 0.3s ease;
+            color: white;
+        }
+        .toast-notification { background: #27ae60; }
+        .toast-share { background: #27ae60; }
+        .toast-notification.error, .toast-share.error { background: #e74c3c; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                <span>Amigos de 4 Patas</span>
+            </div>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="perdidos.html">Perdidos</a></li>
+                    <li><a href="avistados.html">Avistados</a></li>
+                    <li><a href="adocao.html">Adoção</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu" onclick="document.getElementById('menu').classList.toggle('active')">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1><i class="fas fa-eye"></i> Animais Avistados</h1>
+                <p>Você viu um animal perdido? Ajude a encontrar o dono!</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="info-box">
+                <h3><i class="fas fa-info-circle"></i> Como funciona?</h3>
+                <p>Se você avistou um animal perdido, registre aqui! Os donos frequentemente procuram nesta seção. Inclua a localização exata, data e características do animal.</p>
+            </div>
+
+            <div class="animals-grid">
+                <div class="animal-card">
+                    <div class="animal-img">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <div class="animal-content">
+                        <span class="tag tag-avistado"><i class="fas fa-check-circle"></i> AVISTADO</span>
+                        <h3>Cachorro Golden - Centro</h3>
+                        <p>Avistado próximo à Praça Central, parece perdido e assustado. Estava procurando comida.</p>
+                        <div class="animal-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Centro - Praça</span>
+                            <span><i class="fas fa-calendar"></i> Ontem</span>
+                        </div>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-comment"></i> Eu vi também!</a>
+                        <div class="share-buttons">
+                            <button class="share-btn share-fb" data-share="facebook"><i class="fab fa-facebook-f"></i></button>
+                            <button class="share-btn share-wa" data-share="whatsapp"><i class="fab fa-whatsapp"></i></button>
+                            <button class="share-btn share-tw" data-share="twitter"><i class="fab fa-twitter"></i></button>
+                            <button class="share-btn share-link" data-share="copy"><i class="fas fa-link"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animal-card">
+                    <div class="animal-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <i class="fas fa-cat"></i>
+                    </div>
+                    <div class="animal-content">
+                        <span class="tag tag-procurando-dono">PROCURANDO DONO</span>
+                        <h3>Gato Siamês - Vila Nova</h3>
+                        <p>Gato muito dócil apareceu no quintal. Não tem coleira mas parece ser de casa.</p>
+                        <div class="animal-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Vila Nova</span>
+                            <span><i class="fas fa-calendar"></i> Há 2 dias</span>
+                        </div>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-comment"></i> Eu vi também!</a>
+                        <div class="share-buttons">
+                            <button class="share-btn share-fb" data-share="facebook"><i class="fab fa-facebook-f"></i></button>
+                            <button class="share-btn share-wa" data-share="whatsapp"><i class="fab fa-whatsapp"></i></button>
+                            <button class="share-btn share-tw" data-share="twitter"><i class="fab fa-twitter"></i></button>
+                            <button class="share-btn share-link" data-share="copy"><i class="fas fa-link"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); padding: 3rem 0; margin-top: 3rem; border-radius: 20px;">
+                <div class="container" style="text-align: center; color: white;">
+                    <h2 style="margin-bottom: 1rem;"><i class="fas fa-camera"></i> Avistou um animal?</h2>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem;">Sua informação pode reunir uma família! Cadastre o avistamento gratuitamente.</p>
+                    <a href="#" class="btn" style="background: white; color: #43e97b; font-size: 1.1rem; padding: 1rem 2rem;"><i class="fas fa-plus-circle"></i> Registrar Avistamento</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Amigos de 4 Patas</h3>
+                    <p>Reunindo famílias e pets desde 2024. Projeto de extensão da UNOPAR.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <a href="index.html">Início</a>
+                    <a href="perdidos.html">Animais Perdidos</a>
+                    <a href="avistados.html">Avistados</a>
+                    <a href="adocao.html">Adoção</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Receba alertas de novos animais</p>
+                    <form class="newsletter-form" id="form-newsletter">
+                        <input type="text" name="nome" placeholder="Seu nome" required style="padding: 0.8rem; border-radius: 25px; border: none; margin-bottom: 0.5rem; width: 100%;">
+                        <input type="email" name="email" placeholder="Seu e-mail" required style="padding: 0.8rem; border-radius: 25px; border: none; margin-bottom: 0.5rem; width: 100%;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> Cadastrar</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3>Compartilhe</h3>
+                    <p style="margin-bottom: 10px;">Ajude a espalhar:</p>
+                    <div class="share-buttons-mini" style="display: flex; gap: 10px;">
+                        <button class="share-btn-mini share-facebook" style="width: 40px; height: 40px; border-radius: 50%; background: #1877f2; color: white; border: none; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fab fa-facebook-f"></i></button>
+                        <button class="share-btn-mini share-whatsapp" style="width: 40px; height: 40px; border-radius: 50%; background: #25d366; color: white; border: none; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fab fa-whatsapp"></i></button>
+                        <button class="share-btn-mini share-twitter" style="width: 40px; height: 40px; border-radius: 50%; background: #1da1f2; color: white; border: none; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fab fa-twitter"></i></button>
+                        <button class="share-btn-mini share-copy" style="width: 40px; height: 40px; border-radius: 50%; background: #2d3436; color: white; border: none; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-link"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Amigos de 4 Patas - Bairro Parque Meia Lua. Projeto de Extensão UNOPAR.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="amigos4patas-newsletter.js"></script>
+    <script src="amigos4patas-compartilhar.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 
 ## 🎯 OBJETIVO PROFISSIONAL
 
-Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, aplicando expertise em automação inteligente, infraestrutura cloud e sistemas multi-agentes para criar soluções escaláveis e inovadoras.
+Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, aplicando expertise em automação inteligente, infraestrutura cloud, sistemas multi-agentes e IoT para criar soluções escaláveis e inovadoras.
 
 ---
 
@@ -21,6 +21,14 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 
 ## 🏆 CERTIFICAÇÕES
 
+### **Digifort - Certificação em VMS** (Em andamento)
+**Digifort IP Surveillance System**
+- Treinamento Operacional (configurações práticas)
+- Certificação de Análise de Vídeo
+- Licença Enterprise (6 meses)
+- Contato: roberto@digifort.com.br
+- Site: https://www.digifort.com.br/treinamento.php
+
 ### **GenAI & Dados** (2026)
 **Banco Bradesco**
 - Inteligência Artificial Generativa
@@ -32,6 +40,13 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 - Agente Financeiro Inteligente (Dr_Finance)
 - Arquitetura multi-agente com OpenClaw
 - IA local com privacidade de dados
+
+### **Arduino & IoT** (Prática)
+**Projetos Pessoais/Profissionais**
+- Programação de microcontroladores
+- Sensores e atuadores
+- Integração com sistemas embarcados
+- Prototipagem rápida
 
 ---
 
@@ -71,7 +86,7 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 
 **2. Centro - Sistema de Imageamento:**
 - Mastro hidráulico com câmeras zoom (1km de alcance)
-- Sistema FLIR (visão térmica/calor) - DIGIFOR (tecnologia emergente na época)
+- Sistema FLIR (visão térmica/calor) - DIGIFORT (tecnologia emergente na época)
 - Estabilização automática
 - Escotilha automática
 
@@ -129,6 +144,20 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 - Microsoft PowerPoint (apresentações)
 - Internet (navegação, email, pesquisa)
 
+**Arduino & IoT:**
+- Programação de microcontroladores Arduino
+- Sensores (temperatura, movimento, luz, distância)
+- Atuadores (relés, motores, LEDs, displays)
+- Comunicação serial e protocolos (I2C, SPI)
+- Prototipagem de soluções IoT
+
+**Digifort VMS (Video Management System):**
+- Configuração de câmeras IP
+- Gerenciamento de gravação e playback
+- Análise de vídeo inteligente
+- Leitura de placas (LPR)
+- Integração com sistemas de segurança
+
 **Principais Atividades:**
 - Ministrava cursos teóricos e práticos
 - Desenvolvia material didático e exercícios
@@ -142,7 +171,7 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 - ✅ Adaptação para diferentes níveis de aprendizado
 - ✅ Gestão de sala de aula
 - ✅ Resolução de problemas técnicos
-- ✅ Didática para hardware e software
+- ✅ Didática para hardware, software, IoT e VMS
 
 ---
 
@@ -154,6 +183,8 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 - Automação de processos
 - Consultoria em infraestrutura
 - Suporte técnico especializado
+- Projetos com Arduino e IoT
+- Implementação de sistemas VMS (Digifort)
 
 ---
 
@@ -296,6 +327,25 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 | PDF/OCR | ⭐⭐⭐⭐ Avançado |
 | Visão Computacional | ⭐⭐⭐⭐ Avançado |
 
+### **IoT & Sistemas Embarcados**
+| Skill | Nível |
+|-------|-------|
+| Arduino | ⭐⭐⭐⭐ Avançado |
+| Microcontroladores | ⭐⭐⭐⭐ Avançado |
+| Sensores & Atuadores | ⭐⭐⭐⭐ Avançado |
+| Protocolos (I2C, SPI, UART) | ⭐⭐⭐⭐ Avançado |
+| Prototipagem IoT | ⭐⭐⭐⭐ Avançado |
+
+### **VMS & Segurança**
+| Skill | Nível |
+|-------|-------|
+| Digifort VMS | ⭐⭐⭐⭐ Avançado |
+| Câmeras IP | ⭐⭐⭐⭐⭐ Expert |
+| Gravação & Playback | ⭐⭐⭐⭐ Avançado |
+| Análise de Vídeo | ⭐⭐⭐⭐ Avançado |
+| LPR (Leitura de Placas) | ⭐⭐⭐⭐ Avançado |
+| FLIR/Térmico | ⭐⭐⭐⭐ Avançado |
+
 ### **Programação & Scripting**
 | Skill | Nível |
 |-------|-------|
@@ -376,11 +426,13 @@ Atuar como **Engenheira de IA/ML**, **DevOps** ou **Desenvolvedora Fullstack**, 
 - ✅ **Automação & Scripts**
 - ✅ **Consultoria em Infraestrutura**
 - ✅ **Treinamento Técnico**
+- ✅ **Projetos Arduino & IoT**
+- ✅ **Implementação de VMS (Digifort)**
 
 ---
 
 **Última atualização:** 20/04/2026  
-**Versão:** 2.1 (Projeto POE - Freelancer)
+**Versão:** 2.2 (Arduino + Digifort)
 
 ---
 

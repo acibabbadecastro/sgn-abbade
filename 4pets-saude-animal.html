@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Animal - Vacinação e Castração em Jacareí</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding-top: 70px; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; height: 70px; }
+        .navbar-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .navbar-logo-icon { width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+        .navbar-logo-text { color: white; font-size: 1.4rem; font-weight: 800; }
+        .navbar-menu { display: flex; gap: 20px; }
+        .navbar-menu a { color: white; text-decoration: none; font-weight: 700; padding: 8px 16px; border-radius: 25px; transition: all 0.3s; }
+        .navbar-menu a:hover { background: rgba(255,255,255,0.2); }
+        .hero { background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%); padding: 70px 20px; text-align: center; color: white; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; }
+        .hero p { font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .section { background: white; padding: 50px 35px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin-bottom: 30px; }
+        .section h2 { color: #C44569; font-size: 2rem; margin-bottom: 25px; font-weight: 800; display: flex; align-items: center; gap: 12px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
+        .month-card { background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #28a745; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .month-card h3 { color: #28a745; font-size: 1.5rem; margin-bottom: 15px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .month-card ul { margin: 15px 0 0 20px; color: #555; }
+        .month-card li { margin: 10px 0; line-height: 1.6; }
+        .month-card strong { color: #C44569; }
+        .status-open { background: #d4edda; color: #155724; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-left: 10px; }
+        .status-closed { background: #f8d7da; color: #721c24; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-left: 10px; }
+        .info-box { background: #e8f5e9; padding: 25px; border-radius: 12px; margin-top: 25px; border: 2px solid #2E7D32; }
+        .info-box h4 { color: #1B5E20; font-size: 1.2rem; margin-bottom: 15px; font-weight: 800; }
+        .info-box p { color: #1B5E20; margin: 8px 0; line-height: 1.6; }
+        .info-box a { color: #C44569; font-weight: 700; text-decoration: none; }
+        .info-box a:hover { text-decoration: underline; }
+        .alert-box { background: #fff3cd; padding: 25px; border-radius: 12px; margin-top: 25px; border: 2px solid #ffc107; }
+        .alert-box h4 { color: #856404; font-size: 1.2rem; margin-bottom: 15px; font-weight: 800; }
+        .alert-box ul { margin: 10px 0 0 20px; color: #856404; }
+        .alert-box li { margin: 8px 0; }
+        .castration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+        .castration-card { background: linear-gradient(135deg, #fff3cd 0%, #ffffff 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #ffc107; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .castration-card h3 { color: #d35400; font-size: 1.4rem; margin-bottom: 15px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .castration-card p { color: #666; line-height: 1.7; margin: 10px 0; }
+        .castration-card strong { color: #C44569; }
+        .footer { background: rgba(0,0,0,0.3); color: white; text-align: center; padding: 30px 20px; margin-top: 50px; }
+        .footer p { font-size: 1rem; opacity: 0.9; margin-bottom: 8px; }
+        @media (max-width: 768px) { .navbar { padding: 10px 15px; height: 60px; } .navbar-logo-text { font-size: 1.1rem; } .navbar-menu { gap: 10px; } .navbar-menu a { font-size: 0.85rem; padding: 6px 12px; } body { padding-top: 60px; } .hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon"><i class="fas fa-dog" style="color: #FF6B9D; font-size: 28px;"></i></div>
+            <span class="navbar-logo-text">Amigos de 4 Patas</span>
+        </a>
+        <div class="navbar-menu">
+            <a href="index.html">Início</a>
+            <a href="perdidos.html">Perdidos</a>
+            <a href="avistados.html">Avistados</a>
+            <a href="adocao.html">Adoção</a>
+            <a href="castracao.html">Castração</a>
+            <a href="saude-animal.html">Saúde Animal</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1><i class="fas fa-heartbeat"></i> Saúde Animal</h1>
+        <p>Calendário de Vacinação e Castração em Jacareí-SP</p>
+    </section>
+
+    <div class="container">
+        <!-- VACINAÇÃO -->
+        <div class="section">
+            <h2><i class="fas fa-syringe"></i> Vacinação Antirrábica - Jacareí 2026</h2>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 25px;">
+                A Prefeitura de Jacareí, por meio da Vigilância de Zoonoses, oferece vacinação gratuita 
+                contra raiva para cães e gatos durante todo o ano. O agendamento é feito pelo aplicativo 
+                Fast Cidadão ou nas Unidades de Saúde.
+            </p>
+            <div class="calendar-grid">
+                <div class="month-card">
+                    <h3>📅 Maio 2026 <span class="status-open">Agenda Aberta</span></h3>
+                    <ul>
+                        <li><strong>Período:</strong> Todo o mês de maio</li>
+                        <li><strong>Agendamento:</strong> Fast Cidadão ou Unidade de Saúde</li>
+                        <li><strong>Local:</strong> Unidades de Saúde de Jacareí</li>
+                        <li><strong>Documento:</strong> RG, CPF e comprovante de residência</li>
+                        <li><strong>Fonte:</strong> Prefeitura de Jacareí (atualizado 04/05/2026)</li>
+                    </ul>
+                </div>
+                <div class="month-card">
+                    <h3>📅 Junho 2026 <span class="status-open">Agenda Aberta</span></h3>
+                    <ul>
+                        <li><strong>Período:</strong> Todo o mês de junho</li>
+                        <li><strong>Agendamento:</strong> Fast Cidadão ou Unidade de Saúde</li>
+                        <li><strong>Local:</strong> Postos em todos os bairros de Jacareí</li>
+                        <li><strong>Documento:</strong> RG, CPF e comprovante de residência</li>
+                        <li><strong>Fonte:</strong> Prefeitura de Jacareí (atualizado 04/05/2026)</li>
+                    </ul>
+                </div>
+                <div class="month-card">
+                    <h3>📅 Julho 2026 <span class="status-open">Agenda Aberta</span></h3>
+                    <ul>
+                        <li><strong>Período:</strong> Todo o mês de julho</li>
+                        <li><strong>Agendamento:</strong> Fast Cidadão ou Unidade de Saúde</li>
+                        <li><strong>Local:</strong> Unidades de Saúde de Jacareí</li>
+                        <li><strong>Documento:</strong> RG, CPF e comprovante de residência</li>
+                        <li><strong>Fonte:</strong> Prefeitura de Jacareí (atualizado 04/05/2026)</li>
+                    </ul>
+                </div>
+                <div class="month-card">
+                    <h3>📅 Agosto 2026 <span class="status-closed">Em Breve</span></h3>
+                    <ul>
+                        <li><strong>Período:</strong> Campanha Nacional de Vacinação</li>
+                        <li><strong>Agendamento:</strong> A ser divulgado</li>
+                        <li><strong>Local:</strong> Postos volantes em Jacareí</li>
+                        <li><strong>Informação:</strong> Acompanhe o site da Prefeitura</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-box">
+                <h4><i class="fas fa-info-circle"></i> Informações Importantes</h4>
+                <p><strong>📍 Onde vacinar:</strong> Unidades de Saúde de Jacareí e Vigilância de Zoonoses</p>
+                <p><strong>📱 Agendamento:</strong> Aplicativo Fast Cidadão</p>
+                <p><strong>📞 Telefone:</strong> Vigilância de Zoonoses Jacareí</p>
+                <p><strong>💰 Custo:</strong> <strong>GRATUITO</strong> para todos os munícipes</p>
+                <p><strong>⏰ Validade:</strong> A vacina antirrábica é anual</p>
+            </div>
+            <div class="alert-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Por Que Vacinar?</h4>
+                <ul>
+                    <li><strong>Raiva:</strong> Doença 100% fatal em humanos e animais sem tratamento</li>
+                    <li><strong>Transmissão:</strong> Mordida, arranhão ou lambedura de animal infectado</li>
+                    <li><strong>Prevenção:</strong> Vacinação anual é a única proteção eficaz</li>
+                    <li><strong>Obrigatoriedade:</strong> Vacina exigida por lei para cães e gatos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CASTRAÇÃO -->
+        <div class="section">
+            <h2><i class="fas fa-heart"></i> Castração Gratuita - Jacareí 2026</h2>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 25px;">
+                A Diretoria de Proteção Animal de Jacareí realiza mutirões de castração gratuita 
+                em diversos bairros da cidade. Em 2026, já foram realizados mais de 1.400 procedimentos.
+            </p>
+            <div class="castration-grid">
+                <div class="castration-card">
+                    <h3><i class="fas fa-calendar-check"></i> Mutirões 2026</h3>
+                    <p><strong>Total:</strong> Mais de 1.600 castrações realizadas</p>
+                    <p><strong>1º Mutirão:</strong> 400+ animais (fevereiro)</p>
+                    <p><strong>22 de Abril:</strong> 200 animais (abril)</p>
+                    <p><strong>Jardim das Indústrias:</strong> 300+ animais</p>
+                    <p><strong>Fonte:</strong> Prefeitura (atualizado 04/05/2026)</p>
+                </div>
+                <div class="castration-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Bairros Atendidos (2026)</h3>
+                    <p><strong>Bairro 22 de Abril:</strong> ✅ Mutirão descentralizado (200 animais)</p>
+                    <p><strong>Jardim das Indústrias:</strong> ✅ Realizado (300+ animais)</p>
+                    <p><strong>Parque Meia Lua:</strong> ✅ Atendido regularmente</p>
+                    <p><strong>Próximos:</strong> Agenda em divulgação</p>
+                </div>
+                <div class="castration-card">
+                    <h3><i class="fas fa-file-alt"></i> Como Se Cadastrar</h3>
+                    <p><strong>1.</strong> Procure a Diretoria de Proteção Animal</p>
+                    <p><strong>2.</strong> Leve RG, CPF e comprovante de residência</p>
+                    <p><strong>3.</strong> Animal deve ter mais de 6 meses de idade</p>
+                    <p><strong>4.</strong> Aguarde convocação por ordem de cadastro</p>
+                </div>
+                <div class="castration-card">
+                    <h3><i class="fas fa-stethoscope"></i> Procedimento</h3>
+                    <p><strong>Cirurgia:</strong> Realizada por veterinários profissionais</p>
+                    <p><strong>Recuperação:</strong> 7-10 dias para recuperação completa</p>
+                    <p><strong>Cuidados:</strong> Uso de colar elizabetano e repouso</p>
+                    <p><strong>Retorno:</strong> Acompanhamento pós-cirúrgico incluso</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <h4><i class="fas fa-info-circle"></i> Condições para Castração</h4>
+                <p><strong>📍 Requisitos:</strong> Cães e gatos de qualquer raça, maiores de 6 meses</p>
+                <p><strong>📋 Documentação:</strong> RG, CPF, comprovante de residência em Jacareí</p>
+                <p><strong>💉 Vacinação:</strong> Animal deve estar vacinado (apresentar carteirinha)</p>
+                <p><strong>💰 Custo:</strong> <strong>GRATUITO</strong> para munícipes de Jacareí</p>
+                <p><strong>🏥 Pós-operatório:</strong> Acompanhamento veterinário incluso</p>
+            </div>
+        </div>
+
+        <!-- CONTATOS -->
+        <div class="section">
+            <h2><i class="fas fa-phone"></i> Contatos Úteis - Jacareí</h2>
+            <div class="info-box">
+                <h4><i class="fas fa-address-book"></i> Órgãos Municipais</h4>
+                <p><strong>🏥 Vigilância de Zoonoses:</strong> Agendamento de vacinação</p>
+                <p><strong>🐾 Diretoria de Proteção Animal:</strong> Castração e resgate</p>
+                <p><strong>🏢 Prefeitura de Jacareí:</strong> Informações gerais</p>
+                <p><strong>📱 Fast Cidadão:</strong> Agendamento online de serviços</p>
+                <p><strong>📞 Telefone:</strong> 156 (Ouvidoria Municipal)</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p><strong>Amigos de 4 Patas - Parque Meia Lua, Jacareí</strong></p>
+        <p>Comunidade Unida, Cidade Sustentável, Vida Protegida</p>
+        <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+            Desenvolvido por Acib Abbade de Castro<br>
+            Estudante de Análise e Desenvolvimento de Sistemas - UNOPAR<br>
+            5º Semestre - Previsão de Formatura: 2026
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor PVE1 - Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #00d9ff;
+        }
+        
+        .header p {
+            color: #aaa;
+            font-size: 1.1em;
+        }
+        
+        .last-update {
+            color: #00ff88;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .card h2 {
+            color: #00d9ff;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2::before {
+            content: '●';
+            color: #00ff88;
+            font-size: 1.2em;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .stat-label {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .stat-item.warning .stat-value {
+            color: #ffaa00;
+        }
+        
+        .stat-item.danger .stat-value {
+            color: #ff4444;
+        }
+        
+        canvas {
+            max-height: 250px;
+        }
+        
+        .container-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .container-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 6px;
+            border-left: 4px solid #00ff88;
+        }
+        
+        .container-item.stopped {
+            border-left-color: #ff4444;
+            opacity: 0.6;
+        }
+        
+        .container-id {
+            font-weight: bold;
+            color: #00d9ff;
+            min-width: 80px;
+        }
+        
+        .container-name {
+            flex: 1;
+            margin: 0 15px;
+        }
+        
+        .container-status {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .status-running {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        
+        .status-stopped {
+            background: rgba(255,68,68,0.2);
+            color: #ff4444;
+        }
+        
+        .container-stats {
+            display: flex;
+            gap: 15px;
+            margin-left: 15px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        
+        .port-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .port-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .security-alert {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(255,68,68,0.2);
+            border-left: 3px solid #ff4444;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .security-info {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(0,217,255,0.2);
+            border-left: 3px solid #00d9ff;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #00d9ff, #00ff88);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+        
+        .refresh-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid #00d9ff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #00d9ff;
+            border-radius: 4px;
+        }
+        
+        /* Network Traffic Styles */
+        .suspicious-panel {
+            background: rgba(255,68,68,0.1);
+            border: 1px solid #ff4444;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .suspicious-alert {
+            animation: pulse-red 2s infinite;
+        }
+        
+        @keyframes pulse-red {
+            0%, 100% { box-shadow: 0 0 5px rgba(255,68,68,0.5); }
+            50% { box-shadow: 0 0 20px rgba(255,68,68,0.8); }
+        }
+        
+        .alert-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(255,68,68,0.2);
+            border-left: 4px solid #ff4444;
+            border-radius: 4px;
+        }
+        
+        .alert-item.severity-high {
+            background: rgba(255,0,0,0.3);
+            border-left-color: #ff0000;
+        }
+        
+        .alert-item.severity-medium {
+            background: rgba(255,170,0,0.2);
+            border-left-color: #ffaa00;
+        }
+        
+        .alert-item.severity-low {
+            background: rgba(255,255,0,0.1);
+            border-left-color: #ffff00;
+        }
+        
+        .connection-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .connection-table th,
+        .connection-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .connection-table th {
+            background: rgba(0,217,255,0.2);
+            color: #00d9ff;
+            font-weight: bold;
+        }
+        
+        .connection-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .status-normal {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        
+        .status-suspeito {
+            background: rgba(255,68,68,0.2);
+            color: #ff4444;
+        }
+        
+        .peak-bar {
+            height: 20px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            border-radius: 3px;
+            margin-top: 5px;
+            transition: width 0.3s;
+        }
+        
+        .bar-container {
+            background: rgba(0,0,0,0.3);
+            border-radius: 3px;
+            height: 20px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🖥️ Monitor PVE1</h1>
+        <p>Dashboard de Monitoramento em Tempo Real</p>
+        <div class="last-update" id="lastUpdate">Aguardando atualização...</div>
+        <button class="refresh-btn" onclick="refreshAll()">🔄 Atualizar Agora</button>
+    </div>
+    
+    <div class="dashboard">
+        <!-- Hardware -->
+        <div class="card">
+            <h2>Hardware</h2>
+            <div class="stat-grid">
+                <div class="stat-item" id="cpuStat">
+                    <div class="stat-value">--%</div>
+                    <div class="stat-label">CPU</div>
+                </div>
+                <div class="stat-item" id="ramStat">
+                    <div class="stat-value">--%</div>
+                    <div class="stat-label">RAM</div>
+                </div>
+                <div class="stat-item" id="diskStat">
+                    <div class="stat-value">--%</div>
+                    <div class="stat-label">Disco</div>
+                </div>
+                <div class="stat-item" id="tempStat">
+                    <div class="stat-value">--°C</div>
+                    <div class="stat-label">Temperatura</div>
+                </div>
+            </div>
+            <canvas id="hardwareChart"></canvas>
+        </div>
+        
+        <!-- Containers -->
+        <div class="card">
+            <h2>Containers Proxmox</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="ctTotal">--</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="ctRunning" style="color: #00ff88">--</div>
+                    <div class="stat-label">Rodando</div>
+                </div>
+            </div>
+            <div class="container-list" id="containerList">
+                <div class="loading">Carregando containers...</div>
+            </div>
+        </div>
+        
+        <!-- Tráfego de Rede (NOVO) -->
+        <div class="card full-width">
+            <h2>📊 Tráfego de Rede por Porta</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalPorts">--</div>
+                    <div class="stat-label">Portas Ativas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalTraffic">--</div>
+                    <div class="stat-label">Tráfego Total (MB/s)</div>
+                </div>
+            </div>
+            
+            <!-- Gráfico de Linhas - Tráfego por Porta -->
+            <div style="margin: 20px 0;">
+                <h3 style="color: #00d9ff; margin-bottom: 10px; font-size: 1.1em;">📈 Tráfego em Tempo Real (últimos 5 minutos)</h3>
+                <canvas id="portTrafficChart"></canvas>
+            </div>
+            
+            <!-- Gráfico de Barras - Picos -->
+            <div style="margin: 20px 0;">
+                <h3 style="color: #00d9ff; margin-bottom: 10px; font-size: 1.1em;">🏆 Picos de Tráfego por Porta</h3>
+                <canvas id="portPeaksChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Movimentações Suspeitas (NOVO) -->
+        <div class="card full-width">
+            <h2>🚨 Movimentações Suspeitas</h2>
+            <div id="suspiciousPanel" class="suspicious-panel" style="display: none;">
+                <div style="color: #ff4444; font-weight: bold; margin-bottom: 10px;">
+                    ⚠️ ALERTAS ATIVOS
+                </div>
+                <div id="suspiciousAlerts"></div>
+            </div>
+            <div id="noSuspicious" style="color: #00ff88; text-align: center; padding: 20px;">
+                ✓ Nenhuma atividade suspeita detectada
+            </div>
+        </div>
+        
+        <!-- Tabela de Conexões (NOVO) -->
+        <div class="card full-width">
+            <h2>🔗 Top Conexões Ativas</h2>
+            <div style="overflow-x: auto;">
+                <table class="connection-table" id="connectionsTable">
+                    <thead>
+                        <tr>
+                            <th>IP de Origem</th>
+                            <th>Porta Destino</th>
+                            <th>Tráfego (MB/s)</th>
+                            <th>Duração</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="connectionsBody">
+                        <tr><td colspan="5" style="text-align: center; color: #aaa;">Carregando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Rede (Resumo) -->
+        <div class="card">
+            <h2>Rede (Resumo)</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="activeConn">--</div>
+                    <div class="stat-label">Conexões Ativas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="openPortsCount">--</div>
+                    <div class="stat-label">Portas Abertas</div>
+                </div>
+            </div>
+            <div style="margin: 15px 0;">
+                <div style="color: #aaa; margin-bottom: 10px;">Velocidade Internet:</div>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div>
+                        <span style="color: #00ff88; font-size: 1.5em;" id="downloadSpeed">--</span>
+                        <span style="color: #aaa;">Mbps ↓</span>
+                    </div>
+                    <div>
+                        <span style="color: #00d9ff; font-size: 1.5em;" id="uploadSpeed">--</span>
+                        <span style="color: #aaa;">Mbps ↑</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Segurança -->
+        <div class="card">
+            <h2>Segurança</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="sshFailures">--</div>
+                    <div class="stat-label">Falhas SSH</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="blockedIPs">--</div>
+                    <div class="stat-label">IPs Bloqueados</div>
+                </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <div style="color: #aaa; margin-bottom: 10px;">Firewall:</div>
+                <div id="firewallStatus" style="padding: 10px; background: rgba(0,0,0,0.3); border-radius: 6px;">
+                    --
+                </div>
+            </div>
+            <div style="margin-top: 15px; max-height: 200px; overflow-y: auto;" id="securityAlerts">
+                <!-- Alertas -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Configuração de atualização automática
+        const REFRESH_INTERVAL = 2000; // 2 segundos para rede, 5s para resto
+        const NETWORK_REFRESH_INTERVAL = 2000;
+        const REGULAR_REFRESH_INTERVAL = 5000;
+        
+        let hardwareChart, portTrafficChart, portPeaksChart;
+        let networkTrafficHistory = [];
+        let selectedPort = null;
+        
+        // Cores para diferentes portas
+        const PORT_COLORS = [
+            '#00ff88', '#00d9ff', '#ff00ff', '#ffff00', '#ff6600',
+            '#ff0066', '#66ff00', '#0066ff', '#ff9900', '#9900ff'
+        ];
+        
+        // Inicializar gráficos
+        function initCharts() {
+            // Hardware Chart
+            const hwCtx = document.getElementById('hardwareChart').getContext('2d');
+            hardwareChart = new Chart(hwCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'CPU %',
+                            data: [],
+                            borderColor: '#00ff88',
+                            backgroundColor: 'rgba(0,255,136,0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'RAM %',
+                            data: [],
+                            borderColor: '#00d9ff',
+                            backgroundColor: 'rgba(0,217,255,0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#aaa' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa' }
+                        }
+                    }
+                }
+            });
+            
+            // Port Traffic Chart (Linhas - Tempo Real)
+            const trafficCtx = document.getElementById('portTrafficChart').getContext('2d');
+            portTrafficChart = new Chart(trafficCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#aaa' },
+                            onClick: (e, legendItem) => {
+                                // Filtrar gráfico ao clicar na legenda
+                                const index = legendItem.datasetIndex;
+                                const meta = portTrafficChart.getDatasetMeta(index);
+                                meta.hidden = meta.hidden === null ? !portTrafficChart.data.datasets[index].hidden : null;
+                                portTrafficChart.update();
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'MB/s',
+                                color: '#aaa'
+                            },
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa', maxRotation: 45, minRotation: 45 }
+                        }
+                    }
+                }
+            });
+            
+            // Port Peaks Chart (Barras)
+            const peaksCtx = document.getElementById('portPeaksChart').getContext('2d');
+            portPeaksChart = new Chart(peaksCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Pico Total (MB/s)',
+                        data: [],
+                        backgroundColor: PORT_COLORS,
+                        borderColor: PORT_COLORS.map(c => c.replace('0.2)', '1)')),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Pico: ${context.parsed.y.toFixed(4)} MB/s`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'MB/s',
+                                color: '#aaa'
+                            },
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#aaa' }
+                        }
+                    },
+                    onClick: (e, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const port = portPeaksChart.data.labels[index];
+                            filterByPort(port);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Filtrar gráfico por porta
+        function filterByPort(port) {
+            selectedPort = selectedPort === port ? null : port;
+            updatePortTrafficChart();
+        }
+        
+        // Atualizar estatísticas de hardware
+        async function updateHardware() {
+            try {
+                const response = await fetch('/api/hardware');
+                const data = await response.json();
+                
+                // Atualizar cards
+                updateStat('cpuStat', data.cpu, '%');
+                updateStat('ramStat', data.ram, '%');
+                updateStat('diskStat', data.disk, '%');
+                updateStat('tempStat', data.temperature || 0, '°C');
+                
+                // Atualizar gráfico
+                const now = new Date().toLocaleTimeString();
+                if (hardwareChart.data.labels.length > 20) {
+                    hardwareChart.data.labels.shift();
+                    hardwareChart.data.datasets[0].data.shift();
+                    hardwareChart.data.datasets[1].data.shift();
+                }
+                hardwareChart.data.labels.push(now);
+                hardwareChart.data.datasets[0].data.push(data.cpu);
+                hardwareChart.data.datasets[1].data.push(data.ram);
+                hardwareChart.update();
+                
+            } catch (error) {
+                console.error('Erro ao atualizar hardware:', error);
+            }
+        }
+        
+        // Atualizar containers
+        async function updateContainers() {
+            try {
+                const response = await fetch('/api/containers');
+                const data = await response.json();
+                
+                document.getElementById('ctTotal').textContent = data.containers.length;
+                const running = data.containers.filter(ct => ct.status === 'running').length;
+                document.getElementById('ctRunning').textContent = running;
+                
+                const listEl = document.getElementById('containerList');
+                listEl.innerHTML = '';
+                
+                data.containers.forEach(ct => {
+                    const item = document.createElement('div');
+                    item.className = `container-item ${ct.status !== 'running' ? 'stopped' : ''}`;
+                    item.innerHTML = `
+                        <span class="container-id">CT ${ct.id}</span>
+                        <span class="container-name">${ct.name || 'CT' + ct.id}</span>
+                        <span class="container-status status-${ct.status}">${ct.status.toUpperCase()}</span>
+                        <div class="container-stats">
+                            <span>CPU: ${ct.cpu}%</span>
+                            <span>RAM: ${ct.ram}%</span>
+                        </div>
+                    `;
+                    listEl.appendChild(item);
+                });
+                
+            } catch (error) {
+                console.error('Erro ao atualizar containers:', error);
+            }
+        }
+        
+        // Atualizar tráfego de rede por porta
+        async function updateNetworkTraffic() {
+            try {
+                const response = await fetch('/api/network/traffic');
+                const data = await response.json();
+                
+                // Atualizar contadores
+                const ports = Object.keys(data.current_traffic || {});
+                document.getElementById('totalPorts').textContent = ports.length;
+                
+                const totalTraffic = ports.reduce((sum, port) => {
+                    return sum + (data.current_traffic[port]?.total || 0);
+                }, 0);
+                document.getElementById('totalTraffic').textContent = totalTraffic.toFixed(4);
+                
+                // Atualizar histórico
+                networkTrafficHistory = data.history || [];
+                
+                // Atualizar gráfico de linhas
+                updatePortTrafficChart();
+                
+                // Atualizar gráfico de picos
+                updatePortPeaksChart(data.peaks || []);
+                
+                // Atualizar tabela de conexões
+                updateConnectionsTable(data.top_connections || []);
+                
+            } catch (error) {
+                console.error('Erro ao atualizar tráfego:', error);
+            }
+        }
+        
+        // Atualizar gráfico de tráfego por porta
+        function updatePortTrafficChart() {
+            if (!networkTrafficHistory || networkTrafficHistory.length === 0) return;
+            
+            // Extrair todas as portas únicas
+            const allPorts = new Set();
+            networkTrafficHistory.forEach(entry => {
+                Object.keys(entry.ports || {}).forEach(port => allPorts.add(port));
+            });
+            
+            const portsArray = Array.from(allPorts).slice(0, 10); // Top 10 portas
+            
+            // Filtrar se houver porta selecionada
+            const displayPorts = selectedPort ? [selectedPort] : portsArray;
+            
+            // Atualizar labels (tempo)
+            const labels = networkTrafficHistory.map(entry => {
+                const time = new Date(entry.timestamp).toLocaleTimeString();
+                return time;
+            });
+            
+            // Criar datasets por porta
+            const datasets = displayPorts.map((port, index) => {
+                const color = PORT_COLORS[index % PORT_COLORS.length];
+                const data = networkTrafficHistory.map(entry => {
+                    return (entry.ports[port]?.total || 0);
+                });
+                
+                return {
+                    label: `Porta ${port}`,
+                    data: data,
+                    borderColor: color,
+                    backgroundColor: color.replace(')', ', 0.1)').replace('rgb', 'rgba'),
+                    tension: 0.4,
+                    fill: false,
+                    hidden: selectedPort && port !== selectedPort
+                };
+            });
+            
+            portTrafficChart.data.labels = labels;
+            portTrafficChart.data.datasets = datasets;
+            portTrafficChart.update();
+        }
+        
+        // Atualizar gráfico de picos
+        function updatePortPeaksChart(peaks) {
+            if (!peaks || peaks.length === 0) {
+                portPeaksChart.data.labels = [];
+                portPeaksChart.data.datasets[0].data = [];
+                portPeaksChart.update();
+                return;
+            }
+            
+            // Top 10 picos
+            const topPeaks = peaks.slice(0, 10);
+            
+            portPeaksChart.data.labels = topPeaks.map(p => `Port ${p.port}`);
+            portPeaksChart.data.datasets[0].data = topPeaks.map(p => p.total);
+            portPeaksChart.data.datasets[0].backgroundColor = PORT_COLORS.slice(0, topPeaks.length);
+            portPeaksChart.update();
+        }
+        
+        // Atualizar tabela de conexões
+        function updateConnectionsTable(connections) {
+            const tbody = document.getElementById('connectionsBody');
+            tbody.innerHTML = '';
+            
+            if (!connections || connections.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #aaa;">Nenhuma conexão ativa</td></tr>';
+                return;
+            }
+            
+            connections.slice(0, 20).forEach(conn => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="color: #00d9ff; font-family: monospace;">${conn.source_ip || 'N/A'}</td>
+                    <td style="color: #00ff88;">${conn.dest_port || 0}</td>
+                    <td style="color: #ffff00;">${(conn.traffic_mbps || 0).toFixed(4)}</td>
+                    <td style="color: #aaa;">--</td>
+                    <td><span class="status-badge status-${conn.status}">${conn.status.toUpperCase()}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+        
+        // Atualizar alertas suspeitos
+        async function updateSuspiciousActivity() {
+            try {
+                const response = await fetch('/api/network/suspicious');
+                const data = await response.json();
+                
+                const panel = document.getElementById('suspiciousPanel');
+                const noSuspicious = document.getElementById('noSuspicious');
+                const alertsContainer = document.getElementById('suspiciousAlerts');
+                
+                if (data.current_alerts && data.current_alerts.length > 0) {
+                    panel.style.display = 'block';
+                    noSuspicious.style.display = 'none';
+                    panel.classList.add('suspicious-alert');
+                    
+                    alertsContainer.innerHTML = '';
+                    data.current_alerts.forEach(alert => {
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = `alert-item severity-${alert.severity}`;
+                        alertDiv.innerHTML = `
+                            <div style="font-weight: bold; color: #ff4444; margin-bottom: 5px;">
+                                ⚠️ ${alert.type}
+                            </div>
+                            <div style="color: #eee; margin-bottom: 5px;">${alert.description}</div>
+                            <div style="font-size: 0.85em; color: #aaa;">${alert.details}</div>
+                            <div style="font-size: 0.85em; color: #00d9ff; margin-top: 5px;">
+                                💡 ${alert.recommendation}
+                            </div>
+                        `;
+                        alertsContainer.appendChild(alertDiv);
+                    });
+                } else {
+                    panel.style.display = 'none';
+                    noSuspicious.style.display = 'block';
+                    panel.classList.remove('suspicious-alert');
+                }
+                
+            } catch (error) {
+                console.error('Erro ao atualizar alertas:', error);
+            }
+        }
+        
+        // Atualizar rede (resumo)
+        async function updateNetwork() {
+            try {
+                const response = await fetch('/api/network');
+                const data = await response.json();
+                
+                document.getElementById('activeConn').textContent = data.active_connections || 0;
+                document.getElementById('openPortsCount').textContent = data.open_ports?.length || 0;
+                
+                // Speedtest
+                if (data.speedtest) {
+                    document.getElementById('downloadSpeed').textContent = (data.speedtest.download || '--');
+                    document.getElementById('uploadSpeed').textContent = (data.speedtest.upload || '--');
+                }
+                
+            } catch (error) {
+                console.error('Erro ao atualizar rede:', error);
+            }
+        }
+        
+        // Atualizar segurança
+        async function updateSecurity() {
+            try {
+                const response = await fetch('/api/security');
+                const data = await response.json();
+                
+                document.getElementById('sshFailures').textContent = data.ssh_failures?.length || 0;
+                
+                let blockedCount = 0;
+                if (data.blocked_ips) {
+                    blockedCount = data.blocked_ips.reduce((sum, item) => sum + (item.count || 0), 0);
+                }
+                document.getElementById('blockedIPs').textContent = blockedCount;
+                
+                // Firewall status
+                const fwEl = document.getElementById('firewallStatus');
+                if (data.firewall?.active) {
+                    fwEl.innerHTML = `
+                        <span style="color: #00ff88;">● Ativo</span> 
+                        (${data.firewall.type || 'iptables'}) - 
+                        ${data.firewall.rules_count} regras
+                    `;
+                } else {
+                    fwEl.innerHTML = '<span style="color: #ff4444;">● Inativo</span>';
+                }
+                
+                // Alertas
+                const alertsEl = document.getElementById('securityAlerts');
+                alertsEl.innerHTML = '';
+                
+                if (data.ssh_failures && data.ssh_failures.length > 0) {
+                    const recent = data.ssh_failures.slice(-5);
+                    recent.forEach(fail => {
+                        const alert = document.createElement('div');
+                        alert.className = 'security-alert';
+                        alert.textContent = `⚠️ Tentativa falha de ${fail.ip} às ${fail.timestamp}`;
+                        alertsEl.appendChild(alert);
+                    });
+                }
+                
+                if (data.alerts && data.alerts.length > 0) {
+                    data.alerts.slice(-3).forEach(alert => {
+                        const alertEl = document.createElement('div');
+                        alertEl.className = 'security-info';
+                        alertEl.textContent = `📋 ${alert}`;
+                        alertsEl.appendChild(alertEl);
+                    });
+                }
+                
+                if (alertsEl.innerHTML === '') {
+                    alertsEl.innerHTML = '<div style="color: #00ff88; text-align: center;">✓ Sem alertas</div>';
+                }
+                
+            } catch (error) {
+                console.error('Erro ao atualizar segurança:', error);
+            }
+        }
+        
+        // Helper para atualizar stat
+        function updateStat(elementId, value, unit) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                const valueEl = el.querySelector('.stat-value');
+                valueEl.textContent = `${value}${unit}`;
+                
+                // Atualizar classe baseada no valor
+                el.classList.remove('warning', 'danger');
+                if (value > 90) {
+                    el.classList.add('danger');
+                } else if (value > 70) {
+                    el.classList.add('warning');
+                }
+            }
+        }
+        
+        // Atualizar tudo
+        async function refreshAll() {
+            document.getElementById('lastUpdate').textContent = 'Atualizando...';
+            
+            await Promise.all([
+                updateHardware(),
+                updateContainers(),
+                updateNetwork(),
+                updateSecurity()
+            ]);
+            
+            const now = new Date().toLocaleString('pt-BR');
+            document.getElementById('lastUpdate').textContent = `Última atualização: ${now}`;
+        }
+        
+        // Atualizar apenas rede (2 segundos)
+        async function refreshNetwork() {
+            await Promise.all([
+                updateNetworkTraffic(),
+                updateSuspiciousActivity()
+            ]);
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            refreshAll();
+            
+            // Auto-refresh: rede a cada 2s, resto a cada 5s
+            setInterval(refreshNetwork, NETWORK_REFRESH_INTERVAL);
+            setInterval(refreshAll, REGULAR_REFRESH_INTERVAL);
+        });
+    </script>
+</body>
+</html>

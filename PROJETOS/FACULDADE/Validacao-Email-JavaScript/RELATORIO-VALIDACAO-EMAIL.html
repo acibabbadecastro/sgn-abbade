@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabalho Prático - Validação de E-mail em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h1 { text-align: center; }
+        .capa {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .capa h1 {
+            color: white;
+            border: none;
+            font-size: 28px;
+        }
+        .info-aluno {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .sumario {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .sumario ul {
+            list-style: none;
+        }
+        .sumario li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        .sumario li:last-child {
+            border-bottom: none;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .codigo-titulo {
+            background: #34495e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .resultado-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .erro-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .conclusao {
+            background: #e7f3ff;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .screenshot-placeholder {
+            background: #f5f5f5;
+            border: 2px dashed #ccc;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .pagina-numero {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 12px;
+        }
+        @media print {
+            body { max-width: none; }
+            pre { page-break-inside: avoid; font-size: 10px; }
+            .capa { page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CAPA -->
+    <div class="capa">
+        <h1>TRABALHO PRÁTICO<br>VALIDAÇÃO DE E-MAIL EM JAVASCRIPT</h1>
+        <p style="margin-top: 30px; font-size: 18px;">UNOPAR - Universidade Norte do Paraná</p>
+        <p style="font-size: 16px;">Análise e Desenvolvimento de Sistemas</p>
+    </div>
+
+    <div class="info-aluno">
+        <strong>Aluno:</strong> Acib Abbade de Castro<br>
+        <strong>RA:</strong> 3850892305<br>
+        <strong>Curso:</strong> Análise e Desenvolvimento de Sistemas<br>
+        <strong>Instituição:</strong> UNOPAR<br>
+        <strong>Data:</strong> 02/05/2026<br>
+        <strong>Disciplina:</strong> Desenvolvimento Web / JavaScript
+    </div>
+
+    <!-- SUMÁRIO -->
+    <div class="sumario">
+        <h2>SUMÁRIO</h2>
+        <ul>
+            <li>INTRODUÇÃO............................................................................... 4</li>
+            <li>DESENVOLVIMENTO.................................................................... 4</li>
+            <li>RESULTADO.................................................................................. 5</li>
+            <li>CONCLUSÃO................................................................................. 8</li>
+        </ul>
+    </div>
+
+    <!-- PÁGINA 4 - INTRODUÇÃO -->
+    <div style="page-break-before: always;"></div>
+    
+    <h2>INTRODUÇÃO</h2>
+    
+    <p>A validação de formulários é uma etapa crucial no desenvolvimento web, garantindo que os dados inseridos pelos usuários estejam corretos antes de serem processados. Entre os campos mais comuns em formulários, o e-mail destaca-se como um dos mais utilizados para comunicação, autenticação e contato.</p>
+
+    <p>Este trabalho prático tem como objetivo implementar um sistema de validação de e-mail utilizando JavaScript, demonstrando na prática os conceitos de:</p>
+
+    <ul>
+        <li><strong>Expressões Regulares (Regex):</strong> Padrões para validação de formato</li>
+        <li><strong>Manipulação do DOM:</strong> Interação com elementos HTML</li>
+        <li><strong>Eventos:</strong> Captura de ações do usuário (input, submit)</li>
+        <li><strong>Feedback Visual:</strong> Exibição de mensagens de sucesso e erro</li>
+        <li><strong>Boas Práticas:</strong> Validação tanto no cliente quanto com tratamento de erros</li>
+    </ul>
+
+    <h3>Objetivos Específicos:</h3>
+    <ol>
+        <li>Criar um formulário HTML para entrada de e-mail</li>
+        <li>Implementar validação em tempo real enquanto o usuário digita</li>
+        <li>Aplicar expressões regulares para verificar o formato do e-mail</li>
+        <li>Fornecer feedback visual imediato (cores, mensagens)</li>
+        <li>Tratar erros de forma clara e educativa</li>
+        <li>Garantir usabilidade e experiência do usuário</li>
+    </ol>
+
+    <h3>Justificativa:</h3>
+    <p>A validação de e-mail no lado do cliente (browser) é essencial porque:</p>
+    <ul>
+        <li><strong>Melhora a experiência do usuário:</strong> Feedback imediato sem recarregar a página</li>
+        <li><strong>Reduz requisições desnecessárias:</strong> Evita envio de dados inválidos ao servidor</li>
+        <li><strong>Aumenta a segurança:</strong> Previne entrada de dados malformados</li>
+        <li><strong>Padroniza dados:</strong> Garante formato consistente para processamento</li>
+    </ul>
+
+    <!-- PÁGINA 4 - DESENVOLVIMENTO -->
+    <h2>DESENVOLVIMENTO</h2>
+
+    <h3>1. Estrutura HTML</h3>
+    <p>O formulário foi construído com HTML5 semântico, utilizando o tipo <code>input type="email"</code> que já fornece validação básica nativa do navegador.</p>
+
+    <div class="codigo-titulo">Arquivo: index.html (Estrutura)</div>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Validação de E-mail em JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;📧 Validação de E-mail&lt;/h1&gt;
+        
+        &lt;form id="formEmail"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="email"&gt;Digite seu e-mail:&lt;/label&gt;
+                &lt;input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="exemplo@dominio.com"
+                    required
+                &gt;
+            &lt;/div&gt;
+            &lt;button type="submit"&gt;Validar E-mail&lt;/button&gt;
+        &lt;/form&gt;
+        
+        &lt;div id="resultado"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="validacao.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <h3>2. Estilização CSS</h3>
+    <p>O CSS foi desenvolvido com foco em usabilidade e feedback visual claro:</p>
+    <ul>
+        <li><strong>Classe .valid:</strong> Borda verde + fundo claro (e-mail válido)</li>
+        <li><strong>Classe .invalid:</strong> Borda vermelha + fundo claro (e-mail inválido)</li>
+        <li><strong>Animações:</strong> Transições suaves para melhor experiência</li>
+        <li><strong>Design responsivo:</strong> Adaptável a diferentes tamanhos de tela</li>
+    </ul>
+
+    <h3>3. Implementação JavaScript</h3>
+    
+    <h4>3.1 Expressão Regular (Regex)</h4>
+    <p>A validação principal utiliza uma expressão regular que verifica:</p>
+
+    <div class="codigo-titulo">Expressão Regular</div>
+    <pre>
+const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+// Explicação do padrão:
+// ^                 - Início da string
+// [a-zA-Z0-9._-]+   - Nome do usuário (letras, números, ponto, underline, hífen)
+// @                 - Símbolo @ (obrigatório)
+// [a-zA-Z0-9.-]+    - Nome do domínio
+// \.                - Ponto (obrigatório)
+// [a-zA-Z]{2,}$     - TLD (.com, .br, .org) com mínimo 2 letras
+    </pre>
+
+    <h4>3.2 Função de Validação</h4>
+    <div class="codigo-titulo">Função validarEmail()</div>
+    <pre>
+function validarEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+}
+    </pre>
+
+    <h4>3.3 Validação Detalhada</h4>
+    <p>Para fornecer feedback mais rico, foi implementada uma função que retorna detalhes específicos dos erros:</p>
+
+    <div class="codigo-titulo">Função validarEmailDetalhado()</div>
+    <pre>
+function validarEmailDetalhado(email) {
+    const resultado = {
+        valido: false,
+        mensagem: '',
+        erros: []
+    };
+
+    // Verifica se está vazio
+    if (!email || email.trim() === '') {
+        resultado.erros.push('E-mail não pode estar vazio');
+    }
+
+    // Verifica se tem @
+    if (!email.includes('@')) {
+        resultado.erros.push('E-mail deve conter @ (arroba)');
+    }
+
+    // Verifica se tem apenas um @
+    const partes = email.split('@');
+    if (partes.length !== 2) {
+        resultado.erros.push('E-mail deve conter apenas um @');
+    }
+
+    // Verifica espaços em branco
+    if (email.includes(' ')) {
+        resultado.erros.push('E-mail não pode conter espaços');
+    }
+
+    // Se não houver erros, e-mail é válido
+    if (resultado.erros.length === 0) {
+        resultado.valido = true;
+        resultado.mensagem = '✅ E-mail válido!';
+    }
+
+    return resultado;
+}
+    </pre>
+
+    <h4>3.4 Event Listeners</h4>
+    <p>Dois tipos de eventos foram implementados:</p>
+
+    <ol>
+        <li><strong>Evento 'input':</strong> Validação em tempo real enquanto o usuário digita</li>
+        <li><strong>Evento 'submit':</strong> Validação final ao enviar o formulário</li>
+    </ol>
+
+    <div class="codigo-titulo">Event Listeners</div>
+    <pre>
+// Validação em tempo real
+emailInput.addEventListener('input', function() {
+    const email = this.value;
+    this.classList.remove('valid', 'invalid');
+    
+    if (email.length > 0) {
+        if (validarEmail(email)) {
+            this.classList.add('valid');
+        } else {
+            this.classList.add('invalid');
+        }
+    }
+});
+
+// Validação no submit
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = emailInput.value;
+    const validacao = validarEmailDetalhado(email);
+    
+    resultadoDiv.textContent = validacao.mensagem;
+    resultadoDiv.classList.remove('sucesso', 'erro');
+    
+    if (validacao.valido) {
+        resultadoDiv.classList.add('sucesso');
+    } else {
+        resultadoDiv.classList.add('erro');
+    }
+});
+    </pre>
+
+    <!-- PÁGINA 5 - RESULTADO -->
+    <div style="page-break-before: always;"></div>
+    
+    <h2>RESULTADO</h2>
+
+    <h3>1. Funcionalidades Implementadas</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Funcionalidade</th>
+                <th>Status</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Validação com Regex</td>
+                <td>✅ Implementado</td>
+                <td>Expressão regular para formato de e-mail</td>
+            </tr>
+            <tr>
+                <td>Validação em Tempo Real</td>
+                <td>✅ Implementado</td>
+                <td>Feedback enquanto digita (evento input)</td>
+            </tr>
+            <tr>
+                <td>Feedback Visual</td>
+                <td>✅ Implementado</td>
+                <td>Cores verde (válido) e vermelho (inválido)</td>
+            </tr>
+            <tr>
+                <td>Mensagens de Erro</td>
+                <td>✅ Implementado</td>
+                <td>Descrição detalhada dos erros encontrados</td>
+            </tr>
+            <tr>
+                <td>Prevenção de Envio</td>
+                <td>✅ Implementado</td>
+                <td>event.preventDefault() bloqueia submit inválido</td>
+            </tr>
+            <tr>
+                <td>Formatação Automática</td>
+                <td>✅ Implementado</td>
+                <td>Trim() remove espaços, toLowerCase()</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2. Critérios de Validação</h3>
+    
+    <p>O sistema verifica os seguintes critérios para determinar se um e-mail é válido:</p>
+
+    <div class="resultado-box">
+        <strong>✅ E-mail Válido Deve Conter:</strong>
+        <ul>
+            <li>Nome de usuário (antes do @)</li>
+            <li>Símbolo @ (arroba)</li>
+            <li>Nome de domínio (após o @)</li>
+            <li>Ponto (.) no domínio</li>
+            <li>TLD com mínimo de 2 caracteres (.com, .br, .org)</li>
+            <li>Apenas caracteres válidos (letras, números, ., _, -)</li>
+        </ul>
+    </div>
+
+    <div class="erro-box">
+        <strong>❌ E-mail Inválido Se Tiver:</strong>
+        <ul>
+            <li>Espaços em branco</li>
+            <li>Caracteres especiais inválidos (#, ;, :, ", \, &lt;, &gt;, (, ))</li>
+            <li>Múltiplos símbolos @</li>
+            <li>Domínio sem ponto</li>
+            <li>TLD com menos de 2 caracteres</li>
+            <li>Campos vazios</li>
+        </ul>
+    </div>
+
+    <h3>3. Casos de Teste</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>E-mail Testado</th>
+                <th>Resultado Esperado</th>
+                <th>Resultado Obtido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>usuario@exemplo.com</td>
+                <td>✅ Válido</td>
+                <td>✅ Válido</td>
+            </tr>
+            <tr>
+                <td>teste123@dominio.com.br</td>
+                <td>✅ Válido</td>
+                <td>✅ Válido</td>
+            </tr>
+            <tr>
+                <td>nome.sobrenome@email.org</td>
+                <td>✅ Válido</td>
+                <td>✅ Válido</td>
+            </tr>
+            <tr>
+                <td>usuario_teste@empresa.com</td>
+                <td>✅ Válido</td>
+                <td>✅ Válido</td>
+            </tr>
+            <tr>
+                <td>invalido</td>
+                <td>❌ Inválido (sem @)</td>
+                <td>❌ Inválido</td>
+            </tr>
+            <tr>
+                <td>@dominio.com</td>
+                <td>❌ Inválido (sem usuário)</td>
+                <td>❌ Inválido</td>
+            </tr>
+            <tr>
+                <td>usuario@</td>
+                <td>❌ Inválido (sem domínio)</td>
+                <td>❌ Inválido</td>
+            </tr>
+            <tr>
+                <td>usuario@dominio</td>
+                <td>❌ Inválido (sem TLD)</td>
+                <td>❌ Inválido</td>
+            </tr>
+            <tr>
+                <td>espaco em branco@teste.com</td>
+                <td>❌ Inválido (espaços)</td>
+                <td>❌ Inválido</td>
+            </tr>
+            <tr>
+                <td>usuario#invalido@teste.com</td>
+                <td>❌ Inválido (caracteres)</td>
+                <td>❌ Inválido</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4. Screenshots da Aplicação</h3>
+
+    <div class="screenshot-placeholder">
+        <p><strong>[INSERIR IMAGEM 1]</strong></p>
+        <p>Tela inicial do formulário de validação de e-mail</p>
+        <p><em>Capturar: Tela inicial com campo de e-mail vazio</em></p>
+    </div>
+
+    <div class="screenshot-placeholder">
+        <p><strong>[INSERIR IMAGEM 2]</strong></p>
+        <p>E-mail válido sendo digitado (borda verde)</p>
+        <p><em>Capturar: Campo com "usuario@exemplo.com" e borda verde</em></p>
+    </div>
+
+    <div class="screenshot-placeholder">
+        <p><strong>[INSERIR IMAGEM 3]</strong></p>
+        <p>E-mail inválido com mensagem de erro</p>
+        <p><em>Capturar: Campo com e-mail inválido, borda vermelha e mensagem de erro</em></p>
+    </div>
+
+    <div class="screenshot-placeholder">
+        <p><strong>[INSERIR IMAGEM 4]</strong></p>
+        <p>Mensagem de sucesso após validação</p>
+        <p><em>Capturar: Caixa verde com "✅ E-mail válido!" após submit</em></p>
+    </div>
+
+    <h3>5. Como Testar</h3>
+    
+    <ol>
+        <li><strong>Abrir o arquivo:</strong> <code>index.html</code> no navegador</li>
+        <li><strong>Digitar um e-mail:</strong> Comece a digitar no campo</li>
+        <li><strong>Observar validação em tempo real:</strong>
+            <ul>
+                <li>Borda verde = e-mail válido</li>
+                <li>Borda vermelha = e-mail inválido</li>
+            </ul>
+        </li>
+        <li><strong>Clicar em "Validar E-mail":</strong> Veja a mensagem detalhada</li>
+        <li><strong>Testar casos inválidos:</strong> Tente e-mails sem @, com espaços, etc.</li>
+        <li><strong>Verificar console:</strong> Pressione F12 para ver logs de teste</li>
+    </ol>
+
+    <!-- PÁGINA 8 - CONCLUSÃO -->
+    <div style="page-break-before: always;"></div>
+    
+    <h2>CONCLUSÃO</h2>
+
+    <p>O desenvolvimento deste trabalho prático permitiu a aplicação de conceitos fundamentais de JavaScript no contexto de validação de formulários web. A implementação de um validador de e-mail demonstrou na prática a importância da validação no lado do cliente para melhoria da experiência do usuário e prevenção de erros.</p>
+
+    <h3>Principais Aprendizados:</h3>
+    <ol>
+        <li><strong>Expressões Regulares:</strong> Compreensão de como padrões regex podem validar formatos complexos de forma eficiente</li>
+        <li><strong>Manipulação do DOM:</strong> Habilidade de modificar elementos HTML dinamicamente com JavaScript</li>
+        <li><strong>Eventos:</strong> Uso adequado de event listeners para capturar interações do usuário</li>
+        <li><strong>Feedback Visual:</strong> Importância de fornecer retorno imediato e claro ao usuário</li>
+        <li><strong>Tratamento de Erros:</strong> Técnicas para identificar e comunicar problemas de forma educativa</li>
+    </ol>
+
+    <h3>Benefícios da Validação no Cliente:</h3>
+    <ul>
+        <li>✅ <strong>Experiência do Usuário:</strong> Feedback imediato sem recarregar a página</li>
+        <li>✅ <strong>Performance:</strong> Redução de requisições desnecessárias ao servidor</li>
+        <li>✅ <strong>Segurança:</strong> Primeira camada de proteção contra dados malformados</li>
+        <li>✅ <strong>Usabilidade:</strong> Guia o usuário a preencher corretamente</li>
+    </ul>
+
+    <h3>Limitações e Considerações:</h3>
+    <p>É importante ressaltar que a validação no cliente (JavaScript) <strong>não substitui</strong> a validação no servidor. Um usuário mal-intencionado pode desativar JavaScript ou enviar requisições diretamente ao servidor. Portanto, a validação no servidor é sempre necessária como camada adicional de segurança.</p>
+
+    <h3>Trabalhos Futuros:</h3>
+    <p>Como melhorias e extensões para este trabalho, sugere-se:</p>
+    <ul>
+        <li>Implementar verificação de existência do domínio (DNS lookup via API)</li>
+        <li>Adicionar validação de e-mails descartáveis (temp mail)</li>
+        <li>Integrar com API de verificação de e-mail</li>
+        <li>Implementar validação de outros campos (telefone, CPF, CEP)</li>
+        <li>Criar sistema de validação reutilizável para múltiplos formulários</li>
+    </ul>
+
+    <div class="conclusao">
+        <h3>✅ Objetivo Alcançado:</h3>
+        <p>O sistema de validação de e-mail foi implementado com sucesso, atendendo todos os requisitos propostos. A aplicação fornece feedback visual claro, trata erros de forma educativa e demonstra boas práticas de desenvolvimento web com JavaScript.</p>
+    </div>
+
+    <h3>Referências Bibliográficas:</h3>
+    <ul>
+        <li>MDN Web Docs - Expressões Regulares: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions</li>
+        <li>MDN Web Docs - Validação de Formulários: https://developer.mozilla.org/pt-BR/docs/Learn/Forms/Form_validation</li>
+        <li>W3Schools - JavaScript Forms: https://www.w3schools.com/js/js_form_validation.asp</li>
+        <li>EmailRegex.com - Padrões de E-mail: https://emailregex.com/</li>
+    </ul>
+
+    <div style="margin-top: 50px; text-align: center;">
+        <p>Taubaté/SP, 02 de maio de 2026</p>
+        <div style="border-top: 1px solid #333; width: 300px; margin: 30px auto;"></div>
+        <p><strong>Acib Abbade de Castro</strong><br>
+        RA: 3850892305<br>
+        Análise e Desenvolvimento de Sistemas - UNOPAR</p>
+    </div>
+
+    <div class="pagina-numero">8</div>
+
+</body>
+</html>

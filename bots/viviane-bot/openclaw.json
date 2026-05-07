@@ -1,0 +1,24 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/root/.openclaw/workspace",
+      "model": {
+        "primary": "ollama/qwen3.5:cloud"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "8558193763:AAExVtcUT8OHZUm4HZs5xU8eRkqjf2gME5w",
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "5512988013359"
+      ]
+    }
+  },
+  "gateway": {
+    "port": 18790,
+    "bind": "lan"
+  }
+}

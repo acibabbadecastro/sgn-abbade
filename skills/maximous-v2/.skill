@@ -1,0 +1,24 @@
+{
+  "name": "maximous",
+  "version": "2.0.0",
+  "description": "Maximum Context Optimizer User System - Preserva contexto e economiza tokens em sessões de IA",
+  "author": "Acib ABBADE <abbade@outlook.com>",
+  "license": "MIT",
+  "tags": [
+    "context-preservation",
+    "token-economy",
+    "memory-management",
+    "ai-optimization",
+    "personalization"
+  ],
+  "language": "bash",
+  "requirements": [
+    "bash >= 4.0",
+    "ssh",
+    "rsync",
+    "gpg (opcional)"
+  ],
+  "entrypoint": "scripts/dashboard-status.sh",
+  "repository": "https://github.com/acibabbadecastro/maximous",
+  "homepage": "https://github.com/acibabbadecastro/maximous#readme"
+}

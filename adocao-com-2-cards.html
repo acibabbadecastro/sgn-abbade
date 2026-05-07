@@ -1,0 +1,321 @@
+<!-- 
+  Pagina Adocao - Amigos de 4 Patas
+  Projeto de Extensao II UNOPAR
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adocao - Amigos de 4 Patas | Projeto Extensao II UNOPAR</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Banner Projeto */
+    .banner-extensao {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .banner-extensao strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff6b9d 0%, #feca57 100%);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #2e7d32;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 700;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      background: #e8f5e9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* Secao de acao */
+    .secao-acao {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 25px;
+      border-radius: 20px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .secao-acao h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .card .icone {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+
+    .card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+    }
+
+    .btn-verde {
+      background: #27ae60;
+      color: white;
+    }
+
+    .btn-verde:hover {
+      background: #1e8449;
+      transform: scale(1.05);
+    }
+
+    .btn-rosa {
+      background: #ff6b9d;
+      color: white;
+    }
+
+    .btn-rosa:hover {
+      background: #e55a8b;
+      transform: scale(1.05);
+    }
+
+    /* Animais disponiveis */
+    .animais-disponiveis {
+      margin: 40px 0;
+    }
+
+    .animais-disponiveis h2 {
+      text-align: center;
+      color: #667eea;
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+    }
+
+    .animal-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-left: 5px solid #ff6b9d;
+    }
+
+    .animal-card h3 {
+      color: #2c3e50;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .animal-card p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #fce4ec;
+      color: #c2185b;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ff6b9d;
+      text-decoration: none;
+    }
+
+    .unopar {
+      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Banner Projeto -->
+  <div class="banner-extensao">
+    <strong>🎓 Projeto de Extensao II - UNOPAR</strong>
+    Analise e Desenvolvimento de Sistemas
+  </div>
+
+  <header>
+    <h1>🐾 Adocao Responsavel</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="perdidos.html">Perdidos</a>
+    <a href="avistados.html">Avistados</a>
+    <a href="adocao.html">Adocao</a>
+    <a href="sobre.html">Sobre</a>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Secao principal com 2 cards -->
+    <section class="secao-acao">
+      <h2>O que voce quer fazer?</h2>
+      
+      <div class="cards-container">
+        
+        <!-- Card 1: Quero Adotar -->
+        <div class="card">
+          <div class="icone">🏠</div>
+          <h3>Quero Adotar</h3>
+          <p>Encontre seu novo melhor amigo. Temos animais esperando por um lar cheio de amor!</p>
+          <a href="#animais" class="btn btn-verde">Ver Animais Disponiveis</a>
+        </div>
+
+        <!-- Card 2: Quero Doar -->
+        <div class="card">
+          <div class="icone">💚</div>
+          <h3>Quero Doar para Adocao</h3>
+          <p>Tem um animal que precisa de um novo lar? Cadastre aqui e ajude a encontrar uma familia!</p>
+          <a href="cadastrar-adocao.html" class="btn btn-rosa">Cadastrar Animal</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Animais disponiveis -->
+    <section class="animais-disponiveis" id="animais">
+      <h2>Pets Disponiveis para Adocao</h2>
+      
+      <div class="animal-card">
+        <span class="tag">🐕 PARA ADOCAO</span>
+        <h3>Rex</h3>
+        <p>Vira-lata, 2 anos, super brincalhon e sociavel. Otimo com criancas!</p>
+        <p><strong>Macho | Porte Medio | Vacinado</strong></p>
+        <a href="#" class="btn btn-verde">Quero Adotar</a>
+      </div>
+
+      <div class="animal-card">
+        <span class="tag">🐈 PARA ADOCAO</span>
+        <h3>Mel</h3>
+        <p>Gata filhote, 4 meses, muito carinhosa e tranquila. Ideal para apartamento.</p>
+        <p><strong>Femea | Filhote | Vacinada</strong></p>
+        <a href="#" class="btn btn-verde">Quero Adotar</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p><strong>🐾 Amigos de 4 Patas</strong> - Parque Meia Lua</p>
+    <p>Feito com 💚 por <a href="mailto:abbade@outlook.com">Acib Abbade</a></p>
+    <div class="unopar">
+      🎓 Projeto de Extensao II - UNOPAR
+    </div>
+  </footer>
+
+</body>
+</html>

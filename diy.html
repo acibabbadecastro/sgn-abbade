@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça Você Mesmo - Amigos de 4 Patas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 50%, #FFB74D 100%);
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🐾 🛠️ 🐾 🏠 🐾 🎨 🐾 ✂️ 🐾';
+            position: absolute;
+            font-size: 45px;
+            opacity: 0.15;
+            top: 25px;
+            left: -100px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.98);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* Menu de Navegação */
+        .nav-menu {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu a {
+            color: #E65100;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            background: #fff3e0;
+            transform: translateY(-2px);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Seções de Tutoriais */
+        .tutorial-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .tutorial-section h2 {
+            font-size: 2rem;
+            color: #E65100;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 800;
+        }
+
+        .tutorial-section h2 i {
+            font-size: 2.2rem;
+        }
+
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .tutorial-card {
+            background: #fff8e1;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #FF9800;
+        }
+
+        .tutorial-card h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .tutorial-card h4 {
+            font-size: 1rem;
+            color: #E65100;
+            margin: 15px 0 8px;
+            font-weight: 700;
+        }
+
+        .tutorial-card p, .tutorial-card li {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .tutorial-card ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .tutorial-card li {
+            margin-bottom: 5px;
+        }
+
+        .materials-list {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-facil { background: #c8e6c9; color: #2e7d32; }
+        .difficulty-medio { background: #fff9c4; color: #f57f17; }
+        .difficulty-dificil { background: #ffcdd2; color: #c62828; }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .nav-menu a { 
+                margin: 5px; 
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .tutorial-section {
+                padding: 25px 20px;
+            }
+            .tutorial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1><i class="fas fa-tools"></i> Faça Você Mesmo</h1>
+        <p>Tutoriais criativos e econômicos para cuidar do seu pet com amor</p>
+    </section>
+
+    <!-- Menu de Navegação -->
+    <nav class="nav-menu">
+        <a href="amigos4patas-index-novo.html"><i class="fas fa-home"></i> Início</a>
+        <a href="utilidade-publica.html"><i class="fas fa-book"></i> Utilidade Pública</a>
+        <a href="castracao.html"><i class="fas fa-syringe"></i> Castração</a>
+        <a href="doacoes.html"><i class="fas fa-heart"></i> Doações</a>
+        <a href="servicos.html"><i class="fas fa-phone"></i> Serviços</a>
+    </nav>
+
+    <div class="container">
+        <!-- Alimentadores Comunitários -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-utensils"></i> Alimentadores Comunitários</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-medio">Médio</span>
+                    <h3>🍽️ Comedouro Comunitário de PVC</h3>
+                    <p>Construa um alimentador resistente e acessível para cães e gatos de rua. Ideal para pontos de alimentação comunitária no bairro.</p>
+                    
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>Tubos de PVC de 100mm (2 metros)</li>
+                            <li>4 joelhos de 90°</li>
+                            <li>1 Tê de 100mm</li>
+                            <li>Tampa de PVC de 100mm</li>
+                            <li>Cola para PVC</li>
+                            <li>Serra para cortar PVC</li>
+                            <li>Lixa</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Corte o tubo em 4 partes iguais (50cm cada)</li>
+                        <li>Use o Tê para conectar 3 tubos como base</li>
+                        <li>Os joelhos formam os comedouros laterais</li>
+                        <li>O tubo vertical central é o reservatório</li>
+                        <li>A tampa protege a ração da chuva</li>
+                        <li>Lixe as bordas para não machucar os animais</li>
+                    </ol>
+                    
+                    <h4>📹 Vídeo Tutorial:</h4>
+                    <p>Assista o passo a passo completo de construção:</p>
+                    <a href="https://www.google.com/search?num=10&sca_esv=6ec4181ccdb48170&sxsrf=ANbL-n4fnNHH7jaiZT0YKVmkCmJ3gTOMpw:1777565951929&udm=7&fbs=ADc_l-acAb_3MMOAUx0zmbUpgBqRhoh-GdRq1TXwdBZi-jK_e7MLtGyZplNOanr4pJI6fcRWRflfvA46P24vuvlR5LA4UeDj6cNhVO26hWyYZeoAIsBiHWCxr253BWp7ZbJuEHa8BEExxdIUr1H2Kf8OVJYGC1sOIh-lXZmM_E-h0AoAnI9k0K8iOVv6hXByIgNTx7IuRpRpWkVkAR4A8fvRvh-9v5lZ_g&q=diy+construir+comedouro+comunit%C3%A1rio+para+caes&sa=X&ved=2ahUKEwihtYSZ_ZWUAxW8HLkGHTYfOlAQtKgLegQIFRAB&biw=1536&bih=695&dpr=1.25#fpstate=ive&vld=cid:79ffb095,vid:kZeVle3zpdw,st:0" target="_blank" class="btn-video" style="display: inline-block; background: #FF0000; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 700; margin-top: 15px;">
+                        <i class="fas fa-play-circle"></i> Assistir Vídeo no YouTube
+                    </a>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-facil">Fácil</span>
+                    <h3>Bebedouro Suspenso</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>Garrafa pet de 2L ou 3L</li>
+                            <li>1 pote de plástico resistente</li>
+                            <li>Abraçadeiras plásticas ou arame</li>
+                            <li>Estaca de madeira ou metal</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Fixe a garrafa invertida acima do pote</li>
+                        <li>Faça pequenos furos para a água descer</li                        <li>Fixe tudo na estaca</li>
+                        <li>Enterre a estaca no chão</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Camas Caseiras -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-bed"></i> Camas Caseiras</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-facil">Fácil</span>
+                    <h3>Cama de Camiseta Velha</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>1 camiseta velha (tamanho G ou GG)</li>
+                            <li>2 travesseiros velhos ou almofadas</li>
+                            <li>1 pedaço de papelão resistente</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Corte as mangas da camiseta</li>
+                        <li>Coloque o papelão no centro como base</li>
+                        <li>Preencha as laterais com os travesseiros</li>
+                        <li>Vire a camiseta sobre a estrutura</li>
+                        <li>Amarre as pontas para fechar</li>
+                    </ol>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-medio">Médio</span>
+                    <h3>Cama de Pallet</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>1 pallet de madeira</li>
+                            <li>Lixas para madeira</li>
+                            <li>Verniz ou tinta atóxica</li>
+                            <li>Almofada ou tecido acolchoado</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Lixe bem o pallet</li>
+                        <li>Aplique verniz ou tinta</li>
+                        <li>Deixe secar completamente</li>
+                        <li>Adicione a almofada por cima</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brinquedos -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-baseball-ball"></i> Brinquedos</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-facil">Fácil</span>
+                    <h3>Brinquedo de Nó</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>3 tiras de tecido de algodão (5cm x 50cm)</li>
+                            <li>Tesoura</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Una as 3 tiras e dê um nó em uma ponta</li>
+                        <li>Trance as tiras como uma trança de cabelo</li>
+                        <li>Dê outro nó na ponta final</li>
+                        <li>Corte as sobras deixando 5cm</li>
+                    </ol>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-facil">Fácil</span>
+                    <h3>Garrafa Pet com Petiscos</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>1 garrafa pet limpa</li>
+                            <li>Petiscos secos</li>
+                            <li>Fita adesiva</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Faça furos pequenos na garrafa</li>
+                        <li>Coloque os petiscos dentro</li>
+                        <li>Fechre bem a tampa</li>
+                        <li>O pet precisa rolar para ganhar premios</li>
+                    </ol>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-medio">Médio</span>
+                    <h3>Tapete de Atividade</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>1 tapete de banho com furos</li>
+                            <li>Tiras de tecido colorido</li>
+                            <li>Petiscos</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Passe as tiras pelos furos do tapete</li>
+                        <li>Dê nós para fixar</li>
+                        <li>Esconda petiscos entre as tiras</li>
+                        <li>Deixe o pet procurar</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Petiscos -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-cookie"></i> Petiscos Naturais</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-facil">Fácil</span>
+                    <h3>Biscoito de Banana e Aveia</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>2 bananas maduras</li>
+                            <li>2 xícaras de aveia em flocos</li>
+                            <li>1 ovo</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Amasse as bananas</li>
+                        <li>Misture com ovo e aveia</li>
+                        <li>Forme bolinhas e achate</li>
+                        <li>Asse a 180°C por 20 minutos</li>
+                    </ol>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-facil">Fácil</span>
+                    <h3>Gelo de Frutas</h3>
+                    <h4>Materiais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>Frutas seguras (maçã, melancia, morango)</li>
+                            <li>Água de coco</li>
+                            <li>Formas de gelo</li>
+                        </ul>
+                    </div>
+                    <h4>Como fazer:</h4>
+                    <ol>
+                        <li>Pique as frutas em pedaços pequenos</li>
+                        <li>Coloque nas formas de gelo</li>
+                        <li>Cubra com água de coco</li>
+                        <li>Congele por 4 horas</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Primeiros Socorros -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-first-aid"></i> Primeiros Socorros</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-medio">Médio</span>
+                    <h3>Kit de Emergência</h3>
+                    <h4>Materiais essenciais:</h4>
+                    <div class="materials-list">
+                        <ul>
+                            <li>Gaze esterilizada</li>
+                            <li>Ataduras</li>
+                            <li>Antisséptico (clorexidina)</li>
+                            <li>Tesoura de ponta arredondada</li>
+                            <li>Pinça</li>
+                            <li>Termômetro veterinário</li>
+                            <li>Luvas descartáveis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-medio">Médio</span>
+                    <h3>Como Limpar Ferimentos</h3>
+                    <h4>Passos:</h4>
+                    <ol>
+                        <li>Lave as mãos e use luvas</li>
+                        <li>Limpe com soro fisiológico</li>
+                        <li>Remova sujeiras visíveis</li>
+                        <li>Aplique antisséptico</li>
+                        <li>Cubra com gaze se necessário</li>
+                        <li>Procure veterinário para casos graves</li>
+                    </ol>
+                </div>
+
+                <div class="tutorial-card">
+                    <span class="difficulty difficulty-dificil">Importante</span>
+                    <h3>Sinais de Emergência</h3>
+                    <h4>Procure ajuda IMEDIATA se:</h4>
+                    <ul>
+                        <li>Dificuldade respiratória</li>
+                        <li>Sangramento intenso</li>
+                        <li>Inconsciência ou convulsões</li>
+                        <li>Vômitos persistentes</li>
+                        <li>Temperatura acima de 40°C ou abaixo de 37°C</li>
+                        <li>Suspeita de envenenamento</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Amigos de 4 Patas - Parque Meia Lua © 2026</p>
+        <p>Unidos pela proteção dos nossos animais 🐾</p>
+    </footer>
+</body>
+</html>
